@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>queue &mdash; EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.5.0-exp.4(0.5.0rc4)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for queue</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;A multi-producer, multi-consumer queue.&#39;&#39;&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">threading</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">dummy_threading</span> <span class="k">as</span> <span class="nn">threading</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">deque</span>
+<span class="kn">from</span> <span class="nn">heapq</span> <span class="k">import</span> <span class="n">heappush</span><span class="p">,</span> <span class="n">heappop</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">monotonic</span> <span class="k">as</span> <span class="n">time</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Empty&#39;</span><span class="p">,</span> <span class="s1">&#39;Full&#39;</span><span class="p">,</span> <span class="s1">&#39;Queue&#39;</span><span class="p">,</span> <span class="s1">&#39;PriorityQueue&#39;</span><span class="p">,</span> <span class="s1">&#39;LifoQueue&#39;</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">Empty</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="s1">&#39;Exception raised by Queue.get(block=0)/get_nowait().&#39;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Full</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="s1">&#39;Exception raised by Queue.put(block=0)/put_nowait().&#39;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Queue</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;Create a queue object with a given maximum size.</span>
+
+<span class="sd">    If maxsize is &lt;= 0, the queue size is infinite.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxsize</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxsize</span> <span class="o">=</span> <span class="n">maxsize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="n">maxsize</span><span class="p">)</span>
+
+        <span class="c1"># mutex must be held whenever the queue is mutating.  All methods</span>
+        <span class="c1"># that acquire mutex must release it before returning.  mutex</span>
+        <span class="c1"># is shared between the three conditions, so acquiring and</span>
+        <span class="c1"># releasing the conditions also acquires and releases mutex.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mutex</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+        <span class="c1"># Notify not_empty whenever an item is added to the queue; a</span>
+        <span class="c1"># thread waiting to get is notified then.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">not_empty</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Condition</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="p">)</span>
+
+        <span class="c1"># Notify not_full whenever an item is removed from the queue;</span>
+        <span class="c1"># a thread waiting to put is notified then.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">not_full</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Condition</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="p">)</span>
+
+        <span class="c1"># Notify all_tasks_done whenever the number of unfinished tasks</span>
+        <span class="c1"># drops to zero; thread waiting to join() is notified to resume</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all_tasks_done</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Condition</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unfinished_tasks</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">task_done</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Indicate that a formerly enqueued task is complete.</span>
+
+<span class="sd">        Used by Queue consumer threads.  For each get() used to fetch a task,</span>
+<span class="sd">        a subsequent call to task_done() tells the queue that the processing</span>
+<span class="sd">        on the task is complete.</span>
+
+<span class="sd">        If a join() is currently blocking, it will resume when all items</span>
+<span class="sd">        have been processed (meaning that a task_done() call was received</span>
+<span class="sd">        for every item that had been put() into the queue).</span>
+
+<span class="sd">        Raises a ValueError if called more times than there were items</span>
+<span class="sd">        placed in the queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_tasks_done</span><span class="p">:</span>
+            <span class="n">unfinished</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unfinished_tasks</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">unfinished</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">unfinished</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;task_done() called too many times&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">all_tasks_done</span><span class="o">.</span><span class="n">notify_all</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unfinished_tasks</span> <span class="o">=</span> <span class="n">unfinished</span>
+
+    <span class="k">def</span> <span class="nf">join</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Blocks until all items in the Queue have been gotten and processed.</span>
+
+<span class="sd">        The count of unfinished tasks goes up whenever an item is added to the</span>
+<span class="sd">        queue. The count goes down whenever a consumer thread calls task_done()</span>
+<span class="sd">        to indicate the item was retrieved and all work on it is complete.</span>
+
+<span class="sd">        When the count of unfinished tasks drops to zero, join() unblocks.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_tasks_done</span><span class="p">:</span>
+            <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">unfinished_tasks</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">all_tasks_done</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">qsize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return the approximate size of the queue (not reliable!).&#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return True if the queue is empty, False otherwise (not reliable!).</span>
+
+<span class="sd">        This method is likely to be removed at some point.  Use qsize() == 0</span>
+<span class="sd">        as a direct substitute, but be aware that either approach risks a race</span>
+<span class="sd">        condition where a queue can grow before the result of empty() or</span>
+<span class="sd">        qsize() can be used.</span>
+
+<span class="sd">        To create code that needs to wait for all queued tasks to be</span>
+<span class="sd">        completed, the preferred technique is to use the join() method.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="p">:</span>
+            <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">full</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Return True if the queue is full, False otherwise (not reliable!).</span>
+
+<span class="sd">        This method is likely to be removed at some point.  Use qsize() &gt;= n</span>
+<span class="sd">        as a direct substitute, but be aware that either approach risks a race</span>
+<span class="sd">        condition where a queue can shrink before the result of full() or</span>
+<span class="sd">        qsize() can be used.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxsize</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Put an item into the queue.</span>
+
+<span class="sd">        If optional args &#39;block&#39; is true and &#39;timeout&#39; is None (the default),</span>
+<span class="sd">        block if necessary until a free slot is available. If &#39;timeout&#39; is</span>
+<span class="sd">        a non-negative number, it blocks at most &#39;timeout&#39; seconds and raises</span>
+<span class="sd">        the Full exception if no free slot was available within that time.</span>
+<span class="sd">        Otherwise (&#39;block&#39; is false), put an item on the queue if a free slot</span>
+<span class="sd">        is immediately available, else raise the Full exception (&#39;timeout&#39;</span>
+<span class="sd">        is ignored in that case).</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">not_full</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxsize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">block</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxsize</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">Full</span>
+                <span class="k">elif</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxsize</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">not_full</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">timeout</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;timeout&#39; must be a non-negative number&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">endtime</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="n">timeout</span>
+                    <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxsize</span><span class="p">:</span>
+                        <span class="n">remaining</span> <span class="o">=</span> <span class="n">endtime</span> <span class="o">-</span> <span class="n">time</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">remaining</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+                            <span class="k">raise</span> <span class="n">Full</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">not_full</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">remaining</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">unfinished_tasks</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">not_empty</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Remove and return an item from the queue.</span>
+
+<span class="sd">        If optional args &#39;block&#39; is true and &#39;timeout&#39; is None (the default),</span>
+<span class="sd">        block if necessary until an item is available. If &#39;timeout&#39; is</span>
+<span class="sd">        a non-negative number, it blocks at most &#39;timeout&#39; seconds and raises</span>
+<span class="sd">        the Empty exception if no item was available within that time.</span>
+<span class="sd">        Otherwise (&#39;block&#39; is false), return an item if one is immediately</span>
+<span class="sd">        available, else raise the Empty exception (&#39;timeout&#39; is ignored</span>
+<span class="sd">        in that case).</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">not_empty</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">block</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">():</span>
+                    <span class="k">raise</span> <span class="n">Empty</span>
+            <span class="k">elif</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">not_empty</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">timeout</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;timeout&#39; must be a non-negative number&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">endtime</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="n">timeout</span>
+                <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">():</span>
+                    <span class="n">remaining</span> <span class="o">=</span> <span class="n">endtime</span> <span class="o">-</span> <span class="n">time</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">remaining</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">Empty</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">not_empty</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">remaining</span><span class="p">)</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">not_full</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">item</span>
+
+    <span class="k">def</span> <span class="nf">put_nowait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Put an item into the queue without blocking.</span>
+
+<span class="sd">        Only enqueue the item if a free slot is immediately available.</span>
+<span class="sd">        Otherwise raise the Full exception.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_nowait</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Remove and return an item from the queue without blocking.</span>
+
+<span class="sd">        Only get an item if one is immediately available. Otherwise</span>
+<span class="sd">        raise the Empty exception.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Override these methods to implement other queue organizations</span>
+    <span class="c1"># (e.g. stack or priority queue).</span>
+    <span class="c1"># These will only be called with appropriate locks held</span>
+
+    <span class="c1"># Initialize the queue representation</span>
+    <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxsize</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_qsize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
+
+    <span class="c1"># Put a new item in the queue</span>
+    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="c1"># Get an item from the queue</span>
+    <span class="k">def</span> <span class="nf">_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">PriorityQueue</span><span class="p">(</span><span class="n">Queue</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Variant of Queue that retrieves open entries in priority order (lowest first).</span>
+
+<span class="sd">    Entries are typically tuples of the form:  (priority number, data).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxsize</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">_qsize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="n">heappush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">LifoQueue</span><span class="p">(</span><span class="n">Queue</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Variant of Queue that retrieves most recently added entries first.&#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxsize</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">_qsize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.utils.updater.updater &mdash; EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../../../../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../../../../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../../../../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../../../../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../../../../',
+            VERSION:     '0.5.0-exp.4(0.5.0rc4)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../../../../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../../../../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../../../../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="top" title="EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="../../../../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../../../../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../../../index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../../../../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../../../../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for emft.utils.updater.updater</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="kn">from</span> <span class="nn">transitions</span> <span class="k">import</span> <span class="n">Machine</span><span class="p">,</span> <span class="n">EventData</span>
+
+<span class="kn">from</span> <span class="nn">emft.misc</span> <span class="k">import</span> <span class="n">downloader</span><span class="p">,</span> <span class="n">nice_exit</span>
+<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">ThreadPool</span><span class="p">,</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">WatchedProperty</span>
+<span class="kn">from</span> <span class="nn">emft.utils.av</span> <span class="k">import</span> <span class="n">AVSession</span><span class="p">,</span> <span class="n">AVBuild</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">emft.utils.updater.channel</span> <span class="k">import</span> <span class="n">Channel</span>
+<span class="kn">from</span> <span class="nn">emft.utils.updater.customspec</span> <span class="k">import</span> <span class="n">CustomSpec</span>
+<span class="kn">from</span> <span class="nn">emft.utils.updater.customversion</span> <span class="k">import</span> <span class="n">CustomVersion</span>
+
+<span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="DownloadableAsset"><a class="viewcode-back" href="../../../../emft.utils.updater.html#emft.utils.updater.updater.DownloadableAsset">[docs]</a><span class="k">class</span> <span class="nc">DownloadableAsset</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span></div>
+
+
+<span class="c1"># TODO: try again, ignoring a few faulty versions</span>
+<div class="viewcode-block" id="Updater"><a class="viewcode-back" href="../../../../emft.utils.updater.html#emft.utils.updater.updater.Updater">[docs]</a><span class="k">class</span> <span class="nc">Updater</span><span class="p">(</span><span class="n">Machine</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">av_user</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">av_repo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">local_executable</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">Machine</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">states</span><span class="o">=</span><span class="p">[</span>
+                <span class="s1">&#39;initial&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;collecting&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;parsing&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;downloading&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;installing&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;waiting&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">auto_transitions</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">send_event</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">prepare_event</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_prepare_event</span><span class="p">,</span>
+            <span class="n">finalize_event</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_finalize_event</span><span class="p">,</span>
+            <span class="n">after_state_change</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_after_state_change</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># noinspection PyTypeChecker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span>
+            <span class="n">trigger</span><span class="o">=</span><span class="s1">&#39;look_for_new_version&#39;</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;waiting&#39;</span><span class="p">,</span> <span class="s1">&#39;initial&#39;</span><span class="p">],</span>
+            <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;collecting&#39;</span><span class="p">,</span>
+            <span class="n">before</span><span class="o">=</span><span class="p">[</span>
+                <span class="s1">&#39;_reset_internal_values&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;_make_busy&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">after</span><span class="o">=</span><span class="s1">&#39;_collect_available_releases&#39;</span><span class="p">,</span>
+            <span class="n">conditions</span><span class="o">=</span><span class="s1">&#39;_is_ready&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span>
+            <span class="n">trigger</span><span class="o">=</span><span class="s1">&#39;parse_av_builds&#39;</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+            <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;parsing&#39;</span><span class="p">,</span>
+            <span class="n">after</span><span class="o">=</span><span class="s1">&#39;_parse_available_releases&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span>
+            <span class="n">trigger</span><span class="o">=</span><span class="s1">&#39;end_of_parsing&#39;</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;parsing&#39;</span><span class="p">,</span>
+            <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;waiting&#39;</span><span class="p">,</span>
+            <span class="n">unless</span><span class="o">=</span><span class="s1">&#39;_should_auto_update&#39;</span><span class="p">,</span>
+            <span class="n">after</span><span class="o">=</span><span class="s1">&#39;_make_ready&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span>
+            <span class="n">trigger</span><span class="o">=</span><span class="s1">&#39;end_of_parsing&#39;</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;parsing&#39;</span><span class="p">,</span>
+            <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;downloading&#39;</span><span class="p">,</span>
+            <span class="n">conditions</span><span class="o">=</span><span class="s1">&#39;_should_auto_update&#39;</span><span class="p">,</span>
+            <span class="n">after</span><span class="o">=</span><span class="s1">&#39;_download_latest_version&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span>
+            <span class="n">trigger</span><span class="o">=</span><span class="s1">&#39;download&#39;</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+            <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;downloading&#39;</span><span class="p">,</span>
+            <span class="n">conditions</span><span class="o">=</span><span class="s1">&#39;_is_ready_to_download&#39;</span><span class="p">,</span>
+            <span class="n">after</span><span class="o">=</span><span class="s1">&#39;_download_latest_version&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span>
+            <span class="n">trigger</span><span class="o">=</span><span class="s1">&#39;install&#39;</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+            <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;installing&#39;</span><span class="p">,</span>
+            <span class="n">conditions</span><span class="o">=</span><span class="s1">&#39;_is_ready_to_install&#39;</span><span class="p">,</span>
+            <span class="n">after</span><span class="o">=</span><span class="s1">&#39;_install_latest_version&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span> <span class="o">=</span> <span class="n">channel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_av_user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_av_repo</span> <span class="o">=</span> <span class="n">av_user</span><span class="p">,</span> <span class="n">av_repo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pool</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="n">_num_threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">_basename</span><span class="o">=</span><span class="s1">&#39;updater&#39;</span><span class="p">,</span> <span class="n">_daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auto_update</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_version</span> <span class="o">=</span> <span class="n">CustomVersion</span><span class="p">(</span><span class="n">current_version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spec</span> <span class="o">=</span> <span class="n">CustomSpec</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;&gt;={str(self._current_version.to_spec())}&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_local_executable</span> <span class="o">=</span> <span class="n">local_executable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hexdigest</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_av_builds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_asset</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_ready</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">current_version</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CustomVersion</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_version</span>
+
+    <span class="nd">@WatchedProperty</span><span class="p">(</span><span class="n">default_value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">latest_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s1">&#39;CustomVersion&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Latest remote version found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="nd">@WatchedProperty</span><span class="p">(</span><span class="n">default_value</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">is_ready</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Will be true is the updater is ready to accept a new job</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">av_builds</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="s1">&#39;CustomVersion&#39;</span><span class="p">,</span> <span class="s1">&#39;AVBuild&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_av_builds</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">asset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="s1">&#39;DownloadableAsset&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_asset</span>
+
+    <span class="k">def</span> <span class="nf">_make_ready</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from </span><span class="si">{event.event.name}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_ready</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">_make_busy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from </span><span class="si">{event.event.name}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_ready</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_prepare_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from: </span><span class="si">{event.event.name}</span><span class="s1">(</span><span class="si">{event.kwargs}</span><span class="s1">): start: state: </span><span class="si">{self.state}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_finalize_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from: </span><span class="si">{event.event.name}</span><span class="s1">(</span><span class="si">{event.kwargs}</span><span class="s1">): error: {type(event.error)}: </span><span class="si">{event.error}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from: </span><span class="si">{event.event.name}</span><span class="s1">(</span><span class="si">{event.kwargs}</span><span class="s1">): done:  state: </span><span class="si">{self.state}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_after_state_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;state change: &quot;</span><span class="si">{self.state}</span><span class="s1">&quot; triggered by </span><span class="si">{event.event.name}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_has_new_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from </span><span class="si">{event.event.name}</span><span class="s1">: </span><span class="si">{result}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">_should_auto_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auto_update</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_new_version</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;skipping auto-update: no new version&#39;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_version</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;skipping auto-update: no newer version found&#39;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from </span><span class="si">{event.event.name}</span><span class="s1">: </span><span class="si">{result}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">_is_ready</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from </span><span class="si">{event.event.name}</span><span class="s1">: </span><span class="si">{self.is_ready}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_ready</span>
+
+    <span class="k">def</span> <span class="nf">_is_ready_to_download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># TODO</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from </span><span class="si">{event.event.name}</span><span class="s1">: </span><span class="si">{result}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">_is_ready_to_install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># TODO</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from </span><span class="si">{event.event.name}</span><span class="s1">: </span><span class="si">{result}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">_reset_internal_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from: </span><span class="si">{event.event.name}</span><span class="s1">: resetting internal values&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_av_builds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_asset</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hexdigest</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auto_update</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_update&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="Updater.look_for_new_version"><a class="viewcode-back" href="../../../../emft.utils.updater.html#emft.utils.updater.updater.Updater.look_for_new_version">[docs]</a>    <span class="k">def</span> <span class="nf">look_for_new_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto_update</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Updater.find_latest_version_on_channel"><a class="viewcode-back" href="../../../../emft.utils.updater.html#emft.utils.updater.updater.Updater.find_latest_version_on_channel">[docs]</a>    <span class="k">def</span> <span class="nf">find_latest_version_on_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span> <span class="n">Channel</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spec</span> <span class="o">=</span> <span class="n">CustomSpec</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;&gt;0.0.0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span> <span class="o">=</span> <span class="n">channel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">look_for_new_version</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Updater.install_latest_version"><a class="viewcode-back" href="../../../../emft.utils.updater.html#emft.utils.updater.updater.Updater.install_latest_version">[docs]</a>    <span class="k">def</span> <span class="nf">install_latest_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">()</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_collect_releases_in_the_background</span><span class="p">(</span><span class="n">_av_user</span><span class="p">,</span> <span class="n">_av_repo</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">av_build</span> <span class="ow">in</span> <span class="n">AVSession</span><span class="p">()</span><span class="o">.</span><span class="n">get_history</span><span class="p">(</span><span class="n">_av_user</span><span class="p">,</span> <span class="n">_av_repo</span><span class="p">)</span><span class="o">.</span><span class="n">builds</span><span class="o">.</span><span class="n">successful_only</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">version</span> <span class="o">=</span> <span class="n">CustomVersion</span><span class="o">.</span><span class="n">coerce</span><span class="p">(</span><span class="n">av_build</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;expected string or bytes-like object, got: {type(av_build.version)}&#39;</span><span class="p">)</span>
+                <span class="k">raise</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;skipping badly formatted version string: &quot;</span><span class="si">{av_build.version}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">version</span><span class="p">]</span> <span class="o">=</span> <span class="n">av_build</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">_collect_available_releases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">_callback</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;end of collection, got {len(result)} AV builds available&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_av_builds</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parse_av_builds</span><span class="p">()</span>
+
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;start collection&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auto_update</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_update&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="o">.</span><span class="n">queue_task</span><span class="p">(</span>
+            <span class="n">task</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_collect_releases_in_the_background</span><span class="p">,</span>
+            <span class="n">kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">_av_user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_av_user</span><span class="p">,</span>
+                <span class="n">_av_repo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_av_repo</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">_task_callback</span><span class="o">=</span><span class="n">_callback</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse_available_releases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from: </span><span class="si">{event.event.name}</span><span class="s1">: parsing AV builds&#39;</span><span class="p">)</span>
+
+        <span class="n">available_versions</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">av_builds</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spec</span><span class="o">.</span><span class="n">select_channel</span><span class="p">(</span><span class="n">available_versions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_channel</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_get_hexdigest</span><span class="p">():</span>
+            <span class="c1"># TODO hexdigest</span>
+            <span class="k">pass</span>
+
+        <span class="k">def</span> <span class="nf">_set_hexdigest</span><span class="p">(</span><span class="n">hexdigest</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hexdigest</span> <span class="o">=</span> <span class="n">hexdigest</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;latest version found: </span><span class="si">{self.latest_version}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">av_build</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">av_builds</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span><span class="p">]</span>
+            <span class="n">job_id</span> <span class="o">=</span> <span class="n">AVSession</span><span class="p">()</span><span class="o">.</span><span class="n">get_build_by_version</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_av_user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_av_repo</span><span class="p">,</span> <span class="n">av_build</span><span class="o">.</span><span class="n">url_safe_version</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">jobId</span>
+
+            <span class="k">for</span> <span class="n">artifact</span> <span class="ow">in</span> <span class="n">AVSession</span><span class="p">()</span><span class="o">.</span><span class="n">get_artifacts</span><span class="p">(</span><span class="n">job_id</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">artifact</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;hexdigest&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="o">.</span><span class="n">queue_task</span><span class="p">(</span>
+                        <span class="n">task</span><span class="o">=</span><span class="n">_get_hexdigest</span><span class="p">,</span>
+                        <span class="n">_task_callback</span><span class="o">=</span><span class="n">_set_hexdigest</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">if</span> <span class="n">artifact</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;emft&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_asset</span> <span class="o">=</span> <span class="n">DownloadableAsset</span><span class="p">(</span>
+                        <span class="n">f</span><span class="s1">&#39;https://ci.appveyor.com/api/buildjobs/</span><span class="si">{job_id}</span><span class="s1">/artifacts/</span><span class="si">{artifact.url_safe_file_name}</span><span class="s1">&#39;</span><span class="p">,</span>
+                        <span class="n">artifact</span><span class="o">.</span><span class="n">size</span>
+                    <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_of_parsing</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_download_latest_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">_download_in_the_background</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">hexdigest</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">downloader</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
+                <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+                <span class="n">local_file</span><span class="o">=</span><span class="s1">&#39;./update&#39;</span><span class="p">,</span>
+                <span class="n">file_size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+                <span class="n">hexdigest</span><span class="o">=</span><span class="n">hexdigest</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="n">f</span><span class="s1">&#39;Downloading EFMT {self.latest_version.to_short_string()}&#39;</span>
+            <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_download_callback</span><span class="p">(</span><span class="n">download_successful</span><span class="p">):</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;download: </span><span class="si">{download_successful}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">download_successful</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_asset</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from: </span><span class="si">{event.event.name}</span><span class="s1">: downloading latest asset&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="o">.</span><span class="n">queue_task</span><span class="p">(</span>
+                <span class="n">task</span><span class="o">=</span><span class="n">_download_in_the_background</span><span class="p">,</span>
+                <span class="n">kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                    <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">asset</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+                    <span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">asset</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+                    <span class="n">hexdigest</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_hexdigest</span><span class="p">,</span>
+                <span class="p">),</span>
+                <span class="n">_task_callback</span><span class="o">=</span><span class="n">_download_callback</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>  <span class="c1"># TODO</span>
+
+    <span class="k">def</span> <span class="nf">_install_latest_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventData</span><span class="p">):</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;from: </span><span class="si">{event.event.name}</span><span class="s1">: installing update&#39;</span><span class="p">)</span>
+        <span class="c1"># noinspection SpellCheckingInspection</span>
+        <span class="n">bat_liiiiiiiiiiiines</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># I&#39;m deeply sorry ...</span>
+            <span class="s1">&#39;@echo off&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;echo Updating to latest version...&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;ping 127.0.0.1 - n 5 - w 1000 &gt; NUL&#39;</span><span class="p">,</span>
+            <span class="n">f</span><span class="s1">&#39;move /Y &quot;update&quot; &quot;{os.path.basename(self._local_executable)}&quot; &gt; NUL&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;echo restarting...&#39;</span><span class="p">,</span>
+            <span class="n">f</span><span class="s1">&#39;start &quot;&quot; &quot;{os.path.basename(self._local_executable)}&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;DEL update.vbs&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;DEL &quot;%~f0&quot;&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;write bat file&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;update.bat&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">bat</span><span class="p">:</span>
+            <span class="n">bat</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bat_liiiiiiiiiiiines</span><span class="p">))</span>
+
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;write vbs script&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;update.vbs&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">vbs</span><span class="p">:</span>
+            <span class="c1"># http://www.howtogeek.com/131597/can-i-run-a-windows-batch-file-without-a-visible-command-prompt/</span>
+            <span class="n">vbs</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;CreateObject(&quot;Wscript.Shell&quot;).Run &quot;&quot;&quot;&quot; &#39;</span>
+                      <span class="s1">&#39;&amp; WScript.Arguments(0) &amp; &quot;&quot;&quot;&quot;, 0, False&#39;</span><span class="p">)</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;starting update batch file&#39;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;wscript.exe&#39;</span><span class="p">,</span> <span class="s1">&#39;update.vbs&#39;</span><span class="p">,</span> <span class="s1">&#39;update.bat&#39;</span><span class="p">]</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">nice_exit</span><span class="o">.</span><span class="n">nice_exit</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># for testing purpose</span>
+
+    <span class="nd">@WatchedProperty</span><span class="p">(</span><span class="n">default_value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../../../../index.html">EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../../../../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../../../../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../../../index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../../../../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../../../../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../../../../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../../../../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../../../../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

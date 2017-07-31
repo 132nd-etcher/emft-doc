@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.sentry package &mdash; EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '0.5.0-exp.4(0.5.0rc4)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation" href="index.html" />
+    <link rel="up" title="emft package" href="emft.html" />
+    <link rel="next" title="emft.sltp package" href="emft.sltp.html" />
+    <link rel="prev" title="emft.roster package" href="emft.roster.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">emft.sentry package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-emft.sentry.feedback">emft.sentry.feedback module</a></li>
+<li><a class="reference internal" href="#module-emft.sentry.sentry">emft.sentry.sentry module</a></li>
+<li><a class="reference internal" href="#module-emft.sentry.sentry_context_provider">emft.sentry.sentry_context_provider module</a></li>
+<li><a class="reference internal" href="#module-emft.sentry">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="emft.roster.html" title="emft.roster package" accesskey="P">previous </a></li>
+              <li><a href="emft.sltp.html" title="emft.sltp package" accesskey="N">next </a></li>
+              <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="modules.html" >EMFT API</a></li>
+              <li><a href="emft.html" accesskey="U">emft package</a></li>
+            
+            <li class="visible-xs"><a href="_sources/emft.sentry.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">emft.sentry package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-emft.sentry.feedback">emft.sentry.feedback module</a></li>
+<li><a class="reference internal" href="#module-emft.sentry.sentry">emft.sentry.sentry module</a></li>
+<li><a class="reference internal" href="#module-emft.sentry.sentry_context_provider">emft.sentry.sentry_context_provider module</a></li>
+<li><a class="reference internal" href="#module-emft.sentry">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="emft.roster.html"
+                        title="previous chapter">emft.roster package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="emft.sltp.html"
+                        title="next chapter">emft.sltp package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/emft.sentry.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="emft-sentry-package">
+<h1>emft.sentry package<a class="headerlink" href="#emft-sentry-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-emft.sentry.feedback">
+<span id="emft-sentry-feedback-module"></span><h2>emft.sentry.feedback module<a class="headerlink" href="#module-emft.sentry.feedback" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="emft.sentry.feedback.send_feedback">
+<code class="descclassname">emft.sentry.feedback.</code><code class="descname">send_feedback</code><span class="sig-paren">(</span><em>msg: str</em>, <em>msg_type: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/feedback.html#send_feedback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.feedback.send_feedback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-emft.sentry.sentry">
+<span id="emft-sentry-sentry-module"></span><h2>emft.sentry.sentry module<a class="headerlink" href="#module-emft.sentry.sentry" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.sentry.sentry.Sentry">
+<em class="property">class </em><code class="descclassname">emft.sentry.sentry.</code><code class="descname">Sentry</code><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">raven.base.Client</span></code></p>
+<dl class="staticmethod">
+<dt id="emft.sentry.sentry.Sentry.add_crumb">
+<em class="property">static </em><code class="descname">add_crumb</code><span class="sig-paren">(</span><em>message</em>, <em>category</em>, <em>level</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.add_crumb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.add_crumb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.sentry.sentry.Sentry.captureException">
+<code class="descname">captureException</code><span class="sig-paren">(</span><em>exc_info=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.captureException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.captureException" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.sentry.sentry.Sentry.captureMessage">
+<code class="descname">captureMessage</code><span class="sig-paren">(</span><em>message</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.captureMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.captureMessage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.sentry.sentry.Sentry.register_context">
+<code class="descname">register_context</code><span class="sig-paren">(</span><em>context_name: str</em>, <em>context_provider: emft.sentry.sentry_context_provider.ISentryContextProvider</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.register_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.register_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a context to be read when a crash occurs; obj must implement get_context()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="emft.sentry.sentry.Sentry.set_context">
+<code class="descname">set_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.set_context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="emft.sentry.sentry.filter_breadcrumbs">
+<code class="descclassname">emft.sentry.sentry.</code><code class="descname">filter_breadcrumbs</code><span class="sig-paren">(</span><em>_logger</em>, <em>level</em>, <em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#filter_breadcrumbs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.filter_breadcrumbs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-emft.sentry.sentry_context_provider">
+<span id="emft-sentry-sentry-context-provider-module"></span><h2>emft.sentry.sentry_context_provider module<a class="headerlink" href="#module-emft.sentry.sentry_context_provider" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.sentry.sentry_context_provider.ISentryContextProvider">
+<em class="property">class </em><code class="descclassname">emft.sentry.sentry_context_provider.</code><code class="descname">ISentryContextProvider</code><a class="reference internal" href="_modules/emft/sentry/sentry_context_provider.html#ISentryContextProvider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry_context_provider.ISentryContextProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Interface for any object that would like to register context with Sentry.</p>
+<p>Needs to be implemented, otherwise the crash_reporter will whine about it and crash.</p>
+<dl class="method">
+<dt id="emft.sentry.sentry_context_provider.ISentryContextProvider.get_context">
+<code class="descname">get_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="_modules/emft/sentry/sentry_context_provider.html#ISentryContextProvider.get_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry_context_provider.ISentryContextProvider.get_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns some context for Sentry</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.sentry">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-emft.sentry" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="emft.roster.html" title="emft.roster package" >previous</a></li>
+        <li><a href="emft.sltp.html" title="emft.sltp package" >next</a></li>
+        <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="modules.html" >EMFT API</a></li>
+        <li><a href="emft.html" >emft package</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

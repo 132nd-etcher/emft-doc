@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.main &mdash; EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../../',
+            VERSION:     '0.5.0-exp.4(0.5.0rc4)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="../../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for emft.main</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="c1"># pylint: disable=global-statement</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">click</span>
+
+<span class="c1"># noinspection PyUnresolvedReferences</span>
+<span class="kn">import</span> <span class="nn">emft.filter_warnings</span>  <span class="c1"># noqa: F401 # pylint: disable=unused-import</span>
+<span class="kn">from</span> <span class="nn">emft.misc.nice_exit</span> <span class="k">import</span> <span class="n">nice_exit</span>
+
+<span class="n">LOGGER</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">PROFILER</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="check_cert"><a class="viewcode-back" href="../../emft.html#emft.main.check_cert">[docs]</a><span class="k">def</span> <span class="nf">check_cert</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks availability of &quot;cacert.pem&quot; file installed by the certifi module</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;certificate: checking&#39;</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">certifi</span>
+    <span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">Path</span>
+    <span class="n">cacert</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">certifi</span><span class="o">.</span><span class="n">where</span><span class="p">())</span><span class="o">.</span><span class="n">abspath</span><span class="p">())</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cacert</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">cacert</span><span class="p">)</span>
+    <span class="c1"># # noinspection SpellCheckingInspection</span>
+    <span class="c1"># if not cacert.crc32() == &#39;D069EE01&#39;:</span>
+    <span class="c1">#     raise ImportError(&#39;cacert.pem file is corrupted: {}&#39;.format(cacert.crc32()))</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;setting up local cacert file to: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cacert</span><span class="p">))</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;REQUESTS_CA_BUNDLE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cacert</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;certificate: checked&#39;</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_setup_logger</span><span class="p">(</span><span class="n">verbose</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">emft.utils.custom_logging</span> <span class="k">import</span> <span class="n">make_logger</span>
+    <span class="c1"># noinspection PyProtectedMember</span>
+    <span class="kn">from</span> <span class="nn">emft.global_</span> <span class="k">import</span> <span class="n">PATH_LOG_FILE</span>
+    <span class="kn">from</span> <span class="nn">emft.misc.logging_handler</span> <span class="k">import</span> <span class="n">persistent_logging_handler</span>
+
+    <span class="k">global</span> <span class="n">LOGGER</span>
+    <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="n">log_file_path</span><span class="o">=</span><span class="n">PATH_LOG_FILE</span><span class="p">,</span> <span class="n">custom_handler</span><span class="o">=</span><span class="n">persistent_logging_handler</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">emft.utils.custom_logging</span> <span class="k">import</span> <span class="n">CH</span><span class="p">,</span> <span class="n">DEBUG</span><span class="p">,</span> <span class="n">INFO</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">CH</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">CH</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">INFO</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_start_profiler</span><span class="p">(</span><span class="n">profile</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
+        <span class="k">global</span> <span class="n">PROFILER</span>
+
+        <span class="kn">from</span> <span class="nn">pyinstrument</span> <span class="k">import</span> <span class="n">Profiler</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Running profiler&#39;</span><span class="p">)</span>
+        <span class="n">PROFILER</span> <span class="o">=</span> <span class="n">Profiler</span><span class="p">(</span><span class="n">use_signal</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">PROFILER</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_stop_profiler</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">PROFILER</span><span class="p">:</span>
+        <span class="n">PROFILER</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;profiler.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">profiler_report</span><span class="p">:</span>
+            <span class="n">profiler_report</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">PROFILER</span><span class="o">.</span><span class="n">output_html</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">_another_instance_is_running</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Another instance is locking the log file&quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMessageBox</span>  <span class="c1"># pylint: disable=no-name-in-module</span>
+    <span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>  <span class="c1"># pylint: disable=no-name-in-module</span>
+    <span class="c1"># noinspection PyUnresolvedReferences</span>
+    <span class="kn">from</span> <span class="nn">emft.ui</span> <span class="k">import</span> <span class="n">qt_resource</span>  <span class="c1"># noqa: F401  # pylint: disable=unused-variable</span>
+    <span class="kn">from</span> <span class="nn">emft.global_</span> <span class="k">import</span> <span class="n">APP_SHORT_NAME</span><span class="p">,</span> <span class="n">DEFAULT_ICON</span>
+    <span class="c1"># noinspection PyArgumentList</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">app</span><span class="p">:</span>
+        <span class="c1"># noinspection PyUnusedLocal</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
+    <span class="n">msgbox</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="p">(</span>
+        <span class="n">QMessageBox</span><span class="o">.</span><span class="n">Critical</span><span class="p">,</span>
+        <span class="s1">&#39;Uh oh...&#39;</span><span class="p">,</span>
+        <span class="n">f</span><span class="s1">&#39;Another instance of </span><span class="si">{APP_SHORT_NAME}</span><span class="s1"> is already running =)&#39;</span>
+    <span class="p">)</span>
+    <span class="n">msgbox</span><span class="o">.</span><span class="n">setWindowIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">DEFAULT_ICON</span><span class="p">))</span>
+    <span class="n">msgbox</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+    <span class="n">nice_exit</span><span class="p">()</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="s1">&#39;--test&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Test and exit&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="s1">&#39;--profile&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Profile execution&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Outputs debug messages&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">profile</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="sd">&quot;&quot;&quot;Init Sentry&quot;&quot;&quot;</span>
+    <span class="c1"># noinspection PyUnresolvedReferences</span>
+    <span class="kn">from</span> <span class="nn">emft.sentry</span> <span class="k">import</span> <span class="n">SENTRY</span>
+    <span class="kn">from</span> <span class="nn">emft.utils.threadpool</span> <span class="k">import</span> <span class="n">register_sentry</span>
+    <span class="n">register_sentry</span><span class="p">(</span><span class="n">SENTRY</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_setup_logger</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
+        <span class="n">_another_instance_is_running</span><span class="p">()</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">_start_profiler</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+
+        <span class="c1"># Say hello !</span>
+        <span class="kn">from</span> <span class="nn">emft.__version__</span> <span class="k">import</span> <span class="n">__version__</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;EMFT </span><span class="si">{__version__}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Init config</span>
+        <span class="c1"># noinspection PyUnresolvedReferences</span>
+        <span class="kn">from</span> <span class="nn">emft.cfg.cfg</span> <span class="k">import</span> <span class="n">Config</span>
+        <span class="n">SENTRY</span><span class="o">.</span><span class="n">register_context</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="n">Config</span><span class="p">())</span>
+
+        <span class="c1"># Intercept SIGINT</span>
+        <span class="kn">import</span> <span class="nn">signal</span> <span class="k">as</span> <span class="nn">core_sig</span>
+        <span class="c1"># Intercept OS signals to trigger a nice exit</span>
+        <span class="n">core_sig</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">core_sig</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">nice_exit</span><span class="p">)</span>
+
+        <span class="c1"># noinspection PyBroadException</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">check_cert</span><span class="p">()</span>
+
+            <span class="kn">from</span> <span class="nn">emft</span> <span class="k">import</span> <span class="n">reorder</span>
+            <span class="n">reorder</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+            <span class="kn">from</span> <span class="nn">emft.ui.main_ui</span> <span class="k">import</span> <span class="n">start_ui</span>
+            <span class="n">start_ui</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="ow">not</span> <span class="n">test</span><span class="p">))</span>
+
+            <span class="kn">from</span> <span class="nn">emft.global_</span> <span class="k">import</span> <span class="n">QT_APP</span>
+
+            <span class="k">if</span> <span class="n">test</span><span class="p">:</span>
+                <span class="n">LOGGER</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;RUNNING IN TEST MODE&#39;</span><span class="p">)</span>
+                <span class="kn">import</span> <span class="nn">time</span>
+                <span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">ThreadPool</span>
+
+                <span class="k">def</span> <span class="nf">test_hook</span><span class="p">():</span>
+                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;TEST MODE: waiting 10 seconds&#39;</span><span class="p">)</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;TEST MODE: end of timer&#39;</span><span class="p">)</span>
+                    <span class="n">QT_APP</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="c1"># nice_exit()</span>
+
+                <span class="n">pool</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">_daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">pool</span><span class="o">.</span><span class="n">queue_task</span><span class="p">(</span><span class="n">test_hook</span><span class="p">)</span>
+
+            <span class="n">exit_code</span> <span class="o">=</span> <span class="n">QT_APP</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+
+            <span class="n">_stop_profiler</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">SystemExit</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;caught SystemExit&#39;</span><span class="p">)</span>
+            <span class="n">exit_code</span> <span class="o">=</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span> <span class="ow">or</span> <span class="mi">1</span>
+        <span class="k">except</span><span class="p">:</span>  <span class="c1"># pylint: disable=bare-except</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;caught exception in main loop&#39;</span><span class="p">)</span>
+            <span class="n">SENTRY</span><span class="o">.</span><span class="n">captureException</span><span class="p">()</span>
+            <span class="n">exit_code</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;bye bye ! =)&#39;</span><span class="p">)</span>
+        <span class="n">nice_exit</span><span class="p">(</span><span class="n">exit_code</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>  <span class="c1"># pylint: disable=no-value-for-parameter</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../../index.html">EMFT 0.5.0-exp.4
+(0.5.0rc4) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

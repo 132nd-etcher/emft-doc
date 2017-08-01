@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft package &mdash; EMFT 0.5.1-exp.2
-(0.5.1rc2) documentation</title>
+    <title>emft package &mdash; EMFT 0.6.0-beta.30
+(0.6.0b30) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    './',
-            VERSION:     '0.5.1-exp.2(0.5.1rc2)',
+            VERSION:     '0.6.0-beta.30(0.6.0b30)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="EMFT 0.5.1-exp.2
-(0.5.1rc2) documentation" href="index.html" />
+    <link rel="top" title="EMFT 0.6.0-beta.30
+(0.6.0b30) documentation" href="index.html" />
     <link rel="up" title="EMFT API" href="modules.html" />
     <link rel="next" title="emft.cfg package" href="emft.cfg.html" />
     <link rel="prev" title="EMFT API" href="modules.html" /> 
@@ -67,8 +67,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">EMFT 0.5.1-exp.2
-(0.5.1rc2) documentation</a>
+          <a class="navbar-brand" href="index.html">EMFT 0.6.0-beta.30
+(0.6.0b30) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -466,7 +466,7 @@
 
 <dl class="function">
 <dt id="emft.build.do">
-<code class="descclassname">emft.build.</code><code class="descname">do</code><span class="sig-paren">(</span><em>ctx</em>, <em>cmd</em>, <em>cwd='.'</em>, <em>filter_output=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#do"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.do" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.build.</code><code class="descname">do</code><span class="sig-paren">(</span><em>ctx</em>, <em>cmd</em>, <em>cwd='.'</em>, <em>mute_stdout=False</em>, <em>mute_stderr=False</em>, <em>filter_output=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#do"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.do" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes a command and returns the result</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -476,6 +476,8 @@
 <li><strong>ctx</strong> (<code class="xref py py-class docutils literal"><span class="pre">Context</span></code>) – click context</li>
 <li><strong>cmd</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]) – command to execute</li>
 <li><strong>cwd</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) – working directory (defaults to “.”)</li>
+<li><strong>mute_stdout</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) – if true, stdout will not be printed</li>
+<li><strong>mute_stderr</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a>) – if true, stderr will not be printed</li>
 <li><strong>filter_output</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Union" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Union</span></code></a>[<code class="docutils literal"><span class="pre">None</span></code>, <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Iterable" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Iterable</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]]) – gives a list of partial strings to filter out from the output (stdout or stderr)</li>
 </ul>
 </td>
@@ -607,6 +609,21 @@ extensions. Returns full path or None if no command is found.</p>
 </table>
 </dd></dl>
 
+<dl class="function">
+<dt id="emft.build.repo_is_dirty">
+<code class="descclassname">emft.build.</code><code class="descname">repo_is_dirty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#repo_is_dirty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.repo_is_dirty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the current repository contains uncommitted or untracked changes</p>
+<p>Returns: true if the repository is clean</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="module-emft.dummy_miz">
 <span id="emft-dummy-miz-module"></span><h2>emft.dummy_miz module<a class="headerlink" href="#module-emft.dummy_miz" title="Permalink to this headline">¶</a></h2>
@@ -649,8 +666,8 @@ extensions. Returns full path or None if no command is found.</p>
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="index.html">EMFT 0.5.1-exp.2
-(0.5.1rc2) documentation</a></li>
+        <li><a href="index.html">EMFT 0.6.0-beta.30
+(0.6.0b30) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       

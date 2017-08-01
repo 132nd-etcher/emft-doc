@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.build &mdash; EMFT 0.5.1-exp.2
-(0.5.1rc2) documentation</title>
+    <title>emft.build &mdash; EMFT 0.6.0-beta.30
+(0.6.0b30) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../',
-            VERSION:     '0.5.1-exp.2(0.5.1rc2)',
+            VERSION:     '0.6.0-beta.30(0.6.0b30)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="EMFT 0.5.1-exp.2
-(0.5.1rc2) documentation" href="../../index.html" />
+    <link rel="top" title="EMFT 0.6.0-beta.30
+(0.6.0b30) documentation" href="../../index.html" />
     <link rel="up" title="Module code" href="../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../index.html">EMFT 0.5.1-exp.2
-(0.5.1rc2) documentation</a>
+          <a class="navbar-brand" href="../../index.html">EMFT 0.6.0-beta.30
+(0.6.0b30) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -148,8 +148,8 @@
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">typing</span>
-<span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span>
 <span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span>
 <span class="kn">from</span> <span class="nn">json</span> <span class="k">import</span> <span class="n">loads</span>
 
 <span class="kn">import</span> <span class="nn">certifi</span>
@@ -173,6 +173,20 @@
         <span class="k">yield</span>
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">old_dir</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="repo_is_dirty"><a class="viewcode-back" href="../../emft.html#emft.build.repo_is_dirty">[docs]</a><span class="k">def</span> <span class="nf">repo_is_dirty</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if the current repository contains uncommitted or untracked changes</span>
+
+<span class="sd">    Returns: true if the repository is clean</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;diff&#39;</span><span class="p">,</span> <span class="s1">&#39;--quiet&#39;</span><span class="p">,</span> <span class="s1">&#39;--cached&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">])</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;diff-files&#39;</span><span class="p">,</span> <span class="s1">&#39;--quiet&#39;</span><span class="p">])</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;diff-index&#39;</span><span class="p">,</span> <span class="s1">&#39;--quiet&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
 
 
 <div class="viewcode-block" id="ensure_repo"><a class="viewcode-back" href="../../emft.html#emft.build.ensure_repo">[docs]</a><span class="k">def</span> <span class="nf">ensure_repo</span><span class="p">():</span>
@@ -321,6 +335,8 @@
     <span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">cmd</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">cwd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>
+    <span class="n">mute_stdout</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">mute_stderr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">filter_output</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -330,6 +346,8 @@
 <span class="sd">        ctx: click context</span>
 <span class="sd">        cmd: command to execute</span>
 <span class="sd">        cwd: working directory (defaults to &quot;.&quot;)</span>
+<span class="sd">        mute_stdout: if true, stdout will not be printed</span>
+<span class="sd">        mute_stderr: if true, stderr will not be printed</span>
 <span class="sd">        filter_output: gives a list of partial strings to filter out from the output (stdout or stderr)</span>
 
 <span class="sd">    Returns: stdout</span>
@@ -352,9 +370,9 @@
         <span class="n">cmd</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
 
     <span class="n">out</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">cwd</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">out</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">out</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">mute_stdout</span><span class="p">:</span>
         <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{_filter_output(out)}&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">mute_stderr</span><span class="p">:</span>
         <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{_filter_output(err)}&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>
         <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;command failed: </span><span class="si">{cmd}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
@@ -558,7 +576,9 @@
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--dev/--no-dev&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whether or not to write &quot;requirement-dev.txt&quot;&#39;</span><span class="p">)</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
 <span class="k">def</span> <span class="nf">reqs</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">prod</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">dev</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Write requirements files&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Write requirements files</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">find_executable</span><span class="p">(</span><span class="s1">&#39;pip-compile&#39;</span><span class="p">):</span>
         <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Missing module &quot;pip-tools&quot;.</span><span class="se">\n</span><span class="s1">&#39;</span>
                     <span class="s1">&#39;Install it manually with: &quot;pip install pip-tools&quot;</span><span class="se">\n</span><span class="s1">&#39;</span>
@@ -628,27 +648,41 @@
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--commit/--no-commit&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;commit the changes (default: True)&#39;</span><span class="p">)</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--push/--no-push&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;push the changes (default: False)&#39;</span><span class="p">)</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
-<span class="k">def</span> <span class="nf">chglog</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">commit</span><span class="p">,</span> <span class="n">push</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Write changelog&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">chglog</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">commit</span><span class="p">,</span> <span class="n">push</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Writes the changelog</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: returns true if changes have been committed to the repository</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">ensure_module</span><span class="p">(</span><span class="s1">&#39;gitchangelog&#39;</span><span class="p">)</span>
     <span class="n">find_executable</span><span class="p">(</span><span class="s1">&#39;git&#39;</span><span class="p">)</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write the changelog using &quot;gitchangelog&quot; (https://github.com/vaab/gitchangelog)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">changelog</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;gitchangelog&#39;</span><span class="p">,</span> <span class="s1">&#39;0.4.1..HEAD&#39;</span><span class="p">])</span>
+    <span class="n">changelog</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;gitchangelog&#39;</span><span class="p">,</span> <span class="s1">&#39;0.4.1..HEAD&#39;</span><span class="p">],</span> <span class="n">mute_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;CHANGELOG.rst&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\s*\r\n){2,}&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">changelog</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">commit</span><span class="p">:</span>
         <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;CHANGELOG.rst&#39;</span><span class="p">])</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;chg: dev: updated changelog [skip ci]&#39;</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">push</span><span class="p">:</span>
-            <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">push</span><span class="p">:</span>
+                <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">True</span>
 
 
 <span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--commit/--no-commit&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;commit the changes (default: True)&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--push/--no-push&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;push the changes (default: False)&#39;</span><span class="p">)</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
-<span class="k">def</span> <span class="nf">pyrcc</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Compiles Qt resources (icons, pictures, ...)  to a usable python script&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">pyrcc</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">commit</span><span class="p">,</span> <span class="n">push</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compiles Qt resources (icons, pictures, ...)  to a usable python script</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: returns true if changes have been committed to the repository</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">find_executable</span><span class="p">(</span><span class="s1">&#39;pyrcc5&#39;</span><span class="p">):</span>
         <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Unable to find &quot;pyrcc5&quot; executable.</span><span class="se">\n</span><span class="s1">&#39;</span>
                     <span class="n">f</span><span class="s1">&#39;Install it manually with: &quot;pip install pyqt5&quot;</span><span class="se">\n</span><span class="s1">&#39;</span>
@@ -660,6 +694,13 @@
         <span class="s1">&#39;./emft/ui/qt_resource.qrc&#39;</span><span class="p">,</span>
         <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;./emft/ui/qt_resource.py&#39;</span><span class="p">,</span>
     <span class="p">])</span>
+    <span class="k">if</span> <span class="n">commit</span><span class="p">:</span>
+        <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;./emft/ui/qt_resource.py&#39;</span><span class="p">])</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;chg: dev: updated changelog [skip ci]&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">push</span><span class="p">:</span>
+                <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">True</span>
 
 
 <span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -860,6 +901,31 @@
     <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;./dist/emft.exe&#39;</span><span class="p">,</span> <span class="s1">&#39;--test&#39;</span><span class="p">])</span>
 
 
+<span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
+<span class="k">def</span> <span class="nf">pre_push</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is meant to be used as a Git pre-push hook</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">repo_is_dirty</span><span class="p">():</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Repository is dirty&#39;</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">pin_version</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">reqs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">chglog</span><span class="p">):</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Changelog has been updated&#39;</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">pyrcc</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">chglog</span><span class="p">):</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Qt resources have been updated&#39;</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">flake8</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">safety</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">repo_is_dirty</span><span class="p">():</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;Repository is dirty&#39;</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">cli</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="p">{})</span>
 </pre></div>
@@ -878,8 +944,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../index.html">EMFT 0.5.1-exp.2
-(0.5.1rc2) documentation</a></li>
+        <li><a href="../../index.html">EMFT 0.6.0-beta.30
+(0.6.0b30) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       

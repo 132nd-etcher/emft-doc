@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.build &mdash; EMFT 0.5.0-exp.14
-(0.5.0rc14) documentation</title>
+    <title>emft.build &mdash; EMFT 0.6.0-beta.18
+(0.6.0b18) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../',
-            VERSION:     '0.5.0-exp.14(0.5.0rc14)',
+            VERSION:     '0.6.0-beta.18(0.6.0b18)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="EMFT 0.5.0-exp.14
-(0.5.0rc14) documentation" href="../../index.html" />
+    <link rel="top" title="EMFT 0.6.0-beta.18
+(0.6.0b18) documentation" href="../../index.html" />
     <link rel="up" title="Module code" href="../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../index.html">EMFT 0.5.0-exp.14
-(0.5.0rc14) documentation</a>
+          <a class="navbar-brand" href="../../index.html">EMFT 0.6.0-beta.18
+(0.6.0b18) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -334,6 +334,7 @@
 
 <span class="sd">    Returns: stdout</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">_filter_output</span><span class="p">(</span><span class="n">input_</span><span class="p">):</span>
 
         <span class="k">def</span> <span class="nf">_filter_line</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
@@ -604,7 +605,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">ensure_module</span><span class="p">(</span><span class="s1">&#39;semantic_version&#39;</span><span class="p">)</span>
 
-    <span class="n">previous_version</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;semver&#39;</span><span class="p">]</span>
+    <span class="n">previous_version</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;semver&#39;</span><span class="p">)</span>
 
     <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_gitversion</span><span class="p">()</span>  <span class="c1"># this is needed for later patching</span>
     <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;semver&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;FullSemVer&quot;</span><span class="p">)</span>
@@ -616,7 +617,9 @@
             <span class="n">f</span><span class="s1">&#39;__version__ = </span><span class="se">\&#39;</span><span class="si">{ctx.obj[&quot;semver&quot;]}</span><span class="se">\&#39;\n</span><span class="s1">&#39;</span>
             <span class="n">f</span><span class="s1">&#39;__pep440__ = </span><span class="se">\&#39;</span><span class="si">{ctx.obj[&quot;pep440&quot;]}</span><span class="se">\&#39;\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;semver&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">previous_version</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">previous_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s1">&#39;__version_frozen__.py written anew&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;semver&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">previous_version</span><span class="p">:</span>
         <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;New Semver: </span><span class="si">{ctx.obj[&#39;semver&#39;]}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
         <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;New PEP440: </span><span class="si">{ctx.obj[&#39;pep440&#39;]}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
@@ -729,7 +732,10 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Builds the documentation using Sphinx (http://www.sphinx-doc.org/en/stable)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">_get_version</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">publish</span><span class="p">:</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">pin_version</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_get_version</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">clean</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;./doc/html&#39;</span><span class="p">):</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s1">&#39;./doc/html&#39;</span><span class="p">)</span>
     <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span>
@@ -767,9 +773,6 @@
             <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span> <span class="n">filter_output</span><span class="o">=</span><span class="n">output_filter</span><span class="p">)</span>
             <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;automated doc build&#39;</span><span class="p">],</span> <span class="n">filter_output</span><span class="o">=</span><span class="n">output_filter</span><span class="p">)</span>
             <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">],</span> <span class="n">filter_output</span><span class="o">=</span><span class="n">output_filter</span><span class="p">)</span>
-
-
-
 
 
 <span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -875,8 +878,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../index.html">EMFT 0.5.0-exp.14
-(0.5.0rc14) documentation</a></li>
+        <li><a href="../../index.html">EMFT 0.6.0-beta.18
+(0.6.0b18) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       

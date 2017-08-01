@@ -192,7 +192,7 @@
 <span id="emft-miz-mission-module"></span><h2>emft.miz.mission module<a class="headerlink" href="#module-emft.miz.mission" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.miz.mission.BaseMissionObject">
-<em class="property">class </em><code class="descclassname">emft.miz.mission.</code><code class="descname">BaseMissionObject</code><span class="sig-paren">(</span><em>mission_dict: dict</em>, <em>l10n: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#BaseMissionObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.BaseMissionObject" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.miz.mission.</code><code class="descname">BaseMissionObject</code><span class="sig-paren">(</span><em>mission_dict</em>, <em>l10n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#BaseMissionObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.BaseMissionObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_logging.Logged" title="emft.utils.custom_logging.Logged"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_logging.Logged</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.miz.mission.BaseMissionObject.coalitions">
@@ -206,8 +206,16 @@
 
 <dl class="method">
 <dt id="emft.miz.mission.BaseMissionObject.get_clients_groups">
-<code class="descname">get_clients_groups</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; typing.Generator[[_ForwardRef('FlyingUnit'), NoneType], NoneType]<a class="reference internal" href="_modules/emft/miz/mission.html#BaseMissionObject.get_clients_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.BaseMissionObject.get_clients_groups" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_clients_groups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#BaseMissionObject.get_clients_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.BaseMissionObject.get_clients_groups" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Generator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>[<a class="reference internal" href="#emft.miz.mission.FlyingUnit" title="emft.miz.mission.FlyingUnit"><code class="xref py py-class docutils literal"><span class="pre">FlyingUnit</span></code></a>, <code class="docutils literal"><span class="pre">None</span></code>, <code class="docutils literal"><span class="pre">None</span></code>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.BaseMissionObject.get_country_by_id">
@@ -393,43 +401,107 @@
 
 <dl class="method">
 <dt id="emft.miz.mission.Coalition.get_country_by_id">
-<code class="descname">get_country_by_id</code><span class="sig-paren">(</span><em>country_id</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.Country<a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_country_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_country_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_country_by_id</code><span class="sig-paren">(</span><em>country_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_country_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_country_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.Country" title="emft.miz.mission.Country"><code class="xref py py-class docutils literal"><span class="pre">Country</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Coalition.get_country_by_name">
-<code class="descname">get_country_by_name</code><span class="sig-paren">(</span><em>country_name</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.Country<a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_country_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_country_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_country_by_name</code><span class="sig-paren">(</span><em>country_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_country_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_country_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.Country" title="emft.miz.mission.Country"><code class="xref py py-class docutils literal"><span class="pre">Country</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Coalition.get_group_by_id">
-<code class="descname">get_group_by_id</code><span class="sig-paren">(</span><em>group_id</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.Group<a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_group_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_group_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_group_by_id</code><span class="sig-paren">(</span><em>group_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_group_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_group_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.Group" title="emft.miz.mission.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Coalition.get_group_by_name">
-<code class="descname">get_group_by_name</code><span class="sig-paren">(</span><em>group_name</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.Group<a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_group_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_group_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_group_by_name</code><span class="sig-paren">(</span><em>group_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_group_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_group_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.Group" title="emft.miz.mission.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Coalition.get_groups_from_category">
-<code class="descname">get_groups_from_category</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span> &#x2192; typing.Generator[[_ForwardRef('Group'), NoneType], NoneType]<a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_groups_from_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_groups_from_category" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_groups_from_category</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_groups_from_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_groups_from_category" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Generator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>[<a class="reference internal" href="#emft.miz.mission.Group" title="emft.miz.mission.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a>, <code class="docutils literal"><span class="pre">None</span></code>, <code class="docutils literal"><span class="pre">None</span></code>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Coalition.get_unit_by_id">
-<code class="descname">get_unit_by_id</code><span class="sig-paren">(</span><em>unit_id</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.BaseUnit<a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_unit_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_unit_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_unit_by_id</code><span class="sig-paren">(</span><em>unit_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_unit_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_unit_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.BaseUnit" title="emft.miz.mission.BaseUnit"><code class="xref py py-class docutils literal"><span class="pre">BaseUnit</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Coalition.get_unit_by_name">
-<code class="descname">get_unit_by_name</code><span class="sig-paren">(</span><em>unit_name</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.BaseUnit<a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_unit_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_unit_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_unit_by_name</code><span class="sig-paren">(</span><em>unit_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_unit_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_unit_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.BaseUnit" title="emft.miz.mission.BaseUnit"><code class="xref py py-class docutils literal"><span class="pre">BaseUnit</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Coalition.get_units_from_category">
-<code class="descname">get_units_from_category</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span> &#x2192; typing.Generator[[_ForwardRef('BaseUnit'), NoneType], NoneType]<a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_units_from_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_units_from_category" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_units_from_category</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Coalition.get_units_from_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Coalition.get_units_from_category" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Generator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>[<a class="reference internal" href="#emft.miz.mission.BaseUnit" title="emft.miz.mission.BaseUnit"><code class="xref py py-class docutils literal"><span class="pre">BaseUnit</span></code></a>, <code class="docutils literal"><span class="pre">None</span></code>, <code class="docutils literal"><span class="pre">None</span></code>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="emft.miz.mission.Coalition.groups">
@@ -464,33 +536,81 @@
 
 <dl class="method">
 <dt id="emft.miz.mission.Country.get_group_by_id">
-<code class="descname">get_group_by_id</code><span class="sig-paren">(</span><em>group_id</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.Group<a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_group_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_group_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_group_by_id</code><span class="sig-paren">(</span><em>group_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_group_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_group_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.Group" title="emft.miz.mission.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Country.get_group_by_name">
-<code class="descname">get_group_by_name</code><span class="sig-paren">(</span><em>group_name</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.Group<a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_group_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_group_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_group_by_name</code><span class="sig-paren">(</span><em>group_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_group_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_group_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.Group" title="emft.miz.mission.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Country.get_groups_from_category">
-<code class="descname">get_groups_from_category</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span> &#x2192; typing.Generator[[_ForwardRef('Group'), NoneType], NoneType]<a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_groups_from_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_groups_from_category" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_groups_from_category</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_groups_from_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_groups_from_category" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Generator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>[<a class="reference internal" href="#emft.miz.mission.Group" title="emft.miz.mission.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a>, <code class="docutils literal"><span class="pre">None</span></code>, <code class="docutils literal"><span class="pre">None</span></code>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Country.get_unit_by_id">
-<code class="descname">get_unit_by_id</code><span class="sig-paren">(</span><em>unit_id</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.BaseUnit<a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_unit_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_unit_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_unit_by_id</code><span class="sig-paren">(</span><em>unit_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_unit_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_unit_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.BaseUnit" title="emft.miz.mission.BaseUnit"><code class="xref py py-class docutils literal"><span class="pre">BaseUnit</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Country.get_unit_by_name">
-<code class="descname">get_unit_by_name</code><span class="sig-paren">(</span><em>unit_name</em><span class="sig-paren">)</span> &#x2192; emft.miz.mission.BaseUnit<a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_unit_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_unit_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_unit_by_name</code><span class="sig-paren">(</span><em>unit_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_unit_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_unit_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.mission.BaseUnit" title="emft.miz.mission.BaseUnit"><code class="xref py py-class docutils literal"><span class="pre">BaseUnit</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.mission.Country.get_units_from_category">
-<code class="descname">get_units_from_category</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span> &#x2192; typing.Generator[[_ForwardRef('BaseUnit'), NoneType], NoneType]<a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_units_from_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_units_from_category" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_units_from_category</code><span class="sig-paren">(</span><em>category</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Country.get_units_from_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Country.get_units_from_category" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Generator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>[<a class="reference internal" href="#emft.miz.mission.BaseUnit" title="emft.miz.mission.BaseUnit"><code class="xref py py-class docutils literal"><span class="pre">BaseUnit</span></code></a>, <code class="docutils literal"><span class="pre">None</span></code>, <code class="docutils literal"><span class="pre">None</span></code>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="emft.miz.mission.Country.groups">
@@ -725,8 +845,16 @@
 
 <dl class="method">
 <dt id="emft.miz.mission.Group.group_size">
-<code class="descname">group_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="_modules/emft/miz/mission.html#Group.group_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Group.group_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">group_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Group.group_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Group.group_size" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="emft.miz.mission.Group.group_start_delay">
@@ -777,8 +905,16 @@
 <dd><p>Bases: <a class="reference internal" href="#emft.miz.mission.BaseMissionObject" title="emft.miz.mission.BaseMissionObject"><code class="xref py py-class docutils literal"><span class="pre">emft.miz.mission.BaseMissionObject</span></code></a></p>
 <dl class="method">
 <dt id="emft.miz.mission.Mission.farps">
-<code class="descname">farps</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; typing.Generator[[_ForwardRef('Static'), NoneType], NoneType]<a class="reference internal" href="_modules/emft/miz/mission.html#Mission.farps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Mission.farps" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">farps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/mission.html#Mission.farps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.mission.Mission.farps" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Generator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>[<a class="reference internal" href="#emft.miz.mission.Static" title="emft.miz.mission.Static"><code class="xref py py-class docutils literal"><span class="pre">Static</span></code></a>, <code class="docutils literal"><span class="pre">None</span></code>, <code class="docutils literal"><span class="pre">None</span></code>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="emft.miz.mission.Mission.valid_group_categories">
@@ -1059,7 +1195,7 @@
 <span id="emft-miz-miz-module"></span><h2>emft.miz.miz module<a class="headerlink" href="#module-emft.miz.miz" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.miz.miz.Miz">
-<em class="property">class </em><code class="descclassname">emft.miz.miz.</code><code class="descname">Miz</code><span class="sig-paren">(</span><em>path_to_miz_file</em>, <em>temp_dir=None</em>, <em>keep_temp_dir: bool = False</em>, <em>overwrite: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/miz.html#Miz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.miz.Miz" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.miz.miz.</code><code class="descname">Miz</code><span class="sig-paren">(</span><em>path_to_miz_file</em>, <em>temp_dir=None</em>, <em>keep_temp_dir=False</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/miz.html#Miz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.miz.Miz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.miz.miz.Miz.dictionary_file">
@@ -1093,12 +1229,12 @@
 
 <dl class="staticmethod">
 <dt id="emft.miz.miz.Miz.reorder">
-<em class="property">static </em><code class="descname">reorder</code><span class="sig-paren">(</span><em>miz_file_path</em>, <em>target_dir</em>, <em>skip_options_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/miz.html#Miz.reorder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.miz.Miz.reorder" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">reorder</code><span class="sig-paren">(</span><em>target_dir</em>, <em>skip_options_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/miz.html#Miz.reorder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.miz.Miz.reorder" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="emft.miz.miz.Miz.unzip">
-<code class="descname">unzip</code><span class="sig-paren">(</span><em>overwrite: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/miz.html#Miz.unzip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.miz.Miz.unzip" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unzip</code><span class="sig-paren">(</span><em>overwrite=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/miz.html#Miz.unzip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.miz.Miz.unzip" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1119,7 +1255,7 @@
 <span id="emft-miz-parking-spots-module"></span><h2>emft.miz.parking_spots module<a class="headerlink" href="#module-emft.miz.parking_spots" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.miz.parking_spots.ParkingSpot">
-<em class="property">class </em><code class="descclassname">emft.miz.parking_spots.</code><code class="descname">ParkingSpot</code><span class="sig-paren">(</span><em>airport</em>, <em>spot</em><span class="sig-paren">)</span><a class="headerlink" href="#emft.miz.parking_spots.ParkingSpot" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.miz.parking_spots.</code><code class="descname">ParkingSpot</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#emft.miz.parking_spots.ParkingSpot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#tuple" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">tuple</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.miz.parking_spots.ParkingSpot.airport">
@@ -1137,7 +1273,7 @@
 
 <dl class="function">
 <dt id="emft.miz.parking_spots.add_farp">
-<code class="descclassname">emft.miz.parking_spots.</code><code class="descname">add_farp</code><span class="sig-paren">(</span><em>farp: emft.miz.mission.Static</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/parking_spots.html#add_farp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.parking_spots.add_farp" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.miz.parking_spots.</code><code class="descname">add_farp</code><span class="sig-paren">(</span><em>farp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/parking_spots.html#add_farp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.parking_spots.add_farp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -1147,8 +1283,16 @@
 
 <dl class="function">
 <dt id="emft.miz.parking_spots.unit_pos_to_spot">
-<code class="descclassname">emft.miz.parking_spots.</code><code class="descname">unit_pos_to_spot</code><span class="sig-paren">(</span><em>unit_pos</em><span class="sig-paren">)</span> &#x2192; emft.miz.parking_spots.ParkingSpot<a class="reference internal" href="_modules/emft/miz/parking_spots.html#unit_pos_to_spot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.parking_spots.unit_pos_to_spot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">emft.miz.parking_spots.</code><code class="descname">unit_pos_to_spot</code><span class="sig-paren">(</span><em>unit_pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/miz/parking_spots.html#unit_pos_to_spot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.miz.parking_spots.unit_pos_to_spot" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.miz.parking_spots.ParkingSpot" title="emft.miz.parking_spots.ParkingSpot"><code class="xref py py-class docutils literal"><span class="pre">ParkingSpot</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 <div class="section" id="module-emft.miz.parse_parking_spots">

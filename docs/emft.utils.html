@@ -289,13 +289,14 @@
 
 <dl class="function">
 <dt id="emft.utils.custom_logging.make_logger">
-<code class="descclassname">emft.utils.custom_logging.</code><code class="descname">make_logger</code><span class="sig-paren">(</span><em>logger_name='__main__'</em>, <em>log_file_path=None</em>, <em>fh_level=10</em>, <em>ch_level=10</em>, <em>custom_handler=None</em><span class="sig-paren">)</span> &#x2192; logging.Logger<a class="reference internal" href="_modules/emft/utils/custom_logging.html#make_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_logging.make_logger" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.utils.custom_logging.</code><code class="descname">make_logger</code><span class="sig-paren">(</span><em>logger_name='__main__'</em>, <em>log_file_path=None</em>, <em>fh_level=10</em>, <em>ch_level=10</em>, <em>custom_handler=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_logging.html#make_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_logging.make_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a module-specific logger
 :param log_file_path: path to the logfile for this logger; if None (default), no file will be created
 :param custom_handler: optional logging handler to add to the logger
 :param fh_level: minimal level of logging for the logfile handler (anything below will be ignored)
 :param ch_level: minimal level of logging for the console handler (anything below will be ignored)
 :param logger_name: name of the module this logger pertains to
+:rtype: <a class="reference external" href="https://docs.python.org/3.6/library/logging.html#logging.Logger" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Logger</span></code></a>
 :return: logger object</p>
 </dd></dl>
 
@@ -328,13 +329,29 @@
 
 <dl class="method">
 <dt id="emft.utils.custom_path.Path.get_win32_file_info">
-<code class="descname">get_win32_file_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; emft.utils.custom_path.Win32FileInfo<a class="reference internal" href="_modules/emft/utils/custom_path.html#Path.get_win32_file_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.Path.get_win32_file_info" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_win32_file_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_path.html#Path.get_win32_file_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.Path.get_win32_file_info" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.utils.custom_path.Win32FileInfo" title="emft.utils.custom_path.Win32FileInfo"><code class="xref py py-class docutils literal"><span class="pre">Win32FileInfo</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.custom_path.Path.human_size">
-<code class="descname">human_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/emft/utils/custom_path.html#Path.human_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.Path.human_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">human_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_path.html#Path.human_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.Path.human_size" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.custom_path.Path.joinpath">
@@ -358,8 +375,16 @@
 
 <dl class="method">
 <dt id="emft.utils.custom_path.Path.normalize">
-<code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/emft/utils/custom_path.html#Path.normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.Path.normalize" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_path.html#Path.normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.Path.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.custom_path.Path.remove">
@@ -378,7 +403,7 @@
 
 <dl class="method">
 <dt id="emft.utils.custom_path.Path.write_text">
-<code class="descname">write_text</code><span class="sig-paren">(</span><em>text</em>, <em>encoding=None</em>, <em>errors='strict'</em>, <em>linesep='\r\n'</em>, <em>append=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_path.html#Path.write_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.Path.write_text" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_text</code><span class="sig-paren">(</span><em>text</em>, <em>encoding=None</em>, <em>errors='strict'</em>, <em>linesep='rn'</em>, <em>append=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_path.html#Path.write_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.Path.write_text" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -456,20 +481,36 @@
 
 <dl class="function">
 <dt id="emft.utils.custom_path.create_temp_dir">
-<code class="descclassname">emft.utils.custom_path.</code><code class="descname">create_temp_dir</code><span class="sig-paren">(</span><em>*</em>, <em>suffix: str = None</em>, <em>prefix: str = None</em>, <em>create_in_dir: str = None</em><span class="sig-paren">)</span> &#x2192; emft.utils.custom_path.Path<a class="reference internal" href="_modules/emft/utils/custom_path.html#create_temp_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.create_temp_dir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">emft.utils.custom_path.</code><code class="descname">create_temp_dir</code><span class="sig-paren">(</span><em>*</em>, <em>suffix=None</em>, <em>prefix=None</em>, <em>create_in_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_path.html#create_temp_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.create_temp_dir" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.utils.custom_path.Path" title="emft.utils.custom_path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="emft.utils.custom_path.create_temp_file">
-<code class="descclassname">emft.utils.custom_path.</code><code class="descname">create_temp_file</code><span class="sig-paren">(</span><em>*</em>, <em>suffix: str = None</em>, <em>prefix: str = None</em>, <em>create_in_dir: str = None</em><span class="sig-paren">)</span> &#x2192; emft.utils.custom_path.Path<a class="reference internal" href="_modules/emft/utils/custom_path.html#create_temp_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.create_temp_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descclassname">emft.utils.custom_path.</code><code class="descname">create_temp_file</code><span class="sig-paren">(</span><em>*</em>, <em>suffix=None</em>, <em>prefix=None</em>, <em>create_in_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_path.html#create_temp_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_path.create_temp_file" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.utils.custom_path.Path" title="emft.utils.custom_path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 <div class="section" id="module-emft.utils.custom_session">
 <span id="emft-utils-custom-session-module"></span><h2>emft.utils.custom_session module<a class="headerlink" href="#module-emft.utils.custom_session" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.custom_session.JSONObject">
-<em class="property">class </em><code class="descclassname">emft.utils.custom_session.</code><code class="descname">JSONObject</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_session.html#JSONObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_session.JSONObject" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.custom_session.</code><code class="descname">JSONObject</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/custom_session.html#JSONObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.custom_session.JSONObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="emft.utils.custom_session.JSONObject.get_all">
@@ -500,7 +541,7 @@
 <span id="emft-utils-downloader-module"></span><h2>emft.utils.downloader module<a class="headerlink" href="#module-emft.utils.downloader" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.downloader.Downloader">
-<em class="property">class </em><code class="descclassname">emft.utils.downloader.</code><code class="descname">Downloader</code><span class="sig-paren">(</span><em>url: str</em>, <em>filename: str</em>, <em>content_length: int = None</em>, <em>hexdigest=None</em>, <em>concurrent_download: int = 1</em>, <em>download_retries: int = 3</em>, <em>block_size: int = 16384</em>, <em>progress_hooks: list = None</em>, <em>hash_method: str = 'md5'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/downloader.html#Downloader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.downloader.Downloader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.downloader.</code><code class="descname">Downloader</code><span class="sig-paren">(</span><em>url</em>, <em>filename</em>, <em>content_length=None</em>, <em>hexdigest=None</em>, <em>concurrent_download=1</em>, <em>download_retries=3</em>, <em>block_size=16384</em>, <em>progress_hooks=None</em>, <em>hash_method='md5'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/downloader.html#Downloader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.downloader.Downloader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="emft.utils.downloader.Downloader.download">
@@ -516,7 +557,7 @@
 
 <dl class="function">
 <dt id="emft.utils.downloader.get_hash">
-<code class="descclassname">emft.utils.downloader.</code><code class="descname">get_hash</code><span class="sig-paren">(</span><em>data</em>, <em>method: str = 'md5'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/downloader.html#get_hash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.downloader.get_hash" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.utils.downloader.</code><code class="descname">get_hash</code><span class="sig-paren">(</span><em>data</em>, <em>method='md5'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/downloader.html#get_hash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.downloader.get_hash" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -554,7 +595,7 @@
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.Progress.has_adapter">
-<em class="property">static </em><code class="descname">has_adapter</code><span class="sig-paren">(</span><em>adapter: typing.Type[emft.utils.progress.ProgressAdapter]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.has_adapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.has_adapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">has_adapter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.has_adapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.has_adapter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -569,32 +610,32 @@
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.Progress.register_adapter">
-<em class="property">static </em><code class="descname">register_adapter</code><span class="sig-paren">(</span><em>adapter: typing.Type[emft.utils.progress.ProgressAdapter]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.register_adapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.register_adapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">register_adapter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.register_adapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.register_adapter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.Progress.set_label">
-<em class="property">static </em><code class="descname">set_label</code><span class="sig-paren">(</span><em>value: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.set_label" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">set_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.set_label" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.Progress.set_length">
-<em class="property">static </em><code class="descname">set_length</code><span class="sig-paren">(</span><em>value: int</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.set_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.set_length" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">set_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.set_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.set_length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.Progress.set_title">
-<em class="property">static </em><code class="descname">set_title</code><span class="sig-paren">(</span><em>value: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.set_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.set_title" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">set_title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.set_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.set_title" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.Progress.set_value">
-<em class="property">static </em><code class="descname">set_value</code><span class="sig-paren">(</span><em>value: (&lt;class 'int'&gt;</em>, <em>&lt;class 'float'&gt;)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.set_value" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">set_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.set_value" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.Progress.start">
-<em class="property">static </em><code class="descname">start</code><span class="sig-paren">(</span><em>title: str</em>, <em>length: int = 100</em>, <em>label: str = ''</em>, <em>start_value: int = 0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.start" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">start</code><span class="sig-paren">(</span><em>length=100</em>, <em>label=''</em>, <em>start_value=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.start" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -609,7 +650,7 @@
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.Progress.unregister_adapter">
-<em class="property">static </em><code class="descname">unregister_adapter</code><span class="sig-paren">(</span><em>adapter: typing.Type[emft.utils.progress.ProgressAdapter]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.unregister_adapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.unregister_adapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">unregister_adapter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#Progress.unregister_adapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.Progress.unregister_adapter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -621,7 +662,7 @@
 
 <dl class="class">
 <dt id="emft.utils.progress.ProgressAdapter">
-<em class="property">class </em><code class="descclassname">emft.utils.progress.</code><code class="descname">ProgressAdapter</code><a class="reference internal" href="_modules/emft/utils/progress.html#ProgressAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.ProgressAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.progress.</code><code class="descname">ProgressAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#ProgressAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.ProgressAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="staticmethod">
 <dt id="emft.utils.progress.ProgressAdapter.progress_done">
@@ -630,17 +671,17 @@
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.ProgressAdapter.progress_set_label">
-<em class="property">static </em><code class="descname">progress_set_label</code><span class="sig-paren">(</span><em>value: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#ProgressAdapter.progress_set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.ProgressAdapter.progress_set_label" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">progress_set_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#ProgressAdapter.progress_set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.ProgressAdapter.progress_set_label" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.ProgressAdapter.progress_set_value">
-<em class="property">static </em><code class="descname">progress_set_value</code><span class="sig-paren">(</span><em>value: int</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#ProgressAdapter.progress_set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.ProgressAdapter.progress_set_value" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">progress_set_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#ProgressAdapter.progress_set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.ProgressAdapter.progress_set_value" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.utils.progress.ProgressAdapter.progress_start">
-<em class="property">static </em><code class="descname">progress_start</code><span class="sig-paren">(</span><em>title: str</em>, <em>length: int = 100</em>, <em>label: str = ''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#ProgressAdapter.progress_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.ProgressAdapter.progress_start" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">progress_start</code><span class="sig-paren">(</span><em>length=100</em>, <em>label=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/progress.html#ProgressAdapter.progress_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.progress.ProgressAdapter.progress_start" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -650,12 +691,12 @@
 <span id="emft-utils-singleton-module"></span><h2>emft.utils.singleton module<a class="headerlink" href="#module-emft.utils.singleton" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.singleton.Singleton">
-<em class="property">class </em><code class="descclassname">emft.utils.singleton.</code><code class="descname">Singleton</code><a class="reference internal" href="_modules/emft/utils/singleton.html#Singleton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.singleton.Singleton" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.singleton.</code><code class="descname">Singleton</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/singleton.html#Singleton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.singleton.Singleton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/abc.html#abc.ABCMeta" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">abc.ABCMeta</span></code></a></p>
 <p>When used as metaclass, allow only one instance of a class</p>
 <dl class="classmethod">
 <dt id="emft.utils.singleton.Singleton.wipe_instances">
-<em class="property">classmethod </em><code class="descname">wipe_instances</code><span class="sig-paren">(</span><em>cls_to_remove</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/singleton.html#Singleton.wipe_instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.singleton.Singleton.wipe_instances" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">wipe_instances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/singleton.html#Singleton.wipe_instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.singleton.Singleton.wipe_instances" title="Permalink to this definition">¶</a></dt>
 <dd><p>Only for testing purposes</p>
 </dd></dl>
 
@@ -704,15 +745,23 @@ optionally allowing the tasks and threads to finish.
 
 <dl class="method">
 <dt id="emft.utils.threadpool.ThreadPool.queue_task">
-<code class="descname">queue_task</code><span class="sig-paren">(</span><em>task: &lt;built-in function callable&gt;</em>, <em>args: list = None</em>, <em>kwargs: dict = None</em>, <em>_task_callback: &lt;built-in function callable&gt; = None</em>, <em>_err_callback: &lt;built-in function callable&gt; = None</em>, <em>_err_args: list = None</em>, <em>_err_kwargs: dict = None</em>, <em>_task_id: str = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/threadpool.html#ThreadPool.queue_task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.threadpool.ThreadPool.queue_task" title="Permalink to this definition">¶</a></dt>
+<code class="descname">queue_task</code><span class="sig-paren">(</span><em>task</em>, <em>args=None</em>, <em>kwargs=None</em>, <em>_task_callback=None</em>, <em>_err_callback=None</em>, <em>_err_args=None</em>, <em>_err_kwargs=None</em>, <em>_task_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/threadpool.html#ThreadPool.queue_task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.threadpool.ThreadPool.queue_task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inserts a task into the queue
+:type _task_id: <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]
 :param _task_id: gives an ID to the task in order to parse the result against something tangible
+:type task: &lt;built-in function callable&gt;
 :param task: callable task
+:type args: <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a>]
 :param args: args for the task as a list
+:type kwargs: <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a>]
 :param kwargs: kwargs for the task as a dict
+:type _task_callback: <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[&lt;built-in function callable&gt;]
 :param _task_callback: callback once the task is done (return value will be passed to it)
+:type _err_callback: <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[&lt;built-in function callable&gt;]
 :param _err_callback: callable to run in case of an error
+:type _err_args: <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a>]
 :param _err_args: args to _err_callback
+:type _err_kwargs: <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a>]
 :param _err_kwargs: kwargs to _err_callback</p>
 </dd></dl>
 

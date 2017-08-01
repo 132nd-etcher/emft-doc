@@ -99,6 +99,7 @@
               <li><a href="emft.cfg.html" title="emft.cfg package" accesskey="N">next </a></li>
               <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
               <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="dev.html" >Documentation for developers</a></li>
               <li><a href="modules.html" accesskey="U">EMFT API</a></li>
             
             <li class="visible-xs"><a href="_sources/emft.rst.txt" rel="nofollow">Show Source</a></li>
@@ -450,55 +451,86 @@
 <span id="emft-build-module"></span><h2>emft.build module<a class="headerlink" href="#module-emft.build" title="Permalink to this headline">¶</a></h2>
 <p>Collections of tools to build EMFT</p>
 <dl class="function">
+<dt id="emft.build.cd">
+<code class="descclassname">emft.build.</code><code class="descname">cd</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#cd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.cd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context to temporarily change the working directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – working directory to cd into</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="emft.build.do">
-<code class="descclassname">emft.build.</code><code class="descname">do</code><span class="sig-paren">(</span><em>ctx: click.core.Context, cmd: typing.List[str], cwd: str = '.'</em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/emft/build.html#do"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.do" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.build.</code><code class="descname">do</code><span class="sig-paren">(</span><em>ctx</em>, <em>cmd</em>, <em>cwd='.'</em>, <em>filter_output=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#do"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.do" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes a command and returns the result</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ctx</strong> – click context</li>
-<li><strong>cmd</strong> – command to execute</li>
-<li><strong>cwd</strong> – working directory (defaults to “.”)</li>
+<li><strong>ctx</strong> (<code class="xref py py-class docutils literal"><span class="pre">Context</span></code>) – click context</li>
+<li><strong>cmd</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]) – command to execute</li>
+<li><strong>cwd</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) – working directory (defaults to “.”)</li>
+<li><strong>filter_output</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Union" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Union</span></code></a>[<code class="docutils literal"><span class="pre">None</span></code>, <a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Iterable" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Iterable</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]]) – gives a list of partial strings to filter out from the output (stdout or stderr)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Returns: stdout</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="emft.build.do_ex">
-<code class="descclassname">emft.build.</code><code class="descname">do_ex</code><span class="sig-paren">(</span><em>ctx: click.core.Context, cmd: typing.List[str], cwd: str = '.'</em><span class="sig-paren">)</span> &#x2192; typing.Tuple[[str, str], int]<a class="reference internal" href="_modules/emft/build.html#do_ex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.do_ex" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.build.</code><code class="descname">do_ex</code><span class="sig-paren">(</span><em>ctx</em>, <em>cmd</em>, <em>cwd='.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#do_ex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.do_ex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes a given command</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ctx</strong> – Click context</li>
-<li><strong>cmd</strong> – command to run</li>
-<li><strong>cwd</strong> – working directory (defaults to “.”)</li>
+<li><strong>ctx</strong> (<code class="xref py py-class docutils literal"><span class="pre">Context</span></code>) – Click context</li>
+<li><strong>cmd</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]) – command to run</li>
+<li><strong>cwd</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) – working directory (defaults to “.”)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Returns: stdout, stderr, exit_code</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="emft.build.ensure_module">
-<code class="descclassname">emft.build.</code><code class="descname">ensure_module</code><span class="sig-paren">(</span><em>module_name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#ensure_module"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.ensure_module" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.build.</code><code class="descname">ensure_module</code><span class="sig-paren">(</span><em>module_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#ensure_module"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.ensure_module" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes sure that a module is importable.</p>
 <p>In case the module cannot be found, print an error and exit.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>module_name</strong> – name of the module to look for</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>module_name</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) – name of the module to look for</td>
 </tr>
 </tbody>
 </table>
@@ -512,7 +544,7 @@
 
 <dl class="function">
 <dt id="emft.build.find_executable">
-<code class="descclassname">emft.build.</code><code class="descname">find_executable</code><span class="sig-paren">(</span><em>executable: str</em>, <em>path: str = None</em><span class="sig-paren">)</span> &#x2192; typing.Union[str, NoneType]<a class="reference internal" href="_modules/emft/build.html#find_executable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.find_executable" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.build.</code><code class="descname">find_executable</code><span class="sig-paren">(</span><em>executable</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#find_executable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.find_executable" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://gist.github.com/4368898">https://gist.github.com/4368898</a></p>
 <p>Public domain code by anatoly techtonik &lt;<a class="reference external" href="mailto:techtonik&#37;&#52;&#48;gmail&#46;com">techtonik<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</p>
 <p>Programmatic equivalent to Linux <cite>which</cite> and Windows <cite>where</cite></p>
@@ -524,10 +556,13 @@ extensions. Returns full path or None if no command is found.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>executable</strong> – executable name to look for</li>
-<li><strong>path</strong> – root path to examine (defaults to system PATH)</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>executable</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) – executable name to look for</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]) – root path to examine (defaults to system PATH)</li>
 </ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]</p>
 </td>
 </tr>
 </tbody>
@@ -536,24 +571,40 @@ extensions. Returns full path or None if no command is found.</p>
 
 <dl class="function">
 <dt id="emft.build.get_gitversion">
-<code class="descclassname">emft.build.</code><code class="descname">get_gitversion</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="_modules/emft/build.html#get_gitversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.get_gitversion" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.build.</code><code class="descname">get_gitversion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#get_gitversion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.get_gitversion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses GitVersion (<a class="reference external" href="https://github.com/GitTools/GitVersion">https://github.com/GitTools/GitVersion</a>) to infer project’s current version</p>
 <p>Returns Gitversion JSON output as a dict</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="emft.build.get_pep440_version">
-<code class="descclassname">emft.build.</code><code class="descname">get_pep440_version</code><span class="sig-paren">(</span><em>version: str</em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/emft/build.html#get_pep440_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.get_pep440_version" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.build.</code><code class="descname">get_pep440_version</code><span class="sig-paren">(</span><em>version</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/build.html#get_pep440_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.build.get_pep440_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a Semver to a PEP440 version</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>version</strong> – valid Semver string</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) – valid Semver string</td>
 </tr>
 </tbody>
 </table>
 <p>Returns: valid PEP440 version</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -607,6 +658,7 @@ extensions. Returns full path or None if no command is found.</p>
         <li><a href="emft.cfg.html" title="emft.cfg package" >next</a></li>
         <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
         <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="dev.html" >Documentation for developers</a></li>
         <li><a href="modules.html" >EMFT API</a></li>
         <li><a href="#">top</a></li> 
       

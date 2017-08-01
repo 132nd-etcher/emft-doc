@@ -188,7 +188,7 @@
 <span id="emft-utils-updater-channel-module"></span><h2>emft.utils.updater.channel module<a class="headerlink" href="#module-emft.utils.updater.channel" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.updater.channel.Channel">
-<em class="property">class </em><code class="descclassname">emft.utils.updater.channel.</code><code class="descname">Channel</code><a class="reference internal" href="_modules/emft/utils/updater/channel.html#Channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.channel.Channel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.updater.channel.</code><code class="descname">Channel</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/channel.html#Channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.channel.Channel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.utils.updater.channel.Channel.CHANNEL_TO_LABEL">
@@ -246,26 +246,34 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">semantic_version.base.Spec</span></code></p>
 <dl class="method">
 <dt id="emft.utils.updater.customspec.CustomSpec.filter_channel">
-<code class="descname">filter_channel</code><span class="sig-paren">(</span><em>versions: typing.Set[emft.utils.updater.customversion.CustomVersion], prerelease: str = ''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customspec.html#CustomSpec.filter_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customspec.CustomSpec.filter_channel" title="Permalink to this definition">¶</a></dt>
+<code class="descname">filter_channel</code><span class="sig-paren">(</span><em>versions</em>, <em>prerelease=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customspec.html#CustomSpec.filter_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customspec.CustomSpec.filter_channel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.updater.customspec.CustomSpec.select_channel">
-<code class="descname">select_channel</code><span class="sig-paren">(</span><em>versions: typing.Set[emft.utils.updater.customversion.CustomVersion], channel: str = ''</em><span class="sig-paren">)</span> &#x2192; typing.Union[emft.utils.updater.customversion.CustomVersion, NoneType]<a class="reference internal" href="_modules/emft/utils/updater/customspec.html#CustomSpec.select_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customspec.CustomSpec.select_channel" title="Permalink to this definition">¶</a></dt>
+<code class="descname">select_channel</code><span class="sig-paren">(</span><em>versions</em>, <em>channel=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customspec.html#CustomSpec.select_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customspec.CustomSpec.select_channel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects the latest version, equals or higher than “channel”</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>versions</strong> – versions to select from</li>
-<li><strong>channel</strong> – member of <code class="xref py py-class docutils literal"><span class="pre">Channel</span></code></li>
+<li><strong>versions</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Set" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Set</span></code></a>[<a class="reference internal" href="#emft.utils.updater.customversion.CustomVersion" title="emft.utils.updater.customversion.CustomVersion"><code class="xref py py-class docutils literal"><span class="pre">CustomVersion</span></code></a>]) – versions to select from</li>
+<li><strong>channel</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) – member of <code class="xref py py-class docutils literal"><span class="pre">Channel</span></code></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Returns: latest version or None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference internal" href="#emft.utils.updater.customversion.CustomVersion" title="emft.utils.updater.customversion.CustomVersion"><code class="xref py py-class docutils literal"><span class="pre">CustomVersion</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -280,17 +288,27 @@
 <p>Proxy class over semantic_version.Version</p>
 <dl class="method">
 <dt id="emft.utils.updater.customversion.CustomVersion.to_short_string">
-<code class="descname">to_short_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/emft/utils/updater/customversion.html#CustomVersion.to_short_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customversion.CustomVersion.to_short_string" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.utils.updater.customversion.CustomVersion.to_spec">
-<code class="descname">to_spec</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/emft/utils/updater/customversion.html#CustomVersion.to_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customversion.CustomVersion.to_spec" title="Permalink to this definition">¶</a></dt>
+<code class="descname">to_short_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customversion.html#CustomVersion.to_short_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customversion.CustomVersion.to_short_string" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="emft.utils.updater.customversion.CustomVersion.to_spec">
+<code class="descname">to_spec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customversion.html#CustomVersion.to_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customversion.CustomVersion.to_spec" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -309,7 +327,7 @@
 
 <dl class="class">
 <dt id="emft.utils.updater.updater.Updater">
-<em class="property">class </em><code class="descclassname">emft.utils.updater.updater.</code><code class="descname">Updater</code><span class="sig-paren">(</span><em>current_version: str</em>, <em>av_user: str</em>, <em>av_repo: str</em>, <em>local_executable: str</em>, <em>channel: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#Updater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.Updater" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.updater.updater.</code><code class="descname">Updater</code><span class="sig-paren">(</span><em>current_version</em>, <em>av_user</em>, <em>av_repo</em>, <em>local_executable</em>, <em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#Updater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.Updater" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">transitions.core.Machine</span></code></p>
 <dl class="attribute">
 <dt id="emft.utils.updater.updater.Updater.asset">
@@ -333,7 +351,7 @@
 
 <dl class="method">
 <dt id="emft.utils.updater.updater.Updater.find_latest_version_on_channel">
-<code class="descname">find_latest_version_on_channel</code><span class="sig-paren">(</span><em>channel: emft.utils.updater.channel.Channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#Updater.find_latest_version_on_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.Updater.find_latest_version_on_channel" title="Permalink to this definition">¶</a></dt>
+<code class="descname">find_latest_version_on_channel</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#Updater.find_latest_version_on_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.Updater.find_latest_version_on_channel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

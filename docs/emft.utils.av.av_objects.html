@@ -200,7 +200,7 @@
 <span id="emft-utils-av-av-objects-av-artifact-module"></span><h2>emft.utils.av.av_objects.av_artifact module<a class="headerlink" href="#module-emft.utils.av.av_objects.av_artifact" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_artifact.AVArtifact">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_artifact.</code><code class="descname">AVArtifact</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_artifact.html#AVArtifact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_artifact.AVArtifact" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_artifact.</code><code class="descname">AVArtifact</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_artifact.html#AVArtifact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_artifact.AVArtifact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.utils.av.av_objects.av_artifact.AVArtifact.fileName">
@@ -231,7 +231,7 @@
 
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_artifact.AllAVArtifacts">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_artifact.</code><code class="descname">AllAVArtifacts</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_artifact.html#AllAVArtifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_artifact.AllAVArtifacts" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_artifact.</code><code class="descname">AllAVArtifacts</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_artifact.html#AllAVArtifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_artifact.AllAVArtifacts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 </dd></dl>
 
@@ -240,7 +240,7 @@
 <span id="emft-utils-av-av-objects-av-build-module"></span><h2>emft.utils.av.av_objects.av_build module<a class="headerlink" href="#module-emft.utils.av.av_objects.av_build" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_build.AVAllBuilds">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_build.</code><code class="descname">AVAllBuilds</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_build.html#AVAllBuilds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_build.AVAllBuilds" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_build.</code><code class="descname">AVAllBuilds</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_build.html#AVAllBuilds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_build.AVAllBuilds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="method">
 <dt id="emft.utils.av.av_objects.av_build.AVAllBuilds.print_all">
@@ -249,14 +249,22 @@
 
 <dl class="method">
 <dt id="emft.utils.av.av_objects.av_build.AVAllBuilds.successful_only">
-<code class="descname">successful_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; typing.Iterator[emft.utils.av.av_objects.av_build.AVBuild]<a class="reference internal" href="_modules/emft/utils/av/av_objects/av_build.html#AVAllBuilds.successful_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_build.AVAllBuilds.successful_only" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">successful_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_build.html#AVAllBuilds.successful_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_build.AVAllBuilds.successful_only" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Iterator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#emft.utils.av.av_objects.av_build.AVBuild" title="emft.utils.av.av_objects.av_build.AVBuild"><code class="xref py py-class docutils literal"><span class="pre">AVBuild</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_build.AVBuild">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_build.</code><code class="descname">AVBuild</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_build.html#AVBuild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_build.AVBuild" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_build.</code><code class="descname">AVBuild</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_build.html#AVBuild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_build.AVBuild" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.utils.av.av_objects.av_build.AVBuild.artifact">
@@ -365,7 +373,7 @@
 <span id="emft-utils-av-av-objects-av-history-module"></span><h2>emft.utils.av.av_objects.av_history module<a class="headerlink" href="#module-emft.utils.av.av_objects.av_history" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_history.AVHistory">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_history.</code><code class="descname">AVHistory</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_history.html#AVHistory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_history.AVHistory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_history.</code><code class="descname">AVHistory</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_history.html#AVHistory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_history.AVHistory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.utils.av.av_objects.av_history.AVHistory.builds">
@@ -384,23 +392,39 @@
 <span id="emft-utils-av-av-objects-av-job-module"></span><h2>emft.utils.av.av_objects.av_job module<a class="headerlink" href="#module-emft.utils.av.av_objects.av_job" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_job.AVAllJobs">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_job.</code><code class="descname">AVAllJobs</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_job.html#AVAllJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_job.AVAllJobs" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_job.</code><code class="descname">AVAllJobs</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_job.html#AVAllJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_job.AVAllJobs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="method">
 <dt id="emft.utils.av.av_objects.av_job.AVAllJobs.successful_only">
-<code class="descname">successful_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; typing.Generator[[emft.utils.av.av_objects.av_job.AVJob, NoneType], NoneType]<a class="reference internal" href="_modules/emft/utils/av/av_objects/av_job.html#AVAllJobs.successful_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_job.AVAllJobs.successful_only" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">successful_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_job.html#AVAllJobs.successful_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_job.AVAllJobs.successful_only" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Generator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>[<a class="reference internal" href="#emft.utils.av.av_objects.av_job.AVJob" title="emft.utils.av.av_objects.av_job.AVJob"><code class="xref py py-class docutils literal"><span class="pre">AVJob</span></code></a>, <code class="docutils literal"><span class="pre">None</span></code>, <code class="docutils literal"><span class="pre">None</span></code>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.av.av_objects.av_job.AVAllJobs.with_artifacts">
-<code class="descname">with_artifacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; typing.Generator[[emft.utils.av.av_objects.av_job.AVJob, NoneType], NoneType]<a class="reference internal" href="_modules/emft/utils/av/av_objects/av_job.html#AVAllJobs.with_artifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_job.AVAllJobs.with_artifacts" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">with_artifacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_job.html#AVAllJobs.with_artifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_job.AVAllJobs.with_artifacts" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Generator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>[<a class="reference internal" href="#emft.utils.av.av_objects.av_job.AVJob" title="emft.utils.av.av_objects.av_job.AVJob"><code class="xref py py-class docutils literal"><span class="pre">AVJob</span></code></a>, <code class="docutils literal"><span class="pre">None</span></code>, <code class="docutils literal"><span class="pre">None</span></code>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_job.AVJob">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_job.</code><code class="descname">AVJob</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_job.html#AVJob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_job.AVJob" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_job.</code><code class="descname">AVJob</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_job.html#AVJob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_job.AVJob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.utils.av.av_objects.av_job.AVJob.allowFailure">
@@ -489,7 +513,7 @@
 <span id="emft-utils-av-av-objects-av-last-build-module"></span><h2>emft.utils.av.av_objects.av_last_build module<a class="headerlink" href="#module-emft.utils.av.av_objects.av_last_build" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_last_build.AVLastBuild">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_last_build.</code><code class="descname">AVLastBuild</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_last_build.html#AVLastBuild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_last_build.AVLastBuild" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_last_build.</code><code class="descname">AVLastBuild</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_last_build.html#AVLastBuild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_last_build.AVLastBuild" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.utils.av.av_objects.av_last_build.AVLastBuild.build">
@@ -508,7 +532,7 @@
 <span id="emft-utils-av-av-objects-av-nu-get-feed-module"></span><h2>emft.utils.av.av_objects.av_nu_get_feed module<a class="headerlink" href="#module-emft.utils.av.av_objects.av_nu_get_feed" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_nu_get_feed.AVNuGetFeed">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_nu_get_feed.</code><code class="descname">AVNuGetFeed</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_nu_get_feed.html#AVNuGetFeed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_nu_get_feed.AVNuGetFeed" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_nu_get_feed.</code><code class="descname">AVNuGetFeed</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_nu_get_feed.html#AVNuGetFeed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_nu_get_feed.AVNuGetFeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.utils.av.av_objects.av_nu_get_feed.AVNuGetFeed.created">
@@ -537,7 +561,7 @@
 <span id="emft-utils-av-av-objects-av-project-module"></span><h2>emft.utils.av.av_objects.av_project module<a class="headerlink" href="#module-emft.utils.av.av_objects.av_project" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.utils.av.av_objects.av_project.AVProject">
-<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_project.</code><code class="descname">AVProject</code><span class="sig-paren">(</span><em>json: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_project.html#AVProject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_project.AVProject" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.utils.av.av_objects.av_project.</code><code class="descname">AVProject</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_objects/av_project.html#AVProject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_objects.av_project.AVProject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_session.JSONObject" title="emft.utils.custom_session.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_session.JSONObject</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.utils.av.av_objects.av_project.AVProject.accountId">

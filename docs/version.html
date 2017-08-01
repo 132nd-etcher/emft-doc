@@ -156,8 +156,8 @@
 <p><a class="reference external" href="https://github.com/GitTools/GitVersion">GitVersion</a> is used to infer the current version from the Git repository.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="31%" />
-<col width="69%" />
+<col width="30%" />
+<col width="70%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Branch</th>
@@ -166,32 +166,34 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>master</td>
-<td>&#160;</td>
+<td>(master has no pre-release tag)</td>
 </tr>
-<tr class="row-odd"><td>support</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>hotfix</td>
+<tr class="row-odd"><td>hotfix</td>
 <td>patch</td>
 </tr>
-<tr class="row-odd"><td>release</td>
+<tr class="row-even"><td>release</td>
 <td>exp</td>
 </tr>
-<tr class="row-even"><td>develop</td>
+<tr class="row-odd"><td>develop</td>
 <td>beta</td>
 </tr>
-<tr class="row-odd"><td>feature</td>
+<tr class="row-even"><td>feature</td>
 <td>alpha.[FEATURE_NAME]</td>
 </tr>
-<tr class="row-even"><td>pull request</td>
+<tr class="row-odd"><td>pull request</td>
 <td>alpha.PullRequest.[PR_NUMBER]</td>
 </tr>
 </tbody>
 </table>
-<p>(<code class="docutils literal"><span class="pre">master</span></code> and <code class="docutils literal"><span class="pre">support</span></code> do not have a pre-release tag)</p>
-<p>(feature, pull request) &lt; develop &lt; release &lt; hotfix &lt; (master, support)</p>
+<img src="_images/graphviz-b588712db60a4dc9a37567cd56243a324f06f50d.png" alt="digraph foo {
+    rankdir=&quot;LR&quot;;
+    &quot;hotfix\n(patch)&quot; -&gt; &quot;master\n(stable)&quot;;
+    &quot;feature\n(alpha)&quot; -&gt; &quot;develop\n(beta)&quot; -&gt; &quot;release\n(exp)&quot; -&gt; &quot;master\n(stable)&quot;;
+    &quot;Pull request\n(alpha)&quot; -&gt; &quot;develop\n(beta)&quot;;
+
+}" />
 <div class="figure" id="id1">
-<a class="reference external image-reference" href="_images/versionning.png"><img alt="EMFT versionning scheme" src="_images/versionning.png" style="width: 547.0px; height: 373.5px;" /></a>
+<a class="reference external image-reference" href="_images/versionning.png"><img alt="EMFT versionning scheme" src="_images/versionning.png" style="width: 640px;" /></a>
 <p class="caption"><span class="caption-text">EMFT versionning scheme (click the picture for larger scale)</span></p>
 </div>
 </div>

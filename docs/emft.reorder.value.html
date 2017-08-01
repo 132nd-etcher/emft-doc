@@ -203,7 +203,7 @@
 <span id="emft-reorder-value-auto-profile-module"></span><h2>emft.reorder.value.auto_profile module<a class="headerlink" href="#module-emft.reorder.value.auto_profile" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.reorder.value.auto_profile.AutoProfile">
-<em class="property">class </em><code class="descclassname">emft.reorder.value.auto_profile.</code><code class="descname">AutoProfile</code><span class="sig-paren">(</span><em>name: str</em>, <em>gh_repo: str</em>, <em>av_repo: str</em>, <em>src_folder: str</em>, <em>output_folder: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/auto_profile.html#AutoProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile.AutoProfile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.reorder.value.auto_profile.</code><code class="descname">AutoProfile</code><span class="sig-paren">(</span><em>name</em>, <em>gh_repo</em>, <em>av_repo</em>, <em>src_folder</em>, <em>output_folder</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/auto_profile.html#AutoProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile.AutoProfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.reorder.value.auto_profile.AutoProfile.av_repo">
@@ -234,7 +234,7 @@
 
 <dl class="class">
 <dt id="emft.reorder.value.auto_profile.AutoProfiles">
-<em class="property">class </em><code class="descclassname">emft.reorder.value.auto_profile.</code><code class="descname">AutoProfiles</code><span class="sig-paren">(</span><em>init_dict: dict = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/auto_profile.html#AutoProfiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile.AutoProfiles" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.reorder.value.auto_profile.</code><code class="descname">AutoProfiles</code><span class="sig-paren">(</span><em>init_dict=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/auto_profile.html#AutoProfiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile.AutoProfiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/collections.abc.html#collections.abc.MutableMapping" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">collections.abc.MutableMapping</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.reorder.value.auto_profile.AutoProfiles.ACTIVE_PROFILE">
@@ -248,13 +248,29 @@
 
 <dl class="method">
 <dt id="emft.reorder.value.auto_profile.AutoProfiles.items">
-<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; typing.List[typing.Tuple[str, emft.reorder.value.auto_profile.AutoProfile]]<a class="reference internal" href="_modules/emft/reorder/value/auto_profile.html#AutoProfiles.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile.AutoProfiles.items" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/auto_profile.html#AutoProfiles.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile.AutoProfiles.items" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">List</span></code></a>[<code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>, <a class="reference internal" href="#emft.reorder.value.auto_profile.AutoProfile" title="emft.reorder.value.auto_profile.AutoProfile"><code class="xref py py-class docutils literal"><span class="pre">AutoProfile</span></code></a>]]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.reorder.value.auto_profile.AutoProfiles.values">
-<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; typing.List[emft.reorder.value.auto_profile.AutoProfile]<a class="reference internal" href="_modules/emft/reorder/value/auto_profile.html#AutoProfiles.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile.AutoProfiles.values" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/auto_profile.html#AutoProfiles.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile.AutoProfiles.values" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">List</span></code></a>[<a class="reference internal" href="#emft.reorder.value.auto_profile.AutoProfile" title="emft.reorder.value.auto_profile.AutoProfile"><code class="xref py py-class docutils literal"><span class="pre">AutoProfile</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -267,7 +283,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtGui.QStandardItemModel</span></code></p>
 <dl class="method">
 <dt id="emft.reorder.value.auto_profile_model.AutoProfileModel.appendRow">
-<code class="descname">appendRow</code><span class="sig-paren">(</span><em>output_folder_name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/auto_profile_model.html#AutoProfileModel.appendRow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile_model.AutoProfileModel.appendRow" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendRow</code><span class="sig-paren">(</span><em>output_folder_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/auto_profile_model.html#AutoProfileModel.appendRow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.auto_profile_model.AutoProfileModel.appendRow" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -288,7 +304,7 @@
 <span id="emft-reorder-value-av-probe-result-module"></span><h2>emft.reorder.value.av_probe_result module<a class="headerlink" href="#module-emft.reorder.value.av_probe_result" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.reorder.value.av_probe_result.AVProbeResult">
-<em class="property">class </em><code class="descclassname">emft.reorder.value.av_probe_result.</code><code class="descname">AVProbeResult</code><span class="sig-paren">(</span><em>version: str</em>, <em>branch: str</em>, <em>download_url: str</em>, <em>remote_file_size: int</em>, <em>remote_file_name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/av_probe_result.html#AVProbeResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.av_probe_result.AVProbeResult" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.reorder.value.av_probe_result.</code><code class="descname">AVProbeResult</code><span class="sig-paren">(</span><em>version</em>, <em>branch</em>, <em>download_url</em>, <em>remote_file_size</em>, <em>remote_file_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/av_probe_result.html#AVProbeResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.av_probe_result.AVProbeResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.reorder.value.av_probe_result.AVProbeResult.branch">
@@ -327,7 +343,7 @@
 <span id="emft-reorder-value-branches-module"></span><h2>emft.reorder.value.branches module<a class="headerlink" href="#module-emft.reorder.value.branches" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.reorder.value.branches.Branch">
-<em class="property">class </em><code class="descclassname">emft.reorder.value.branches.</code><code class="descname">Branch</code><span class="sig-paren">(</span><em>name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/branches.html#Branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.branches.Branch" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.reorder.value.branches.</code><code class="descname">Branch</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/branches.html#Branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.branches.Branch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.reorder.value.branches.Branch.name">
@@ -338,7 +354,7 @@
 
 <dl class="class">
 <dt id="emft.reorder.value.branches.Branches">
-<em class="property">class </em><code class="descclassname">emft.reorder.value.branches.</code><code class="descname">Branches</code><span class="sig-paren">(</span><em>init_list: list = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/branches.html#Branches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.branches.Branches" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.reorder.value.branches.</code><code class="descname">Branches</code><span class="sig-paren">(</span><em>init_list=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/branches.html#Branches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.branches.Branches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/collections.abc.html#collections.abc.MutableSequence" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">collections.abc.MutableSequence</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.reorder.value.branches.Branches.ACTIVE_BRANCH">
@@ -347,7 +363,7 @@
 
 <dl class="method">
 <dt id="emft.reorder.value.branches.Branches.insert">
-<code class="descname">insert</code><span class="sig-paren">(</span><em>index</em>, <em>value: emft.reorder.value.branches.Branch</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/branches.html#Branches.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.branches.Branches.insert" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert</code><span class="sig-paren">(</span><em>index</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/branches.html#Branches.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.branches.Branches.insert" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -361,7 +377,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtGui.QStandardItemModel</span></code></p>
 <dl class="method">
 <dt id="emft.reorder.value.branches_model.BranchesModel.appendRow">
-<code class="descname">appendRow</code><span class="sig-paren">(</span><em>branch_name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/branches_model.html#BranchesModel.appendRow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.branches_model.BranchesModel.appendRow" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendRow</code><span class="sig-paren">(</span><em>branch_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/branches_model.html#BranchesModel.appendRow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.branches_model.BranchesModel.appendRow" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -382,7 +398,7 @@
 <span id="emft-reorder-value-local-miz-file-module"></span><h2>emft.reorder.value.local_miz_file module<a class="headerlink" href="#module-emft.reorder.value.local_miz_file" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.reorder.value.local_miz_file.LocalMizFile">
-<em class="property">class </em><code class="descclassname">emft.reorder.value.local_miz_file.</code><code class="descname">LocalMizFile</code><span class="sig-paren">(</span><em>path_str: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/local_miz_file.html#LocalMizFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.local_miz_file.LocalMizFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.reorder.value.local_miz_file.</code><code class="descname">LocalMizFile</code><span class="sig-paren">(</span><em>path_str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/local_miz_file.html#LocalMizFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.local_miz_file.LocalMizFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.utils.html#emft.utils.custom_path.Path" title="emft.utils.custom_path.Path"><code class="xref py py-class docutils literal"><span class="pre">emft.utils.custom_path.Path</span></code></a></p>
 <dl class="method">
 <dt id="emft.reorder.value.local_miz_file.LocalMizFile.is_valid">
@@ -402,7 +418,7 @@
 
 <dl class="class">
 <dt id="emft.reorder.value.output_folder.OutputFolders">
-<em class="property">class </em><code class="descclassname">emft.reorder.value.output_folder.</code><code class="descname">OutputFolders</code><span class="sig-paren">(</span><em>init_dict: dict = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/output_folder.html#OutputFolders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.output_folder.OutputFolders" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.reorder.value.output_folder.</code><code class="descname">OutputFolders</code><span class="sig-paren">(</span><em>init_dict=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/output_folder.html#OutputFolders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.output_folder.OutputFolders" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/collections.abc.html#collections.abc.MutableMapping" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">collections.abc.MutableMapping</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.reorder.value.output_folder.OutputFolders.ACTIVE_OUTPUT_FOLDER">
@@ -421,8 +437,16 @@
 
 <dl class="method">
 <dt id="emft.reorder.value.output_folder.OutputFolders.values">
-<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; typing.List[emft.reorder.value.output_folder.OutputFolder]<a class="reference internal" href="_modules/emft/reorder/value/output_folder.html#OutputFolders.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.output_folder.OutputFolders.values" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/output_folder.html#OutputFolders.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.output_folder.OutputFolders.values" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">List</span></code></a>[<a class="reference internal" href="#emft.reorder.value.output_folder.OutputFolder" title="emft.reorder.value.output_folder.OutputFolder"><code class="xref py py-class docutils literal"><span class="pre">OutputFolder</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -435,7 +459,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtGui.QStandardItemModel</span></code></p>
 <dl class="method">
 <dt id="emft.reorder.value.output_folder_model.OutputFoldersModel.appendRow">
-<code class="descname">appendRow</code><span class="sig-paren">(</span><em>output_folder_name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/output_folder_model.html#OutputFoldersModel.appendRow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.output_folder_model.OutputFoldersModel.appendRow" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendRow</code><span class="sig-paren">(</span><em>output_folder_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/output_folder_model.html#OutputFoldersModel.appendRow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.output_folder_model.OutputFoldersModel.appendRow" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -456,7 +480,7 @@
 <span id="emft-reorder-value-remote-version-module"></span><h2>emft.reorder.value.remote_version module<a class="headerlink" href="#module-emft.reorder.value.remote_version" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.reorder.value.remote_version.RemoteVersion">
-<em class="property">class </em><code class="descclassname">emft.reorder.value.remote_version.</code><code class="descname">RemoteVersion</code><a class="reference internal" href="_modules/emft/reorder/value/remote_version.html#RemoteVersion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.remote_version.RemoteVersion" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.reorder.value.remote_version.</code><code class="descname">RemoteVersion</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/reorder/value/remote_version.html#RemoteVersion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.value.remote_version.RemoteVersion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.reorder.value.remote_version.RemoteVersion.LATEST_REMOTE_VERSION">

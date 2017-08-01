@@ -144,10 +144,12 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">shlex</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">typing</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span>
+<span class="kn">import</span> <span class="nn">webbrowser</span>
 <span class="kn">from</span> <span class="nn">json</span> <span class="k">import</span> <span class="n">loads</span>
 
 <span class="kn">import</span> <span class="nn">certifi</span>
@@ -155,6 +157,22 @@
 
 <span class="c1"># noinspection SpellCheckingInspection</span>
 <span class="n">PYINSTALLER_NEEDED_VERSION</span> <span class="o">=</span> <span class="s1">&#39;3.3.dev0+g2fcbe0f&#39;</span>
+
+
+<div class="viewcode-block" id="cd"><a class="viewcode-back" href="../../emft.html#emft.build.cd">[docs]</a><span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">cd</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Context to temporarily change the working directory</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path: working directory to cd into</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">old_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">old_dir</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ensure_repo"><a class="viewcode-back" href="../../emft.html#emft.build.ensure_repo">[docs]</a><span class="k">def</span> <span class="nf">ensure_repo</span><span class="p">():</span>
@@ -299,7 +317,12 @@
     <span class="k">return</span> <span class="n">_ensure_stripped_str</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">out</span><span class="p">),</span> <span class="n">_ensure_stripped_str</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">err</span><span class="p">),</span> <span class="n">p</span><span class="o">.</span><span class="n">returncode</span></div>
 
 
-<div class="viewcode-block" id="do"><a class="viewcode-back" href="../../emft.html#emft.build.do">[docs]</a><span class="k">def</span> <span class="nf">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">cwd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="do"><a class="viewcode-back" href="../../emft.html#emft.build.do">[docs]</a><span class="k">def</span> <span class="nf">do</span><span class="p">(</span>
+    <span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
+    <span class="n">cmd</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">cwd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>
+    <span class="n">filter_output</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Executes a command and returns the result</span>
 
@@ -307,17 +330,31 @@
 <span class="sd">        ctx: click context</span>
 <span class="sd">        cmd: command to execute</span>
 <span class="sd">        cwd: working directory (defaults to &quot;.&quot;)</span>
+<span class="sd">        filter_output: gives a list of partial strings to filter out from the output (stdout or stderr)</span>
 
 <span class="sd">    Returns: stdout</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">_filter_output</span><span class="p">(</span><span class="n">input_</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">_filter_line</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+            <span class="c1"># noinspection PyTypeChecker</span>
+            <span class="k">for</span> <span class="n">filter_str</span> <span class="ow">in</span> <span class="n">filter_output</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">filter_str</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">filter_output</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">input_</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">_filter_line</span><span class="p">,</span> <span class="n">input_</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)))</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
         <span class="n">cmd</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
 
     <span class="n">out</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">do_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">cwd</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">out</span><span class="p">:</span>
-        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{out}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{_filter_output(out)}&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">err</span><span class="p">:</span>
-        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{err}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{_filter_output(err)}&#39;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>
         <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;command failed: </span><span class="si">{cmd}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
         <span class="n">exit</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
@@ -446,6 +483,9 @@
 
 
 <span class="k">def</span> <span class="nf">_get_version</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">_get_version</span><span class="o">.</span><span class="n">leave_me_alone_already</span><span class="p">:</span>
+        <span class="k">return</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s1">&#39;obj&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ctx</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -458,6 +498,11 @@
 
     <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Semver: </span><span class="si">{ctx.obj[&#39;semver&#39;]}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
     <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;PEP440: </span><span class="si">{ctx.obj[&#39;pep440&#39;]}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+    <span class="n">_get_version</span><span class="o">.</span><span class="n">leave_me_alone_already</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="n">_get_version</span><span class="o">.</span><span class="n">leave_me_alone_already</span> <span class="o">=</span> <span class="kc">False</span>
 
 
 <span class="c1"># noinspection PyUnusedLocal</span>
@@ -676,12 +721,16 @@
 
 
 <span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--show&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Show the doc in browser&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--clean&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Clean build&#39;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="s1">&#39;--publish&#39;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Upload doc&#39;</span><span class="p">)</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">pass_context</span>
-<span class="k">def</span> <span class="nf">doc</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">doc</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">publish</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Builds the documentation using Sphinx (http://www.sphinx-doc.org/en/stable)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;./doc/html&#39;</span><span class="p">):</span>
+    <span class="n">_get_version</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">clean</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;./doc/html&#39;</span><span class="p">):</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s1">&#39;./doc/html&#39;</span><span class="p">)</span>
     <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span>
         <span class="s1">&#39;sphinx-apidoc&#39;</span><span class="p">,</span>
@@ -700,6 +749,27 @@
         <span class="s1">&#39;doc&#39;</span><span class="p">,</span>
         <span class="s1">&#39;doc/html&#39;</span>
     <span class="p">])</span>
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new_tab</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;file://{os.path.abspath(&quot;./doc/html/index.html&quot;)}&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">publish</span><span class="p">:</span>
+        <span class="n">output_filter</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;warning: LF will be replaced by CRLF&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;The file will have its original line endings&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Checking out files:&#39;</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;./emft-doc&#39;</span><span class="p">):</span>
+            <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;clone&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;https://github.com/132nd-etcher/emft-doc.git&#39;</span><span class="p">],</span> <span class="n">filter_output</span><span class="o">=</span><span class="n">output_filter</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">cd</span><span class="p">(</span><span class="s1">&#39;./emft-doc&#39;</span><span class="p">):</span>
+            <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;pull&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;./docs&#39;</span><span class="p">):</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s1">&#39;./docs&#39;</span><span class="p">)</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="s1">&#39;../doc/html&#39;</span><span class="p">,</span> <span class="s1">&#39;./docs&#39;</span><span class="p">)</span>
+            <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span> <span class="n">filter_output</span><span class="o">=</span><span class="n">output_filter</span><span class="p">)</span>
+            <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;automated doc build&#39;</span><span class="p">],</span> <span class="n">filter_output</span><span class="o">=</span><span class="n">output_filter</span><span class="p">)</span>
+            <span class="n">do</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">],</span> <span class="n">filter_output</span><span class="o">=</span><span class="n">output_filter</span><span class="p">)</span>
+
+
+
 
 
 <span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>

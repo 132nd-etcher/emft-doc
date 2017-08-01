@@ -207,7 +207,7 @@
 <span id="emft-misc-downloader-module"></span><h2>emft.misc.downloader module<a class="headerlink" href="#module-emft.misc.downloader" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="emft.misc.downloader.download">
-<code class="descclassname">emft.misc.downloader.</code><code class="descname">download</code><span class="sig-paren">(</span><em>url</em>, <em>local_file</em>, <em>file_size: int = None</em>, <em>hexdigest: str = None</em>, <em>title: str = ''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/downloader.html#download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.downloader.download" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.misc.downloader.</code><code class="descname">download</code><span class="sig-paren">(</span><em>url</em>, <em>local_file</em>, <em>file_size=None</em>, <em>hexdigest=None</em>, <em>title=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/downloader.html#download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.downloader.download" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -224,13 +224,21 @@
 
 <dl class="staticmethod">
 <dt id="emft.misc.logging_handler.PersistentLoggingFollower.filter_record">
-<em class="property">static </em><code class="descname">filter_record</code><span class="sig-paren">(</span><em>record</em>, <em>minimum_level=0</em>, <em>msg_filter: str = None</em>, <em>module_filter: str = None</em>, <em>thread_filter: str = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingFollower.filter_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingFollower.filter_record" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">filter_record</code><span class="sig-paren">(</span><em>minimum_level=0</em>, <em>msg_filter=None</em>, <em>module_filter=None</em>, <em>thread_filter=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingFollower.filter_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingFollower.filter_record" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.misc.logging_handler.PersistentLoggingFollower.filter_records">
-<em class="property">static </em><code class="descname">filter_records</code><span class="sig-paren">(</span><em>minimum_level=0</em>, <em>msg_filter: str = None</em>, <em>module_filter: str = None</em>, <em>thread_filter: str = None</em><span class="sig-paren">)</span> &#x2192; typing.Iterator[logging.LogRecord]<a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingFollower.filter_records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingFollower.filter_records" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">static </em><code class="descname">filter_records</code><span class="sig-paren">(</span><em>msg_filter=None</em>, <em>module_filter=None</em>, <em>thread_filter=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingFollower.filter_records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingFollower.filter_records" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Iterator" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3.6/library/logging.html#logging.LogRecord" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">LogRecord</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="emft.misc.logging_handler.PersistentLoggingFollower.fmt_">
@@ -239,7 +247,7 @@
 
 <dl class="method">
 <dt id="emft.misc.logging_handler.PersistentLoggingFollower.handle_record">
-<code class="descname">handle_record</code><span class="sig-paren">(</span><em>record: logging.LogRecord</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingFollower.handle_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingFollower.handle_record" title="Permalink to this definition">¶</a></dt>
+<code class="descname">handle_record</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingFollower.handle_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingFollower.handle_record" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -250,17 +258,17 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">logging.Handler</span></code></p>
 <dl class="method">
 <dt id="emft.misc.logging_handler.PersistentLoggingHandler.add_follower">
-<code class="descname">add_follower</code><span class="sig-paren">(</span><em>follower: emft.misc.logging_handler.PersistentLoggingFollower</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingHandler.add_follower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingHandler.add_follower" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_follower</code><span class="sig-paren">(</span><em>follower</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingHandler.add_follower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingHandler.add_follower" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="emft.misc.logging_handler.PersistentLoggingHandler.del_follower">
-<code class="descname">del_follower</code><span class="sig-paren">(</span><em>follower: emft.misc.logging_handler.PersistentLoggingFollower</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingHandler.del_follower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingHandler.del_follower" title="Permalink to this definition">¶</a></dt>
+<code class="descname">del_follower</code><span class="sig-paren">(</span><em>follower</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingHandler.del_follower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingHandler.del_follower" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="emft.misc.logging_handler.PersistentLoggingHandler.emit">
-<code class="descname">emit</code><span class="sig-paren">(</span><em>record: logging.LogRecord</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingHandler.emit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingHandler.emit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#PersistentLoggingHandler.emit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.PersistentLoggingHandler.emit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -272,7 +280,7 @@
 
 <dl class="class">
 <dt id="emft.misc.logging_handler.Records">
-<em class="property">class </em><code class="descclassname">emft.misc.logging_handler.</code><code class="descname">Records</code><span class="sig-paren">(</span><em>records: typing.List[logging.LogRecord]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#Records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.Records" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.misc.logging_handler.</code><code class="descname">Records</code><span class="sig-paren">(</span><em>records</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#Records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.Records" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="emft.misc.logging_handler.Records.filter_by_level">
@@ -281,17 +289,17 @@
 
 <dl class="method">
 <dt id="emft.misc.logging_handler.Records.filter_by_message">
-<code class="descname">filter_by_message</code><span class="sig-paren">(</span><em>text: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#Records.filter_by_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.Records.filter_by_message" title="Permalink to this definition">¶</a></dt>
+<code class="descname">filter_by_message</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#Records.filter_by_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.Records.filter_by_message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="emft.misc.logging_handler.Records.filter_by_module">
-<code class="descname">filter_by_module</code><span class="sig-paren">(</span><em>text: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#Records.filter_by_module"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.Records.filter_by_module" title="Permalink to this definition">¶</a></dt>
+<code class="descname">filter_by_module</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#Records.filter_by_module"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.Records.filter_by_module" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="emft.misc.logging_handler.Records.filter_by_thread">
-<code class="descname">filter_by_thread</code><span class="sig-paren">(</span><em>text: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#Records.filter_by_thread"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.Records.filter_by_thread" title="Permalink to this definition">¶</a></dt>
+<code class="descname">filter_by_thread</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/logging_handler.html#Records.filter_by_thread"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.logging_handler.Records.filter_by_thread" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -301,7 +309,7 @@
 <span id="emft-misc-nice-exit-module"></span><h2>emft.misc.nice_exit module<a class="headerlink" href="#module-emft.misc.nice_exit" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="emft.misc.nice_exit.nice_exit">
-<code class="descclassname">emft.misc.nice_exit.</code><code class="descname">nice_exit</code><span class="sig-paren">(</span><em>code: int = 0</em>, <em>*_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/nice_exit.html#nice_exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.nice_exit.nice_exit" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">emft.misc.nice_exit.</code><code class="descname">nice_exit</code><span class="sig-paren">(</span><em>code=0</em>, <em>*_</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/nice_exit.html#nice_exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.nice_exit.nice_exit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>

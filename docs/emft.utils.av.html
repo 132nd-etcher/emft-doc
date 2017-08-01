@@ -217,33 +217,66 @@
 
 <dl class="method">
 <dt id="emft.utils.av.av_session.AVSession.get_artifacts">
-<code class="descname">get_artifacts</code><span class="sig-paren">(</span><em>job_id</em><span class="sig-paren">)</span> &#x2192; emft.utils.av.av_objects.av_artifact.AllAVArtifacts<a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_artifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_artifacts" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_artifacts</code><span class="sig-paren">(</span><em>job_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_artifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_artifacts" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.utils.av.av_objects.html#emft.utils.av.av_objects.av_artifact.AllAVArtifacts" title="emft.utils.av.av_objects.av_artifact.AllAVArtifacts"><code class="xref py py-class docutils literal"><span class="pre">AllAVArtifacts</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.av.av_session.AVSession.get_build_by_version">
-<code class="descname">get_build_by_version</code><span class="sig-paren">(</span><em>av_user_name</em>, <em>av_project_name</em>, <em>build_id</em><span class="sig-paren">)</span> &#x2192; emft.utils.av.av_objects.av_last_build.AVLastBuild<a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_build_by_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_build_by_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_build_by_version</code><span class="sig-paren">(</span><em>av_user_name</em>, <em>av_project_name</em>, <em>build_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_build_by_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_build_by_version" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.utils.av.av_objects.html#emft.utils.av.av_objects.av_last_build.AVLastBuild" title="emft.utils.av.av_objects.av_last_build.AVLastBuild"><code class="xref py py-class docutils literal"><span class="pre">AVLastBuild</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.av.av_session.AVSession.get_history">
-<code class="descname">get_history</code><span class="sig-paren">(</span><em>av_user_name</em>, <em>av_project_name</em>, <em>build_count=9999</em><span class="sig-paren">)</span> &#x2192; emft.utils.av.av_objects.av_history.AVHistory<a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_history" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_history</code><span class="sig-paren">(</span><em>av_user_name</em>, <em>av_project_name</em>, <em>build_count=9999</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_history" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets build history from the top down
 :param build_count: max number of builds to retrieve
 :param av_user_name: AV user name
 :param av_project_name: AV project name
+:rtype: <a class="reference internal" href="emft.utils.av.av_objects.html#emft.utils.av.av_objects.av_history.AVHistory" title="emft.utils.av.av_objects.av_history.AVHistory"><code class="xref py py-class docutils literal"><span class="pre">AVHistory</span></code></a>
 :return: AVHistory object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.av.av_session.AVSession.get_last_build">
-<code class="descname">get_last_build</code><span class="sig-paren">(</span><em>av_user_name</em>, <em>av_project_name</em>, <em>branch: str = None</em><span class="sig-paren">)</span> &#x2192; emft.utils.av.av_objects.av_last_build.AVLastBuild<a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_last_build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_last_build" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_last_build</code><span class="sig-paren">(</span><em>av_user_name</em>, <em>av_project_name</em>, <em>branch=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_last_build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_last_build" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.utils.av.av_objects.html#emft.utils.av.av_objects.av_last_build.AVLastBuild" title="emft.utils.av.av_objects.av_last_build.AVLastBuild"><code class="xref py py-class docutils literal"><span class="pre">AVLastBuild</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="emft.utils.av.av_session.AVSession.get_latest_build_on_branch">
-<code class="descname">get_latest_build_on_branch</code><span class="sig-paren">(</span><em>av_user_name</em>, <em>av_project_name</em>, <em>branch</em><span class="sig-paren">)</span> &#x2192; emft.utils.av.av_objects.av_last_build.AVLastBuild<a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_latest_build_on_branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_latest_build_on_branch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">get_latest_build_on_branch</code><span class="sig-paren">(</span><em>av_user_name</em>, <em>av_project_name</em>, <em>branch</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/av/av_session.html#AVSession.get_latest_build_on_branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.av.av_session.AVSession.get_latest_build_on_branch" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.utils.av.av_objects.html#emft.utils.av.av_objects.av_last_build.AVLastBuild" title="emft.utils.av.av_objects.av_last_build.AVLastBuild"><code class="xref py py-class docutils literal"><span class="pre">AVLastBuild</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="emft.utils.av.av_session.AVSession.resp">

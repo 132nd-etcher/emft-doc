@@ -216,7 +216,7 @@
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">collections.abc.Sequence</span></code></a></p>
 <dl class="class">
 <dt id="emft.roster.roster.Roster.Pilot">
-<em class="property">class </em><code class="descname">Pilot</code><span class="sig-paren">(</span><em>pilot_name: str</em>, <em>aircraft: str</em>, <em>livery: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/roster/roster.html#Roster.Pilot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.Pilot" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descname">Pilot</code><span class="sig-paren">(</span><em>pilot_name</em>, <em>aircraft</em>, <em>livery</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/roster/roster.html#Roster.Pilot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.Pilot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">collections.abc.Sequence</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.roster.roster.Roster.Pilot.aircraft">
@@ -225,8 +225,16 @@
 
 <dl class="staticmethod">
 <dt id="emft.roster.roster.Roster.Pilot.from_meta">
-<em class="property">static </em><code class="descname">from_meta</code><span class="sig-paren">(</span><em>meta: collections.OrderedDict</em><span class="sig-paren">)</span> &#x2192; emft.roster.roster.Roster.Pilot<a class="reference internal" href="_modules/emft/roster/roster.html#Roster.Pilot.from_meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.Pilot.from_meta" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">static </em><code class="descname">from_meta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/roster/roster.html#Roster.Pilot.from_meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.Pilot.from_meta" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.roster.roster.Roster.Pilot" title="emft.roster.roster.Roster.Pilot"><code class="xref py py-class docutils literal"><span class="pre">Pilot</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="emft.roster.roster.Roster.Pilot.idx">
@@ -245,8 +253,16 @@
 
 <dl class="method">
 <dt id="emft.roster.roster.Roster.Pilot.to_meta">
-<code class="descname">to_meta</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; collections.OrderedDict<a class="reference internal" href="_modules/emft/roster/roster.html#Roster.Pilot.to_meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.Pilot.to_meta" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">to_meta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/roster/roster.html#Roster.Pilot.to_meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.Pilot.to_meta" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/collections.html#collections.OrderedDict" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">OrderedDict</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -257,12 +273,12 @@
 
 <dl class="method">
 <dt id="emft.roster.roster.Roster.add_pilot_object">
-<code class="descname">add_pilot_object</code><span class="sig-paren">(</span><em>pilot: emft.roster.roster.Roster.Pilot</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/roster/roster.html#Roster.add_pilot_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.add_pilot_object" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_pilot_object</code><span class="sig-paren">(</span><em>pilot</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/roster/roster.html#Roster.add_pilot_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.add_pilot_object" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="emft.roster.roster.Roster.from_file">
-<em class="property">static </em><code class="descname">from_file</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/roster/roster.html#Roster.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.from_file" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/roster/roster.html#Roster.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.roster.roster.Roster.from_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

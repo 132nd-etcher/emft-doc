@@ -188,9 +188,48 @@
 <p class="first admonition-title">Note</p>
 <p class="last">note</p>
 </div>
-<img src="_images/graphviz-382add969ec16b0b33652d7a909a27f5990fd838.png" alt="digraph foo {
+<img src="_images/graphviz-9d4a9f232f3e82bc714f36d156e7861335ce2ee9.png" alt="digraph foo {
    &quot;bar&quot; -&gt; &quot;baz&quot;;
-}" />
+}
+
+
+ digraph versionning {
+     subgraph cluster0 {
+         node [style=filled,color=white];
+         style=filled;
+         color=lightgrey;
+         m0 -&gt; m1 -&gt; m2 -&gt; m3;
+         label = &quot;branch: master&quot;;
+     };
+     subgraph cluster1 {
+         rc0 -&gt; rc1 -&gt; rc2 rc3;
+         label = &quot;branch: release/*\ntag: exp&quot;;
+     };
+     subgraph cluster3 {
+         b0 -&gt; b1 -&gt; b2 -&gt; b3 -&gt; b4 -&gt; b5 -&gt; b6 -&gt; b7;
+         label = &quot;branch: develop/*\ntag: beta&quot;;
+     };
+     m0 -&gt; b0
+     b3 -&gt; rc0
+     rc2 -&gt; b4
+     rc2 -&gt; m1
+     m0 [label=&quot;0.1.0&quot;];
+     m1 [label=&quot;0.2.0&quot;];
+     m2 [label=&quot;0.3.0&quot;];
+     m3 [label=&quot;0.4.0&quot;];
+     rc0 [label=&quot;0.2.0-exp.0&quot;];
+     rc1 [label=&quot;0.2.0-exp.1&quot;];
+     rc2 [label=&quot;0.2.0-exp.2&quot;];
+     rc3 [label=&quot;0.3.0-exp.0&quot;];
+     b0 [label=&quot;0.2.1-beta.0&quot;];
+     b1 [label=&quot;0.2.1-beta.1&quot;];
+     b2 [label=&quot;0.2.1-beta.2&quot;];
+     b3 [label=&quot;0.2.1-beta.3&quot;];
+     b4 [label=&quot;0.3.1-beta.0&quot;];
+     b5 [label=&quot;0.3.1-beta.1&quot;];
+     b6 [label=&quot;0.3.1-beta.2&quot;];
+     b7 [label=&quot;0.4.1-beta.0&quot;];
+ }" />
 <img src="_images/inheritance-2c3751dd3863847b5a87940f9ce2ba4170512276.png" alt="Inheritance diagram of emft.utils.updater.Updater" usemap="#inheritance46e9777ca0" class="inheritance"/>
 <map id="inheritance46e9777ca0" name="inheritance46e9777ca0">
 <area shape="rect" id="node1" href="emft.utils.updater.html#emft.utils.updater.updater.Updater" target="_top" title="emft.utils.updater.updater.Updater" alt="" coords="217,5,436,31"/>

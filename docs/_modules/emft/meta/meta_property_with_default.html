@@ -185,8 +185,11 @@
             <span class="c1"># Not set yet, returns default</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Check the value against the setter (I&#39;m being paranoid here)</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prop_name</span><span class="p">))</span>
+            <span class="c1"># # Check the value against the setter (I&#39;m being paranoid here)</span>
+            <span class="c1"># value = self.func(instance, instance.__getitem__(self.prop_name))</span>
+            <span class="c1"># Turns out that was a bit too paranoid; trying to reset a value which passed the test before but</span>
+            <span class="c1"># don&#39;t anymore would be impossible</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prop_name</span><span class="p">)</span>
 
             <span class="c1"># Return actual value</span>
             <span class="k">return</span> <span class="n">value</span>

@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.core.providers.github.gh_objects package &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.5.2(0.5.2)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../index.html" />
+    <link rel="up" title="emft.core.providers.github package" href="emft.core.providers.github.html" />
+    <link rel="next" title="emft.gui package" href="emft.gui.html" />
+    <link rel="prev" title="emft.core.providers.github package" href="emft.core.providers.github.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">emft.core.providers.github.gh_objects package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_app">emft.core.providers.github.gh_objects.gh_app module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_asset">emft.core.providers.github.gh_objects.gh_asset module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_authorization">emft.core.providers.github.gh_objects.gh_authorization module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_branch">emft.core.providers.github.gh_objects.gh_branch module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_commit">emft.core.providers.github.gh_objects.gh_commit module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_mail">emft.core.providers.github.gh_objects.gh_mail module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_object">emft.core.providers.github.gh_objects.gh_object module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_permissions">emft.core.providers.github.gh_objects.gh_permissions module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_ref">emft.core.providers.github.gh_objects.gh_ref module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_release">emft.core.providers.github.gh_objects.gh_release module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_repo">emft.core.providers.github.gh_objects.gh_repo module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_user">emft.core.providers.github.gh_objects.gh_user module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="emft.core.providers.github.html" title="emft.core.providers.github package" accesskey="P">previous </a></li>
+              <li><a href="emft.gui.html" title="emft.gui package" accesskey="N">next </a></li>
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../dev.html" >Documentation for developers</a></li>
+              <li><a href="modules.html" >EMFT API</a></li>
+              <li><a href="emft.html" >emft package</a></li>
+              <li><a href="emft.core.html" >emft.core package</a></li>
+              <li><a href="emft.core.providers.html" >emft.core.providers package</a></li>
+              <li><a href="emft.core.providers.github.html" accesskey="U">emft.core.providers.github package</a></li>
+            
+            <li class="visible-xs"><a href="../_sources/api/emft.core.providers.github.gh_objects.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">emft.core.providers.github.gh_objects package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_app">emft.core.providers.github.gh_objects.gh_app module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_asset">emft.core.providers.github.gh_objects.gh_asset module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_authorization">emft.core.providers.github.gh_objects.gh_authorization module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_branch">emft.core.providers.github.gh_objects.gh_branch module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_commit">emft.core.providers.github.gh_objects.gh_commit module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_mail">emft.core.providers.github.gh_objects.gh_mail module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_object">emft.core.providers.github.gh_objects.gh_object module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_permissions">emft.core.providers.github.gh_objects.gh_permissions module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_ref">emft.core.providers.github.gh_objects.gh_ref module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_release">emft.core.providers.github.gh_objects.gh_release module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_repo">emft.core.providers.github.gh_objects.gh_repo module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects.gh_user">emft.core.providers.github.gh_objects.gh_user module</a></li>
+<li><a class="reference internal" href="#module-emft.core.providers.github.gh_objects">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="emft.core.providers.github.html"
+                        title="previous chapter">emft.core.providers.github package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="emft.gui.html"
+                        title="next chapter">emft.gui package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/emft.core.providers.github.gh_objects.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="emft-core-providers-github-gh-objects-package">
+<h1>emft.core.providers.github.gh_objects package<a class="headerlink" href="#emft-core-providers-github-gh-objects-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_app">
+<span id="emft-core-providers-github-gh-objects-gh-app-module"></span><h2>emft.core.providers.github.gh_objects.gh_app module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_app" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_app.GHApp">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_app.</code><code class="descname">GHApp</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_app.html#GHApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_app.GHApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_app.GHApp.client_id">
+<code class="descname">client_id</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_app.GHApp.client_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_app.GHApp.name">
+<code class="descname">name</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_app.GHApp.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_app.GHApp.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_app.GHApp.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_asset">
+<span id="emft-core-providers-github-gh-objects-gh-asset-module"></span><h2>emft.core.providers.github.gh_objects.gh_asset module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_asset" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAllAssets">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_asset.</code><code class="descname">GHAllAssets</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_asset.html#GHAllAssets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAllAssets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_asset.</code><code class="descname">GHAsset</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_asset.html#GHAsset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.browser_download_url">
+<code class="descname">browser_download_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.browser_download_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.content_type">
+<code class="descname">content_type</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.content_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.created_at">
+<code class="descname">created_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.download_count">
+<code class="descname">download_count</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.download_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.id">
+<code class="descname">id</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.label">
+<code class="descname">label</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.name">
+<code class="descname">name</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.size">
+<code class="descname">size</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.state">
+<code class="descname">state</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.updated_at">
+<code class="descname">updated_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.uploader">
+<code class="descname">uploader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_asset.html#GHAsset.uploader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.uploader" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.core.providers.github.gh_objects.gh_user.GHUser" title="emft.core.providers.github.gh_objects.gh_user.GHUser"><code class="xref py py-class docutils literal"><span class="pre">GHUser</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_asset.GHAsset.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_asset.GHAsset.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_authorization">
+<span id="emft-core-providers-github-gh-objects-gh-authorization-module"></span><h2>emft.core.providers.github.gh_objects.gh_authorization module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_authorization" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_authorization.</code><code class="descname">GHAuthorization</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_authorization.html#GHAuthorization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="method">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.app">
+<code class="descname">app</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_authorization.html#GHAuthorization.app"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.app" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.core.providers.github.gh_objects.gh_app.GHApp" title="emft.core.providers.github.gh_objects.gh_app.GHApp"><code class="xref py py-class docutils literal"><span class="pre">GHApp</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.created_at">
+<code class="descname">created_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.fingerprint">
+<code class="descname">fingerprint</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.fingerprint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.hashed_token">
+<code class="descname">hashed_token</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.hashed_token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.id">
+<code class="descname">id</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.note">
+<code class="descname">note</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.note" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.note_url">
+<code class="descname">note_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.note_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.scopes">
+<code class="descname">scopes</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.scopes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.token">
+<code class="descname">token</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.token_last_eight">
+<code class="descname">token_last_eight</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.token_last_eight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.updated_at">
+<code class="descname">updated_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_authorization.GHAuthorization.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_branch">
+<span id="emft-core-providers-github-gh-objects-gh-branch-module"></span><h2>emft.core.providers.github.gh_objects.gh_branch module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_branch" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_branch.GHAllBranches">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_branch.</code><code class="descname">GHAllBranches</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_branch.html#GHAllBranches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_branch.GHAllBranches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_branch.GHBranch">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_branch.</code><code class="descname">GHBranch</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_branch.html#GHBranch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_branch.GHBranch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_branch.GHBranch.html_url">
+<code class="descname">html_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_branch.GHBranch.html_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_branch.GHBranch.name">
+<code class="descname">name</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_branch.GHBranch.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_commit">
+<span id="emft-core-providers-github-gh-objects-gh-commit-module"></span><h2>emft.core.providers.github.gh_objects.gh_commit module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_commit" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_commit.GHCommit">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_commit.</code><code class="descname">GHCommit</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_commit.html#GHCommit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_commit.GHCommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_commit.GHCommit.sha">
+<code class="descname">sha</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_commit.GHCommit.sha" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_commit.GHCommit.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_commit.GHCommit.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_mail">
+<span id="emft-core-providers-github-gh-objects-gh-mail-module"></span><h2>emft.core.providers.github.gh_objects.gh_mail module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_mail" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_mail.GHMail">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_mail.</code><code class="descname">GHMail</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_mail.html#GHMail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_mail.GHMail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_mail.GHMail.email">
+<code class="descname">email</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_mail.GHMail.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_mail.GHMail.primary">
+<code class="descname">primary</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_mail.GHMail.primary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_mail.GHMail.verified">
+<code class="descname">verified</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_mail.GHMail.verified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_mail.GHMailList">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_mail.</code><code class="descname">GHMailList</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_mail.html#GHMailList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_mail.GHMailList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_object">
+<span id="emft-core-providers-github-gh-objects-gh-object-module"></span><h2>emft.core.providers.github.gh_objects.gh_object module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_object" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_object.GHObject">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_object.</code><code class="descname">GHObject</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_object.html#GHObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_object.GHObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_object.GHObject.sha">
+<code class="descname">sha</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_object.GHObject.sha" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_object.GHObject.type">
+<code class="descname">type</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_object.GHObject.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_object.GHObject.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_object.GHObject.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_permissions">
+<span id="emft-core-providers-github-gh-objects-gh-permissions-module"></span><h2>emft.core.providers.github.gh_objects.gh_permissions module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_permissions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_permissions.GHPermissions">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_permissions.</code><code class="descname">GHPermissions</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_permissions.html#GHPermissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_permissions.GHPermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_permissions.GHPermissions.admin">
+<code class="descname">admin</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_permissions.GHPermissions.admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_permissions.GHPermissions.pull">
+<code class="descname">pull</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_permissions.GHPermissions.pull" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_permissions.GHPermissions.push">
+<code class="descname">push</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_permissions.GHPermissions.push" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_ref">
+<span id="emft-core-providers-github-gh-objects-gh-ref-module"></span><h2>emft.core.providers.github.gh_objects.gh_ref module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_ref" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_ref.GHRef">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_ref.</code><code class="descname">GHRef</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_ref.html#GHRef"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_ref.GHRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="method">
+<dt id="emft.core.providers.github.gh_objects.gh_ref.GHRef.object">
+<code class="descname">object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_ref.html#GHRef.object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_ref.GHRef.object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_ref.GHRef.ref">
+<code class="descname">ref</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_ref.GHRef.ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_ref.GHRef.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_ref.GHRef.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_release">
+<span id="emft-core-providers-github-gh-objects-gh-release-module"></span><h2>emft.core.providers.github.gh_objects.gh_release module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_release" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHAllReleases">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_release.</code><code class="descname">GHAllReleases</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_release.html#GHAllReleases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHAllReleases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="method">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHAllReleases.final_only">
+<code class="descname">final_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_release.html#GHAllReleases.final_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHAllReleases.final_only" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHAllReleases.prerelease_only">
+<code class="descname">prerelease_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_release.html#GHAllReleases.prerelease_only"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHAllReleases.prerelease_only" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_release.</code><code class="descname">GHRelease</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_release.html#GHRelease"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.assets">
+<code class="descname">assets</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.assets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.assets_count">
+<code class="descname">assets_count</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.assets_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.assets_url">
+<code class="descname">assets_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.assets_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.author">
+<code class="descname">author</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.body">
+<code class="descname">body</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.created_at">
+<code class="descname">created_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.draft">
+<code class="descname">draft</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.draft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.html_url">
+<code class="descname">html_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.html_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.name">
+<code class="descname">name</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.prerelease">
+<code class="descname">prerelease</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.prerelease" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.published_at">
+<code class="descname">published_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.published_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.tag_name">
+<code class="descname">tag_name</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.tag_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_release.GHRelease.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_release.GHRelease.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_repo">
+<span id="emft-core-providers-github-gh-objects-gh-repo-module"></span><h2>emft.core.providers.github.gh_objects.gh_repo module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_repo" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_repo.</code><code class="descname">GHRepo</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_repo.html#GHRepo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.archive_url">
+<code class="descname">archive_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.archive_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.branches_url">
+<code class="descname">branches_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.branches_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.clone_url">
+<code class="descname">clone_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.clone_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.commits_url">
+<code class="descname">commits_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.commits_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.created_at">
+<code class="descname">created_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.default_branch">
+<code class="descname">default_branch</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.default_branch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.description">
+<code class="descname">description</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.downloads_url">
+<code class="descname">downloads_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.downloads_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.fork">
+<code class="descname">fork</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.fork" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.full_name">
+<code class="descname">full_name</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.full_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.html_url">
+<code class="descname">html_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.html_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.id">
+<code class="descname">id</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.name">
+<code class="descname">name</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.open_issues_count">
+<code class="descname">open_issues_count</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.open_issues_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.owner">
+<code class="descname">owner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_repo.html#GHRepo.owner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.owner" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.core.providers.github.gh_objects.gh_user.GHUser" title="emft.core.providers.github.gh_objects.gh_user.GHUser"><code class="xref py py-class docutils literal"><span class="pre">GHUser</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.permissions">
+<code class="descname">permissions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_repo.html#GHRepo.permissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.permissions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.private">
+<code class="descname">private</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.private" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.pushed_at">
+<code class="descname">pushed_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.pushed_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.size">
+<code class="descname">size</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.source">
+<code class="descname">source</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_repo.html#GHRepo.source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.subscribers_count">
+<code class="descname">subscribers_count</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.subscribers_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.tags_url">
+<code class="descname">tags_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.tags_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.updated_at">
+<code class="descname">updated_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepo.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepo.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_repo.GHRepoList">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_repo.</code><code class="descname">GHRepoList</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_repo.html#GHRepoList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_repo.GHRepoList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects.gh_user">
+<span id="emft-core-providers-github-gh-objects-gh-user-module"></span><h2>emft.core.providers.github.gh_objects.gh_user module<a class="headerlink" href="#module-emft.core.providers.github.gh_objects.gh_user" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser">
+<em class="property">class </em><code class="descclassname">emft.core.providers.github.gh_objects.gh_user.</code><code class="descname">GHUser</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/providers/github/gh_objects/gh_user.html#GHUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.providers.html#emft.core.providers.json_object.JSONObject" title="emft.core.providers.json_object.JSONObject"><code class="xref py py-class docutils literal"><span class="pre">emft.core.providers.json_object.JSONObject</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.avatar_url">
+<code class="descname">avatar_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.avatar_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.bio">
+<code class="descname">bio</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.bio" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.blog">
+<code class="descname">blog</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.blog" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.company">
+<code class="descname">company</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.company" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.created_at">
+<code class="descname">created_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.email">
+<code class="descname">email</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.html_url">
+<code class="descname">html_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.html_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.id">
+<code class="descname">id</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.location">
+<code class="descname">location</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.login">
+<code class="descname">login</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.public_gists">
+<code class="descname">public_gists</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.public_gists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.public_repos">
+<code class="descname">public_repos</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.public_repos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.repos_url">
+<code class="descname">repos_url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.repos_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.type">
+<code class="descname">type</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.updated_at">
+<code class="descname">updated_at</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.updated_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.core.providers.github.gh_objects.gh_user.GHUser.url">
+<code class="descname">url</code><a class="headerlink" href="#emft.core.providers.github.gh_objects.gh_user.GHUser.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.core.providers.github.gh_objects">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-emft.core.providers.github.gh_objects" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="emft.core.providers.github.html" title="emft.core.providers.github package" >previous</a></li>
+        <li><a href="emft.gui.html" title="emft.gui package" >next</a></li>
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../dev.html" >Documentation for developers</a></li>
+        <li><a href="modules.html" >EMFT API</a></li>
+        <li><a href="emft.html" >emft package</a></li>
+        <li><a href="emft.core.html" >emft.core package</a></li>
+        <li><a href="emft.core.providers.html" >emft.core.providers package</a></li>
+        <li><a href="emft.core.providers.github.html" >emft.core.providers.github package</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.reorder.service package &mdash; EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.6.0-alpha.119-reorg-src.72(0.6.0a72)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation" href="../index.html" />
+    <link rel="up" title="emft.reorder package" href="emft.reorder.html" />
+    <link rel="next" title="emft.reorder.value package" href="emft.reorder.value.html" />
+    <link rel="prev" title="emft.reorder.gui package" href="emft.reorder.gui.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">emft.reorder.service package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.browse_for_files">emft.reorder.service.browse_for_files module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.convert_url">emft.reorder.service.convert_url module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.manage_auto_profiles">emft.reorder.service.manage_auto_profiles module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.manage_branches">emft.reorder.service.manage_branches module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.manage_output_folders">emft.reorder.service.manage_output_folders module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.manage_remote_versions">emft.reorder.service.manage_remote_versions module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.reorder_miz">emft.reorder.service.reorder_miz module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="emft.reorder.gui.html" title="emft.reorder.gui package" accesskey="P">previous </a></li>
+              <li><a href="emft.reorder.value.html" title="emft.reorder.value package" accesskey="N">next </a></li>
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../dev.html" >Documentation for developers</a></li>
+              <li><a href="modules.html" >EMFT API</a></li>
+              <li><a href="emft.html" >emft package</a></li>
+              <li><a href="emft.reorder.html" accesskey="U">emft.reorder package</a></li>
+            
+            <li class="visible-xs"><a href="../_sources/api/emft.reorder.service.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">emft.reorder.service package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.browse_for_files">emft.reorder.service.browse_for_files module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.convert_url">emft.reorder.service.convert_url module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.manage_auto_profiles">emft.reorder.service.manage_auto_profiles module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.manage_branches">emft.reorder.service.manage_branches module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.manage_output_folders">emft.reorder.service.manage_output_folders module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.manage_remote_versions">emft.reorder.service.manage_remote_versions module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service.reorder_miz">emft.reorder.service.reorder_miz module</a></li>
+<li><a class="reference internal" href="#module-emft.reorder.service">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="emft.reorder.gui.html"
+                        title="previous chapter">emft.reorder.gui package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="emft.reorder.value.html"
+                        title="next chapter">emft.reorder.value package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/emft.reorder.service.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="emft-reorder-service-package">
+<h1>emft.reorder.service package<a class="headerlink" href="#emft-reorder-service-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-emft.reorder.service.browse_for_files">
+<span id="emft-reorder-service-browse-for-files-module"></span><h2>emft.reorder.service.browse_for_files module<a class="headerlink" href="#module-emft.reorder.service.browse_for_files" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.reorder.service.browse_for_files.BrowseForFiles">
+<em class="property">class </em><code class="descclassname">emft.reorder.service.browse_for_files.</code><code class="descname">BrowseForFiles</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/browse_for_files.html#BrowseForFiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.browse_for_files.BrowseForFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="emft.reorder.service.browse_for_files.BrowseForFiles.browse_for_miz">
+<em class="property">static </em><code class="descname">browse_for_miz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/browse_for_files.html#BrowseForFiles.browse_for_miz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.browse_for_files.BrowseForFiles.browse_for_miz" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.core.html#emft.core.path.Path" title="emft.core.path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.browse_for_files.BrowseForFiles.browse_for_output_folder">
+<em class="property">static </em><code class="descname">browse_for_output_folder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/browse_for_files.html#BrowseForFiles.browse_for_output_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.browse_for_files.BrowseForFiles.browse_for_output_folder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.browse_for_files.BrowseForFiles.show_file_or_folder_in_explorer">
+<em class="property">static </em><code class="descname">show_file_or_folder_in_explorer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/browse_for_files.html#BrowseForFiles.show_file_or_folder_in_explorer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.browse_for_files.BrowseForFiles.show_file_or_folder_in_explorer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.reorder.service.convert_url">
+<span id="emft-reorder-service-convert-url-module"></span><h2>emft.reorder.service.convert_url module<a class="headerlink" href="#module-emft.reorder.service.convert_url" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.reorder.service.convert_url.ConvertUrl">
+<em class="property">class </em><code class="descclassname">emft.reorder.service.convert_url.</code><code class="descname">ConvertUrl</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/convert_url.html#ConvertUrl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.convert_url.ConvertUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="emft.reorder.service.convert_url.ConvertUrl.convert_av_url">
+<em class="property">static </em><code class="descname">convert_av_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/convert_url.html#ConvertUrl.convert_av_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.convert_url.ConvertUrl.convert_av_url" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.convert_url.ConvertUrl.convert_gh_url">
+<em class="property">static </em><code class="descname">convert_gh_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/convert_url.html#ConvertUrl.convert_gh_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.convert_url.ConvertUrl.convert_gh_url" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.reorder.service.manage_auto_profiles">
+<span id="emft-reorder-service-manage-auto-profiles-module"></span><h2>emft.reorder.service.manage_auto_profiles module<a class="headerlink" href="#module-emft.reorder.service.manage_auto_profiles" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles">
+<em class="property">class </em><code class="descclassname">emft.reorder.service.manage_auto_profiles.</code><code class="descname">ManageProfiles</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.add_profile_from_values">
+<em class="property">static </em><code class="descname">add_profile_from_values</code><span class="sig-paren">(</span><em>gh_repo</em>, <em>av_repo</em>, <em>src_folder</em>, <em>output_folder</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.add_profile_from_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.add_profile_from_values" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.add_profile_object">
+<em class="property">static </em><code class="descname">add_profile_object</code><span class="sig-paren">(</span><em>profile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.add_profile_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.add_profile_object" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.change_active_profile">
+<em class="property">static </em><code class="descname">change_active_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.change_active_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.change_active_profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.get_av_repo_info">
+<em class="property">static </em><code class="descname">get_av_repo_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.get_av_repo_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.get_av_repo_info" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.get_gh_repo_info">
+<em class="property">static </em><code class="descname">get_gh_repo_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.get_gh_repo_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.get_gh_repo_info" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.notify_watchers">
+<em class="property">static </em><code class="descname">notify_watchers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.notify_watchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.notify_watchers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.read_profiles_from_config">
+<em class="property">static </em><code class="descname">read_profiles_from_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.read_profiles_from_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.read_profiles_from_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.remove_profile">
+<em class="property">static </em><code class="descname">remove_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.remove_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.remove_profile" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.watch_profile_change">
+<em class="property">static </em><code class="descname">watch_profile_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.watch_profile_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.watch_profile_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_auto_profiles.ManageProfiles.write_profiles_to_config">
+<em class="property">static </em><code class="descname">write_profiles_to_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_auto_profiles.html#ManageProfiles.write_profiles_to_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_auto_profiles.ManageProfiles.write_profiles_to_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.reorder.service.manage_branches">
+<span id="emft-reorder-service-manage-branches-module"></span><h2>emft.reorder.service.manage_branches module<a class="headerlink" href="#module-emft.reorder.service.manage_branches" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.reorder.service.manage_branches.ManageBranches">
+<em class="property">class </em><code class="descclassname">emft.reorder.service.manage_branches.</code><code class="descname">ManageBranches</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_branches.html#ManageBranches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_branches.ManageBranches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_branches.ManageBranches.change_active_branch">
+<em class="property">static </em><code class="descname">change_active_branch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_branches.html#ManageBranches.change_active_branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_branches.ManageBranches.change_active_branch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_branches.ManageBranches.load_values_from_config">
+<em class="property">static </em><code class="descname">load_values_from_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_branches.html#ManageBranches.load_values_from_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_branches.ManageBranches.load_values_from_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_branches.ManageBranches.notify_watchers">
+<em class="property">static </em><code class="descname">notify_watchers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_branches.html#ManageBranches.notify_watchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_branches.ManageBranches.notify_watchers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_branches.ManageBranches.refresh_gh_branches">
+<em class="property">static </em><code class="descname">refresh_gh_branches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_branches.html#ManageBranches.refresh_gh_branches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_branches.ManageBranches.refresh_gh_branches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_branches.ManageBranches.watch_branch_change">
+<em class="property">static </em><code class="descname">watch_branch_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_branches.html#ManageBranches.watch_branch_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_branches.ManageBranches.watch_branch_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.reorder.service.manage_output_folders">
+<span id="emft-reorder-service-manage-output-folders-module"></span><h2>emft.reorder.service.manage_output_folders module<a class="headerlink" href="#module-emft.reorder.service.manage_output_folders" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders">
+<em class="property">class </em><code class="descclassname">emft.reorder.service.manage_output_folders.</code><code class="descname">ManageOutputFolders</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.add_output_folder">
+<em class="property">static </em><code class="descname">add_output_folder</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.add_output_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.add_output_folder" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.change_active_output_folder">
+<em class="property">static </em><code class="descname">change_active_output_folder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.change_active_output_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.change_active_output_folder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.get_by_name">
+<em class="property">static </em><code class="descname">get_by_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.get_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.get_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.get_by_path">
+<em class="property">static </em><code class="descname">get_by_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.get_by_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.get_by_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.notify_watchers">
+<em class="property">static </em><code class="descname">notify_watchers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.notify_watchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.notify_watchers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.read_output_folders_from_config">
+<em class="property">static </em><code class="descname">read_output_folders_from_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.read_output_folders_from_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.read_output_folders_from_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.remove_output_folder">
+<em class="property">static </em><code class="descname">remove_output_folder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.remove_output_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.remove_output_folder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.watch_output_folder_change">
+<em class="property">static </em><code class="descname">watch_output_folder_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.watch_output_folder_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.watch_output_folder_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_output_folders.ManageOutputFolders.write_output_folders_to_config">
+<em class="property">static </em><code class="descname">write_output_folders_to_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_output_folders.html#ManageOutputFolders.write_output_folders_to_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_output_folders.ManageOutputFolders.write_output_folders_to_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.reorder.service.manage_remote_versions">
+<span id="emft-reorder-service-manage-remote-versions-module"></span><h2>emft.reorder.service.manage_remote_versions module<a class="headerlink" href="#module-emft.reorder.service.manage_remote_versions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.reorder.service.manage_remote_versions.ManageRemoteVersions">
+<em class="property">class </em><code class="descclassname">emft.reorder.service.manage_remote_versions.</code><code class="descname">ManageRemoteVersions</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_remote_versions.html#ManageRemoteVersions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_remote_versions.ManageRemoteVersions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_remote_versions.ManageRemoteVersions.download_latest_remote_version">
+<em class="property">static </em><code class="descname">download_latest_remote_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_remote_versions.html#ManageRemoteVersions.download_latest_remote_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.download_latest_remote_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_remote_versions.ManageRemoteVersions.get_latest_remote_version">
+<em class="property">static </em><code class="descname">get_latest_remote_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_remote_versions.html#ManageRemoteVersions.get_latest_remote_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.get_latest_remote_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_remote_versions.ManageRemoteVersions.notify_watchers">
+<em class="property">static </em><code class="descname">notify_watchers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_remote_versions.html#ManageRemoteVersions.notify_watchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.notify_watchers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.manage_remote_versions.ManageRemoteVersions.watch_remote_version_change">
+<em class="property">static </em><code class="descname">watch_remote_version_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/manage_remote_versions.html#ManageRemoteVersions.watch_remote_version_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.watch_remote_version_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.reorder.service.reorder_miz">
+<span id="emft-reorder-service-reorder-miz-module"></span><h2>emft.reorder.service.reorder_miz module<a class="headerlink" href="#module-emft.reorder.service.reorder_miz" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.reorder.service.reorder_miz.ReorderMiz">
+<em class="property">class </em><code class="descclassname">emft.reorder.service.reorder_miz.</code><code class="descname">ReorderMiz</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/reorder_miz.html#ReorderMiz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.reorder_miz.ReorderMiz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="emft.reorder.service.reorder_miz.ReorderMiz.auto_reorder">
+<em class="property">static </em><code class="descname">auto_reorder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/reorder_miz.html#ReorderMiz.auto_reorder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.reorder_miz.ReorderMiz.auto_reorder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.reorder_miz.ReorderMiz.manual_reorder">
+<em class="property">static </em><code class="descname">manual_reorder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/reorder_miz.html#ReorderMiz.manual_reorder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.reorder_miz.ReorderMiz.manual_reorder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.reorder.service.reorder_miz.ReorderMiz.reorder_miz_file">
+<em class="property">static </em><code class="descname">reorder_miz_file</code><span class="sig-paren">(</span><em>output_folder_path</em>, <em>skip_option_file</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/reorder/service/reorder_miz.html#ReorderMiz.reorder_miz_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.reorder.service.reorder_miz.ReorderMiz.reorder_miz_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.reorder.service">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-emft.reorder.service" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="emft.reorder.gui.html" title="emft.reorder.gui package" >previous</a></li>
+        <li><a href="emft.reorder.value.html" title="emft.reorder.value package" >next</a></li>
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../dev.html" >Documentation for developers</a></li>
+        <li><a href="modules.html" >EMFT API</a></li>
+        <li><a href="emft.html" >emft package</a></li>
+        <li><a href="emft.reorder.html" >emft.reorder package</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 02 Aug 2017.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

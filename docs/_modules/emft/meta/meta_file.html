@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.meta.meta_file &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.meta.meta_file &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -140,21 +140,22 @@
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
 
-<span class="kn">from</span> <span class="nn">ruamel.yaml</span> <span class="k">import</span> <span class="n">load</span> <span class="k">as</span> <span class="n">yload</span><span class="p">,</span> <span class="n">resolver</span><span class="p">,</span> <span class="n">add_constructor</span><span class="p">,</span> <span class="n">add_representer</span>
+<span class="kn">from</span> <span class="nn">ruamel.yaml</span> <span class="k">import</span> <span class="n">add_constructor</span><span class="p">,</span> <span class="n">add_representer</span><span class="p">,</span> <span class="n">load</span> <span class="k">as</span> <span class="n">yload</span><span class="p">,</span> <span class="n">resolver</span>
 
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">make_logger</span>
 <span class="kn">from</span> <span class="nn">emft.meta.meta</span> <span class="k">import</span> <span class="n">Meta</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">make_logger</span><span class="p">,</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">emft.core.path</span> <span class="k">import</span> <span class="n">Path</span>
 
 <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="n">_yaml_mapping</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">BaseResolver</span><span class="o">.</span><span class="n">DEFAULT_MAPPING_TAG</span>
 
 
-<div class="viewcode-block" id="odict_represent"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.odict_represent">[docs]</a><span class="k">def</span> <span class="nf">odict_represent</span><span class="p">(</span><span class="n">dumper</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="odict_represent"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.odict_represent">[docs]</a><span class="k">def</span> <span class="nf">odict_represent</span><span class="p">(</span><span class="n">dumper</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">dumper</span><span class="o">.</span><span class="n">represent_dict</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iteritems</span><span class="p">())</span></div>
 
 
-<div class="viewcode-block" id="odict_construct"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.odict_construct">[docs]</a><span class="k">def</span> <span class="nf">odict_construct</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+<div class="viewcode-block" id="odict_construct"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.odict_construct">[docs]</a><span class="k">def</span> <span class="nf">odict_construct</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="n">loader</span><span class="o">.</span><span class="n">construct_pairs</span><span class="p">(</span><span class="n">node</span><span class="p">))</span></div>
 
 
@@ -162,7 +163,7 @@
 <span class="n">add_constructor</span><span class="p">(</span><span class="n">_yaml_mapping</span><span class="p">,</span> <span class="n">odict_construct</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="MetaFile"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.MetaFile">[docs]</a><span class="k">class</span> <span class="nc">MetaFile</span><span class="p">(</span><span class="n">Meta</span><span class="p">):</span>
+<div class="viewcode-block" id="MetaFile"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.MetaFile">[docs]</a><span class="k">class</span> <span class="nc">MetaFile</span><span class="p">(</span><span class="n">Meta</span><span class="p">):</span>
     <span class="nd">@property</span>
     <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
     <span class="k">def</span> <span class="nf">meta_header</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -173,7 +174,7 @@
     <span class="k">def</span> <span class="nf">meta_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="MetaFile.meta_version_upgrade"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.MetaFile.meta_version_upgrade">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+<div class="viewcode-block" id="MetaFile.meta_version_upgrade"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.MetaFile.meta_version_upgrade">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
     <span class="k">def</span> <span class="nf">meta_version_upgrade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_version</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span></div>
 
@@ -210,10 +211,10 @@
         <span class="k">if</span> <span class="n">_write</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
-<div class="viewcode-block" id="MetaFile.debug"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.MetaFile.debug">[docs]</a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="viewcode-block" id="MetaFile.debug"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.MetaFile.debug">[docs]</a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="MetaFile.exception"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.MetaFile.exception">[docs]</a>    <span class="k">def</span> <span class="nf">exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="viewcode-block" id="MetaFile.exception"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.MetaFile.exception">[docs]</a>    <span class="k">def</span> <span class="nf">exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(),</span> <span class="n">txt</span><span class="p">))</span></div>
 
     <span class="nd">@property</span>
@@ -266,7 +267,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">pass</span>
 
-<div class="viewcode-block" id="MetaFile.read"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.MetaFile.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MetaFile.read"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.MetaFile.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">wait_for_lock</span><span class="p">()</span>
 
@@ -307,7 +308,7 @@
             <span class="k">if</span> <span class="n">meta_updated</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="MetaFile.write"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.MetaFile.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MetaFile.write"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.MetaFile.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># noinspection PyTypeChecker</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;no data to write&#39;</span><span class="p">)</span>
@@ -330,7 +331,7 @@
         <span class="k">finally</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">free</span> <span class="o">=</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="MetaFile.wait_for_lock"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.MetaFile.wait_for_lock">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MetaFile.wait_for_lock"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.MetaFile.wait_for_lock">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">free</span><span class="p">:</span>
@@ -343,7 +344,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">free</span> <span class="o">=</span> <span class="kc">False</span></div>
 
-<div class="viewcode-block" id="MetaFile.read_header"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta_file.MetaFile.read_header">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MetaFile.read_header"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta_file.MetaFile.read_header">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">read_header</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
 
         <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -366,8 +367,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -384,6 +385,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

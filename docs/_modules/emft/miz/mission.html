@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.miz.mission &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.miz.mission &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -140,10 +140,10 @@
 <span class="kn">import</span> <span class="nn">typing</span>
 <span class="kn">from</span> <span class="nn">calendar</span> <span class="k">import</span> <span class="n">timegm</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">chain</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">strftime</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strptime</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strftime</span><span class="p">,</span> <span class="n">strptime</span>
 
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">make_logger</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">Logged</span><span class="p">,</span> <span class="n">valid_str</span><span class="p">,</span> <span class="n">valid_positive_int</span><span class="p">,</span> <span class="n">Validator</span><span class="p">,</span> <span class="n">valid_bool</span><span class="p">,</span> <span class="n">valid_int</span><span class="p">,</span> <span class="n">valid_float</span>
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">Logged</span><span class="p">,</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">emft.core.validator</span> <span class="k">import</span> <span class="n">Validator</span><span class="p">,</span> <span class="n">valid_bool</span><span class="p">,</span> <span class="n">valid_float</span><span class="p">,</span> <span class="n">valid_int</span><span class="p">,</span> <span class="n">valid_positive_int</span><span class="p">,</span> <span class="n">valid_str</span>
 
 <span class="n">EPOCH_DELTA</span> <span class="o">=</span> <span class="mi">1306886400</span>
 
@@ -153,7 +153,7 @@
                                          <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="BaseMissionObject"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject">[docs]</a><span class="k">class</span> <span class="nc">BaseMissionObject</span><span class="p">(</span><span class="n">Logged</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject">[docs]</a><span class="k">class</span> <span class="nc">BaseMissionObject</span><span class="p">(</span><span class="n">Logged</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
@@ -174,7 +174,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_name</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_id</span> <span class="o">=</span> <span class="p">{}</span>
 
-<div class="viewcode-block" id="BaseMissionObject.get_country_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_country_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_country_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country_name</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject.get_country_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_country_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_country_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country_name</span><span class="p">):</span>
         <span class="n">valid_str</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">country_name</span><span class="p">,</span> <span class="s1">&#39;get_country_by_name&#39;</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">country_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_name</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">countries</span><span class="p">:</span>
@@ -186,7 +186,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_name</span><span class="p">[</span><span class="n">country_name</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="BaseMissionObject.get_country_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_country_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_country_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country_id</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject.get_country_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_country_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_country_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country_id</span><span class="p">):</span>
         <span class="n">valid_positive_int</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">country_id</span><span class="p">,</span> <span class="s1">&#39;get_country_by_id&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">country_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_id</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">countries</span><span class="p">:</span>
@@ -198,19 +198,19 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_id</span><span class="p">[</span><span class="n">country_id</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="BaseMissionObject.get_groups_from_category"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_groups_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_groups_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject.get_groups_from_category"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_groups_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_groups_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
         <span class="n">Mission</span><span class="o">.</span><span class="n">validator_group_category</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="s1">&#39;get_groups_from_category&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">group_category</span> <span class="o">==</span> <span class="n">category</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">group</span></div>
 
-<div class="viewcode-block" id="BaseMissionObject.get_units_from_category"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_units_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_units_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject.get_units_from_category"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_units_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_units_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
         <span class="n">Mission</span><span class="o">.</span><span class="n">validator_group_category</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="s1">&#39;get_units_from_category&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">group_category</span> <span class="o">==</span> <span class="n">category</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">unit</span></div>
 
-<div class="viewcode-block" id="BaseMissionObject.get_group_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_group_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject.get_group_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_group_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">):</span>
         <span class="n">valid_positive_int</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="s1">&#39;get_group_by_id&#39;</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
@@ -218,13 +218,13 @@
                 <span class="k">return</span> <span class="n">group</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="BaseMissionObject.get_clients_groups"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_clients_groups">[docs]</a>    <span class="k">def</span> <span class="nf">get_clients_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;FlyingUnit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<div class="viewcode-block" id="BaseMissionObject.get_clients_groups"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_clients_groups">[docs]</a>    <span class="k">def</span> <span class="nf">get_clients_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;FlyingUnit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">group_is_client_group</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">group</span></div>
 
-<div class="viewcode-block" id="BaseMissionObject.get_group_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_group_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject.get_group_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_group_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">):</span>
         <span class="n">valid_str</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">group_name</span><span class="p">,</span> <span class="s1">&#39;get_group_by_name&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
@@ -232,7 +232,7 @@
                 <span class="k">return</span> <span class="n">group</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="BaseMissionObject.get_unit_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_unit_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject.get_unit_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_unit_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">):</span>
         <span class="n">valid_str</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">unit_name</span><span class="p">,</span> <span class="s1">&#39;get_unit_by_name&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
@@ -240,7 +240,7 @@
                 <span class="k">return</span> <span class="n">unit</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="BaseMissionObject.get_unit_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseMissionObject.get_unit_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_id</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseMissionObject.get_unit_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseMissionObject.get_unit_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_id</span><span class="p">):</span>
         <span class="n">valid_positive_int</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">unit_id</span><span class="p">,</span> <span class="s1">&#39;get_unit_by_id&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
@@ -329,7 +329,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">l10n</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_sortie_name_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
 
 
-<div class="viewcode-block" id="Mission"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Mission">[docs]</a><span class="k">class</span> <span class="nc">Mission</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
+<div class="viewcode-block" id="Mission"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Mission">[docs]</a><span class="k">class</span> <span class="nc">Mission</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
     <span class="n">validator_start_time</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span>
         <span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
         <span class="n">_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -371,14 +371,14 @@
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;Mission(</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Mission.farps"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Mission.farps">[docs]</a>    <span class="k">def</span> <span class="nf">farps</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;Static&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<div class="viewcode-block" id="Mission.farps"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Mission.farps">[docs]</a>    <span class="k">def</span> <span class="nf">farps</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;Static&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
         <span class="k">for</span> <span class="n">coa</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">blue_coa</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">red_coa</span><span class="p">]:</span>
             <span class="k">for</span> <span class="n">farp</span> <span class="ow">in</span> <span class="n">coa</span><span class="o">.</span><span class="n">farps</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">farp</span></div></div>
 
 
 <span class="c1"># noinspection PyProtectedMember</span>
-<div class="viewcode-block" id="Coalition"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition">[docs]</a><span class="k">class</span> <span class="nc">Coalition</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
+<div class="viewcode-block" id="Coalition"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition">[docs]</a><span class="k">class</span> <span class="nc">Coalition</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">ln10</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">ln10</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">coa_color</span> <span class="o">=</span> <span class="n">coa_color</span>
@@ -434,7 +434,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_name</span><span class="p">[</span><span class="n">country</span><span class="o">.</span><span class="n">country_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">country</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_countries</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Coalition.get_country_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition.get_country_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_country_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Country&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Coalition.get_country_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition.get_country_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_country_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Country&#39;</span><span class="p">:</span>
         <span class="n">valid_str</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">country_name</span><span class="p">,</span> <span class="s1">&#39;get_country_by_name&#39;</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">country_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_name</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">countries</span><span class="p">:</span>
@@ -445,7 +445,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_name</span><span class="p">[</span><span class="n">country_name</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Coalition.get_country_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition.get_country_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_country_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Country&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Coalition.get_country_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition.get_country_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_country_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Country&#39;</span><span class="p">:</span>
         <span class="n">valid_positive_int</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">country_id</span><span class="p">,</span> <span class="s1">&#39;get_country_by_id&#39;</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">country_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_countries_by_id</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">countries</span><span class="p">:</span>
@@ -481,7 +481,7 @@
                 <span class="k">if</span> <span class="n">static</span><span class="o">.</span><span class="n">static_is_farp</span><span class="p">:</span>
                     <span class="k">yield</span> <span class="n">static</span>
 
-<div class="viewcode-block" id="Coalition.get_groups_from_category"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition.get_groups_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_groups_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<div class="viewcode-block" id="Coalition.get_groups_from_category"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition.get_groups_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_groups_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
         <span class="n">Mission</span><span class="o">.</span><span class="n">validator_group_category</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="s1">&#39;get_groups_from_category&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
@@ -495,35 +495,35 @@
             <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">unit</span>
 
-<div class="viewcode-block" id="Coalition.get_units_from_category"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition.get_units_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_units_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;BaseUnit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<div class="viewcode-block" id="Coalition.get_units_from_category"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition.get_units_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_units_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;BaseUnit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
         <span class="n">Mission</span><span class="o">.</span><span class="n">validator_group_category</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="s1">&#39;group category&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">group_category</span> <span class="o">==</span> <span class="n">category</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">unit</span></div>
 
-<div class="viewcode-block" id="Coalition.get_group_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition.get_group_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Group&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Coalition.get_group_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition.get_group_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Group&#39;</span><span class="p">:</span>
         <span class="n">valid_positive_int</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="s1">&#39;get_group_by_id&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">group_id</span> <span class="o">==</span> <span class="n">group_id</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">group</span></div>
 
-<div class="viewcode-block" id="Coalition.get_group_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition.get_group_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Group&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Coalition.get_group_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition.get_group_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Group&#39;</span><span class="p">:</span>
         <span class="n">valid_str</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">group_name</span><span class="p">,</span> <span class="s1">&#39;get_group_by_name&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">group_name</span> <span class="o">==</span> <span class="n">group_name</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">group</span></div>
 
-<div class="viewcode-block" id="Coalition.get_unit_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition.get_unit_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Coalition.get_unit_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition.get_unit_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
         <span class="n">valid_str</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">unit_name</span><span class="p">,</span> <span class="s1">&#39;get_unit_by_name&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">unit_name</span> <span class="o">==</span> <span class="n">unit_name</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">unit</span></div>
 
-<div class="viewcode-block" id="Coalition.get_unit_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Coalition.get_unit_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Coalition.get_unit_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Coalition.get_unit_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
         <span class="n">valid_positive_int</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">unit_id</span><span class="p">,</span> <span class="s1">&#39;get_unit_by_id&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
@@ -531,7 +531,7 @@
                 <span class="k">return</span> <span class="n">unit</span></div></div>
 
 
-<div class="viewcode-block" id="Trig"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Trig">[docs]</a><span class="k">class</span> <span class="nc">Trig</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
+<div class="viewcode-block" id="Trig"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Trig">[docs]</a><span class="k">class</span> <span class="nc">Trig</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">)</span>
 
@@ -540,7 +540,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;trig&#39;</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="Result"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Result">[docs]</a><span class="k">class</span> <span class="nc">Result</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
+<div class="viewcode-block" id="Result"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Result">[docs]</a><span class="k">class</span> <span class="nc">Result</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">)</span>
 
@@ -549,7 +549,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="GroundControl"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.GroundControl">[docs]</a><span class="k">class</span> <span class="nc">GroundControl</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
+<div class="viewcode-block" id="GroundControl"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.GroundControl">[docs]</a><span class="k">class</span> <span class="nc">GroundControl</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
     <span class="n">validator_commander</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">):</span>
@@ -665,7 +665,7 @@
 
 
 <span class="c1"># noinspection PyProtectedMember</span>
-<div class="viewcode-block" id="Weather"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Weather">[docs]</a><span class="k">class</span> <span class="nc">Weather</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
+<div class="viewcode-block" id="Weather"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Weather">[docs]</a><span class="k">class</span> <span class="nc">Weather</span><span class="p">(</span><span class="n">BaseMissionObject</span><span class="p">):</span>
     <span class="n">validator_precipitations</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
     <span class="n">validator_cloud_density</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
     <span class="n">validator_cloud_thickness</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span>
@@ -673,9 +673,12 @@
     <span class="n">validator_cloud_base</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
     <span class="n">validator_fog_visibility</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">6000</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span>
                                          <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
+    <span class="n">validator_visibility</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">80000</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span>
+                                     <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
     <span class="n">validator_fog_thickness</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span>
                                         <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
     <span class="n">validator_qnh</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">790</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
+    <span class="n">validator_temperature</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
     <span class="n">validator_temp_spring_or_fall</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span>
                                               <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
     <span class="n">validator_temp_winter</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">_min</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="n">_max</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
@@ -720,22 +723,9 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&quot;other&quot; must be an Weather instance; got: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_section_weather</span>
 
-<div class="viewcode-block" id="Weather.get_season_code_from_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Weather.get_season_code_from_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_season_code_from_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">season_name</span><span class="p">):</span>
+<div class="viewcode-block" id="Weather.get_season_code_from_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Weather.get_season_code_from_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_season_code_from_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">season_name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">validator_season_name</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">season_name</span><span class="p">,</span> <span class="s1">&#39;get_season_code_from_name&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">seasons_enum</span><span class="p">[</span><span class="n">season_name</span><span class="p">]</span></div>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">_section_fog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;fog&#39;</span><span class="p">]</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">fog_thickness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_fog</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span>
-
-    <span class="nd">@fog_thickness</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">fog_thickness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">validator_fog_thickness</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;fog_thickness&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_section_fog</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_section_wind_at_ground_level</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -760,6 +750,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_section_wind_at_ground_level</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_section_fog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;fog&#39;</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fog_thickness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_fog</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span>
+
+    <span class="nd">@fog_thickness</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">fog_thickness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validator_fog_thickness</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;fog_thickness&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_section_fog</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">fog_visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_fog</span><span class="p">[</span><span class="s1">&#39;visibility&#39;</span><span class="p">]</span>
 
@@ -767,6 +770,28 @@
     <span class="k">def</span> <span class="nf">fog_visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">validator_fog_visibility</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;fog_visibility&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_section_fog</span><span class="p">[</span><span class="s1">&#39;visibility&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fog_enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;enable_fog&#39;</span><span class="p">]</span>
+
+    <span class="nd">@fog_enabled</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">fog_enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">valid_bool</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;enable_fog&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;enable_fog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_section_visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;visibility&#39;</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_visibility</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]</span>
+
+    <span class="nd">@visibility</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validator_visibility</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;visibility&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_section_visibility</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">precipitations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -805,12 +830,12 @@
 
     <span class="nd">@temperature</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">seasons_enum</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">season_code</span><span class="p">][</span><span class="s1">&#39;temp_validator&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validator_temperature</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_section_season</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">precipitations</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">precipitations</span> <span class="o">-=</span> <span class="mi">2</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">precipitations</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># PyKek</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">precipitations</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="c1"># if value &gt; 0 and self.precipitations &gt; 2:</span>
+        <span class="c1">#     self.precipitations -= 2</span>
+        <span class="c1"># if value &lt; 0 &lt; self.precipitations &lt; 3:  # PyKek</span>
+        <span class="c1">#     self.precipitations += 2</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_section_wind_at8000</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -824,28 +849,6 @@
     <span class="k">def</span> <span class="nf">wind_at_ground_level_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="n">Mission</span><span class="o">.</span><span class="n">validator_heading</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;wind_at_ground_level_dir&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_section_wind_at_ground_level</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">_section_clouds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;clouds&#39;</span><span class="p">]</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">cloud_thickness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span>
-
-    <span class="nd">@cloud_thickness</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">cloud_thickness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">validator_cloud_thickness</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;cloud_thickness&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">fog_enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;enable_fog&#39;</span><span class="p">]</span>
-
-    <span class="nd">@fog_enabled</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">fog_enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="n">valid_bool</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;enable_fog&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;enable_fog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_section_wind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -887,15 +890,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_section_wind_at2000</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">cloud_density</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span>
-
-    <span class="nd">@cloud_density</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">cloud_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">validator_cloud_density</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;cloud_density&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_section_season</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span>
 
@@ -922,6 +916,19 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">seasons_enum</span><span class="p">[</span><span class="n">value</span><span class="p">][</span><span class="s1">&#39;temp_validator&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_section_clouds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_weather</span><span class="p">[</span><span class="s1">&#39;clouds&#39;</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cloud_thickness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span>
+
+    <span class="nd">@cloud_thickness</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cloud_thickness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validator_cloud_thickness</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;cloud_thickness&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">cloud_base</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span>
 
@@ -929,6 +936,15 @@
     <span class="k">def</span> <span class="nf">cloud_base</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">validator_cloud_base</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;cloud_base&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cloud_density</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span>
+
+    <span class="nd">@cloud_density</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cloud_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validator_cloud_density</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;cloud_density&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_section_clouds</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">wind_at8000_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -941,7 +957,7 @@
 
 
 <span class="c1"># noinspection PyProtectedMember</span>
-<div class="viewcode-block" id="Country"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Country">[docs]</a><span class="k">class</span> <span class="nc">Country</span><span class="p">(</span><span class="n">Coalition</span><span class="p">):</span>
+<div class="viewcode-block" id="Country"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Country">[docs]</a><span class="k">class</span> <span class="nc">Country</span><span class="p">(</span><span class="n">Coalition</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__groups</span> <span class="o">=</span> <span class="p">{</span>
@@ -993,20 +1009,20 @@
                                                          <span class="bp">self</span><span class="o">.</span><span class="n">country_index</span><span class="p">,</span> <span class="n">static_index</span><span class="p">)</span>
                 <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">__static</span><span class="p">[</span><span class="n">static_index</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Country.get_groups_from_category"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Country.get_groups_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_groups_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<div class="viewcode-block" id="Country.get_groups_from_category"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Country.get_groups_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_groups_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
         <span class="n">Mission</span><span class="o">.</span><span class="n">validator_group_category</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="s1">&#39;get_groups_from_category&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">group_category</span> <span class="o">==</span> <span class="n">category</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">group</span></div>
 
-<div class="viewcode-block" id="Country.get_group_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Country.get_group_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Group&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Country.get_group_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Country.get_group_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Group&#39;</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">group_id</span> <span class="o">==</span> <span class="n">group_id</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">group</span></div>
 
-<div class="viewcode-block" id="Country.get_group_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Country.get_group_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Group&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Country.get_group_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Country.get_group_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Group&#39;</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">group_name</span> <span class="o">==</span> <span class="n">group_name</span><span class="p">:</span>
@@ -1019,19 +1035,19 @@
             <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">unit</span>
 
-<div class="viewcode-block" id="Country.get_unit_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Country.get_unit_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Country.get_unit_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Country.get_unit_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">unit_name</span> <span class="o">==</span> <span class="n">unit_name</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">unit</span></div>
 
-<div class="viewcode-block" id="Country.get_unit_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Country.get_unit_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Country.get_unit_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Country.get_unit_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">unit_id</span> <span class="o">==</span> <span class="n">unit_id</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">unit</span></div>
 
-<div class="viewcode-block" id="Country.get_units_from_category"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Country.get_units_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_units_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;BaseUnit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<div class="viewcode-block" id="Country.get_units_from_category"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Country.get_units_from_category">[docs]</a>    <span class="k">def</span> <span class="nf">get_units_from_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Generator</span><span class="p">[</span><span class="s1">&#39;BaseUnit&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
         <span class="n">Mission</span><span class="o">.</span><span class="n">validator_group_category</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="s1">&#39;group category&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
@@ -1039,7 +1055,7 @@
                 <span class="k">yield</span> <span class="n">unit</span></div></div>
 
 
-<div class="viewcode-block" id="Static"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Static">[docs]</a><span class="k">class</span> <span class="nc">Static</span><span class="p">(</span><span class="n">Country</span><span class="p">):</span>
+<div class="viewcode-block" id="Static"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Static">[docs]</a><span class="k">class</span> <span class="nc">Static</span><span class="p">(</span><span class="n">Country</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">static_index</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Static</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">static_index</span> <span class="o">=</span> <span class="n">static_index</span>
@@ -1085,12 +1101,12 @@
 
 
 <span class="c1"># noinspection PyProtectedMember</span>
-<div class="viewcode-block" id="Group"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Group">[docs]</a><span class="k">class</span> <span class="nc">Group</span><span class="p">(</span><span class="n">Country</span><span class="p">):</span>
+<div class="viewcode-block" id="Group"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Group">[docs]</a><span class="k">class</span> <span class="nc">Group</span><span class="p">(</span><span class="n">Country</span><span class="p">):</span>
     <span class="n">attribs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;group_category&#39;</span><span class="p">,</span> <span class="s1">&#39;group_index&#39;</span><span class="p">,</span> <span class="s1">&#39;group_hidden&#39;</span><span class="p">,</span> <span class="s1">&#39;group_start_time&#39;</span><span class="p">,</span> <span class="s1">&#39;_group_name_key&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Group.Route"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Group.Route">[docs]</a>    <span class="k">class</span> <span class="nc">Route</span><span class="p">:</span>
+<div class="viewcode-block" id="Group.Route"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Group.Route">[docs]</a>    <span class="k">class</span> <span class="nc">Route</span><span class="p">:</span>
 
-<div class="viewcode-block" id="Group.Route.Point"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Group.Route.Point">[docs]</a>        <span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<div class="viewcode-block" id="Group.Route.Point"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Group.Route.Point">[docs]</a>        <span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
             <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_route</span><span class="p">):</span>
                 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parent_route</span><span class="p">,</span> <span class="n">Group</span><span class="o">.</span><span class="n">Route</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">parent_route</span> <span class="o">=</span> <span class="n">parent_route</span>
@@ -1230,24 +1246,24 @@
     <span class="k">def</span> <span class="nf">first_unit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseUnit&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Group.group_size"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Group.group_size">[docs]</a>    <span class="k">def</span> <span class="nf">group_size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="viewcode-block" id="Group.group_size"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Group.group_size">[docs]</a>    <span class="k">def</span> <span class="nf">group_size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Group.get_unit_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Group.get_unit_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">):</span>
+<div class="viewcode-block" id="Group.get_unit_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Group.get_unit_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_name</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">unit_name</span> <span class="o">==</span> <span class="n">unit_name</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">unit</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="Group.get_unit_by_id"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Group.get_unit_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Group.get_unit_by_id"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Group.get_unit_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_id</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">:</span>
             <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">BaseUnit</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">unit</span><span class="o">.</span><span class="n">unit_id</span> <span class="o">==</span> <span class="n">unit_id</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">unit</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="Group.get_unit_by_index"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Group.get_unit_by_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">):</span>
+<div class="viewcode-block" id="Group.get_unit_by_index"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Group.get_unit_by_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_unit_by_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">unit_index</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_group</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">unit_index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__units</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__units</span><span class="p">[</span><span class="n">unit_index</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">units_class_enum</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">group_category</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">l10n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coa_color</span><span class="p">,</span>
@@ -1270,7 +1286,7 @@
 
 
 <span class="c1"># noinspection PyProtectedMember</span>
-<div class="viewcode-block" id="BaseUnit"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.BaseUnit">[docs]</a><span class="k">class</span> <span class="nc">BaseUnit</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseUnit"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.BaseUnit">[docs]</a><span class="k">class</span> <span class="nc">BaseUnit</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
     <span class="n">validator_skill</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
                                 <span class="n">_in_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Average&#39;</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;High&#39;</span><span class="p">,</span> <span class="s1">&#39;Excellent&#39;</span><span class="p">,</span> <span class="s1">&#39;Random&#39;</span><span class="p">,</span> <span class="s1">&#39;Client&#39;</span><span class="p">,</span> <span class="s1">&#39;Player&#39;</span><span class="p">],</span>
                                 <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
@@ -1388,11 +1404,11 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_unit</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_section_unit</span></div>
 
 
-<div class="viewcode-block" id="FlyingUnit"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.FlyingUnit">[docs]</a><span class="k">class</span> <span class="nc">FlyingUnit</span><span class="p">(</span><span class="n">BaseUnit</span><span class="p">):</span>
+<div class="viewcode-block" id="FlyingUnit"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.FlyingUnit">[docs]</a><span class="k">class</span> <span class="nc">FlyingUnit</span><span class="p">(</span><span class="n">BaseUnit</span><span class="p">):</span>
     <span class="n">validator_board_number</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">_regex</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;[0-9]</span><span class="si">{3}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span>
                                        <span class="n">logger</span><span class="o">=</span><span class="n">LOGGER</span><span class="p">)</span>
 
-<div class="viewcode-block" id="FlyingUnit.RadioPresets"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.FlyingUnit.RadioPresets">[docs]</a>    <span class="k">class</span> <span class="nc">RadioPresets</span><span class="p">:</span>
+<div class="viewcode-block" id="FlyingUnit.RadioPresets"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.FlyingUnit.RadioPresets">[docs]</a>    <span class="k">class</span> <span class="nc">RadioPresets</span><span class="p">:</span>
 
         <span class="n">radio_enum</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;Ka-50&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -1572,7 +1588,7 @@
             <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_section_channels</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_section_channels</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
 
-<div class="viewcode-block" id="FlyingUnit.RadioPresets.get_frequency"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.FlyingUnit.RadioPresets.get_frequency">[docs]</a>        <span class="k">def</span> <span class="nf">get_frequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+<div class="viewcode-block" id="FlyingUnit.RadioPresets.get_frequency"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.FlyingUnit.RadioPresets.get_frequency">[docs]</a>        <span class="k">def</span> <span class="nf">get_frequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
             <span class="n">valid_positive_int</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;get_frequency&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">channel</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels_qty</span><span class="p">:</span>
                 <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_section_channels</span><span class="p">[</span><span class="n">channel</span><span class="p">])</span>
@@ -1581,7 +1597,7 @@
                     <span class="s1">&#39;channel </span><span class="si">{}</span><span class="s1"> for radio </span><span class="si">{}</span><span class="s1"> in aircraft </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radio_name</span><span class="p">,</span>
                                                                     <span class="bp">self</span><span class="o">.</span><span class="n">parent_unit</span><span class="o">.</span><span class="n">unit_name</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="FlyingUnit.RadioPresets.set_frequency"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.FlyingUnit.RadioPresets.set_frequency">[docs]</a>        <span class="k">def</span> <span class="nf">set_frequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">frequency</span><span class="p">):</span>
+<div class="viewcode-block" id="FlyingUnit.RadioPresets.set_frequency"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.FlyingUnit.RadioPresets.set_frequency">[docs]</a>        <span class="k">def</span> <span class="nf">set_frequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">frequency</span><span class="p">):</span>
             <span class="n">valid_positive_int</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;set_frequency&#39;</span><span class="p">)</span>
             <span class="n">valid_float</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="s1">&#39;set_frequency&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">channel</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels_qty</span><span class="p">:</span>
@@ -1616,7 +1632,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_type</span><span class="p">)</span>
 
-<div class="viewcode-block" id="FlyingUnit.get_radio_by_name"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.FlyingUnit.get_radio_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_radio_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radio_name</span><span class="p">):</span>
+<div class="viewcode-block" id="FlyingUnit.get_radio_by_name"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.FlyingUnit.get_radio_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_radio_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radio_name</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_radio_presets</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">FlyingUnit</span><span class="o">.</span><span class="n">RadioPresets</span><span class="o">.</span><span class="n">radio_enum</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="k">if</span> <span class="n">radio_name</span> <span class="o">==</span> <span class="n">FlyingUnit</span><span class="o">.</span><span class="n">RadioPresets</span><span class="o">.</span><span class="n">radio_enum</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_type</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;radio_name&#39;</span><span class="p">]:</span>
@@ -1625,7 +1641,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;unit #</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_name</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="FlyingUnit.get_radio_by_number"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.FlyingUnit.get_radio_by_number">[docs]</a>    <span class="k">def</span> <span class="nf">get_radio_by_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radio_number</span><span class="p">):</span>
+<div class="viewcode-block" id="FlyingUnit.get_radio_by_number"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.FlyingUnit.get_radio_by_number">[docs]</a>    <span class="k">def</span> <span class="nf">get_radio_by_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radio_number</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_radio_presets</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">radio_number</span> <span class="ow">in</span> <span class="n">FlyingUnit</span><span class="o">.</span><span class="n">RadioPresets</span><span class="o">.</span><span class="n">radio_enum</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="k">return</span> <span class="n">FlyingUnit</span><span class="o">.</span><span class="n">RadioPresets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radio_number</span><span class="p">)</span>
@@ -1655,22 +1671,22 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_section_unit</span><span class="p">[</span><span class="s1">&#39;onboard_num&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
 
 
-<div class="viewcode-block" id="Helicopter"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Helicopter">[docs]</a><span class="k">class</span> <span class="nc">Helicopter</span><span class="p">(</span><span class="n">FlyingUnit</span><span class="p">):</span>
+<div class="viewcode-block" id="Helicopter"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Helicopter">[docs]</a><span class="k">class</span> <span class="nc">Helicopter</span><span class="p">(</span><span class="n">FlyingUnit</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">group_category</span><span class="p">,</span> <span class="n">group_index</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">group_category</span><span class="p">,</span> <span class="n">group_index</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Plane"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Plane">[docs]</a><span class="k">class</span> <span class="nc">Plane</span><span class="p">(</span><span class="n">FlyingUnit</span><span class="p">):</span>
+<div class="viewcode-block" id="Plane"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Plane">[docs]</a><span class="k">class</span> <span class="nc">Plane</span><span class="p">(</span><span class="n">FlyingUnit</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">group_category</span><span class="p">,</span> <span class="n">group_index</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">group_category</span><span class="p">,</span> <span class="n">group_index</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Vehicle"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Vehicle">[docs]</a><span class="k">class</span> <span class="nc">Vehicle</span><span class="p">(</span><span class="n">BaseUnit</span><span class="p">):</span>
+<div class="viewcode-block" id="Vehicle"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Vehicle">[docs]</a><span class="k">class</span> <span class="nc">Vehicle</span><span class="p">(</span><span class="n">BaseUnit</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">group_category</span><span class="p">,</span> <span class="n">group_index</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">group_category</span><span class="p">,</span> <span class="n">group_index</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Ship"><a class="viewcode-back" href="../../../emft.miz.html#emft.miz.mission.Ship">[docs]</a><span class="k">class</span> <span class="nc">Ship</span><span class="p">(</span><span class="n">BaseUnit</span><span class="p">):</span>
+<div class="viewcode-block" id="Ship"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission.Ship">[docs]</a><span class="k">class</span> <span class="nc">Ship</span><span class="p">(</span><span class="n">BaseUnit</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">group_category</span><span class="p">,</span> <span class="n">group_index</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">mission_dict</span><span class="p">,</span> <span class="n">l10n</span><span class="p">,</span> <span class="n">coa_color</span><span class="p">,</span> <span class="n">country_index</span><span class="p">,</span> <span class="n">group_category</span><span class="p">,</span> <span class="n">group_index</span><span class="p">,</span> <span class="n">unit_index</span><span class="p">)</span></div>
 </pre></div>
@@ -1689,8 +1705,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -1707,6 +1723,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

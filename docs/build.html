@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>Building EMFT &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>Building EMFT &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    './',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="index.html" />
     <link rel="up" title="Documentation for developers" href="dev.html" />
     <link rel="next" title="Versionning scheme" href="version.html" />
     <link rel="prev" title="Documentation for developers" href="dev.html" /> 
@@ -67,8 +67,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -79,14 +79,12 @@
 <li><a class="reference internal" href="#">Building EMFT</a><ul>
 <li><a class="reference internal" href="#installing-emft-as-developer">Installing EMFT as developer</a></li>
 <li><a class="reference internal" href="#compiling-emft">Compiling EMFT</a><ul>
-<li><a class="reference internal" href="#helper-applications">Helper applications</a><ul>
+<li><a class="reference internal" href="#third-party-applications">Third-party applications</a><ul>
 <li><a class="reference internal" href="#gitversion-exe">gitversion.exe</a></li>
 <li><a class="reference internal" href="#verpatch">verpatch</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-emft-build-tool">The emft-build tool</a><ul>
+<li><a class="reference internal" href="#helpers">Helpers</a><ul>
 <li><a class="reference internal" href="#emft-build">emft-build</a><ul>
 <li><a class="reference internal" href="#emft-build-chglog">chglog</a></li>
 <li><a class="reference internal" href="#emft-build-doc">doc</a></li>
@@ -102,6 +100,9 @@
 <li><a class="reference internal" href="#emft-build-reqs">reqs</a></li>
 <li><a class="reference internal" href="#emft-build-safety">safety</a></li>
 <li><a class="reference internal" href="#emft-build-test-build">test_build</a></li>
+<li><a class="reference internal" href="#emft-build-test-local-build">test_local_build</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#build-py-api">build.py API</a></li>
@@ -159,14 +160,12 @@
 <li><a class="reference internal" href="#">Building EMFT</a><ul>
 <li><a class="reference internal" href="#installing-emft-as-developer">Installing EMFT as developer</a></li>
 <li><a class="reference internal" href="#compiling-emft">Compiling EMFT</a><ul>
-<li><a class="reference internal" href="#helper-applications">Helper applications</a><ul>
+<li><a class="reference internal" href="#third-party-applications">Third-party applications</a><ul>
 <li><a class="reference internal" href="#gitversion-exe">gitversion.exe</a></li>
 <li><a class="reference internal" href="#verpatch">verpatch</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-emft-build-tool">The emft-build tool</a><ul>
+<li><a class="reference internal" href="#helpers">Helpers</a><ul>
 <li><a class="reference internal" href="#emft-build">emft-build</a><ul>
 <li><a class="reference internal" href="#emft-build-chglog">chglog</a></li>
 <li><a class="reference internal" href="#emft-build-doc">doc</a></li>
@@ -182,6 +181,9 @@
 <li><a class="reference internal" href="#emft-build-reqs">reqs</a></li>
 <li><a class="reference internal" href="#emft-build-safety">safety</a></li>
 <li><a class="reference internal" href="#emft-build-test-build">test_build</a></li>
+<li><a class="reference internal" href="#emft-build-test-local-build">test_local_build</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#build-py-api">build.py API</a></li>
@@ -231,47 +233,9 @@
                 <div class="body">
                   
   <div class="section" id="building-emft">
-<h1><a class="toc-backref" href="#id1">Building EMFT</a><a class="headerlink" href="#building-emft" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="contents">
-<p class="topic-title first">Contents</p>
-<ul class="simple">
-<li><a class="reference internal" href="#building-emft" id="id1">Building EMFT</a><ul>
-<li><a class="reference internal" href="#installing-emft-as-developer" id="id2">Installing EMFT as developer</a></li>
-<li><a class="reference internal" href="#compiling-emft" id="id3">Compiling EMFT</a><ul>
-<li><a class="reference internal" href="#helper-applications" id="id4">Helper applications</a><ul>
-<li><a class="reference internal" href="#gitversion-exe" id="id5">gitversion.exe</a></li>
-<li><a class="reference internal" href="#verpatch" id="id6">verpatch</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#the-emft-build-tool" id="id7">The emft-build tool</a><ul>
-<li><a class="reference internal" href="#emft-build" id="id8">emft-build</a><ul>
-<li><a class="reference internal" href="#emft-build-chglog" id="id9">chglog</a></li>
-<li><a class="reference internal" href="#emft-build-doc" id="id10">doc</a></li>
-<li><a class="reference internal" href="#emft-build-flake8" id="id11">flake8</a></li>
-<li><a class="reference internal" href="#emft-build-freeze" id="id12">freeze</a></li>
-<li><a class="reference internal" href="#emft-build-patch" id="id13">patch</a></li>
-<li><a class="reference internal" href="#emft-build-pin-version" id="id14">pin_version</a></li>
-<li><a class="reference internal" href="#emft-build-pre-push" id="id15">pre_push</a></li>
-<li><a class="reference internal" href="#emft-build-prospector" id="id16">prospector</a></li>
-<li><a class="reference internal" href="#emft-build-pylint" id="id17">pylint</a></li>
-<li><a class="reference internal" href="#emft-build-pyrcc" id="id18">pyrcc</a></li>
-<li><a class="reference internal" href="#emft-build-pytest" id="id19">pytest</a></li>
-<li><a class="reference internal" href="#emft-build-reqs" id="id20">reqs</a></li>
-<li><a class="reference internal" href="#emft-build-safety" id="id21">safety</a></li>
-<li><a class="reference internal" href="#emft-build-test-build" id="id22">test_build</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#build-py-api" id="id23">build.py API</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+<h1>Building EMFT<a class="headerlink" href="#building-emft" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="installing-emft-as-developer">
-<h2><a class="toc-backref" href="#id2">Installing EMFT as developer</a><a class="headerlink" href="#installing-emft-as-developer" title="Permalink to this headline">¶</a></h2>
+<h2>Installing EMFT as developer<a class="headerlink" href="#installing-emft-as-developer" title="Permalink to this headline">¶</a></h2>
 <p>To install EMFT, you’ll first need to clone the repository:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">132</span><span class="n">nd</span><span class="o">-</span><span class="n">etcher</span><span class="o">/</span><span class="n">EMFT</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -282,23 +246,25 @@
 </div>
 </div>
 <div class="section" id="compiling-emft">
-<h2><a class="toc-backref" href="#id3">Compiling EMFT</a><a class="headerlink" href="#compiling-emft" title="Permalink to this headline">¶</a></h2>
+<h2>Compiling EMFT<a class="headerlink" href="#compiling-emft" title="Permalink to this headline">¶</a></h2>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">EMFT only compiles on a Windows platform, and against Python 3.6 or newer.</p>
+<p class="last">EMFT only compiles on a Windows platform, and against Python 3.6 or newer. The compilation also requires
+a specific version of PyInstaller, which can be installed with the “freeze” command of emft-build tool
+described below.</p>
 </div>
 <p>EMFT is meant to be compiled as a single Win32 portable executable file.</p>
 <p>To facilitate the building process, it is self-contained in the <code class="docutils literal"><span class="pre">emft/build.py</span></code> python script.</p>
 <p>The script is installed as an executable when you install EMFT and available as <code class="docutils literal"><span class="pre">emft-build</span></code>, which I’ll explain
 below.</p>
-<div class="section" id="helper-applications">
-<h3><a class="toc-backref" href="#id4">Helper applications</a><a class="headerlink" href="#helper-applications" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="third-party-applications">
+<h3>Third-party applications<a class="headerlink" href="#third-party-applications" title="Permalink to this headline">¶</a></h3>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">You will need to manually install these two applications if you want to build EMFT locally</p>
 </div>
 <div class="section" id="gitversion-exe">
-<h4><a class="toc-backref" href="#id5">gitversion.exe</a><a class="headerlink" href="#gitversion-exe" title="Permalink to this headline">¶</a></h4>
+<h4>gitversion.exe<a class="headerlink" href="#gitversion-exe" title="Permalink to this headline">¶</a></h4>
 <p>GitVersion is used to infer the current version from the Git repository.</p>
 <p><code class="docutils literal"><span class="pre">setuptools_scm</span></code> plans on switching to using the Semver scheme in the future; when that happens,
 I’ll remove the dependency to GitVersion.</p>
@@ -307,22 +273,21 @@ I’ll remove the dependency to GitVersion.</p>
 <p>Or directly from: <a class="reference external" href="https://github.com/GitTools/GitVersion/releases">https://github.com/GitTools/GitVersion/releases</a></p>
 </div>
 <div class="section" id="verpatch">
-<h4><a class="toc-backref" href="#id6">verpatch</a><a class="headerlink" href="#verpatch" title="Permalink to this headline">¶</a></h4>
+<h4>verpatch<a class="headerlink" href="#verpatch" title="Permalink to this headline">¶</a></h4>
 <p>Verpatch is used to embed resources like the version after the compilation.</p>
 <p>I’m waiting on <code class="docutils literal"><span class="pre">pyinstaller</span></code> to fix their own resources patcher so I can remove the dependency to
 this external tool…</p>
 <p>In the meanwhile, Verpatch can be obtained at: <a class="reference external" href="https://ddverpatch.codeplex.com/releases">https://ddverpatch.codeplex.com/releases</a></p>
 </div>
 </div>
-</div>
-<div class="section" id="the-emft-build-tool">
-<h2><a class="toc-backref" href="#id7">The emft-build tool</a><a class="headerlink" href="#the-emft-build-tool" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="helpers">
+<h3>Helpers<a class="headerlink" href="#helpers" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="emft-build">
-<h3><a class="toc-backref" href="#id8">emft-build</a><a class="headerlink" href="#emft-build" title="Permalink to this headline">¶</a></h3>
-<p>Handles all the tasks to build a working EMFT application</p>
+<h4>emft-build<a class="headerlink" href="#emft-build" title="Permalink to this headline">¶</a></h4>
+<p>emft-build is a tool that handles all the tasks to build a working EMFT application</p>
 <p>This tool is installed as a setuptools entry point, which means it should be accessible from your terminal once EMFT
 is installed in develop mode.</p>
-<p>Just type the following in whatever shell you fancy:</p>
+<p>Just activate your venv and type the following in whatever shell you fancy:</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND1 <span class="o">[</span>ARGS<span class="o">]</span>... <span class="o">[</span>COMMAND2 <span class="o">[</span>ARGS<span class="o">]</span>...<span class="o">]</span>...
 </pre></div>
 </div>
@@ -334,7 +299,7 @@ is installed in develop mode.</p>
 </dd></dl>
 
 <div class="section" id="emft-build-chglog">
-<h4><a class="toc-backref" href="#id9">chglog</a><a class="headerlink" href="#emft-build-chglog" title="Permalink to this headline">¶</a></h4>
+<h5>chglog<a class="headerlink" href="#emft-build-chglog" title="Permalink to this headline">¶</a></h5>
 <p>Writes the changelog</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -345,7 +310,7 @@ is installed in develop mode.</p>
 </div>
 </div>
 <div class="section" id="emft-build-doc">
-<h4><a class="toc-backref" href="#id10">doc</a><a class="headerlink" href="#emft-build-doc" title="Permalink to this headline">¶</a></h4>
+<h5>doc<a class="headerlink" href="#emft-build-doc" title="Permalink to this headline">¶</a></h5>
 <p>Builds the documentation using Sphinx (<a class="reference external" href="http://www.sphinx-doc.org/en/stable">http://www.sphinx-doc.org/en/stable</a>)</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build doc <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
@@ -371,14 +336,14 @@ is installed in develop mode.</p>
 
 </div>
 <div class="section" id="emft-build-flake8">
-<h4><a class="toc-backref" href="#id11">flake8</a><a class="headerlink" href="#emft-build-flake8" title="Permalink to this headline">¶</a></h4>
+<h5>flake8<a class="headerlink" href="#emft-build-flake8" title="Permalink to this headline">¶</a></h5>
 <p>Runs Flake8 (<a class="reference external" href="http://flake8.pycqa.org/en/latest/">http://flake8.pycqa.org/en/latest/</a>)</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build flake8 <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="emft-build-freeze">
-<h4><a class="toc-backref" href="#id12">freeze</a><a class="headerlink" href="#emft-build-freeze" title="Permalink to this headline">¶</a></h4>
+<h5>freeze<a class="headerlink" href="#emft-build-freeze" title="Permalink to this headline">¶</a></h5>
 <p>Creates a Win32 executable file from EMFT’s source</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build freeze <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
@@ -398,14 +363,14 @@ is installed in develop mode.</p>
 
 </div>
 <div class="section" id="emft-build-patch">
-<h4><a class="toc-backref" href="#id13">patch</a><a class="headerlink" href="#emft-build-patch" title="Permalink to this headline">¶</a></h4>
+<h5>patch<a class="headerlink" href="#emft-build-patch" title="Permalink to this headline">¶</a></h5>
 <p>Uses “verpatch” (<a class="reference external" href="https://ddverpatch.codeplex.com">https://ddverpatch.codeplex.com</a>) to write resource information into the PE</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build patch <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="emft-build-pin-version">
-<h4><a class="toc-backref" href="#id14">pin_version</a><a class="headerlink" href="#emft-build-pin-version" title="Permalink to this headline">¶</a></h4>
+<h5>pin_version<a class="headerlink" href="#emft-build-pin-version" title="Permalink to this headline">¶</a></h5>
 <p>Writes the project’s version to “emft/__version_frozen__.py (both Semver and PEP440)</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -416,14 +381,14 @@ is installed in develop mode.</p>
 </div>
 </div>
 <div class="section" id="emft-build-pre-push">
-<h4><a class="toc-backref" href="#id15">pre_push</a><a class="headerlink" href="#emft-build-pre-push" title="Permalink to this headline">¶</a></h4>
+<h5>pre_push<a class="headerlink" href="#emft-build-pre-push" title="Permalink to this headline">¶</a></h5>
 <p>This is meant to be used as a Git pre-push hook</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build pre_push <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="emft-build-prospector">
-<h4><a class="toc-backref" href="#id16">prospector</a><a class="headerlink" href="#emft-build-prospector" title="Permalink to this headline">¶</a></h4>
+<h5>prospector<a class="headerlink" href="#emft-build-prospector" title="Permalink to this headline">¶</a></h5>
 <p>Runs Landscape.io’s Prospector (<a class="reference external" href="https://github.com/landscapeio/prospector">https://github.com/landscapeio/prospector</a>)</p>
 <p>This includes flake8 &amp; Pylint</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build prospector <span class="o">[</span>OPTIONS<span class="o">]</span>
@@ -431,7 +396,7 @@ is installed in develop mode.</p>
 </div>
 </div>
 <div class="section" id="emft-build-pylint">
-<h4><a class="toc-backref" href="#id17">pylint</a><a class="headerlink" href="#emft-build-pylint" title="Permalink to this headline">¶</a></h4>
+<h5>pylint<a class="headerlink" href="#emft-build-pylint" title="Permalink to this headline">¶</a></h5>
 <p>Analyze a given python SRC (module or package) with Pylint (SRC must exist)</p>
 <p>Default module: “./emft”</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build pylint <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>SRC<span class="o">]</span>
@@ -458,7 +423,7 @@ is installed in develop mode.</p>
 
 </div>
 <div class="section" id="emft-build-pyrcc">
-<h4><a class="toc-backref" href="#id18">pyrcc</a><a class="headerlink" href="#emft-build-pyrcc" title="Permalink to this headline">¶</a></h4>
+<h5>pyrcc<a class="headerlink" href="#emft-build-pyrcc" title="Permalink to this headline">¶</a></h5>
 <p>Compiles Qt resources (icons, pictures, …)  to a usable python script</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -469,14 +434,14 @@ is installed in develop mode.</p>
 </div>
 </div>
 <div class="section" id="emft-build-pytest">
-<h4><a class="toc-backref" href="#id19">pytest</a><a class="headerlink" href="#emft-build-pytest" title="Permalink to this headline">¶</a></h4>
+<h5>pytest<a class="headerlink" href="#emft-build-pytest" title="Permalink to this headline">¶</a></h5>
 <p>Runs Pytest (<a class="reference external" href="https://docs.pytest.org/en/latest/">https://docs.pytest.org/en/latest/</a>)</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build pytest <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="emft-build-reqs">
-<h4><a class="toc-backref" href="#id20">reqs</a><a class="headerlink" href="#emft-build-reqs" title="Permalink to this headline">¶</a></h4>
+<h5>reqs<a class="headerlink" href="#emft-build-reqs" title="Permalink to this headline">¶</a></h5>
 <p>Write requirements files</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build reqs <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
@@ -502,22 +467,30 @@ is installed in develop mode.</p>
 
 </div>
 <div class="section" id="emft-build-safety">
-<h4><a class="toc-backref" href="#id21">safety</a><a class="headerlink" href="#emft-build-safety" title="Permalink to this headline">¶</a></h4>
+<h5>safety<a class="headerlink" href="#emft-build-safety" title="Permalink to this headline">¶</a></h5>
 <p>Runs Pyup’s Safety tool (<a class="reference external" href="https://pyup.io/safety/">https://pyup.io/safety/</a>)</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build safety <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="emft-build-test-build">
-<h4><a class="toc-backref" href="#id22">test_build</a><a class="headerlink" href="#emft-build-test-build" title="Permalink to this headline">¶</a></h4>
+<h5>test_build<a class="headerlink" href="#emft-build-test-build" title="Permalink to this headline">¶</a></h5>
 <p>Runs the embedded tests in the resulting EMFT.exe</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build test_build <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="emft-build-test-local-build">
+<h5>test_local_build<a class="headerlink" href="#emft-build-test-local-build" title="Permalink to this headline">¶</a></h5>
+<p>This is meant to be used as a Git pre-push hook</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>emft-build test_local_build <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="build-py-api">
-<h3><a class="toc-backref" href="#id23">build.py API</a><a class="headerlink" href="#build-py-api" title="Permalink to this headline">¶</a></h3>
+<h3>build.py API<a class="headerlink" href="#build-py-api" title="Permalink to this headline">¶</a></h3>
 <p>Collections of tools to build EMFT</p>
 <dl class="function">
 <dt>
@@ -712,8 +685,8 @@ extensions. Returns full path or None if no command is found.</p>
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -732,6 +705,7 @@ extensions. Returns full path or None if no command is found.</p>
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

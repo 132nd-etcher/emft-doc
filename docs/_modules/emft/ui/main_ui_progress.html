@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.ui.main_ui_progress &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.ui.main_ui_progress &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -141,12 +141,12 @@
 <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QProgressDialog</span>
 
 
-<div class="viewcode-block" id="MainUiProgress"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress.MainUiProgress">[docs]</a><span class="k">class</span> <span class="nc">MainUiProgress</span><span class="p">:</span>
+<div class="viewcode-block" id="MainUiProgress"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress.MainUiProgress">[docs]</a><span class="k">class</span> <span class="nc">MainUiProgress</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
 
     <span class="n">progress</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="MainUiProgress.progress_start"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress.MainUiProgress.progress_start">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MainUiProgress.progress_start"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress.MainUiProgress.progress_start">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">progress_start</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span> <span class="o">=</span> <span class="n">QProgressDialog</span><span class="p">()</span>
         <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">FramelessWindowHint</span><span class="p">)</span>
@@ -166,17 +166,17 @@
         <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">setMaximum</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
         <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="MainUiProgress.progress_set_value"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress.MainUiProgress.progress_set_value">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MainUiProgress.progress_set_value"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress.MainUiProgress.progress_set_value">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">progress_set_value</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="p">:</span>
             <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MainUiProgress.progress_set_label"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress.MainUiProgress.progress_set_label">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MainUiProgress.progress_set_label"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress.MainUiProgress.progress_set_label">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">progress_set_label</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="p">:</span>
             <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">setLabelText</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MainUiProgress.progress_done"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress.MainUiProgress.progress_done">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MainUiProgress.progress_done"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress.MainUiProgress.progress_done">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">progress_done</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="p">:</span>
             <span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="n">MainUiProgress</span><span class="o">.</span><span class="n">progress</span><span class="o">.</span><span class="n">maximum</span><span class="p">())</span>
@@ -197,8 +197,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -215,6 +215,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

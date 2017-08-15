@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.misc.fs package &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.misc.fs package &mdash; EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    './',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.6.0-alpha.119-reorg-src.72(0.6.0a72)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,11 +51,8 @@
 </script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="index.html" />
-    <link rel="up" title="emft.misc package" href="emft.misc.html" />
-    <link rel="next" title="emft.miz package" href="emft.miz.html" />
-    <link rel="prev" title="emft.misc package" href="emft.misc.html" /> 
+    <link rel="top" title="EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation" href="index.html" /> 
   </head>
   <body role="document">
     <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
@@ -67,8 +64,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -78,10 +75,10 @@
                 <ul>
 <li><a class="reference internal" href="#">emft.misc.fs package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-emft.misc.fs.dcs_installs">emft.misc.fs.dcs_installs module</a></li>
-<li><a class="reference internal" href="#module-emft.misc.fs.dcs_skin">emft.misc.fs.dcs_skin module</a></li>
-<li><a class="reference internal" href="#module-emft.misc.fs.saved_games">emft.misc.fs.saved_games module</a></li>
-<li><a class="reference internal" href="#module-emft.misc.fs">Module contents</a></li>
+<li><a class="reference internal" href="#emft-misc-fs-dcs-installs-module">emft.misc.fs.dcs_installs module</a></li>
+<li><a class="reference internal" href="#emft-misc-fs-dcs-skin-module">emft.misc.fs.dcs_skin module</a></li>
+<li><a class="reference internal" href="#emft-misc-fs-saved-games-module">emft.misc.fs.saved_games module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -91,14 +88,8 @@
             <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
 
             
-              <li><a href="emft.misc.html" title="emft.misc package" accesskey="P">previous </a></li>
-              <li><a href="emft.miz.html" title="emft.miz package" accesskey="N">next </a></li>
               <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
               <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
-              <li><a href="dev.html" >Documentation for developers</a></li>
-              <li><a href="modules.html" >EMFT API</a></li>
-              <li><a href="emft.html" >emft package</a></li>
-              <li><a href="emft.misc.html" accesskey="U">emft.misc package</a></li>
             
             <li class="visible-xs"><a href="_sources/emft.misc.fs.rst.txt" rel="nofollow">Show Source</a></li>
 
@@ -136,20 +127,14 @@
   <ul>
 <li><a class="reference internal" href="#">emft.misc.fs package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-emft.misc.fs.dcs_installs">emft.misc.fs.dcs_installs module</a></li>
-<li><a class="reference internal" href="#module-emft.misc.fs.dcs_skin">emft.misc.fs.dcs_skin module</a></li>
-<li><a class="reference internal" href="#module-emft.misc.fs.saved_games">emft.misc.fs.saved_games module</a></li>
-<li><a class="reference internal" href="#module-emft.misc.fs">Module contents</a></li>
+<li><a class="reference internal" href="#emft-misc-fs-dcs-installs-module">emft.misc.fs.dcs_installs module</a></li>
+<li><a class="reference internal" href="#emft-misc-fs-dcs-skin-module">emft.misc.fs.dcs_skin module</a></li>
+<li><a class="reference internal" href="#emft-misc-fs-saved-games-module">emft.misc.fs.saved_games module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="emft.misc.html"
-                        title="previous chapter">emft.misc package</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="emft.miz.html"
-                        title="next chapter">emft.miz package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -188,248 +173,17 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.misc.fs.dcs_installs">
-<span id="emft-misc-fs-dcs-installs-module"></span><h2>emft.misc.fs.dcs_installs module<a class="headerlink" href="#module-emft.misc.fs.dcs_installs" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.misc.fs.dcs_installs.AutoexecCFG">
-<em class="property">class </em><code class="descclassname">emft.misc.fs.dcs_installs.</code><code class="descname">AutoexecCFG</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#AutoexecCFG"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.AutoexecCFG" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.AutoexecCFG.RE_VFS">
-<code class="descname">RE_VFS</code><em class="property"> = re.compile('table\\.insert\\(options\\.graphics\\.VFSTexturePaths, &quot;(?P&lt;path&gt;.*)&quot;\\)')</em><a class="headerlink" href="#emft.misc.fs.dcs_installs.AutoexecCFG.RE_VFS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.AutoexecCFG.mounted_vfs_paths">
-<code class="descname">mounted_vfs_paths</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.AutoexecCFG.mounted_vfs_paths" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.dcs_installs.AutoexecCFG.parse_vfs">
-<code class="descname">parse_vfs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#AutoexecCFG.parse_vfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.AutoexecCFG.parse_vfs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.AutoexecCFG.path">
-<code class="descname">path</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.AutoexecCFG.path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall">
-<em class="property">class </em><code class="descclassname">emft.misc.fs.dcs_installs.</code><code class="descname">DCSInstall</code><span class="sig-paren">(</span><em>install_path</em>, <em>saved_games_path_</em>, <em>version</em>, <em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.RE_SKIN_NICE_NAME">
-<code class="descname">RE_SKIN_NICE_NAME</code><em class="property"> = re.compile('name = &quot;(?P&lt;skin_nice_name&gt;.*)&quot;')</em><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.RE_SKIN_NICE_NAME" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.autoexec">
-<code class="descname">autoexec</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.autoexec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.autoexec_cfg">
-<code class="descname">autoexec_cfg</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.autoexec_cfg" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.discover_autoexec">
-<code class="descname">discover_autoexec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstall.discover_autoexec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.discover_autoexec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.discover_skins">
-<code class="descname">discover_skins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstall.discover_skins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.discover_skins" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.install_path">
-<code class="descname">install_path</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.install_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.label">
-<code class="descname">label</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.label" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.saved_games">
-<code class="descname">saved_games</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.saved_games" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.skins">
-<code class="descname">skins</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.skins" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstall.version">
-<code class="descname">version</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstall.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls">
-<em class="property">class </em><code class="descclassname">emft.misc.fs.dcs_installs.</code><code class="descname">DCSInstalls</code><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstalls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<dl class="method">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.add_custom">
-<code class="descname">add_custom</code><span class="sig-paren">(</span><em>install_dir</em>, <em>variant_dir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstalls.add_custom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.add_custom" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.alpha">
-<code class="descname">alpha</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.alpha" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.beta">
-<code class="descname">beta</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.beta" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.custom">
-<code class="descname">custom</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.custom" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.discover_dcs_installations">
-<code class="descname">discover_dcs_installations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstalls.discover_dcs_installations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.discover_dcs_installations" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.get_install_path">
-<code class="descname">get_install_path</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstalls.get_install_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.get_install_path" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.utils.html#emft.utils.custom_path.Path" title="emft.utils.custom_path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.get_variant">
-<code class="descname">get_variant</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstalls.get_variant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.get_variant" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.present_dcs_installations">
-<code class="descname">present_dcs_installations</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.present_dcs_installations" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.remove_custom">
-<code class="descname">remove_custom</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstalls.remove_custom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.remove_custom" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.dcs_installs.DCSInstalls.stable">
-<code class="descname">stable</code><a class="headerlink" href="#emft.misc.fs.dcs_installs.DCSInstalls.stable" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="exception">
-<dt id="emft.misc.fs.dcs_installs.InvalidInstallPath">
-<em class="property">exception </em><code class="descclassname">emft.misc.fs.dcs_installs.</code><code class="descname">InvalidInstallPath</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#InvalidInstallPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.InvalidInstallPath" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#ValueError" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code></a></p>
-</dd></dl>
-
-<dl class="exception">
-<dt id="emft.misc.fs.dcs_installs.InvalidSavedGamesPath">
-<em class="property">exception </em><code class="descclassname">emft.misc.fs.dcs_installs.</code><code class="descname">InvalidSavedGamesPath</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#InvalidSavedGamesPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_installs.InvalidSavedGamesPath" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/exceptions.html#ValueError" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code></a></p>
-</dd></dl>
-
+<div class="section" id="emft-misc-fs-dcs-installs-module">
+<h2>emft.misc.fs.dcs_installs module<a class="headerlink" href="#emft-misc-fs-dcs-installs-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.misc.fs.dcs_skin">
-<span id="emft-misc-fs-dcs-skin-module"></span><h2>emft.misc.fs.dcs_skin module<a class="headerlink" href="#module-emft.misc.fs.dcs_skin" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.misc.fs.dcs_skin.DCSSkin">
-<em class="property">class </em><code class="descclassname">emft.misc.fs.dcs_skin.</code><code class="descname">DCSSkin</code><span class="sig-paren">(</span><em>name</em>, <em>ac</em>, <em>root_folder</em>, <em>skin_nice_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_skin.html#DCSSkin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.dcs_skin.DCSSkin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-</dd></dl>
-
+<div class="section" id="emft-misc-fs-dcs-skin-module">
+<h2>emft.misc.fs.dcs_skin module<a class="headerlink" href="#emft-misc-fs-dcs-skin-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.misc.fs.saved_games">
-<span id="emft-misc-fs-saved-games-module"></span><h2>emft.misc.fs.saved_games module<a class="headerlink" href="#module-emft.misc.fs.saved_games" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="emft.misc.fs.saved_games.discover_saved_games_path">
-<code class="descclassname">emft.misc.fs.saved_games.</code><code class="descname">discover_saved_games_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/saved_games.html#discover_saved_games_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.saved_games.discover_saved_games_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="emft-misc-fs-saved-games-module">
+<h2>emft.misc.fs.saved_games module<a class="headerlink" href="#emft-misc-fs-saved-games-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.misc.fs">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-emft.misc.fs" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.misc.fs.DCSSkin">
-<em class="property">class </em><code class="descclassname">emft.misc.fs.</code><code class="descname">DCSSkin</code><span class="sig-paren">(</span><em>name</em>, <em>ac</em>, <em>root_folder</em>, <em>skin_nice_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_skin.html#DCSSkin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.DCSSkin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="emft.misc.fs.DCSInstall">
-<em class="property">class </em><code class="descclassname">emft.misc.fs.</code><code class="descname">DCSInstall</code><span class="sig-paren">(</span><em>install_path</em>, <em>saved_games_path_</em>, <em>version</em>, <em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.DCSInstall" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<dl class="attribute">
-<dt id="emft.misc.fs.DCSInstall.RE_SKIN_NICE_NAME">
-<code class="descname">RE_SKIN_NICE_NAME</code><em class="property"> = re.compile('name = &quot;(?P&lt;skin_nice_name&gt;.*)&quot;')</em><a class="headerlink" href="#emft.misc.fs.DCSInstall.RE_SKIN_NICE_NAME" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.DCSInstall.autoexec">
-<code class="descname">autoexec</code><a class="headerlink" href="#emft.misc.fs.DCSInstall.autoexec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.DCSInstall.autoexec_cfg">
-<code class="descname">autoexec_cfg</code><a class="headerlink" href="#emft.misc.fs.DCSInstall.autoexec_cfg" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.DCSInstall.discover_autoexec">
-<code class="descname">discover_autoexec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstall.discover_autoexec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.DCSInstall.discover_autoexec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.misc.fs.DCSInstall.discover_skins">
-<code class="descname">discover_skins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/misc/fs/dcs_installs.html#DCSInstall.discover_skins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.misc.fs.DCSInstall.discover_skins" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.DCSInstall.install_path">
-<code class="descname">install_path</code><a class="headerlink" href="#emft.misc.fs.DCSInstall.install_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.DCSInstall.label">
-<code class="descname">label</code><a class="headerlink" href="#emft.misc.fs.DCSInstall.label" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.DCSInstall.saved_games">
-<code class="descname">saved_games</code><a class="headerlink" href="#emft.misc.fs.DCSInstall.saved_games" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.DCSInstall.skins">
-<code class="descname">skins</code><a class="headerlink" href="#emft.misc.fs.DCSInstall.skins" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.misc.fs.DCSInstall.version">
-<code class="descname">version</code><a class="headerlink" href="#emft.misc.fs.DCSInstall.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -448,19 +202,13 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
-        <li><a href="emft.misc.html" title="emft.misc package" >previous</a></li>
-        <li><a href="emft.miz.html" title="emft.miz package" >next</a></li>
         <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
         <li><a href="genindex.html" title="General Index" >index</a></li>
-        <li><a href="dev.html" >Documentation for developers</a></li>
-        <li><a href="modules.html" >EMFT API</a></li>
-        <li><a href="emft.html" >emft package</a></li>
-        <li><a href="emft.misc.html" >emft.misc package</a></li>
         <li><a href="#">top</a></li> 
       
     </ul>

@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.ui.main_ui_progress_adapter &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.ui.main_ui_progress_adapter &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -136,31 +136,31 @@
                   
   <h1>Source code for emft.ui.main_ui_progress_adapter</h1><div class="highlight"><pre>
 <span></span><span class="c1"># coding=utf-8</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">ProgressAdapter</span>
+<span class="kn">from</span> <span class="nn">emft.core.progress</span> <span class="k">import</span> <span class="n">ProgressAdapter</span>
 
 
-<div class="viewcode-block" id="MainUIProgressAdapter"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter">[docs]</a><span class="k">class</span> <span class="nc">MainUIProgressAdapter</span><span class="p">(</span><span class="n">ProgressAdapter</span><span class="p">):</span>
+<div class="viewcode-block" id="MainUIProgressAdapter"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter">[docs]</a><span class="k">class</span> <span class="nc">MainUIProgressAdapter</span><span class="p">(</span><span class="n">ProgressAdapter</span><span class="p">):</span>
     <span class="c1"># @staticmethod</span>
     <span class="c1"># def __progress_wrapper(func_name, *args, **kwargs):</span>
     <span class="c1">#     if global_.MAIN_UI:</span>
     <span class="c1">#         global_.MAIN_UI.do(&#39;main_ui&#39;, func_name, *args, **kwargs)</span>
 
-<div class="viewcode-block" id="MainUIProgressAdapter.progress_set_value"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_set_value">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MainUIProgressAdapter.progress_set_value"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_set_value">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">progress_set_value</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="k">pass</span></div>
         <span class="c1"># MainUIProgressAdapter.__progress_wrapper(&#39;progress_set_value&#39;, value)</span>
 
-<div class="viewcode-block" id="MainUIProgressAdapter.progress_start"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_start">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MainUIProgressAdapter.progress_start"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_start">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">progress_start</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="k">pass</span></div>
         <span class="c1"># MainUIProgressAdapter.__progress_wrapper(&#39;progress_start&#39;, title, length, label)</span>
 
-<div class="viewcode-block" id="MainUIProgressAdapter.progress_set_label"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_set_label">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MainUIProgressAdapter.progress_set_label"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_set_label">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">progress_set_label</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">pass</span></div>
         <span class="c1"># MainUIProgressAdapter.__progress_wrapper(&#39;progress_set_label&#39;, value)</span>
 
-<div class="viewcode-block" id="MainUIProgressAdapter.progress_done"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_done">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="MainUIProgressAdapter.progress_done"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_done">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">progress_done</span><span class="p">():</span>
         <span class="k">pass</span></div></div>
         <span class="c1"># MainUIProgressAdapter.__progress_wrapper(&#39;progress_done&#39;)</span>
@@ -180,8 +180,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -198,6 +198,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.plugins.reorder.gui.tab_reorder &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../../../../../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../../../../../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../../../../../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../../../../../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../../../../../',
+            VERSION:     '0.5.2(0.5.2)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../../../../../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../../../../../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../../../../../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../../../index.html" />
+    <link rel="up" title="emft.plugins.reorder" href="../../reorder.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="../../../../../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../../../../../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../../../../index.html" >Module code</a></li>
+              <li><a href="../../reorder.html" accesskey="U">emft.plugins.reorder</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../../../../../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../../../../../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for emft.plugins.reorder.gui.tab_reorder</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+
+<span class="kn">from</span> <span class="nn">emft.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">emft.gui.base</span> <span class="k">import</span> <span class="n">Checkbox</span><span class="p">,</span> <span class="n">GroupBox</span><span class="p">,</span> <span class="n">HLayout</span><span class="p">,</span> <span class="n">HSpacer</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">PushButton</span><span class="p">,</span> <span class="n">Radio</span><span class="p">,</span> <span class="n">VLayout</span>
+<span class="kn">from</span> <span class="nn">emft.gui.main_ui_tab_widget</span> <span class="k">import</span> <span class="n">MainUiTabChild</span>
+<span class="kn">from</span> <span class="nn">emft.plugins.reorder.adapter.tab_reorder_adapter</span> <span class="k">import</span> <span class="n">TAB_NAME</span><span class="p">,</span> <span class="n">TabReorderAdapter</span>
+<span class="kn">from</span> <span class="nn">emft.plugins.reorder.service.reorder_miz</span> <span class="k">import</span> <span class="n">ReorderMiz</span>
+<span class="kn">from</span> <span class="nn">.widget_auto_reorder</span> <span class="k">import</span> <span class="n">WidgetAutoReorder</span>
+<span class="kn">from</span> <span class="nn">.widget_manual_reorder</span> <span class="k">import</span> <span class="n">WidgetManualReorder</span>
+
+<span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="TabChildReorder"><a class="viewcode-back" href="../../../../../api/emft.plugins.reorder.gui.html#emft.plugins.reorder.gui.tab_reorder.TabChildReorder">[docs]</a><span class="k">class</span> <span class="nc">TabChildReorder</span><span class="p">(</span><span class="n">MainUiTabChild</span><span class="p">,</span> <span class="n">TabReorderAdapter</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildReorder.tab_reorder_update_view_after_artifact_scan"><a class="viewcode-back" href="../../../../../api/emft.plugins.reorder.gui.html#emft.plugins.reorder.gui.tab_reorder.TabChildReorder.tab_reorder_update_view_after_artifact_scan">[docs]</a>    <span class="k">def</span> <span class="nf">tab_reorder_update_view_after_artifact_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TabChildReorder.tab_reorder_update_view_after_branches_scan"><a class="viewcode-back" href="../../../../../api/emft.plugins.reorder.gui.html#emft.plugins.reorder.gui.tab_reorder.TabChildReorder.tab_reorder_update_view_after_branches_scan">[docs]</a>    <span class="k">def</span> <span class="nf">tab_reorder_update_view_after_branches_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TabChildReorder.tab_reorder_change_active_profile"><a class="viewcode-back" href="../../../../../api/emft.plugins.reorder.gui.html#emft.plugins.reorder.gui.tab_reorder.TabChildReorder.tab_reorder_change_active_profile">[docs]</a>    <span class="k">def</span> <span class="nf">tab_reorder_change_active_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_profile_name</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TabChildReorder.tab_clicked"><a class="viewcode-back" href="../../../../../api/emft.plugins.reorder.gui.html#emft.plugins.reorder.gui.tab_reorder.TabChildReorder.tab_clicked">[docs]</a>    <span class="k">def</span> <span class="nf">tab_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tab_title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">TAB_NAME</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">MainUiTabChild</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_skip_options</span> <span class="o">=</span> <span class="n">Checkbox</span><span class="p">(</span>
+            <span class="s1">&#39;Skip &quot;options&quot; file&#39;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_on_click_option_checkbox</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">radio_manual</span> <span class="o">=</span> <span class="n">Radio</span><span class="p">(</span><span class="s1">&#39;Manual mode&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_click_radio_manual_or_auto</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radio_auto</span> <span class="o">=</span> <span class="n">Radio</span><span class="p">(</span><span class="s1">&#39;Auto mode&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_click_radio_manual_or_auto</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget_manual</span> <span class="o">=</span> <span class="n">WidgetManualReorder</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget_auto</span> <span class="o">=</span> <span class="n">WidgetAutoReorder</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">btn_reorder</span> <span class="o">=</span> <span class="n">PushButton</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Reorder MIZ file&#39;</span><span class="p">,</span>
+            <span class="n">func</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_click_reorder_btn</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">min_height</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span>
+            <span class="n">VLayout</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">Label</span><span class="p">(</span>
+                        <span class="s1">&#39;By design, LUA tables are unordered, which makes tracking changes extremely difficult.</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+                        <span class="s1">&#39;This lets you reorder them alphabetically before you push them in a SCM.&#39;</span>
+                    <span class="p">),</span>
+                    <span class="n">GroupBox</span><span class="p">(</span>
+                        <span class="s1">&#39;Options&#39;</span><span class="p">,</span>
+                        <span class="n">VLayout</span><span class="p">(</span>
+                            <span class="p">[</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">check_skip_options</span><span class="p">,</span>
+                                <span class="n">Label</span><span class="p">(</span>
+                                    <span class="s1">&#39;The &quot;options&quot; file at the root of the MIZ is player-specific, and is of very&#39;</span>
+                                    <span class="s1">&#39; relative import for the MIZ file itself. To avoid having irrelevant changes in&#39;</span>
+                                    <span class="s1">&#39; the SCM, it can be safely skipped during reordering.&#39;</span>
+                                <span class="p">),</span>
+                            <span class="p">],</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">GroupBox</span><span class="p">(</span>
+                        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select re-ordering method&#39;</span><span class="p">,</span>
+                        <span class="n">layout</span><span class="o">=</span><span class="n">HLayout</span><span class="p">(</span>
+                            <span class="p">[</span>
+                                <span class="n">HSpacer</span><span class="p">(),</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">radio_manual</span><span class="p">,</span>
+                                <span class="n">HSpacer</span><span class="p">(),</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">radio_auto</span><span class="p">,</span>
+                                <span class="n">HSpacer</span><span class="p">(),</span>
+                            <span class="p">],</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="n">GroupBox</span><span class="p">(</span>
+                        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Reordering setup&#39;</span><span class="p">,</span>
+                        <span class="n">layout</span><span class="o">=</span><span class="n">VLayout</span><span class="p">(</span>
+                            <span class="p">[</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">widget_manual</span><span class="p">,</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">widget_auto</span><span class="p">,</span>
+                            <span class="p">],</span>
+                        <span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">btn_reorder</span><span class="p">,</span>
+                <span class="p">],</span>
+                <span class="c1"># set_stretch=[(3, 1)]</span>
+                <span class="c1"># add_stretch=True,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_from_config</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_load_from_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radio_auto</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">auto_mode</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radio_manual</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="ow">not</span> <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">auto_mode</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_skip_options</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">skip_options_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_write_selected_mode_to_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">auto_mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auto_mode_is_selected</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_manual_mode_is_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">radio_manual</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_auto_mode_is_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">radio_auto</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_on_click_option_checkbox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">skip_options_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_skip_options</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_on_click_radio_manual_or_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget_manual</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">radio_manual</span><span class="o">.</span><span class="n">isChecked</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget_auto</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">radio_auto</span><span class="o">.</span><span class="n">isChecked</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_selected_mode_to_config</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_reorder_manual</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ReorderMiz</span><span class="o">.</span><span class="n">manual_reorder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">widget_manual</span><span class="o">.</span><span class="n">path_to_miz</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_reorder_auto</span><span class="p">():</span>
+        <span class="n">ReorderMiz</span><span class="o">.</span><span class="n">auto_reorder</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_on_click_reorder_btn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manual_mode_is_selected</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reorder_manual</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auto_mode_is_selected</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reorder_auto</span><span class="p">()</span></div>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../../../../../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../../../../../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../../../../index.html" >Module code</a></li>
+        <li><a href="../../reorder.html" >emft.plugins.reorder</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../../../../../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../../../../../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../../../../../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../../../../../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../../../../../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

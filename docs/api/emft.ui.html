@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.ui package &mdash; EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '0.6.0-alpha.119-reorg-src.72(0.6.0a72)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation" href="../index.html" />
+    <link rel="up" title="emft package" href="emft.html" />
+    <link rel="next" title="emft.updater package" href="emft.updater.html" />
+    <link rel="prev" title="emft.roster package" href="emft.roster.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">emft.ui package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-emft.ui.base">emft.ui.base module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui">emft.ui.main_ui module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_interface">emft.ui.main_ui_interface module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_mixins">emft.ui.main_ui_mixins module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_mixins_adapter">emft.ui.main_ui_mixins_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_msgbox">emft.ui.main_ui_msgbox module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_msgbox_adapter">emft.ui.main_ui_msgbox_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_progress">emft.ui.main_ui_progress module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_progress_adapter">emft.ui.main_ui_progress_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_tab_widget">emft.ui.main_ui_tab_widget module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_threading">emft.ui.main_ui_threading module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_threading_adapter">emft.ui.main_ui_threading_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.qt_resource">emft.ui.qt_resource module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_about">emft.ui.tab_about module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_config">emft.ui.tab_config module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_config_adapter">emft.ui.tab_config_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_log">emft.ui.tab_log module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_log_adapter">emft.ui.tab_log_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_radios">emft.ui.tab_radios module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_radios_adapter">emft.ui.tab_radios_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_roster">emft.ui.tab_roster module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_roster_adapter">emft.ui.tab_roster_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_skins">emft.ui.tab_skins module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_skins_adapter">emft.ui.tab_skins_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="emft.roster.html" title="emft.roster package" accesskey="P">previous </a></li>
+              <li><a href="emft.updater.html" title="emft.updater package" accesskey="N">next </a></li>
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../dev.html" >Documentation for developers</a></li>
+              <li><a href="modules.html" >EMFT API</a></li>
+              <li><a href="emft.html" accesskey="U">emft package</a></li>
+            
+            <li class="visible-xs"><a href="../_sources/api/emft.ui.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">emft.ui package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-emft.ui.base">emft.ui.base module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui">emft.ui.main_ui module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_interface">emft.ui.main_ui_interface module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_mixins">emft.ui.main_ui_mixins module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_mixins_adapter">emft.ui.main_ui_mixins_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_msgbox">emft.ui.main_ui_msgbox module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_msgbox_adapter">emft.ui.main_ui_msgbox_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_progress">emft.ui.main_ui_progress module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_progress_adapter">emft.ui.main_ui_progress_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_tab_widget">emft.ui.main_ui_tab_widget module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_threading">emft.ui.main_ui_threading module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.main_ui_threading_adapter">emft.ui.main_ui_threading_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.qt_resource">emft.ui.qt_resource module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_about">emft.ui.tab_about module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_config">emft.ui.tab_config module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_config_adapter">emft.ui.tab_config_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_log">emft.ui.tab_log module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_log_adapter">emft.ui.tab_log_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_radios">emft.ui.tab_radios module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_radios_adapter">emft.ui.tab_radios_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_roster">emft.ui.tab_roster module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_roster_adapter">emft.ui.tab_roster_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_skins">emft.ui.tab_skins module</a></li>
+<li><a class="reference internal" href="#module-emft.ui.tab_skins_adapter">emft.ui.tab_skins_adapter module</a></li>
+<li><a class="reference internal" href="#module-emft.ui">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="emft.roster.html"
+                        title="previous chapter">emft.roster package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="emft.updater.html"
+                        title="next chapter">emft.updater package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/emft.ui.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="emft-ui-package">
+<h1>emft.ui package<a class="headerlink" href="#emft-ui-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-emft.ui.base">
+<span id="emft-ui-base-module"></span><h2>emft.ui.base module<a class="headerlink" href="#module-emft.ui.base" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.base.BrowseDialog">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">BrowseDialog</code><span class="sig-paren">(</span><em>parent</em>, <em>title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QFileDialog</span></code></p>
+<dl class="staticmethod">
+<dt id="emft.ui.base.BrowseDialog.get_directory">
+<em class="property">static </em><code class="descname">get_directory</code><span class="sig-paren">(</span><em>title</em>, <em>init_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog.get_directory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog.get_directory" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.core.html#emft.core.path.Path" title="emft.core.path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.base.BrowseDialog.get_existing_file">
+<em class="property">static </em><code class="descname">get_existing_file</code><span class="sig-paren">(</span><em>title</em>, <em>filter_=None</em>, <em>init_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog.get_existing_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog.get_existing_file" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.core.html#emft.core.path.Path" title="emft.core.path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.base.BrowseDialog.get_existing_files">
+<em class="property">static </em><code class="descname">get_existing_files</code><span class="sig-paren">(</span><em>title</em>, <em>filter_=None</em>, <em>init_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog.get_existing_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog.get_existing_files" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">List</span></code></a>[<a class="reference internal" href="emft.core.html#emft.core.path.Path" title="emft.core.path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.base.BrowseDialog.get_file">
+<em class="property">static </em><code class="descname">get_file</code><span class="sig-paren">(</span><em>title</em>, <em>filter_=None</em>, <em>init_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog.get_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog.get_file" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.core.html#emft.core.path.Path" title="emft.core.path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.base.BrowseDialog.make">
+<em class="property">static </em><code class="descname">make</code><span class="sig-paren">(</span><em>title</em>, <em>filter_=None</em>, <em>init_dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog.make"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog.make" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.BrowseDialog.parse_multiple_results">
+<code class="descname">parse_multiple_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog.parse_multiple_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog.parse_multiple_results" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.List" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">List</span></code></a>[<a class="reference internal" href="emft.core.html#emft.core.path.Path" title="emft.core.path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.BrowseDialog.parse_single_result">
+<code class="descname">parse_single_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog.parse_single_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog.parse_single_result" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.core.html#emft.core.path.Path" title="emft.core.path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.base.BrowseDialog.save_file">
+<em class="property">static </em><code class="descname">save_file</code><span class="sig-paren">(</span><em>title</em>, <em>filter_=None</em>, <em>init_dir='.'</em>, <em>default_suffix=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#BrowseDialog.save_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.BrowseDialog.save_file" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="emft.core.html#emft.core.path.Path" title="emft.core.path.Path"><code class="xref py py-class docutils literal"><span class="pre">Path</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Checkbox">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Checkbox</code><span class="sig-paren">(</span><em>text</em>, <em>func=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Checkbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QCheckBox</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Combo">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Combo</code><span class="sig-paren">(</span><em>on_change</em>, <em>choices=None</em>, <em>parent=None</em>, <em>model=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Combo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QComboBox</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.Combo.begin_reset_model">
+<code class="descname">begin_reset_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Combo.begin_reset_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Combo.begin_reset_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.Combo.end_reset_model">
+<code class="descname">end_reset_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Combo.end_reset_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Combo.end_reset_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.Combo.reset_values">
+<code class="descname">reset_values</code><span class="sig-paren">(</span><em>choices</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Combo.reset_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Combo.reset_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.Combo.set_index_from_text">
+<code class="descname">set_index_from_text</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Combo.set_index_from_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Combo.set_index_from_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Dialog">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Dialog</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Dialog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QDialog</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Expandable">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Expandable</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Expandable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Expandable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.base.Expandable.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Expandable.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Expandable.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.Expandable.h_expand">
+<code class="descname">h_expand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Expandable.h_expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Expandable.h_expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.Expandable.setSizePolicy">
+<code class="descname">setSizePolicy</code><span class="sig-paren">(</span><em>w</em>, <em>h</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Expandable.setSizePolicy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Expandable.setSizePolicy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.Expandable.v_expand">
+<code class="descname">v_expand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Expandable.v_expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Expandable.v_expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Frame">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Frame</code><span class="sig-paren">(</span><em>layout</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Frame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QFrame</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.GridFrame">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">GridFrame</code><span class="sig-paren">(</span><em>children</em>, <em>stretch=None</em>, <em>auto_right=True</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#GridFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.GridFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.base.Frame" title="emft.ui.base.Frame"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.base.Frame</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.GridLayout">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">GridLayout</code><span class="sig-paren">(</span><em>children</em>, <em>stretch=None</em>, <em>auto_right=True</em>, <em>horizontal_spacing=None</em>, <em>vertical_spacing=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#GridLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.GridLayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QGridLayout</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.GridLayout.add_children">
+<code class="descname">add_children</code><span class="sig-paren">(</span><em>children</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#GridLayout.add_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.GridLayout.add_children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.base.GridLayout.align">
+<code class="descname">align</code><em class="property"> = {'l': 1, 'c': 132, 'r': 2}</em><a class="headerlink" href="#emft.ui.base.GridLayout.align" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.GroupBox">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">GroupBox</code><span class="sig-paren">(</span><em>title=None</em>, <em>layout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#GroupBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.GroupBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QGroupBox</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.HFrame">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">HFrame</code><span class="sig-paren">(</span><em>children</em>, <em>add_stretch=False</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#HFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.HFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.base.Frame" title="emft.ui.base.Frame"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.base.Frame</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.HLayout">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">HLayout</code><span class="sig-paren">(</span><em>children</em>, <em>add_stretch=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#HLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.HLayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QHBoxLayout</span></code>, <code class="xref py py-class docutils literal"><span class="pre">emft.ui.base._WithChildren</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.HSpacer">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">HSpacer</code><span class="sig-paren">(</span><em>size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#HSpacer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.HSpacer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QSpacerItem</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Label">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Label</code><span class="sig-paren">(</span><em>text</em>, <em>text_color='black'</em>, <em>bg_color='rgba(255</em>, <em>255</em>, <em>255</em>, <em>10)'</em>, <em>word_wrap=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QLabel</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.Label.set_bg_color">
+<code class="descname">set_bg_color</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Label.set_bg_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Label.set_bg_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.Label.set_text_color">
+<code class="descname">set_text_color</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Label.set_text_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Label.set_text_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.LineEdit">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">LineEdit</code><span class="sig-paren">(</span><em>text</em>, <em>on_text_changed=None</em>, <em>read_only=False</em>, <em>clear_btn_enabled=False</em>, <em>validation_regex=None</em>, <em>set_enabled=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#LineEdit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.LineEdit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QLineEdit</span></code>, <a class="reference internal" href="#emft.ui.base.Expandable" title="emft.ui.base.Expandable"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.base.Expandable</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Menu">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Menu</code><span class="sig-paren">(</span><em>title=''</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Menu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Menu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QMenu</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.Menu.add_action">
+<code class="descname">add_action</code><span class="sig-paren">(</span><em>text</em>, <em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Menu.add_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Menu.add_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.MenuBar">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">MenuBar</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#MenuBar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.MenuBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QMenuBar</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.PlainTextEdit">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">PlainTextEdit</code><span class="sig-paren">(</span><em>*</em>, <em>default_text=''</em>, <em>read_only=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#PlainTextEdit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.PlainTextEdit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QPlainTextEdit</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.PushButton">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">PushButton</code><span class="sig-paren">(</span><em>text</em>, <em>func</em>, <em>parent=None</em>, <em>min_height=None</em>, <em>text_color='black'</em>, <em>bg_color='rgba(255</em>, <em>255</em>, <em>255</em>, <em>10)'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#PushButton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.PushButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QPushButton</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.PushButton.set_bg_color">
+<code class="descname">set_bg_color</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#PushButton.set_bg_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.PushButton.set_bg_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.PushButton.set_text_color">
+<code class="descname">set_text_color</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#PushButton.set_text_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.PushButton.set_text_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Radio">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Radio</code><span class="sig-paren">(</span><em>text</em>, <em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Radio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Radio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QRadioButton</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Shortcut">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Shortcut</code><span class="sig-paren">(</span><em>key_sequence</em>, <em>parent</em>, <em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Shortcut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Shortcut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QShortcut</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Spacer">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Spacer</code><span class="sig-paren">(</span><em>w=1</em>, <em>h=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Spacer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Spacer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QSpacerItem</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.TabChild">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">TabChild</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TabChild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TabChild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QWidget</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.TabChild.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TabChild.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TabChild.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TabChild.tab_leave">
+<code class="descname">tab_leave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TabChild.tab_leave"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TabChild.tab_leave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if it’s ok to leave this tab for another one</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">bool</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.base.TabChild.tab_title">
+<code class="descname">tab_title</code><a class="headerlink" href="#emft.ui.base.TabChild.tab_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.TabWidget">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">TabWidget</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TabWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TabWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QTabWidget</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.TabWidget.addTab">
+<code class="descname">addTab</code><span class="sig-paren">(</span><em>tab</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TabWidget.addTab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TabWidget.addTab" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TabWidget.get_tab_from_title">
+<code class="descname">get_tab_from_title</code><span class="sig-paren">(</span><em>tab_title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TabWidget.get_tab_from_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TabWidget.get_tab_from_title" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#emft.ui.base.TabChild" title="emft.ui.base.TabChild"><code class="xref py py-class docutils literal"><span class="pre">TabChild</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.base.TabWidget.tabs">
+<code class="descname">tabs</code><a class="headerlink" href="#emft.ui.base.TabWidget.tabs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.TableEditableModel">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">TableEditableModel</code><span class="sig-paren">(</span><em>data</em>, <em>header_data</em>, <em>delegates</em>, <em>parent=None</em>, <em>bg=None</em>, <em>fg=None</em>, <em>align=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.base.TableModel" title="emft.ui.base.TableModel"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.base.TableModel</span></code></a></p>
+<dl class="class">
+<dt id="emft.ui.base.TableEditableModel.FloatDelegate">
+<em class="property">class </em><code class="descname">FloatDelegate</code><span class="sig-paren">(</span><em>min_value</em>, <em>max_value</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.FloatDelegate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.FloatDelegate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QStyledItemDelegate</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.FloatDelegate.createEditor">
+<code class="descname">createEditor</code><span class="sig-paren">(</span><em>parent</em>, <em>style</em>, <em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.FloatDelegate.createEditor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.FloatDelegate.createEditor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.FloatDelegate.displayText">
+<code class="descname">displayText</code><span class="sig-paren">(</span><em>value</em>, <em>locale</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.FloatDelegate.displayText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.FloatDelegate.displayText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.FloatDelegate.setEditorData">
+<code class="descname">setEditorData</code><span class="sig-paren">(</span><em>editor</em>, <em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.FloatDelegate.setEditorData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.FloatDelegate.setEditorData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.FloatDelegate.setModelData">
+<code class="descname">setModelData</code><span class="sig-paren">(</span><em>editor</em>, <em>model</em>, <em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.FloatDelegate.setModelData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.FloatDelegate.setModelData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.TableEditableModel.StringDelegate">
+<em class="property">class </em><code class="descname">StringDelegate</code><span class="sig-paren">(</span><em>validation_regex=None</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.StringDelegate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.StringDelegate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QStyledItemDelegate</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.StringDelegate.createEditor">
+<code class="descname">createEditor</code><span class="sig-paren">(</span><em>parent</em>, <em>style</em>, <em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.StringDelegate.createEditor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.StringDelegate.createEditor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.StringDelegate.displayText">
+<code class="descname">displayText</code><span class="sig-paren">(</span><em>value</em>, <em>locale</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.StringDelegate.displayText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.StringDelegate.displayText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.StringDelegate.setEditorData">
+<code class="descname">setEditorData</code><span class="sig-paren">(</span><em>editor</em>, <em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.StringDelegate.setEditorData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.StringDelegate.setEditorData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.StringDelegate.setModelData">
+<code class="descname">setModelData</code><span class="sig-paren">(</span><em>editor</em>, <em>model</em>, <em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.StringDelegate.setModelData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.StringDelegate.setModelData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.data">
+<code class="descname">data</code><span class="sig-paren">(</span><em>index</em>, <em>role=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.flags">
+<code class="descname">flags</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.flags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.flags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableEditableModel.setData">
+<code class="descname">setData</code><span class="sig-paren">(</span><em>index</em>, <em>value</em>, <em>role=2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableEditableModel.setData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableEditableModel.setData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.TableModel">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">TableModel</code><span class="sig-paren">(</span><em>data</em>, <em>header_data</em>, <em>parent=None</em>, <em>bg=None</em>, <em>fg=None</em>, <em>align=None</em>, <em>default_align='vc'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtCore.QAbstractTableModel</span></code></p>
+<dl class="attribute">
+<dt id="emft.ui.base.TableModel.align">
+<code class="descname">align</code><em class="property"> = {'c': 132, 'l': 1, 'r': 2, 'vc': 128}</em><a class="headerlink" href="#emft.ui.base.TableModel.align" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableModel.columnCount">
+<code class="descname">columnCount</code><span class="sig-paren">(</span><em>parent=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableModel.columnCount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableModel.columnCount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableModel.data">
+<code class="descname">data</code><span class="sig-paren">(</span><em>index</em>, <em>role=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableModel.data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableModel.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableModel.headerData">
+<code class="descname">headerData</code><span class="sig-paren">(</span><em>col</em>, <em>orientation=1</em>, <em>role=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableModel.headerData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableModel.headerData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableModel.reset_data">
+<code class="descname">reset_data</code><span class="sig-paren">(</span><em>new_data</em>, <em>bg=None</em>, <em>fg=None</em>, <em>align=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableModel.reset_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableModel.reset_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableModel.rowCount">
+<code class="descname">rowCount</code><span class="sig-paren">(</span><em>parent=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableModel.rowCount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableModel.rowCount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.TableProxy">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">TableProxy</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtCore.QSortFilterProxyModel</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.TableProxy.default_sort">
+<code class="descname">default_sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableProxy.default_sort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableProxy.default_sort" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableProxy.filter">
+<code class="descname">filter</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableProxy.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableProxy.filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableProxy.filterAcceptsRow">
+<code class="descname">filterAcceptsRow</code><span class="sig-paren">(</span><em>row</em>, <em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableProxy.filterAcceptsRow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableProxy.filterAcceptsRow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.base.TableProxy.sort">
+<code class="descname">sort</code><span class="sig-paren">(</span><em>p_int</em>, <em>order=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableProxy.sort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableProxy.sort" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.TableView">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">TableView</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QTableView</span></code></p>
+<dl class="method">
+<dt id="emft.ui.base.TableView.setModel">
+<code class="descname">setModel</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableView.setModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableView.setModel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.TableViewWithSingleRowMenu">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">TableViewWithSingleRowMenu</code><span class="sig-paren">(</span><em>menu</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#TableViewWithSingleRowMenu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.TableViewWithSingleRowMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.base.TableView" title="emft.ui.base.TableView"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.base.TableView</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">emft.ui.base._TableViewWithRowContextMenu</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.VFrame">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">VFrame</code><span class="sig-paren">(</span><em>children</em>, <em>add_stretch=False</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#VFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.VFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.base.Frame" title="emft.ui.base.Frame"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.base.Frame</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.VLayout">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">VLayout</code><span class="sig-paren">(</span><em>children</em>, <em>add_stretch=False</em>, <em>set_stretch=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#VLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.VLayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QVBoxLayout</span></code>, <code class="xref py py-class docutils literal"><span class="pre">emft.ui.base._WithChildren</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.VSpacer">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">VSpacer</code><span class="sig-paren">(</span><em>size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#VSpacer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.VSpacer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QSpacerItem</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.base.Widget">
+<em class="property">class </em><code class="descclassname">emft.ui.base.</code><code class="descname">Widget</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#Widget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.Widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QWidget</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="emft.ui.base.box_info">
+<code class="descclassname">emft.ui.base.</code><code class="descname">box_info</code><span class="sig-paren">(</span><em>parent</em>, <em>title</em>, <em>text</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#box_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.box_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="emft.ui.base.box_question">
+<code class="descclassname">emft.ui.base.</code><code class="descname">box_question</code><span class="sig-paren">(</span><em>parent</em>, <em>text</em>, <em>title='Please confirm'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#box_question"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.box_question" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="emft.ui.base.box_warning">
+<code class="descclassname">emft.ui.base.</code><code class="descname">box_warning</code><span class="sig-paren">(</span><em>parent</em>, <em>title</em>, <em>text</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/base.html#box_warning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.base.box_warning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui">
+<span id="emft-ui-main-ui-module"></span><h2>emft.ui.main_ui module<a class="headerlink" href="#module-emft.ui.main_ui" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui.MainUi">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui.</code><code class="descname">MainUi</code><a class="reference internal" href="../_modules/emft/ui/main_ui.html#MainUi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui.MainUi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QMainWindow</span></code>, <a class="reference internal" href="#emft.ui.main_ui_mixins.MainUiMixins" title="emft.ui.main_ui_mixins.MainUiMixins"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_mixins.MainUiMixins</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.main_ui.MainUi.add_tab">
+<code class="descname">add_tab</code><span class="sig-paren">(</span><em>tab</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui.html#MainUi.add_tab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui.MainUi.add_tab" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.main_ui.MainUi.closeEvent">
+<code class="descname">closeEvent</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui.html#MainUi.closeEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui.MainUi.closeEvent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui.MainUi.exit">
+<em class="property">static </em><code class="descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui.html#MainUi.exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui.MainUi.exit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.main_ui.MainUi.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui.html#MainUi.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui.MainUi.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui.MainUi.threading_queue">
+<code class="descname">threading_queue</code><em class="property"> = &lt;queue.Queue object&gt;</em><a class="headerlink" href="#emft.ui.main_ui.MainUi.threading_queue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="emft.ui.main_ui.start_ui">
+<code class="descclassname">emft.ui.main_ui.</code><code class="descname">start_ui</code><span class="sig-paren">(</span><em>show=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui.html#start_ui"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui.start_ui" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_interface">
+<span id="emft-ui-main-ui-interface-module"></span><h2>emft.ui.main_ui_interface module<a class="headerlink" href="#module-emft.ui.main_ui_interface" title="Permalink to this headline">¶</a></h2>
+<p>Creates a dispatcher for function calls outside of the main UI.</p>
+<p>Calling interface methods from the main application thread will transfer the call to the main UI,
+while calling them in a separate thread will take advantage of Qt Signals to transfer them back to Qt
+EventLoop.</p>
+<p>Any module willing to add methods to the interface should use MainUiMixinsAdapter to do so.</p>
+<dl class="class">
+<dt id="emft.ui.main_ui_interface.I">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_interface.</code><code class="descname">I</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_mixins_adapter.MainUiMixinsAdapter" title="emft.ui.main_ui_mixins_adapter.MainUiMixinsAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_mixins_adapter.MainUiMixinsAdapter</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.confirm">
+<code class="descname">confirm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.confirm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.confirm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.error">
+<code class="descname">error</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.hide">
+<code class="descname">hide</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.hide" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.msg">
+<code class="descname">msg</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.msg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.progress_done">
+<code class="descname">progress_done</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.progress_done"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.progress_done" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.progress_set_label">
+<code class="descname">progress_set_label</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.progress_set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.progress_set_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.progress_set_value">
+<code class="descname">progress_set_value</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.progress_set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.progress_set_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.progress_start">
+<code class="descname">progress_start</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.progress_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.progress_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.show">
+<code class="descname">show</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_interface.I.show_log_tab">
+<code class="descname">show_log_tab</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#I.show_log_tab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.I.show_log_tab" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.main_ui_interface.MainUiMethod">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_interface.</code><code class="descname">MainUiMethod</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_interface.html#MainUiMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_interface.MainUiMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_mixins">
+<span id="emft-ui-main-ui-mixins-module"></span><h2>emft.ui.main_ui_mixins module<a class="headerlink" href="#module-emft.ui.main_ui_mixins" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui_mixins.MainUiMixins">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_mixins.</code><code class="descname">MainUiMixins</code><a class="reference internal" href="../_modules/emft/ui/main_ui_mixins.html#MainUiMixins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_mixins.MainUiMixins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_progress.MainUiProgress" title="emft.ui.main_ui_progress.MainUiProgress"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_progress.MainUiProgress</span></code></a>, <a class="reference internal" href="#emft.ui.main_ui_msgbox.MainUiMsgBox" title="emft.ui.main_ui_msgbox.MainUiMsgBox"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_msgbox.MainUiMsgBox</span></code></a>, <a class="reference internal" href="#emft.ui.main_ui_threading.MainUiThreading" title="emft.ui.main_ui_threading.MainUiThreading"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_threading.MainUiThreading</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_mixins_adapter">
+<span id="emft-ui-main-ui-mixins-adapter-module"></span><h2>emft.ui.main_ui_mixins_adapter module<a class="headerlink" href="#module-emft.ui.main_ui_mixins_adapter" title="Permalink to this headline">¶</a></h2>
+<p>References all modules that add methods to the MainUI.</p>
+<p>Those methods will be made available through the MainUI interface (“I”) and will be thread-safe.</p>
+<dl class="class">
+<dt id="emft.ui.main_ui_mixins_adapter.MainUiMixinsAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_mixins_adapter.</code><code class="descname">MainUiMixinsAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_mixins_adapter.html#MainUiMixinsAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_mixins_adapter.MainUiMixinsAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter" title="emft.ui.main_ui_progress_adapter.MainUIProgressAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_progress_adapter.MainUIProgressAdapter</span></code></a>, <a class="reference internal" href="#emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter" title="emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter</span></code></a>, <a class="reference internal" href="#emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter" title="emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter</span></code></a>, <a class="reference internal" href="#emft.ui.tab_config_adapter.TabConfigAdapter" title="emft.ui.tab_config_adapter.TabConfigAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_config_adapter.TabConfigAdapter</span></code></a>, <a class="reference internal" href="#emft.ui.tab_log_adapter.TabLogAdapter" title="emft.ui.tab_log_adapter.TabLogAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_log_adapter.TabLogAdapter</span></code></a>, <a class="reference internal" href="emft.reorder.adapter.html#emft.reorder.adapter.tab_reorder_adapter.TabReorderAdapter" title="emft.reorder.adapter.tab_reorder_adapter.TabReorderAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.reorder.adapter.tab_reorder_adapter.TabReorderAdapter</span></code></a>, <a class="reference internal" href="#emft.ui.tab_roster_adapter.TabRosterAdapter" title="emft.ui.tab_roster_adapter.TabRosterAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_roster_adapter.TabRosterAdapter</span></code></a>, <a class="reference internal" href="#emft.ui.tab_skins_adapter.TabSkinsAdapter" title="emft.ui.tab_skins_adapter.TabSkinsAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_skins_adapter.TabSkinsAdapter</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_msgbox">
+<span id="emft-ui-main-ui-msgbox-module"></span><h2>emft.ui.main_ui_msgbox module<a class="headerlink" href="#module-emft.ui.main_ui_msgbox" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui_msgbox.MainUiMsgBox">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_msgbox.</code><code class="descname">MainUiMsgBox</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_msgbox.html#MainUiMsgBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_msgbox.MainUiMsgBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter" title="emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.main_ui_msgbox.MainUiMsgBox.confirm">
+<code class="descname">confirm</code><span class="sig-paren">(</span><em>text</em>, <em>title=None</em>, <em>ico=None</em>, <em>follow_up_on_yes=None</em>, <em>follow_up_on_no=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_msgbox.html#MainUiMsgBox.confirm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_msgbox.MainUiMsgBox.confirm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.main_ui_msgbox.MainUiMsgBox.error">
+<code class="descname">error</code><span class="sig-paren">(</span><em>text</em>, <em>follow_up=None</em>, <em>title='Error'</em>, <em>ico=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_msgbox.html#MainUiMsgBox.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_msgbox.MainUiMsgBox.error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.main_ui_msgbox.MainUiMsgBox.msg">
+<code class="descname">msg</code><span class="sig-paren">(</span><em>text</em>, <em>follow_up=None</em>, <em>title=None</em>, <em>ico=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_msgbox.html#MainUiMsgBox.msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_msgbox.MainUiMsgBox.msg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_msgbox_adapter">
+<span id="emft-ui-main-ui-msgbox-adapter-module"></span><h2>emft.ui.main_ui_msgbox_adapter module<a class="headerlink" href="#module-emft.ui.main_ui_msgbox_adapter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_msgbox_adapter.</code><code class="descname">MainUiMsgBoxAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_msgbox_adapter.html#MainUiMsgBoxAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter.confirm">
+<code class="descname">confirm</code><span class="sig-paren">(</span><em>text</em>, <em>title=None</em>, <em>ico=None</em>, <em>follow_up_on_yes=None</em>, <em>follow_up_on_no=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_msgbox_adapter.html#MainUiMsgBoxAdapter.confirm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter.confirm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter.error">
+<code class="descname">error</code><span class="sig-paren">(</span><em>text</em>, <em>follow_up=None</em>, <em>title=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_msgbox_adapter.html#MainUiMsgBoxAdapter.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter.error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter.msg">
+<code class="descname">msg</code><span class="sig-paren">(</span><em>text</em>, <em>follow_up=None</em>, <em>title=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_msgbox_adapter.html#MainUiMsgBoxAdapter.msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter.msg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_progress">
+<span id="emft-ui-main-ui-progress-module"></span><h2>emft.ui.main_ui_progress module<a class="headerlink" href="#module-emft.ui.main_ui_progress" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui_progress.MainUiProgress">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_progress.</code><code class="descname">MainUiProgress</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress.html#MainUiProgress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress.MainUiProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.ui.main_ui_progress.MainUiProgress.progress">
+<code class="descname">progress</code><em class="property"> = None</em><a class="headerlink" href="#emft.ui.main_ui_progress.MainUiProgress.progress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui_progress.MainUiProgress.progress_done">
+<em class="property">static </em><code class="descname">progress_done</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress.html#MainUiProgress.progress_done"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress.MainUiProgress.progress_done" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui_progress.MainUiProgress.progress_set_label">
+<em class="property">static </em><code class="descname">progress_set_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress.html#MainUiProgress.progress_set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress.MainUiProgress.progress_set_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui_progress.MainUiProgress.progress_set_value">
+<em class="property">static </em><code class="descname">progress_set_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress.html#MainUiProgress.progress_set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress.MainUiProgress.progress_set_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui_progress.MainUiProgress.progress_start">
+<em class="property">static </em><code class="descname">progress_start</code><span class="sig-paren">(</span><em>length=100</em>, <em>label=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress.html#MainUiProgress.progress_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress.MainUiProgress.progress_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_progress_adapter">
+<span id="emft-ui-main-ui-progress-adapter-module"></span><h2>emft.ui.main_ui_progress_adapter module<a class="headerlink" href="#module-emft.ui.main_ui_progress_adapter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui_progress_adapter.MainUIProgressAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_progress_adapter.</code><code class="descname">MainUIProgressAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress_adapter.html#MainUIProgressAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="emft.core.html#emft.core.progress.ProgressAdapter" title="emft.core.progress.ProgressAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.core.progress.ProgressAdapter</span></code></a></p>
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_done">
+<em class="property">static </em><code class="descname">progress_done</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress_adapter.html#MainUIProgressAdapter.progress_done"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_done" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_set_label">
+<em class="property">static </em><code class="descname">progress_set_label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress_adapter.html#MainUIProgressAdapter.progress_set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_set_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_set_value">
+<em class="property">static </em><code class="descname">progress_set_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress_adapter.html#MainUIProgressAdapter.progress_set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_set_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_start">
+<em class="property">static </em><code class="descname">progress_start</code><span class="sig-paren">(</span><em>length=100</em>, <em>label=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_progress_adapter.html#MainUIProgressAdapter.progress_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_progress_adapter.MainUIProgressAdapter.progress_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_tab_widget">
+<span id="emft-ui-main-ui-tab-widget-module"></span><h2>emft.ui.main_ui_tab_widget module<a class="headerlink" href="#module-emft.ui.main_ui_tab_widget" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui_tab_widget.MainUiTabChild">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_tab_widget.</code><code class="descname">MainUiTabChild</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_tab_widget.html#MainUiTabChild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_tab_widget.MainUiTabChild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.base.TabChild" title="emft.ui.base.TabChild"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.base.TabChild</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.main_ui_tab_widget.MainUiTabChild.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_tab_widget.html#MainUiTabChild.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_tab_widget.MainUiTabChild.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.main_ui_tab_widget.MainUiTabMethod">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_tab_widget.</code><code class="descname">MainUiTabMethod</code><span class="sig-paren">(</span><em>tab_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_tab_widget.html#MainUiTabMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_tab_widget.MainUiTabMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Decorator-class to create properties for META instances.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_threading">
+<span id="emft-ui-main-ui-threading-module"></span><h2>emft.ui.main_ui_threading module<a class="headerlink" href="#module-emft.ui.main_ui_threading" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui_threading.MainGuiWorker">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_threading.</code><code class="descname">MainGuiWorker</code><span class="sig-paren">(</span><em>signal</em>, <em>queue</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_threading.html#MainGuiWorker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_threading.MainGuiWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtCore.QObject</span></code></p>
+<p>Sits in the main EventLoop, and reads a blocking queue of things to run.</p>
+<p>When somethings pops up, sends a nice Qt Signal to the main EventLoop.</p>
+<dl class="method">
+<dt id="emft.ui.main_ui_threading.MainGuiWorker.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_threading.html#MainGuiWorker.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_threading.MainGuiWorker.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.main_ui_threading.MainUiThreading">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_threading.</code><code class="descname">MainUiThreading</code><a class="reference internal" href="../_modules/emft/ui/main_ui_threading.html#MainUiThreading"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_threading.MainUiThreading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter" title="emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter</span></code></a></p>
+<p>Encapsulates calls to the MainUi inside a Qt thread.</p>
+<p>Qt is very bitchy about changing anything in the main event loop directly; calls are deferred to the
+&#64;classmethod “do”, which puts them in a Queue so Qt can relax a tad and do the real work inside its
+own fucking safe space. Wuss.</p>
+<dl class="classmethod">
+<dt id="emft.ui.main_ui_threading.MainUiThreading.do">
+<em class="property">classmethod </em><code class="descname">do</code><span class="sig-paren">(</span><em>func</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_threading.html#MainUiThreading.do"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_threading.MainUiThreading.do" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes a Gui method inside the Qt main loop</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj_name</strong> – attribute of MainUi instance that has the “func” method</li>
+<li><strong>func</strong> – name of the method to run</li>
+<li><strong>args</strong> – argument of the method</li>
+<li><strong>kwargs</strong> – keyword arguments of the method</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_threading.MainUiThreading.pool">
+<code class="descname">pool</code><a class="headerlink" href="#emft.ui.main_ui_threading.MainUiThreading.pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.main_ui_threading.MainUiThreading.threading_signal">
+<code class="descname">threading_signal</code><a class="headerlink" href="#emft.ui.main_ui_threading.MainUiThreading.threading_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.main_ui_threading_adapter">
+<span id="emft-ui-main-ui-threading-adapter-module"></span><h2>emft.ui.main_ui_threading_adapter module<a class="headerlink" href="#module-emft.ui.main_ui_threading_adapter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.main_ui_threading_adapter.</code><code class="descname">MainUiThreadingAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/main_ui_threading_adapter.html#MainUiThreadingAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter.pool">
+<code class="descname">pool</code><a class="headerlink" href="#emft.ui.main_ui_threading_adapter.MainUiThreadingAdapter.pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.qt_resource">
+<span id="emft-ui-qt-resource-module"></span><h2>emft.ui.qt_resource module<a class="headerlink" href="#module-emft.ui.qt_resource" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="emft.ui.qt_resource.qCleanupResources">
+<code class="descclassname">emft.ui.qt_resource.</code><code class="descname">qCleanupResources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/qt_resource.html#qCleanupResources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.qt_resource.qCleanupResources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="emft.ui.qt_resource.qInitResources">
+<code class="descclassname">emft.ui.qt_resource.</code><code class="descname">qInitResources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/qt_resource.html#qInitResources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.qt_resource.qInitResources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_about">
+<span id="emft-ui-tab-about-module"></span><h2>emft.ui.tab_about module<a class="headerlink" href="#module-emft.ui.tab_about" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_about.TabChildAbout">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_about.</code><code class="descname">TabChildAbout</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_about.html#TabChildAbout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_about.TabChildAbout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_tab_widget.MainUiTabChild" title="emft.ui.main_ui_tab_widget.MainUiTabChild"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_tab_widget.MainUiTabChild</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.tab_about.TabChildAbout.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_about.html#TabChildAbout.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_about.TabChildAbout.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_about.TabChildAbout.tab_title">
+<code class="descname">tab_title</code><a class="headerlink" href="#emft.ui.tab_about.TabChildAbout.tab_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_config">
+<span id="emft-ui-tab-config-module"></span><h2>emft.ui.tab_config module<a class="headerlink" href="#module-emft.ui.tab_config" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_config.TabChildConfig">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_config.</code><code class="descname">TabChildConfig</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_config.html#TabChildConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_config.TabChildConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_tab_widget.MainUiTabChild" title="emft.ui.main_ui_tab_widget.MainUiTabChild"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_tab_widget.MainUiTabChild</span></code></a>, <a class="reference internal" href="#emft.ui.tab_config_adapter.TabConfigAdapter" title="emft.ui.tab_config_adapter.TabConfigAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_config_adapter.TabConfigAdapter</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.tab_config.TabChildConfig.alpha_open">
+<code class="descname">alpha_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_config.html#TabChildConfig.alpha_open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_config.TabChildConfig.alpha_open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_config.TabChildConfig.beta_open">
+<code class="descname">beta_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_config.html#TabChildConfig.beta_open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_config.TabChildConfig.beta_open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_config.TabChildConfig.config_tab_update_dcs_installs">
+<code class="descname">config_tab_update_dcs_installs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_config.html#TabChildConfig.config_tab_update_dcs_installs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_config.TabChildConfig.config_tab_update_dcs_installs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_config.TabChildConfig.stable_open">
+<code class="descname">stable_open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_config.html#TabChildConfig.stable_open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_config.TabChildConfig.stable_open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_config.TabChildConfig.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_config.html#TabChildConfig.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_config.TabChildConfig.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_config.TabChildConfig.tab_title">
+<code class="descname">tab_title</code><a class="headerlink" href="#emft.ui.tab_config.TabChildConfig.tab_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_config_adapter">
+<span id="emft-ui-tab-config-adapter-module"></span><h2>emft.ui.tab_config_adapter module<a class="headerlink" href="#module-emft.ui.tab_config_adapter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_config_adapter.TabConfigAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_config_adapter.</code><code class="descname">TabConfigAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_config_adapter.html#TabConfigAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_config_adapter.TabConfigAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.ui.tab_config_adapter.TabConfigAdapter.config_tab_update_dcs_installs">
+<code class="descname">config_tab_update_dcs_installs</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.ui.tab_config_adapter.TabConfigAdapter.config_tab_update_dcs_installs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_log">
+<span id="emft-ui-tab-log-module"></span><h2>emft.ui.tab_log module<a class="headerlink" href="#module-emft.ui.tab_log" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_log.TabChildLog">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_log.</code><code class="descname">TabChildLog</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_log.html#TabChildLog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_log.TabChildLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_tab_widget.MainUiTabChild" title="emft.ui.main_ui_tab_widget.MainUiTabChild"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_tab_widget.MainUiTabChild</span></code></a>, <a class="reference internal" href="emft.core.html#emft.core.logging.PersistentLoggingFollower" title="emft.core.logging.PersistentLoggingFollower"><code class="xref py py-class docutils literal"><span class="pre">emft.core.logging.PersistentLoggingFollower</span></code></a>, <a class="reference internal" href="#emft.ui.tab_log_adapter.TabLogAdapter" title="emft.ui.tab_log_adapter.TabLogAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_log_adapter.TabLogAdapter</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.tab_log.TabChildLog.combo_changed">
+<code class="descname">combo_changed</code><span class="sig-paren">(</span><em>_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_log.html#TabChildLog.combo_changed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.combo_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates current log level and forces a re-draw of the text widget.</p>
+<p>(automatically fires the user activates the log level selection combo)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_log.TabChildLog.datefmt_">
+<code class="descname">datefmt_</code><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.datefmt_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_log.TabChildLog.filters">
+<code class="descname">filters</code><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_log.TabChildLog.fmt_">
+<code class="descname">fmt_</code><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.fmt_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_log.TabChildLog.handle_record">
+<code class="descname">handle_record</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_log.html#TabChildLog.handle_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.handle_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_log.TabChildLog.min_lvl">
+<code class="descname">min_lvl</code><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.min_lvl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_log.TabChildLog.records">
+<code class="descname">records</code><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_log.TabChildLog.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_log.html#TabChildLog.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_log.TabChildLog.tab_log_write">
+<code class="descname">tab_log_write</code><span class="sig-paren">(</span><em>msg</em>, <em>color='#000000'</em>, <em>bold=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_log.html#TabChildLog.tab_log_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.tab_log_write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_log.TabChildLog.tab_title">
+<code class="descname">tab_title</code><a class="headerlink" href="#emft.ui.tab_log.TabChildLog.tab_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_log_adapter">
+<span id="emft-ui-tab-log-adapter-module"></span><h2>emft.ui.tab_log_adapter module<a class="headerlink" href="#module-emft.ui.tab_log_adapter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_log_adapter.TabLogAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_log_adapter.</code><code class="descname">TabLogAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_log_adapter.html#TabLogAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_log_adapter.TabLogAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.ui.tab_log_adapter.TabLogAdapter.tab_log_write">
+<code class="descname">tab_log_write</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.ui.tab_log_adapter.TabLogAdapter.tab_log_write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_radios">
+<span id="emft-ui-tab-radios-module"></span><h2>emft.ui.tab_radios module<a class="headerlink" href="#module-emft.ui.tab_radios" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_radios.EditPresetsWidget">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_radios.</code><code class="descname">EditPresetsWidget</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#EditPresetsWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.EditPresetsWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.base.TabChild" title="emft.ui.base.TabChild"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.base.TabChild</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.tab_radios.EditPresetsWidget.connect_data_changed_signal">
+<code class="descname">connect_data_changed_signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#EditPresetsWidget.connect_data_changed_signal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.EditPresetsWidget.connect_data_changed_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_radios.EditPresetsWidget.data_changed">
+<code class="descname">data_changed</code><span class="sig-paren">(</span><em>radio_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#EditPresetsWidget.data_changed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.EditPresetsWidget.data_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_radios.EditPresetsWidget.disconnect_data_changed_signal">
+<code class="descname">disconnect_data_changed_signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#EditPresetsWidget.disconnect_data_changed_signal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.EditPresetsWidget.disconnect_data_changed_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_radios.EditPresetsWidget.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#EditPresetsWidget.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.EditPresetsWidget.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_radios.EditPresetsWidget.tab_leave">
+<code class="descname">tab_leave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#EditPresetsWidget.tab_leave"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.EditPresetsWidget.tab_leave" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_radios.EditPresetsWidget.tab_title">
+<code class="descname">tab_title</code><a class="headerlink" href="#emft.ui.tab_radios.EditPresetsWidget.tab_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="emft.ui.tab_radios.TabChildRadios">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_radios.</code><code class="descname">TabChildRadios</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#TabChildRadios"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.TabChildRadios" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_tab_widget.MainUiTabChild" title="emft.ui.main_ui_tab_widget.MainUiTabChild"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_tab_widget.MainUiTabChild</span></code></a>, <a class="reference internal" href="#emft.ui.tab_radios_adapter.TabRadiosAdapter" title="emft.ui.tab_radios_adapter.TabRadiosAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_radios_adapter.TabRadiosAdapter</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.tab_radios.TabChildRadios.data_changed">
+<code class="descname">data_changed</code><span class="sig-paren">(</span><em>_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#TabChildRadios.data_changed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.TabChildRadios.data_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_radios.TabChildRadios.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios.html#TabChildRadios.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios.TabChildRadios.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_radios.TabChildRadios.tab_title">
+<code class="descname">tab_title</code><a class="headerlink" href="#emft.ui.tab_radios.TabChildRadios.tab_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_radios_adapter">
+<span id="emft-ui-tab-radios-adapter-module"></span><h2>emft.ui.tab_radios_adapter module<a class="headerlink" href="#module-emft.ui.tab_radios_adapter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_radios_adapter.TabRadiosAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_radios_adapter.</code><code class="descname">TabRadiosAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_radios_adapter.html#TabRadiosAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_radios_adapter.TabRadiosAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_roster">
+<span id="emft-ui-tab-roster-module"></span><h2>emft.ui.tab_roster module<a class="headerlink" href="#module-emft.ui.tab_roster" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_roster.TabChildRoster">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_roster.</code><code class="descname">TabChildRoster</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_roster.html#TabChildRoster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_roster.TabChildRoster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_tab_widget.MainUiTabChild" title="emft.ui.main_ui_tab_widget.MainUiTabChild"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_tab_widget.MainUiTabChild</span></code></a>, <a class="reference internal" href="#emft.ui.tab_roster_adapter.TabRosterAdapter" title="emft.ui.tab_roster_adapter.TabRosterAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_roster_adapter.TabRosterAdapter</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.ui.tab_roster.TabChildRoster.miz">
+<code class="descname">miz</code><a class="headerlink" href="#emft.ui.tab_roster.TabChildRoster.miz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_roster.TabChildRoster.selected_left">
+<code class="descname">selected_left</code><a class="headerlink" href="#emft.ui.tab_roster.TabChildRoster.selected_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_roster.TabChildRoster.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_roster.html#TabChildRoster.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_roster.TabChildRoster.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_roster.TabChildRoster.tab_roster_show_data_in_table">
+<code class="descname">tab_roster_show_data_in_table</code><span class="sig-paren">(</span><em>*_</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_roster.html#TabChildRoster.tab_roster_show_data_in_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_roster.TabChildRoster.tab_roster_show_data_in_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_roster.TabChildRoster.tab_title">
+<code class="descname">tab_title</code><a class="headerlink" href="#emft.ui.tab_roster.TabChildRoster.tab_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_roster_adapter">
+<span id="emft-ui-tab-roster-adapter-module"></span><h2>emft.ui.tab_roster_adapter module<a class="headerlink" href="#module-emft.ui.tab_roster_adapter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_roster_adapter.TabRosterAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_roster_adapter.</code><code class="descname">TabRosterAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_roster_adapter.html#TabRosterAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_roster_adapter.TabRosterAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.ui.tab_roster_adapter.TabRosterAdapter.tab_roster_show_data_in_table">
+<code class="descname">tab_roster_show_data_in_table</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.ui.tab_roster_adapter.TabRosterAdapter.tab_roster_show_data_in_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_skins">
+<span id="emft-ui-tab-skins-module"></span><h2>emft.ui.tab_skins module<a class="headerlink" href="#module-emft.ui.tab_skins" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_skins.TabChildSkins">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_skins.</code><code class="descname">TabChildSkins</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_skins.html#TabChildSkins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_skins.TabChildSkins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#emft.ui.main_ui_tab_widget.MainUiTabChild" title="emft.ui.main_ui_tab_widget.MainUiTabChild"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.main_ui_tab_widget.MainUiTabChild</span></code></a>, <a class="reference internal" href="#emft.ui.tab_skins_adapter.TabSkinsAdapter" title="emft.ui.tab_skins_adapter.TabSkinsAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.ui.tab_skins_adapter.TabSkinsAdapter</span></code></a></p>
+<dl class="method">
+<dt id="emft.ui.tab_skins.TabChildSkins.tab_clicked">
+<code class="descname">tab_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_skins.html#TabChildSkins.tab_clicked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_skins.TabChildSkins.tab_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_skins.TabChildSkins.tab_skins_show_skins_scan_result">
+<code class="descname">tab_skins_show_skins_scan_result</code><span class="sig-paren">(</span><em>scan_result</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_skins.html#TabChildSkins.tab_skins_show_skins_scan_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_skins.TabChildSkins.tab_skins_show_skins_scan_result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="emft.ui.tab_skins.TabChildSkins.tab_skins_update_dcs_installs_combo">
+<code class="descname">tab_skins_update_dcs_installs_combo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_skins.html#TabChildSkins.tab_skins_update_dcs_installs_combo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_skins.TabChildSkins.tab_skins_update_dcs_installs_combo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_skins.TabChildSkins.tab_title">
+<code class="descname">tab_title</code><a class="headerlink" href="#emft.ui.tab_skins.TabChildSkins.tab_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui.tab_skins_adapter">
+<span id="emft-ui-tab-skins-adapter-module"></span><h2>emft.ui.tab_skins_adapter module<a class="headerlink" href="#module-emft.ui.tab_skins_adapter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="emft.ui.tab_skins_adapter.TabSkinsAdapter">
+<em class="property">class </em><code class="descclassname">emft.ui.tab_skins_adapter.</code><code class="descname">TabSkinsAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/ui/tab_skins_adapter.html#TabSkinsAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.ui.tab_skins_adapter.TabSkinsAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="emft.ui.tab_skins_adapter.TabSkinsAdapter.tab_skins_show_skins_scan_result">
+<code class="descname">tab_skins_show_skins_scan_result</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.ui.tab_skins_adapter.TabSkinsAdapter.tab_skins_show_skins_scan_result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="emft.ui.tab_skins_adapter.TabSkinsAdapter.tab_skins_update_dcs_installs_combo">
+<code class="descname">tab_skins_update_dcs_installs_combo</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.ui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.ui.tab_skins_adapter.TabSkinsAdapter.tab_skins_update_dcs_installs_combo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-emft.ui">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-emft.ui" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="emft.roster.html" title="emft.roster package" >previous</a></li>
+        <li><a href="emft.updater.html" title="emft.updater package" >next</a></li>
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../dev.html" >Documentation for developers</a></li>
+        <li><a href="modules.html" >EMFT API</a></li>
+        <li><a href="emft.html" >emft package</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 02 Aug 2017.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

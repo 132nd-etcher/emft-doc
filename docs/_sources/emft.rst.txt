@@ -6,17 +6,16 @@ Subpackages
 
 .. toctree::
 
-    emft.cfg
+    emft.config
+    emft.core
+    emft.data
     emft.meta
-    emft.misc
     emft.miz
     emft.radio
     emft.reorder
     emft.roster
-    emft.sentry
-    emft.sltp
     emft.ui
-    emft.utils
+    emft.updater
 
 Submodules
 ----------
@@ -25,14 +24,6 @@ emft\.build module
 ------------------
 
 .. automodule:: emft.build
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-emft\.dummy\_miz module
------------------------
-
-.. automodule:: emft.dummy_miz
     :members:
     :undoc-members:
     :show-inheritance:
@@ -57,14 +48,6 @@ emft\.main module
 -----------------
 
 .. automodule:: emft.main
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-emft\.updater module
---------------------
-
-.. automodule:: emft.updater
     :members:
     :undoc-members:
     :show-inheritance:

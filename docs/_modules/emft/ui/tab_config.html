@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.ui.tab_config &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.ui.tab_config &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -142,23 +142,23 @@
 
 <span class="kn">from</span> <span class="nn">emft</span> <span class="k">import</span> <span class="n">global_</span>
 <span class="kn">from</span> <span class="nn">emft.__version__</span> <span class="k">import</span> <span class="n">__version__</span>
-<span class="kn">from</span> <span class="nn">emft.cfg</span> <span class="k">import</span> <span class="n">Config</span>
-<span class="kn">from</span> <span class="nn">emft.misc.fs</span> <span class="k">import</span> <span class="n">dcs_installs</span><span class="p">,</span> <span class="n">saved_games</span>
-<span class="kn">from</span> <span class="nn">emft.ui.base</span> <span class="k">import</span> <span class="n">VLayout</span><span class="p">,</span> <span class="n">PushButton</span><span class="p">,</span> <span class="n">GroupBox</span><span class="p">,</span> <span class="n">LineEdit</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">VSpacer</span><span class="p">,</span> <span class="n">GridLayout</span><span class="p">,</span> <span class="n">Combo</span><span class="p">,</span> <span class="n">HSpacer</span><span class="p">,</span> <span class="n">HLayout</span><span class="p">,</span> \
-    <span class="n">BrowseDialog</span>
-<span class="kn">from</span> <span class="nn">emft.ui.main_ui_tab_widget</span> <span class="k">import</span> <span class="n">MainUiTabChild</span>
+<span class="kn">from</span> <span class="nn">emft.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">emft.core.filesystem</span> <span class="k">import</span> <span class="n">dcs_installs</span><span class="p">,</span> <span class="n">saved_games</span>
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">emft.core.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">emft.ui.base</span> <span class="k">import</span> <span class="n">BrowseDialog</span><span class="p">,</span> <span class="n">Combo</span><span class="p">,</span> <span class="n">GridLayout</span><span class="p">,</span> <span class="n">GroupBox</span><span class="p">,</span> <span class="n">HLayout</span><span class="p">,</span> <span class="n">HSpacer</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">LineEdit</span><span class="p">,</span> <span class="n">PushButton</span><span class="p">,</span> \
+    <span class="n">VLayout</span><span class="p">,</span> <span class="n">VSpacer</span>
 <span class="kn">from</span> <span class="nn">emft.ui.main_ui_interface</span> <span class="k">import</span> <span class="n">I</span>
-<span class="kn">from</span> <span class="nn">emft.updater</span> <span class="k">import</span> <span class="n">updater</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">Path</span><span class="p">,</span> <span class="n">make_logger</span>
-<span class="kn">from</span> <span class="nn">emft.utils.updater</span> <span class="k">import</span> <span class="n">CustomVersion</span><span class="p">,</span> <span class="n">Updater</span><span class="p">,</span> <span class="n">Channel</span>
-<span class="kn">from</span> <span class="nn">.tab_config_adapter</span> <span class="k">import</span> <span class="n">TAB_NAME</span><span class="p">,</span> <span class="n">TabConfigAdapter</span>
+<span class="kn">from</span> <span class="nn">emft.ui.main_ui_tab_widget</span> <span class="k">import</span> <span class="n">MainUiTabChild</span>
+<span class="kn">from</span> <span class="nn">emft.ui.tab_config_adapter</span> <span class="k">import</span> <span class="n">TAB_NAME</span><span class="p">,</span> <span class="n">TabConfigAdapter</span>
+<span class="kn">from</span> <span class="nn">emft.updater</span> <span class="k">import</span> <span class="n">channel</span><span class="p">,</span> <span class="n">customversion</span><span class="p">,</span> <span class="n">updater</span>
 
 <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="TabChildConfig"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_config.TabChildConfig">[docs]</a><span class="k">class</span> <span class="nc">TabChildConfig</span><span class="p">(</span><span class="n">MainUiTabChild</span><span class="p">,</span> <span class="n">TabConfigAdapter</span><span class="p">):</span>
-<div class="viewcode-block" id="TabChildConfig.tab_clicked"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_config.TabChildConfig.tab_clicked">[docs]</a>    <span class="k">def</span> <span class="nf">tab_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># if updater.is_ready:</span>
+<div class="viewcode-block" id="TabChildConfig"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_config.TabChildConfig">[docs]</a><span class="k">class</span> <span class="nc">TabChildConfig</span><span class="p">(</span><span class="n">MainUiTabChild</span><span class="p">,</span> <span class="n">TabConfigAdapter</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildConfig.tab_clicked"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_config.TabChildConfig.tab_clicked">[docs]</a>    <span class="k">def</span> <span class="nf">tab_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># if updater.updateris_ready:</span>
         <span class="c1">#     self._check_for_new_version()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sg_scan</span><span class="p">()</span></div>
 
@@ -171,7 +171,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sg</span> <span class="o">=</span> <span class="n">LineEdit</span><span class="p">(</span><span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">saved_games_path</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_change_sg</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_channel_combo</span> <span class="o">=</span> <span class="n">Combo</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_on_change_update_channel</span><span class="p">,</span>
-            <span class="n">Channel</span><span class="o">.</span><span class="n">labels</span>
+            <span class="n">channel</span><span class="o">.</span><span class="n">LABELS</span>
         <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span> <span class="o">=</span> <span class="kc">None</span>
@@ -333,9 +333,9 @@
         <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">install_new_version_btn</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">Updater</span><span class="o">.</span><span class="n">latest_version</span><span class="o">.</span><span class="n">add_watcher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_display_new_version</span><span class="p">)</span>
-        <span class="n">Updater</span><span class="o">.</span><span class="n">is_ready</span><span class="o">.</span><span class="n">add_watcher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_updater_ready_to_check</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update_scan_btn</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="n">updater</span><span class="o">.</span><span class="n">is_ready</span><span class="p">)</span>
+        <span class="n">updater</span><span class="o">.</span><span class="n">Updater</span><span class="o">.</span><span class="n">latest_version</span><span class="o">.</span><span class="n">add_watcher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_display_new_version</span><span class="p">)</span>
+        <span class="n">updater</span><span class="o">.</span><span class="n">Updater</span><span class="o">.</span><span class="n">is_ready</span><span class="o">.</span><span class="n">add_watcher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_updater_ready_to_check</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_scan_btn</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="n">updater</span><span class="o">.</span><span class="n">updater</span><span class="o">.</span><span class="n">is_ready</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_custom_dcs_install_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;setting custom DCS install&#39;</span><span class="p">)</span>
@@ -361,12 +361,12 @@
     <span class="k">def</span> <span class="nf">_updater_ready_to_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update_scan_btn</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_display_new_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latest_version</span><span class="p">:</span> <span class="n">CustomVersion</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_display_new_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latest_version</span><span class="p">:</span> <span class="n">customversion</span><span class="o">.</span><span class="n">CustomVersion</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Shows the latest version found by the updater</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">latest_version</span><span class="p">:</span>
-            <span class="n">app_version</span> <span class="o">=</span> <span class="n">CustomVersion</span><span class="p">(</span><span class="n">global_</span><span class="o">.</span><span class="n">APP_VERSION</span><span class="p">)</span>
+            <span class="n">app_version</span> <span class="o">=</span> <span class="n">customversion</span><span class="o">.</span><span class="n">CustomVersion</span><span class="p">(</span><span class="n">__version__</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span> <span class="o">=</span> <span class="n">latest_version</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">remote_version</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">latest_version</span><span class="o">.</span><span class="n">to_short_string</span><span class="p">())</span>
             <span class="k">if</span> <span class="n">app_version</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span><span class="p">:</span>
@@ -376,7 +376,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">remote_version</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;no new version found&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TabChildConfig.config_tab_update_dcs_installs"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_config.TabChildConfig.config_tab_update_dcs_installs">[docs]</a>    <span class="k">def</span> <span class="nf">config_tab_update_dcs_installs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildConfig.config_tab_update_dcs_installs"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_config.TabChildConfig.config_tab_update_dcs_installs">[docs]</a>    <span class="k">def</span> <span class="nf">config_tab_update_dcs_installs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remote_version</span><span class="o">.</span><span class="n">set_text_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;stable&#39;</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;custom&#39;</span><span class="p">]:</span>
             <span class="n">dcs_install</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">dcs_installs</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -401,23 +401,23 @@
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;install_new_version_btn&#39;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">install_new_version_btn</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remote_version</span><span class="o">.</span><span class="n">set_text_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-        <span class="n">updater</span><span class="o">.</span><span class="n">find_latest_version_on_channel</span><span class="p">(</span>
-            <span class="n">Channel</span><span class="o">.</span><span class="n">LABEL_TO_CHANNEL</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">update_channel_combo</span><span class="o">.</span><span class="n">currentText</span><span class="p">()]</span>
+        <span class="n">updater</span><span class="o">.</span><span class="n">updater</span><span class="o">.</span><span class="n">find_latest_version_on_channel</span><span class="p">(</span>
+            <span class="n">channel</span><span class="o">.</span><span class="n">LABEL_TO_CHANNEL</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">update_channel_combo</span><span class="o">.</span><span class="n">currentText</span><span class="p">()]</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_install_latest_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">updater</span><span class="o">.</span><span class="n">latest_version</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">updater</span><span class="o">.</span><span class="n">updater</span><span class="o">.</span><span class="n">latest_version</span><span class="p">:</span>
             <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;installing release: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latest_version</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">updater</span><span class="o">.</span><span class="n">latest_version</span> <span class="o">&lt;</span> <span class="n">CustomVersion</span><span class="p">(</span><span class="n">__version__</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">updater</span><span class="o">.</span><span class="n">updater</span><span class="o">.</span><span class="n">latest_version</span> <span class="o">&lt;</span> <span class="n">customversion</span><span class="o">.</span><span class="n">CustomVersion</span><span class="p">(</span><span class="n">__version__</span><span class="p">):</span>
                 <span class="n">I</span><span class="o">.</span><span class="n">confirm</span><span class="p">(</span>
                     <span class="n">text</span><span class="o">=</span><span class="s1">&#39;You are update to install an older version of EMFT.</span><span class="se">\n\n</span><span class="s1">Are you sure?&#39;</span><span class="p">,</span>
-                    <span class="n">follow_up_on_yes</span><span class="o">=</span><span class="n">updater</span><span class="o">.</span><span class="n">install_latest_version</span>
+                    <span class="n">follow_up_on_yes</span><span class="o">=</span><span class="n">updater</span><span class="o">.</span><span class="n">updater</span><span class="o">.</span><span class="n">install_latest_version</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">updater</span><span class="o">.</span><span class="n">install_latest_version</span><span class="p">()</span>
+                <span class="n">updater</span><span class="o">.</span><span class="n">updater</span><span class="o">.</span><span class="n">install_latest_version</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;no release to install&#39;</span><span class="p">)</span>
-            <span class="c1"># self.updater.install_latest_remote()</span>
+            <span class="c1"># self.updater.updater.install_latest_remote()</span>
 
     <span class="k">def</span> <span class="nf">_sg_browse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">BrowseDialog</span><span class="o">.</span><span class="n">get_directory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Saved Games directory&#39;</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sg</span><span class="o">.</span><span class="n">text</span><span class="p">())</span><span class="o">.</span><span class="n">dirname</span><span class="p">())</span>
@@ -432,13 +432,13 @@
     <span class="k">def</span> <span class="nf">_sg_open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">os</span><span class="o">.</span><span class="n">startfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sg</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
 
-<div class="viewcode-block" id="TabChildConfig.stable_open"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_config.TabChildConfig.stable_open">[docs]</a>    <span class="k">def</span> <span class="nf">stable_open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildConfig.stable_open"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_config.TabChildConfig.stable_open">[docs]</a>    <span class="k">def</span> <span class="nf">stable_open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="TabChildConfig.alpha_open"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_config.TabChildConfig.alpha_open">[docs]</a>    <span class="k">def</span> <span class="nf">alpha_open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildConfig.alpha_open"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_config.TabChildConfig.alpha_open">[docs]</a>    <span class="k">def</span> <span class="nf">alpha_open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="TabChildConfig.beta_open"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_config.TabChildConfig.beta_open">[docs]</a>    <span class="k">def</span> <span class="nf">beta_open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildConfig.beta_open"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_config.TabChildConfig.beta_open">[docs]</a>    <span class="k">def</span> <span class="nf">beta_open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div></div>
 </pre></div>
 
@@ -456,8 +456,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -474,6 +474,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

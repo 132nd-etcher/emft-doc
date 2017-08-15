@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.miz.mission_weather &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../../../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../../../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../../../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../../../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../../../',
+            VERSION:     '0.5.2(0.5.2)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../../../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../../../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../../../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="../../../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../../../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../../index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../../../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../../../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for emft.miz.mission_weather</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">metar.Metar</span> <span class="k">import</span> <span class="n">Metar</span>
+
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">.miz</span> <span class="k">import</span> <span class="n">Miz</span>
+
+<span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">SKY_COVER</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;SKC&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="s2">&quot;CLR&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="s2">&quot;NSC&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="s2">&quot;NCD&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="s2">&quot;FEW&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+             <span class="s2">&quot;SCT&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+             <span class="s2">&quot;BKN&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+             <span class="s2">&quot;OVC&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+             <span class="s2">&quot;///&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="s2">&quot;VV&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+             <span class="p">}</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="n">SEASONS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;winter&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">))),</span>
+    <span class="p">(</span><span class="s1">&#39;spring&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">))),</span>
+    <span class="p">(</span><span class="s1">&#39;summer&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">22</span><span class="p">))),</span>
+    <span class="p">(</span><span class="s1">&#39;autumn&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span> <span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">))),</span>
+    <span class="p">(</span><span class="s1">&#39;winter&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="n">date</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))),</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_get_season</span><span class="p">():</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">next</span><span class="p">((</span><span class="n">season</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">season</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span> <span class="ow">in</span> <span class="n">SEASONS</span> <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">now</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_hpa_to_mmhg</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">pressure</span> <span class="o">*</span> <span class="mf">0.75006156130264</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MissionWeather"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission_weather.MissionWeather">[docs]</a><span class="k">class</span> <span class="nc">MissionWeather</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">metar</span><span class="p">:</span> <span class="n">Metar</span><span class="p">,</span>
+                 <span class="n">min_wind</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">max_wind</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metar</span> <span class="o">=</span> <span class="n">metar</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wind_dir</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wind_speed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_min_wind</span> <span class="o">=</span> <span class="n">min_wind</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_wind</span> <span class="o">=</span> <span class="n">max_wind</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fog_vis</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">precip</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloud_density</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloud_base</span> <span class="o">=</span> <span class="mi">300</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloud_thickness</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">force_cloud_density</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">force_temperature</span> <span class="o">=</span> <span class="mi">999</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parse_precip</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parse_clouds</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_random_direction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">359</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_reverse_direction</span><span class="p">(</span><span class="n">heading</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">heading</span> <span class="o">&gt;=</span> <span class="mi">180</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">heading</span> <span class="o">-</span> <span class="mi">180</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">heading</span> <span class="o">+</span> <span class="mi">180</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_normalize_direction</span><span class="p">(</span><span class="n">heading</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">heading</span> <span class="o">&gt;</span> <span class="mi">359</span><span class="p">:</span>
+            <span class="n">heading</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">heading</span> <span class="o">-</span> <span class="mi">359</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">heading</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">heading</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">heading</span> <span class="o">+</span> <span class="mi">359</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">heading</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_gauss</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_deviate_wind_speed</span><span class="p">(</span><span class="n">base_speed</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">sigma</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sigma</span> <span class="o">=</span> <span class="n">base_speed</span> <span class="o">/</span> <span class="mi">4</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">MissionWeather</span><span class="o">.</span><span class="n">_gauss</span><span class="p">(</span><span class="n">base_speed</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">val</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_deviate_direction</span><span class="p">(</span><span class="n">base_heading</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">MissionWeather</span><span class="o">.</span><span class="n">_gauss</span><span class="p">(</span><span class="n">base_heading</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">MissionWeather</span><span class="o">.</span><span class="n">_normalize_direction</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">val</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">wind_at_ground_level_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">wind_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;wind is variable, making a random value&#39;</span><span class="p">)</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_random_direction</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reverse_direction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">wind_dir</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wind_dir</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">return</span> <span class="n">val</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">wind_at_ground_level_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">wind_speed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;wind speed is missing, making a random value&#39;</span><span class="p">)</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_min_wind</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_wind</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">wind_speed</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;MPS&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wind_speed</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">return</span> <span class="n">val</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">qnh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">press</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;QNH is missing, returning standard QNH&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mi">760</span>
+        <span class="k">return</span> <span class="n">_hpa_to_mmhg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">press</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">visibility</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">vis</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;visibility is missing, returning maximum&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mi">800000</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">vis</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fog_vis</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">6000</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">_parse_precip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;rain&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">present_weather</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">precip</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">force_cloud_density</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="k">if</span> <span class="s1">&#39;snow&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">present_weather</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">precip</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">force_cloud_density</span> <span class="o">=</span> <span class="mi">5</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">force_temperature</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="s1">&#39;storm&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">present_weather</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">precip</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">precip</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">precip</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">force_cloud_density</span> <span class="o">=</span> <span class="mi">9</span>
+
+    <span class="k">def</span> <span class="nf">_parse_clouds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">ceiling</span> <span class="o">=</span> <span class="mi">999999</span>
+        <span class="n">layers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">skyi</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">sky</span><span class="p">:</span>
+            <span class="n">cover</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">skyi</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">height</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">))</span>
+            <span class="n">base</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+            <span class="n">ceiling</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ceiling</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+            <span class="n">cover</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">*</span><span class="n">SKY_COVER</span><span class="p">[</span><span class="n">cover</span><span class="p">])</span>
+            <span class="n">layers</span><span class="p">[</span><span class="n">cover</span><span class="p">]</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="k">if</span> <span class="n">layers</span><span class="p">:</span>
+            <span class="n">max_cover</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cloud_density</span> <span class="o">=</span> <span class="n">max_cover</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cloud_base</span> <span class="o">=</span> <span class="n">layers</span><span class="p">[</span><span class="n">max_cover</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cloud_thickness</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">ceiling</span> <span class="o">-</span> <span class="n">base</span><span class="p">),</span> <span class="mi">2000</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">temp</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">season</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">_get_season</span><span class="p">()</span>
+            <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;no temperature given, since it is </span><span class="si">{season}</span><span class="s1">, defaulting to </span><span class="si">{temp}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">temp</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">temp</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">turbulence</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">wind_gust</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metar</span><span class="o">.</span><span class="n">wind_gust</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;MPS&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">wind_speed</span> <span class="o">&gt;=</span> <span class="n">val</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">min</span><span class="p">((</span><span class="n">val</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">wind_speed</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+
+<div class="viewcode-block" id="MissionWeather.apply_to_miz"><a class="viewcode-back" href="../../../api/emft.miz.html#emft.miz.mission_weather.MissionWeather.apply_to_miz">[docs]</a>    <span class="k">def</span> <span class="nf">apply_to_miz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infile</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">outfile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+        <span class="c1"># TESTING CODE</span>
+        <span class="c1"># import shutil</span>
+        <span class="c1"># with Miz(&#39;./test/test_files/weather.miz&#39;) as miz:</span>
+        <span class="c1">#     miz._encode()</span>
+        <span class="c1">#     shutil.copy(miz.mission_file, &#39;./test/test_files/weather/mission&#39;)</span>
+
+        <span class="k">if</span> <span class="n">outfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">outfile</span> <span class="o">=</span> <span class="n">infile</span>
+
+        <span class="k">with</span> <span class="n">Miz</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span> <span class="k">as</span> <span class="n">miz</span><span class="p">:</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">wind_at_ground_level_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wind_at_ground_level_dir</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">wind_at_ground_level_speed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wind_at_ground_level_speed</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">wind_at2000_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviate_direction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wind_dir</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">wind_at2000_speed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviate_wind_speed</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">wind_speed</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">wind_at8000_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviate_direction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wind_dir</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">wind_at8000_speed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviate_wind_speed</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">wind_speed</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">turbulence_at_ground_level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">turbulence</span>
+
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">atmosphere_type</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">qnh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">qnh</span>
+
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">visibility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visibility</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">fog_thickness</span> <span class="o">=</span> <span class="mi">1000</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fog_vis</span><span class="p">:</span>
+                <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">fog_visibility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fog_vis</span>
+                <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">fog_enabled</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">cloud_density</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">force_cloud_density</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud_density</span><span class="p">)</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">cloud_thickness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud_thickness</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">cloud_base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud_base</span>
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">precipitations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">precip</span>
+
+            <span class="n">miz</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">weather</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span>
+
+            <span class="n">miz</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="kc">True</span></div></div>
+
+            <span class="c1"># TESTING CODE</span>
+            <span class="c1"># miz._encode()</span>
+            <span class="c1"># shutil.copy(miz.mission_file, &#39;./test/test_files/weather_output/mission&#39;)</span>
+            <span class="c1"># miz.zip(&#39;./test/test_files/weather_output.miz&#39;)</span>
+            <span class="c1"># # miz.zip(&#39;./test/test_files/weather_output.miz&#39;)</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../../../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../../../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../../index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../../../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../../../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../../../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

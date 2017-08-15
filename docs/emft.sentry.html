@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.sentry package &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.sentry package &mdash; EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    './',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.6.0-alpha.119-reorg-src.72(0.6.0a72)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,11 +51,8 @@
 </script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="index.html" />
-    <link rel="up" title="emft package" href="emft.html" />
-    <link rel="next" title="emft.sltp package" href="emft.sltp.html" />
-    <link rel="prev" title="emft.roster package" href="emft.roster.html" /> 
+    <link rel="top" title="EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation" href="index.html" /> 
   </head>
   <body role="document">
     <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
@@ -67,8 +64,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -78,10 +75,10 @@
                 <ul>
 <li><a class="reference internal" href="#">emft.sentry package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-emft.sentry.feedback">emft.sentry.feedback module</a></li>
-<li><a class="reference internal" href="#module-emft.sentry.sentry">emft.sentry.sentry module</a></li>
-<li><a class="reference internal" href="#module-emft.sentry.sentry_context_provider">emft.sentry.sentry_context_provider module</a></li>
-<li><a class="reference internal" href="#module-emft.sentry">Module contents</a></li>
+<li><a class="reference internal" href="#emft-sentry-feedback-module">emft.sentry.feedback module</a></li>
+<li><a class="reference internal" href="#emft-sentry-sentry-module">emft.sentry.sentry module</a></li>
+<li><a class="reference internal" href="#emft-sentry-sentry-context-provider-module">emft.sentry.sentry_context_provider module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -91,13 +88,8 @@
             <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
 
             
-              <li><a href="emft.roster.html" title="emft.roster package" accesskey="P">previous </a></li>
-              <li><a href="emft.sltp.html" title="emft.sltp package" accesskey="N">next </a></li>
               <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
               <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
-              <li><a href="dev.html" >Documentation for developers</a></li>
-              <li><a href="modules.html" >EMFT API</a></li>
-              <li><a href="emft.html" accesskey="U">emft package</a></li>
             
             <li class="visible-xs"><a href="_sources/emft.sentry.rst.txt" rel="nofollow">Show Source</a></li>
 
@@ -135,20 +127,14 @@
   <ul>
 <li><a class="reference internal" href="#">emft.sentry package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-emft.sentry.feedback">emft.sentry.feedback module</a></li>
-<li><a class="reference internal" href="#module-emft.sentry.sentry">emft.sentry.sentry module</a></li>
-<li><a class="reference internal" href="#module-emft.sentry.sentry_context_provider">emft.sentry.sentry_context_provider module</a></li>
-<li><a class="reference internal" href="#module-emft.sentry">Module contents</a></li>
+<li><a class="reference internal" href="#emft-sentry-feedback-module">emft.sentry.feedback module</a></li>
+<li><a class="reference internal" href="#emft-sentry-sentry-module">emft.sentry.sentry module</a></li>
+<li><a class="reference internal" href="#emft-sentry-sentry-context-provider-module">emft.sentry.sentry_context_provider module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="emft.roster.html"
-                        title="previous chapter">emft.roster package</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="emft.sltp.html"
-                        title="next chapter">emft.sltp package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -187,81 +173,17 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.sentry.feedback">
-<span id="emft-sentry-feedback-module"></span><h2>emft.sentry.feedback module<a class="headerlink" href="#module-emft.sentry.feedback" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="emft.sentry.feedback.send_feedback">
-<code class="descclassname">emft.sentry.feedback.</code><code class="descname">send_feedback</code><span class="sig-paren">(</span><em>msg</em>, <em>msg_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/feedback.html#send_feedback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.feedback.send_feedback" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="emft-sentry-feedback-module">
+<h2>emft.sentry.feedback module<a class="headerlink" href="#emft-sentry-feedback-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.sentry.sentry">
-<span id="emft-sentry-sentry-module"></span><h2>emft.sentry.sentry module<a class="headerlink" href="#module-emft.sentry.sentry" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.sentry.sentry.Sentry">
-<em class="property">class </em><code class="descclassname">emft.sentry.sentry.</code><code class="descname">Sentry</code><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">raven.base.Client</span></code></p>
-<dl class="staticmethod">
-<dt id="emft.sentry.sentry.Sentry.add_crumb">
-<em class="property">static </em><code class="descname">add_crumb</code><span class="sig-paren">(</span><em>category</em>, <em>level</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.add_crumb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.add_crumb" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.sentry.sentry.Sentry.captureException">
-<code class="descname">captureException</code><span class="sig-paren">(</span><em>exc_info=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.captureException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.captureException" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.sentry.sentry.Sentry.captureMessage">
-<code class="descname">captureMessage</code><span class="sig-paren">(</span><em>message</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.captureMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.captureMessage" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.sentry.sentry.Sentry.register_context">
-<code class="descname">register_context</code><span class="sig-paren">(</span><em>context_name</em>, <em>context_provider</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.register_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.register_context" title="Permalink to this definition">¶</a></dt>
-<dd><p>Registers a context to be read when a crash occurs; obj must implement get_context()</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="emft.sentry.sentry.Sentry.set_context">
-<code class="descname">set_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#Sentry.set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.Sentry.set_context" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="emft.sentry.sentry.filter_breadcrumbs">
-<code class="descclassname">emft.sentry.sentry.</code><code class="descname">filter_breadcrumbs</code><span class="sig-paren">(</span><em>_logger</em>, <em>level</em>, <em>msg</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry.html#filter_breadcrumbs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry.filter_breadcrumbs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="emft-sentry-sentry-module">
+<h2>emft.sentry.sentry module<a class="headerlink" href="#emft-sentry-sentry-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.sentry.sentry_context_provider">
-<span id="emft-sentry-sentry-context-provider-module"></span><h2>emft.sentry.sentry_context_provider module<a class="headerlink" href="#module-emft.sentry.sentry_context_provider" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.sentry.sentry_context_provider.ISentryContextProvider">
-<em class="property">class </em><code class="descclassname">emft.sentry.sentry_context_provider.</code><code class="descname">ISentryContextProvider</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry_context_provider.html#ISentryContextProvider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry_context_provider.ISentryContextProvider" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Interface for any object that would like to register context with Sentry.</p>
-<p>Needs to be implemented, otherwise the crash_reporter will whine about it and crash.</p>
-<dl class="method">
-<dt id="emft.sentry.sentry_context_provider.ISentryContextProvider.get_context">
-<code class="descname">get_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/sentry/sentry_context_provider.html#ISentryContextProvider.get_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.sentry.sentry_context_provider.ISentryContextProvider.get_context" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns some context for Sentry</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="emft-sentry-sentry-context-provider-module">
+<h2>emft.sentry.sentry_context_provider module<a class="headerlink" href="#emft-sentry-sentry-context-provider-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.sentry">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-emft.sentry" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -280,18 +202,13 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
-        <li><a href="emft.roster.html" title="emft.roster package" >previous</a></li>
-        <li><a href="emft.sltp.html" title="emft.sltp package" >next</a></li>
         <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
         <li><a href="genindex.html" title="General Index" >index</a></li>
-        <li><a href="dev.html" >Documentation for developers</a></li>
-        <li><a href="modules.html" >EMFT API</a></li>
-        <li><a href="emft.html" >emft package</a></li>
         <li><a href="#">top</a></li> 
       
     </ul>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>emft.core.path &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" media="screen and (min-width:481px)" type="text/css" />
+
+<link rel="stylesheet" href="../../../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../../../_static/css/bootstrap3/bootswatch-lumen.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" href="../../../_static/css/adjust_theme/bootswatch-lumen.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../../../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+<link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../../../',
+            VERSION:     '0.5.2(0.5.2)',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../../../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../../../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../../../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
+    <link rel="up" title="emft.core" href="../core.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
+
+            
+              <li><a href="../../../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../../../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="../../index.html" >Module code</a></li>
+              <li><a href="../core.html" accesskey="U">emft.core</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../../../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../../../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for emft.core.path</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+
+<span class="kn">import</span> <span class="nn">binascii</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+
+<span class="kn">import</span> <span class="nn">path</span>
+<span class="kn">import</span> <span class="nn">pefile</span>
+<span class="kn">from</span> <span class="nn">humanize</span> <span class="k">import</span> <span class="n">filesize</span>
+
+
+<div class="viewcode-block" id="Win32FileInfo"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Win32FileInfo">[docs]</a><span class="k">class</span> <span class="nc">Win32FileInfo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_path</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">_path</span><span class="p">)</span><span class="o">.</span><span class="n">abspath</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__props</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__read_props</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">comments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Comments&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">internal_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;InternalName&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">product_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ProductName&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">company_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CompanyName&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">copyright</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LegalCopyright&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">product_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ProductVersion&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">file_description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileDescription&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trademark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LegalTrademarks&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">private_build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PrivateBuild&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">file_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FileVersion&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fixed_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fixed_version&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">original_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OriginalFilename&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">special_build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SpecialBuild&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__read_props</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">_loword</span><span class="p">(</span><span class="n">dword</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">dword</span> <span class="o">&amp;</span> <span class="mh">0x0000ffff</span>
+
+        <span class="k">def</span> <span class="nf">_hiword</span><span class="p">(</span><span class="n">dword</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">dword</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__props</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pe</span> <span class="o">=</span> <span class="n">pefile</span><span class="o">.</span><span class="n">PE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__path</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">pefile</span><span class="o">.</span><span class="n">PEFormatError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ms</span> <span class="o">=</span> <span class="n">pe</span><span class="o">.</span><span class="n">VS_FIXEDFILEINFO</span><span class="o">.</span><span class="n">ProductVersionMS</span>
+            <span class="n">ls</span> <span class="o">=</span> <span class="n">pe</span><span class="o">.</span><span class="n">VS_FIXEDFILEINFO</span><span class="o">.</span><span class="n">ProductVersionLS</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="p">[</span><span class="s1">&#39;fixed_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="p">(</span><span class="n">_hiword</span><span class="p">(</span><span class="n">ms</span><span class="p">),</span> <span class="n">_loword</span><span class="p">(</span><span class="n">ms</span><span class="p">),</span> <span class="n">_hiword</span><span class="p">(</span><span class="n">ls</span><span class="p">),</span> <span class="n">_loword</span><span class="p">(</span><span class="n">ls</span><span class="p">))))</span>
+            <span class="k">for</span> <span class="n">file_info</span> <span class="ow">in</span> <span class="n">pe</span><span class="o">.</span><span class="n">FileInfo</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">file_info</span><span class="o">.</span><span class="n">Key</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;StringFileInfo&#39;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">file_info</span><span class="o">.</span><span class="n">StringTable</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">__props</span><span class="p">[</span><span class="n">entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;latin_1&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;latin_1&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1"># noinspection PyAbstractClass</span>
+<div class="viewcode-block" id="Path"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path">[docs]</a><span class="k">class</span> <span class="nc">Path</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">Path</span><span class="p">):</span>
+<div class="viewcode-block" id="Path.crc32"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.crc32">[docs]</a>    <span class="k">def</span> <span class="nf">crc32</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isfile</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;cannot compute crc32, not a file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">()))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">try</span><span class="p">:</span>
+
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">(),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">buf</span><span class="p">:</span>
+                    <span class="n">buf</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%08X</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="n">buf</span><span class="o">.</span><span class="n">read</span><span class="p">())</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">)</span>
+
+                    <span class="k">return</span> <span class="n">buf</span>
+
+            <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">&#39;failed to compute crc32 for: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">()))</span>
+
+            <span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="s1">&#39;failed to compute crc32 for: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">()))</span>
+
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;failed to compute crc32 for: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">()))</span></div>
+
+<div class="viewcode-block" id="Path.human_size"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.human_size">[docs]</a>    <span class="k">def</span> <span class="nf">human_size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">filesize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getsize</span><span class="p">(),</span> <span class="n">gnu</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Path.normalize"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.normalize">[docs]</a>    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Path.get_win32_file_info"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.get_win32_file_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_win32_file_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Win32FileInfo</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">())</span>
+
+        <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isfile</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">Win32FileInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Path.abspath"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.abspath">[docs]</a>    <span class="k">def</span> <span class="nf">abspath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Path.exists"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.exists">[docs]</a>    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Path.get_size"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.get_size">[docs]</a>    <span class="k">def</span> <span class="nf">get_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Path.remove"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Path.text"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.text">[docs]</a>    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;strict&#39;</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Path.write_text"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.write_text">[docs]</a>    <span class="k">def</span> <span class="nf">write_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                   <span class="n">text</span><span class="p">,</span>
+                   <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;strict&#39;</span><span class="p">,</span>
+                   <span class="n">linesep</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">,</span>
+                   <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">linesep</span><span class="p">,</span> <span class="n">append</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Path.rmtree"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.rmtree">[docs]</a>    <span class="k">def</span> <span class="nf">rmtree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">must_exist</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isdir</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;not a directory: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">()))</span>
+
+        <span class="k">if</span> <span class="n">must_exist</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;directory does not exist: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">()))</span>
+
+        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">())):</span>
+            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">file</span><span class="p">,</span> <span class="mo">0o777</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span>
+
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Path.joinpath"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.joinpath">[docs]</a>    <span class="k">def</span> <span class="nf">joinpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">others</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="nb">super</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">others</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Path.must_exist"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.must_exist">[docs]</a>    <span class="k">def</span> <span class="nf">must_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">exc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Path.must_be_a_file"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.must_be_a_file">[docs]</a>    <span class="k">def</span> <span class="nf">must_be_a_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">must_exist</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isfile</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">exc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Path.must_be_a_dir"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.Path.must_be_a_dir">[docs]</a>    <span class="k">def</span> <span class="nf">must_be_a_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">must_exist</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isdir</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">exc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abspath</span><span class="p">())</span></div></div>
+
+
+<div class="viewcode-block" id="create_temp_file"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.create_temp_file">[docs]</a><span class="k">def</span> <span class="nf">create_temp_file</span><span class="p">(</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">create_in_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+    <span class="n">os_handle</span><span class="p">,</span> <span class="n">temp_file</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">suffix</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">create_in_dir</span> <span class="ow">or</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">())</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">os_handle</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">temp_file</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_temp_dir"><a class="viewcode-back" href="../../../api/emft.core.html#emft.core.path.create_temp_dir">[docs]</a><span class="k">def</span> <span class="nf">create_temp_dir</span><span class="p">(</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">create_in_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+    <span class="n">temp_dir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">suffix</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">create_in_dir</span> <span class="ow">or</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;F:\DEV\MizFlat\dist\EMFT.exe&#39;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Win32FileInfo</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../../../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../../../genindex.html" title="General Index" >index</a></li>
+        <li><a href="../../index.html" >Module code</a></li>
+        <li><a href="../core.html" >emft.core</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+<img src="../../../_static/css/bootstrap2/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-journal.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-readable.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-slate.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-spruce.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/bootswatch-united.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap2/geo-bootstrap.css" style="display:none;" />
+
+<img src="../../../_static/css/bootstrap3/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-darkly.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-journal.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-lumen.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-paper.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-readable.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-slate.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-united.css" style="display:none;" />
+<img src="../../../_static/css/bootstrap3/bootswatch-yeti.css" style="display:none;" />
+
+<img src="../../../_static/css/adjust_theme/bootswatch-amelia.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-cerulean.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-cosmo.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-cyborg.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-darkly.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-flatly.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-journal.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-lumen.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-paper.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-readable.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-sandstone.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-simplex.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-slate.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-spacelab.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-spruce.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-superhero.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-united.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/bootswatch-yeti.css" style="display:none;" />
+<img src="../../../_static/css/adjust_theme/geo-bootstrap.css" style="display:none;" />
+
+<div class="modal fade debug-modal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <p class="modal-title" id="myLargeModalLabel">Inner theme preview</p>
+      </div>
+
+      <div class="modal-body">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <select id="select-theme" class="form-control" style="width:200px;">
+              <option value="">default</option>
+              <option value="bootswatch-amelia">bootswatch-amelia</option>
+              <option value="bootswatch-cerulean">bootswatch-cerulean</option>
+              <option value="bootswatch-cosmo">bootswatch-cosmo</option>
+              <option value="bootswatch-cyborg">bootswatch-cyborg</option>
+              <option value="bootswatch-flatly">bootswatch-flatly</option>
+              <option value="bootswatch-journal">bootswatch-journal</option>
+              <option value="bootswatch-readable">bootswatch-readable</option>
+              <option value="bootswatch-simplex">bootswatch-simplex</option>
+              <option value="bootswatch-slate">bootswatch-slate</option>
+              <option value="bootswatch-spacelab">bootswatch-spacelab</option>
+              <option value="bootswatch-superhero">bootswatch-superhero</option>
+              <option value="bootswatch-united">bootswatch-united</option>
+              <option value="bootswatch-paper">bootswatch-paper</option>
+              <option value="bootswatch-sandstone">bootswatch-sandstone</option>
+              <option value="bootswatch-darkly">bootswatch-darkly</option>
+              <option value="bootswatch-lumen">bootswatch-lumen</option>
+              <option value="bootswatch-yeti">bootswatch-yeti</option>
+            </select><br />
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-header-inverse"> Header inverse color
+            </label>
+          </div>
+          <div class="checkbox">
+            &nbsp;
+            <label>
+              &nbsp;<input type="checkbox" id="select-relbar-inverse"> Relbar inverse color
+            </label>
+          </div>
+        </form>
+        <span id="bootstrap-version" style="display:none">3</span>
+        <p style="padding-top:10px">
+        If you add the following options in conf.py, you can apply the design.
+        </p>
+
+        <div id="quick-preview-theme-options" class="highlight-python">
+          <div class="highlight">
+            <pre>html_theme_options = {
+   'header_inverse': False,
+   'relbar_inverse': False,
+   'inner_theme': False,
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+  </body>
+</html>

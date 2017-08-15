@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.cfg package &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.cfg package &mdash; EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    './',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.6.0-alpha.119-reorg-src.72(0.6.0a72)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,11 +51,8 @@
 </script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="index.html" />
-    <link rel="up" title="emft package" href="emft.html" />
-    <link rel="next" title="emft.meta package" href="emft.meta.html" />
-    <link rel="prev" title="emft package" href="emft.html" /> 
+    <link rel="top" title="EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation" href="index.html" /> 
   </head>
   <body role="document">
     <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
@@ -67,8 +64,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -78,9 +75,9 @@
                 <ul>
 <li><a class="reference internal" href="#">emft.cfg package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-emft.cfg.cfg">emft.cfg.cfg module</a></li>
-<li><a class="reference internal" href="#module-emft.cfg.values">emft.cfg.values module</a></li>
-<li><a class="reference internal" href="#module-emft.cfg">Module contents</a></li>
+<li><a class="reference internal" href="#emft-cfg-cfg-module">emft.cfg.cfg module</a></li>
+<li><a class="reference internal" href="#emft-cfg-values-module">emft.cfg.values module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -90,13 +87,8 @@
             <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
 
             
-              <li><a href="emft.html" title="emft package" accesskey="P">previous </a></li>
-              <li><a href="emft.meta.html" title="emft.meta package" accesskey="N">next </a></li>
               <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
               <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
-              <li><a href="dev.html" >Documentation for developers</a></li>
-              <li><a href="modules.html" >EMFT API</a></li>
-              <li><a href="emft.html" accesskey="U">emft package</a></li>
             
             <li class="visible-xs"><a href="_sources/emft.cfg.rst.txt" rel="nofollow">Show Source</a></li>
 
@@ -134,19 +126,13 @@
   <ul>
 <li><a class="reference internal" href="#">emft.cfg package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-emft.cfg.cfg">emft.cfg.cfg module</a></li>
-<li><a class="reference internal" href="#module-emft.cfg.values">emft.cfg.values module</a></li>
-<li><a class="reference internal" href="#module-emft.cfg">Module contents</a></li>
+<li><a class="reference internal" href="#emft-cfg-cfg-module">emft.cfg.cfg module</a></li>
+<li><a class="reference internal" href="#emft-cfg-values-module">emft.cfg.values module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="emft.html"
-                        title="previous chapter">emft package</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="emft.meta.html"
-                        title="next chapter">emft.meta package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -185,127 +171,14 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.cfg.cfg">
-<span id="emft-cfg-cfg-module"></span><h2>emft.cfg.cfg module<a class="headerlink" href="#module-emft.cfg.cfg" title="Permalink to this headline">¶</a></h2>
-<p>Convenience module for storing/restoring per-user configuration values</p>
-<dl class="class">
-<dt id="emft.cfg.cfg.Config">
-<em class="property">class </em><code class="descclassname">emft.cfg.cfg.</code><code class="descname">Config</code><span class="sig-paren">(</span><em>config_file_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/cfg/cfg.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.cfg.cfg.Config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="emft.meta.html#emft.meta.meta_file.MetaFile" title="emft.meta.meta_file.MetaFile"><code class="xref py py-class docutils literal"><span class="pre">emft.meta.meta_file.MetaFile</span></code></a>, <a class="reference internal" href="#emft.cfg.values.ConfigValues" title="emft.cfg.values.ConfigValues"><code class="xref py py-class docutils literal"><span class="pre">emft.cfg.values.ConfigValues</span></code></a></p>
-<dl class="attribute">
-<dt id="emft.cfg.cfg.Config.meta_header">
-<code class="descname">meta_header</code><a class="headerlink" href="#emft.cfg.cfg.Config.meta_header" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.cfg.Config.meta_version">
-<code class="descname">meta_version</code><a class="headerlink" href="#emft.cfg.cfg.Config.meta_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.cfg.cfg.Config.meta_version_upgrade">
-<code class="descname">meta_version_upgrade</code><span class="sig-paren">(</span><em>from_version</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/cfg/cfg.html#Config.meta_version_upgrade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.cfg.cfg.Config.meta_version_upgrade" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.cfg.cfg.Config.upgrade_from_v1">
-<code class="descname">upgrade_from_v1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/cfg/cfg.html#Config.upgrade_from_v1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.cfg.cfg.Config.upgrade_from_v1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.cfg.cfg.Config.upgrade_from_v2">
-<code class="descname">upgrade_from_v2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/cfg/cfg.html#Config.upgrade_from_v2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.cfg.cfg.Config.upgrade_from_v2" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.cfg.cfg.Config.upgrade_from_v3">
-<code class="descname">upgrade_from_v3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/cfg/cfg.html#Config.upgrade_from_v3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.cfg.cfg.Config.upgrade_from_v3" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.cfg.cfg.Config.upgrade_from_v4">
-<code class="descname">upgrade_from_v4</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/cfg/cfg.html#Config.upgrade_from_v4"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.cfg.cfg.Config.upgrade_from_v4" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.cfg.cfg.Config.write">
-<code class="descname">write</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/cfg/cfg.html#Config.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.cfg.cfg.Config.write" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="emft-cfg-cfg-module">
+<h2>emft.cfg.cfg module<a class="headerlink" href="#emft-cfg-cfg-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.cfg.values">
-<span id="emft-cfg-values-module"></span><h2>emft.cfg.values module<a class="headerlink" href="#module-emft.cfg.values" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.cfg.values.ConfigValues">
-<em class="property">class </em><code class="descclassname">emft.cfg.values.</code><code class="descname">ConfigValues</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/cfg/values.html#ConfigValues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.cfg.values.ConfigValues" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="emft.reorder.html#emft.reorder.cfg_values.ReorderConfigValues" title="emft.reorder.cfg_values.ReorderConfigValues"><code class="xref py py-class docutils literal"><span class="pre">emft.reorder.cfg_values.ReorderConfigValues</span></code></a></p>
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.allow_mv_autoexec_changes">
-<code class="descname">allow_mv_autoexec_changes</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.allow_mv_autoexec_changes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.av_token">
-<code class="descname">av_token</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.av_token" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.dcs_custom_install_path">
-<code class="descname">dcs_custom_install_path</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.dcs_custom_install_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.dcs_custom_variant_path">
-<code class="descname">dcs_custom_variant_path</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.dcs_custom_variant_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.log_level">
-<code class="descname">log_level</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.log_level" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.roster_miz_last_dir">
-<code class="descname">roster_miz_last_dir</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.roster_miz_last_dir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.roster_roster_last_dir">
-<code class="descname">roster_roster_last_dir</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.roster_roster_last_dir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.saved_games_path">
-<code class="descname">saved_games_path</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.saved_games_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.skins_active_dcs_installation">
-<code class="descname">skins_active_dcs_installation</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.skins_active_dcs_installation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.tab_radios_meta_path">
-<code class="descname">tab_radios_meta_path</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.tab_radios_meta_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.tab_radios_meta_path_last_dir">
-<code class="descname">tab_radios_meta_path_last_dir</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.tab_radios_meta_path_last_dir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.cfg.values.ConfigValues.update_channel">
-<code class="descname">update_channel</code><a class="headerlink" href="#emft.cfg.values.ConfigValues.update_channel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="emft-cfg-values-module">
+<h2>emft.cfg.values module<a class="headerlink" href="#emft-cfg-values-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.cfg">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-emft.cfg" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -324,18 +197,13 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
-        <li><a href="emft.html" title="emft package" >previous</a></li>
-        <li><a href="emft.meta.html" title="emft.meta package" >next</a></li>
         <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
         <li><a href="genindex.html" title="General Index" >index</a></li>
-        <li><a href="dev.html" >Documentation for developers</a></li>
-        <li><a href="modules.html" >EMFT API</a></li>
-        <li><a href="emft.html" >emft package</a></li>
         <li><a href="#">top</a></li> 
       
     </ul>

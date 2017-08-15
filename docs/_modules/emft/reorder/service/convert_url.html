@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.reorder.service.convert_url &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.reorder.service.convert_url &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../../index.html" />
     <link rel="up" title="emft.reorder" href="../../reorder.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -140,7 +140,7 @@
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">typing</span>
 
-<span class="kn">from</span> <span class="nn">emft.sentry</span> <span class="k">import</span> <span class="n">SENTRY</span>
+<span class="kn">from</span> <span class="nn">emft.core.sentry</span> <span class="k">import</span> <span class="n">SENTRY</span>
 
 <span class="n">_re_av</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;https://ci.appveyor.com/project/(?P&lt;repo_owner&gt;[^/]*)/(?P&lt;repo_name&gt;[^/]*)(/.*)?&#39;</span><span class="p">),</span>
@@ -151,7 +151,7 @@
 <span class="p">]</span>
 
 
-<div class="viewcode-block" id="ConvertUrl"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.convert_url.ConvertUrl">[docs]</a><span class="k">class</span> <span class="nc">ConvertUrl</span><span class="p">:</span>
+<div class="viewcode-block" id="ConvertUrl"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.convert_url.ConvertUrl">[docs]</a><span class="k">class</span> <span class="nc">ConvertUrl</span><span class="p">:</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">__convert</span><span class="p">(</span><span class="n">regex_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">url_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">regex</span> <span class="ow">in</span> <span class="n">regex_list</span><span class="p">:</span>
@@ -161,11 +161,11 @@
         <span class="n">SENTRY</span><span class="o">.</span><span class="n">captureMessage</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;failed to parse url: </span><span class="si">{url_str}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;URL not recognized: </span><span class="si">{url_str}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ConvertUrl.convert_gh_url"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.convert_url.ConvertUrl.convert_gh_url">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ConvertUrl.convert_gh_url"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.convert_url.ConvertUrl.convert_gh_url">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">convert_gh_url</span><span class="p">(</span><span class="n">gh_repo_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
         <span class="k">return</span> <span class="n">ConvertUrl</span><span class="o">.</span><span class="n">__convert</span><span class="p">(</span><span class="n">_re_gh</span><span class="p">,</span> <span class="n">gh_repo_url</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ConvertUrl.convert_av_url"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.convert_url.ConvertUrl.convert_av_url">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ConvertUrl.convert_av_url"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.convert_url.ConvertUrl.convert_av_url">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">convert_av_url</span><span class="p">(</span><span class="n">av_repo_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
         <span class="k">return</span> <span class="n">ConvertUrl</span><span class="o">.</span><span class="n">__convert</span><span class="p">(</span><span class="n">_re_av</span><span class="p">,</span> <span class="n">av_repo_url</span><span class="p">)</span></div></div>
 </pre></div>
@@ -184,8 +184,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -203,6 +203,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

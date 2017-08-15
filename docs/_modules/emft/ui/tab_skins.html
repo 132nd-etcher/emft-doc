@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.ui.tab_skins &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.ui.tab_skins &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -139,14 +139,13 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">make_logger</span>
-
-<span class="kn">from</span> <span class="nn">emft.cfg</span> <span class="k">import</span> <span class="n">Config</span>
-<span class="kn">from</span> <span class="nn">emft.misc.fs</span> <span class="k">import</span> <span class="n">dcs_installs</span><span class="p">,</span> <span class="n">DCSInstall</span>
-<span class="kn">from</span> <span class="nn">emft.ui.base</span> <span class="k">import</span> <span class="n">VLayout</span><span class="p">,</span> <span class="n">Combo</span><span class="p">,</span> <span class="n">HLayout</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">HSpacer</span><span class="p">,</span> <span class="n">TableModel</span><span class="p">,</span> <span class="n">TableViewWithSingleRowMenu</span><span class="p">,</span> \
-    <span class="n">TableProxy</span><span class="p">,</span> <span class="n">LineEdit</span><span class="p">,</span> <span class="n">GroupBox</span><span class="p">,</span> <span class="n">GridLayout</span><span class="p">,</span> <span class="n">Menu</span><span class="p">,</span> <span class="n">Checkbox</span><span class="p">,</span> <span class="n">PushButton</span>
+<span class="kn">from</span> <span class="nn">emft.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">emft.core.filesystem</span> <span class="k">import</span> <span class="n">DCSInstall</span><span class="p">,</span> <span class="n">dcs_installs</span>
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">emft.ui.base</span> <span class="k">import</span> <span class="n">Checkbox</span><span class="p">,</span> <span class="n">Combo</span><span class="p">,</span> <span class="n">GridLayout</span><span class="p">,</span> <span class="n">GroupBox</span><span class="p">,</span> <span class="n">HLayout</span><span class="p">,</span> <span class="n">HSpacer</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">LineEdit</span><span class="p">,</span> <span class="n">Menu</span><span class="p">,</span> <span class="n">PushButton</span><span class="p">,</span> \
+    <span class="n">TableModel</span><span class="p">,</span> <span class="n">TableProxy</span><span class="p">,</span> <span class="n">TableViewWithSingleRowMenu</span><span class="p">,</span> <span class="n">VLayout</span>
 <span class="kn">from</span> <span class="nn">emft.ui.main_ui_tab_widget</span> <span class="k">import</span> <span class="n">MainUiTabChild</span>
-<span class="kn">from</span> <span class="nn">.tab_skins_adapter</span> <span class="k">import</span> <span class="n">TAB_NAME</span><span class="p">,</span> <span class="n">TabSkinsAdapter</span>
+<span class="kn">from</span> <span class="nn">emft.ui.tab_skins_adapter</span> <span class="k">import</span> <span class="n">TAB_NAME</span><span class="p">,</span> <span class="n">TabSkinsAdapter</span>
 
 <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -155,12 +154,11 @@
 <span class="n">RE_LOAD_LIVERY_LINE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^LoadLivery\(&quot;(?P&lt;path&gt;.*)&quot;\)$&#39;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="TabChildSkins"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_skins.TabChildSkins">[docs]</a><span class="k">class</span> <span class="nc">TabChildSkins</span><span class="p">(</span><span class="n">MainUiTabChild</span><span class="p">,</span> <span class="n">TabSkinsAdapter</span><span class="p">):</span>
-
-<div class="viewcode-block" id="TabChildSkins.tab_clicked"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_skins.TabChildSkins.tab_clicked">[docs]</a>    <span class="k">def</span> <span class="nf">tab_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildSkins"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_skins.TabChildSkins">[docs]</a><span class="k">class</span> <span class="nc">TabChildSkins</span><span class="p">(</span><span class="n">MainUiTabChild</span><span class="p">,</span> <span class="n">TabSkinsAdapter</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildSkins.tab_clicked"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_skins.TabChildSkins.tab_clicked">[docs]</a>    <span class="k">def</span> <span class="nf">tab_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_refresh_skins_for_active_install</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="TabChildSkins.tab_skins_update_dcs_installs_combo"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_skins.TabChildSkins.tab_skins_update_dcs_installs_combo">[docs]</a>    <span class="k">def</span> <span class="nf">tab_skins_update_dcs_installs_combo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildSkins.tab_skins_update_dcs_installs_combo"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_skins.TabChildSkins.tab_skins_update_dcs_installs_combo">[docs]</a>    <span class="k">def</span> <span class="nf">tab_skins_update_dcs_installs_combo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">combo_active_dcs_installation</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">combo_active_dcs_installation</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">combo_active_dcs_installation</span><span class="o">.</span><span class="n">addItems</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">label</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dcs_installs</span><span class="o">.</span><span class="n">present_dcs_installations</span><span class="p">))</span>
@@ -341,7 +339,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">combo_active_dcs_installation</span><span class="o">.</span><span class="n">currentText</span><span class="p">():</span>
             <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">dcs_installs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">combo_active_dcs_installation</span><span class="o">.</span><span class="n">currentText</span><span class="p">())</span>
 
-<div class="viewcode-block" id="TabChildSkins.tab_skins_show_skins_scan_result"><a class="viewcode-back" href="../../../emft.ui.html#emft.ui.tab_skins.TabChildSkins.tab_skins_show_skins_scan_result">[docs]</a>    <span class="k">def</span> <span class="nf">tab_skins_show_skins_scan_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan_result</span><span class="p">):</span>
+<div class="viewcode-block" id="TabChildSkins.tab_skins_show_skins_scan_result"><a class="viewcode-back" href="../../../api/emft.ui.html#emft.ui.tab_skins.TabChildSkins.tab_skins_show_skins_scan_result">[docs]</a>    <span class="k">def</span> <span class="nf">tab_skins_show_skins_scan_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan_result</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reset_data</span><span class="p">(</span><span class="n">scan_result</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">resizeColumnsToContents</span><span class="p">()</span></div>
 
@@ -396,8 +394,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -414,6 +412,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.reorder.service.reorder_miz &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.reorder.service.reorder_miz &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../../index.html" />
     <link rel="up" title="emft.reorder" href="../../reorder.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -136,16 +136,19 @@
                 <div class="body">
                   
   <h1>Source code for emft.reorder.service.reorder_miz</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">emft.cfg</span> <span class="k">import</span> <span class="n">Config</span>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="kn">from</span> <span class="nn">emft.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">emft.core.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">emft.core.threadpool</span> <span class="k">import</span> <span class="n">ThreadPool</span>
 <span class="kn">from</span> <span class="nn">emft.miz</span> <span class="k">import</span> <span class="n">Miz</span>
-<span class="kn">from</span> <span class="nn">emft.reorder.finder</span> <span class="k">import</span> <span class="n">FindProfile</span><span class="p">,</span> <span class="n">FindRemoteVersion</span><span class="p">,</span> <span class="n">FindOutputFolder</span>
+<span class="kn">from</span> <span class="nn">emft.reorder.finder</span> <span class="k">import</span> <span class="n">FindOutputFolder</span><span class="p">,</span> <span class="n">FindProfile</span><span class="p">,</span> <span class="n">FindRemoteVersion</span>
 <span class="kn">from</span> <span class="nn">emft.ui.main_ui_interface</span> <span class="k">import</span> <span class="n">I</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">ThreadPool</span><span class="p">,</span> <span class="n">make_logger</span><span class="p">,</span> <span class="n">Path</span>
 
 <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ReorderMiz"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.reorder_miz.ReorderMiz">[docs]</a><span class="k">class</span> <span class="nc">ReorderMiz</span><span class="p">:</span>
+<div class="viewcode-block" id="ReorderMiz"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.reorder_miz.ReorderMiz">[docs]</a><span class="k">class</span> <span class="nc">ReorderMiz</span><span class="p">:</span>
     <span class="n">_POOL</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;reorder&#39;</span><span class="p">,</span> <span class="n">_daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
@@ -155,7 +158,7 @@
                 <span class="s1">&#39;Please check the log, and eventually send it to me along with the MIZ file &#39;</span>
                 <span class="s1">&#39;if you think this is a bug.&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ReorderMiz.manual_reorder"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.reorder_miz.ReorderMiz.manual_reorder">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ReorderMiz.manual_reorder"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.reorder_miz.ReorderMiz.manual_reorder">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">manual_reorder</span><span class="p">(</span><span class="n">path_to_miz</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">miz_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path_to_miz</span><span class="p">)</span>
@@ -179,7 +182,7 @@
             <span class="n">skip_option_file</span><span class="o">=</span><span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">skip_options_file</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ReorderMiz.auto_reorder"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.reorder_miz.ReorderMiz.auto_reorder">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ReorderMiz.auto_reorder"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.reorder_miz.ReorderMiz.auto_reorder">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">auto_reorder</span><span class="p">():</span>
         <span class="n">profile</span> <span class="o">=</span> <span class="n">FindProfile</span><span class="o">.</span><span class="n">get_active_profile</span><span class="p">()</span>
         <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
@@ -203,11 +206,11 @@
             <span class="n">skip_option_file</span><span class="o">=</span><span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">skip_options_file</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ReorderMiz.reorder_miz_file"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.reorder_miz.ReorderMiz.reorder_miz_file">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ReorderMiz.reorder_miz_file"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.reorder_miz.ReorderMiz.reorder_miz_file">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">reorder_miz_file</span><span class="p">(</span>
-            <span class="n">miz_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">output_folder_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">skip_option_file</span><span class="p">:</span> <span class="nb">bool</span>
+        <span class="n">miz_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">output_folder_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">skip_option_file</span><span class="p">:</span> <span class="nb">bool</span>
     <span class="p">):</span>
         <span class="n">ReorderMiz</span><span class="o">.</span><span class="n">_POOL</span><span class="o">.</span><span class="n">queue_task</span><span class="p">(</span>
             <span class="n">task</span><span class="o">=</span><span class="n">Miz</span><span class="o">.</span><span class="n">reorder</span><span class="p">,</span>
@@ -235,8 +238,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -254,6 +257,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

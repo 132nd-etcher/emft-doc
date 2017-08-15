@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.roster.meta_roster &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.roster.meta_roster &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -138,10 +138,10 @@
 <span></span><span class="c1"># coding=utf-8</span>
 
 <span class="kn">from</span> <span class="nn">emft.meta</span> <span class="k">import</span> <span class="n">MetaFile</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">emft.core.path</span> <span class="k">import</span> <span class="n">Path</span>
 
 
-<div class="viewcode-block" id="MetaFileRoster"><a class="viewcode-back" href="../../../emft.roster.html#emft.roster.meta_roster.MetaFileRoster">[docs]</a><span class="k">class</span> <span class="nc">MetaFileRoster</span><span class="p">(</span><span class="n">MetaFile</span><span class="p">):</span>
+<div class="viewcode-block" id="MetaFileRoster"><a class="viewcode-back" href="../../../api/emft.roster.html#emft.roster.meta_roster.MetaFileRoster">[docs]</a><span class="k">class</span> <span class="nc">MetaFileRoster</span><span class="p">(</span><span class="n">MetaFile</span><span class="p">):</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">meta_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -151,7 +151,7 @@
     <span class="k">def</span> <span class="nf">meta_header</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;ROSTER&#39;</span>
 
-<div class="viewcode-block" id="MetaFileRoster.meta_version_upgrade"><a class="viewcode-back" href="../../../emft.roster.html#emft.roster.meta_roster.MetaFileRoster.meta_version_upgrade">[docs]</a>    <span class="k">def</span> <span class="nf">meta_version_upgrade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_version</span><span class="p">):</span>
+<div class="viewcode-block" id="MetaFileRoster.meta_version_upgrade"><a class="viewcode-back" href="../../../api/emft.roster.html#emft.roster.meta_roster.MetaFileRoster.meta_version_upgrade">[docs]</a>    <span class="k">def</span> <span class="nf">meta_version_upgrade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_version</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
@@ -173,8 +173,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -191,6 +191,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

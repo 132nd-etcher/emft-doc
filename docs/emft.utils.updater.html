@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.utils.updater package &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.utils.updater package &mdash; EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    './',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.6.0-alpha.119-reorg-src.72(0.6.0a72)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,10 +51,8 @@
 </script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="index.html" />
-    <link rel="up" title="emft.utils package" href="emft.utils.html" />
-    <link rel="prev" title="emft.utils.gh.gh_objects package" href="emft.utils.gh.gh_objects.html" /> 
+    <link rel="top" title="EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation" href="index.html" /> 
   </head>
   <body role="document">
     <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
@@ -66,8 +64,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -77,11 +75,11 @@
                 <ul>
 <li><a class="reference internal" href="#">emft.utils.updater package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater.channel">emft.utils.updater.channel module</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater.customspec">emft.utils.updater.customspec module</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater.customversion">emft.utils.updater.customversion module</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater.updater">emft.utils.updater.updater module</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater">Module contents</a></li>
+<li><a class="reference internal" href="#emft-utils-updater-channel-module">emft.utils.updater.channel module</a></li>
+<li><a class="reference internal" href="#emft-utils-updater-customspec-module">emft.utils.updater.customspec module</a></li>
+<li><a class="reference internal" href="#emft-utils-updater-customversion-module">emft.utils.updater.customversion module</a></li>
+<li><a class="reference internal" href="#emft-utils-updater-updater-module">emft.utils.updater.updater module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -91,13 +89,8 @@
             <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
 
             
-              <li><a href="emft.utils.gh.gh_objects.html" title="emft.utils.gh.gh_objects package" accesskey="P">previous </a></li>
               <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
               <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
-              <li><a href="dev.html" >Documentation for developers</a></li>
-              <li><a href="modules.html" >EMFT API</a></li>
-              <li><a href="emft.html" >emft package</a></li>
-              <li><a href="emft.utils.html" accesskey="U">emft.utils package</a></li>
             
             <li class="visible-xs"><a href="_sources/emft.utils.updater.rst.txt" rel="nofollow">Show Source</a></li>
 
@@ -135,18 +128,15 @@
   <ul>
 <li><a class="reference internal" href="#">emft.utils.updater package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater.channel">emft.utils.updater.channel module</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater.customspec">emft.utils.updater.customspec module</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater.customversion">emft.utils.updater.customversion module</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater.updater">emft.utils.updater.updater module</a></li>
-<li><a class="reference internal" href="#module-emft.utils.updater">Module contents</a></li>
+<li><a class="reference internal" href="#emft-utils-updater-channel-module">emft.utils.updater.channel module</a></li>
+<li><a class="reference internal" href="#emft-utils-updater-customspec-module">emft.utils.updater.customspec module</a></li>
+<li><a class="reference internal" href="#emft-utils-updater-customversion-module">emft.utils.updater.customversion module</a></li>
+<li><a class="reference internal" href="#emft-utils-updater-updater-module">emft.utils.updater.updater module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="emft.utils.gh.gh_objects.html"
-                        title="previous chapter">emft.utils.gh.gh_objects package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -185,203 +175,20 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.utils.updater.channel">
-<span id="emft-utils-updater-channel-module"></span><h2>emft.utils.updater.channel module<a class="headerlink" href="#module-emft.utils.updater.channel" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.utils.updater.channel.Channel">
-<em class="property">class </em><code class="descclassname">emft.utils.updater.channel.</code><code class="descname">Channel</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/channel.html#Channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.channel.Channel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.CHANNEL_TO_LABEL">
-<code class="descname">CHANNEL_TO_LABEL</code><em class="property"> = {'': 'stable', 'patch': 'patch', 'exp': 'rc', 'beta': 'beta', 'alpha': 'alpha'}</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.CHANNEL_TO_LABEL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.LABEL_TO_CHANNEL">
-<code class="descname">LABEL_TO_CHANNEL</code><em class="property"> = {'stable': '', 'patch': 'patch', 'rc': 'exp', 'beta': 'beta', 'alpha': 'alpha'}</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.LABEL_TO_CHANNEL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.alpha">
-<code class="descname">alpha</code><em class="property"> = 'alpha'</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.alpha" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.beta">
-<code class="descname">beta</code><em class="property"> = 'beta'</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.beta" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.exp">
-<code class="descname">exp</code><em class="property"> = 'exp'</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.exp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.labels">
-<code class="descname">labels</code><em class="property"> = ['stable', 'patch', 'rc', 'beta', 'alpha']</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.labels" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.patch">
-<code class="descname">patch</code><em class="property"> = 'patch'</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.patch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.pre_releases_labels">
-<code class="descname">pre_releases_labels</code><em class="property"> = ['alpha', 'beta', 'exp', 'patch']</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.pre_releases_labels" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.channel.Channel.stable">
-<code class="descname">stable</code><em class="property"> = ''</em><a class="headerlink" href="#emft.utils.updater.channel.Channel.stable" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="emft-utils-updater-channel-module">
+<h2>emft.utils.updater.channel module<a class="headerlink" href="#emft-utils-updater-channel-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.utils.updater.customspec">
-<span id="emft-utils-updater-customspec-module"></span><h2>emft.utils.updater.customspec module<a class="headerlink" href="#module-emft.utils.updater.customspec" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.utils.updater.customspec.CustomSpec">
-<em class="property">class </em><code class="descclassname">emft.utils.updater.customspec.</code><code class="descname">CustomSpec</code><span class="sig-paren">(</span><em>*specs_strings</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customspec.html#CustomSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customspec.CustomSpec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">semantic_version.base.Spec</span></code></p>
-<dl class="method">
-<dt id="emft.utils.updater.customspec.CustomSpec.filter_channel">
-<code class="descname">filter_channel</code><span class="sig-paren">(</span><em>versions</em>, <em>prerelease=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customspec.html#CustomSpec.filter_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customspec.CustomSpec.filter_channel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.utils.updater.customspec.CustomSpec.select_channel">
-<code class="descname">select_channel</code><span class="sig-paren">(</span><em>versions</em>, <em>channel=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customspec.html#CustomSpec.select_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customspec.CustomSpec.select_channel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects the latest version, equals or higher than “channel”</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>versions</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Set" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">Set</span></code></a>[<a class="reference internal" href="#emft.utils.updater.customversion.CustomVersion" title="emft.utils.updater.customversion.CustomVersion"><code class="xref py py-class docutils literal"><span class="pre">CustomVersion</span></code></a>]) – versions to select from</li>
-<li><strong>channel</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) – member of <code class="xref py py-class docutils literal"><span class="pre">Channel</span></code></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Returns: latest version or None</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/typing.html#typing.Optional" title="(in Python v3.6)"><code class="xref py py-data docutils literal"><span class="pre">Optional</span></code></a>[<a class="reference internal" href="#emft.utils.updater.customversion.CustomVersion" title="emft.utils.updater.customversion.CustomVersion"><code class="xref py py-class docutils literal"><span class="pre">CustomVersion</span></code></a>]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="emft-utils-updater-customspec-module">
+<h2>emft.utils.updater.customspec module<a class="headerlink" href="#emft-utils-updater-customspec-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.utils.updater.customversion">
-<span id="emft-utils-updater-customversion-module"></span><h2>emft.utils.updater.customversion module<a class="headerlink" href="#module-emft.utils.updater.customversion" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.utils.updater.customversion.CustomVersion">
-<em class="property">class </em><code class="descclassname">emft.utils.updater.customversion.</code><code class="descname">CustomVersion</code><span class="sig-paren">(</span><em>version_string</em>, <em>partial=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customversion.html#CustomVersion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customversion.CustomVersion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">semantic_version.base.Version</span></code></p>
-<p>Proxy class over semantic_version.Version</p>
-<dl class="method">
-<dt id="emft.utils.updater.customversion.CustomVersion.to_short_string">
-<code class="descname">to_short_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customversion.html#CustomVersion.to_short_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customversion.CustomVersion.to_short_string" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="emft.utils.updater.customversion.CustomVersion.to_spec">
-<code class="descname">to_spec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/customversion.html#CustomVersion.to_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.customversion.CustomVersion.to_spec" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="emft-utils-updater-customversion-module">
+<h2>emft.utils.updater.customversion module<a class="headerlink" href="#emft-utils-updater-customversion-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.utils.updater.updater">
-<span id="emft-utils-updater-updater-module"></span><h2>emft.utils.updater.updater module<a class="headerlink" href="#module-emft.utils.updater.updater" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.utils.updater.updater.DownloadableAsset">
-<em class="property">class </em><code class="descclassname">emft.utils.updater.updater.</code><code class="descname">DownloadableAsset</code><span class="sig-paren">(</span><em>url</em>, <em>size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#DownloadableAsset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.DownloadableAsset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="emft.utils.updater.updater.Updater">
-<em class="property">class </em><code class="descclassname">emft.utils.updater.updater.</code><code class="descname">Updater</code><span class="sig-paren">(</span><em>current_version</em>, <em>av_user</em>, <em>av_repo</em>, <em>local_executable</em>, <em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#Updater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.Updater" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">transitions.core.Machine</span></code></p>
-<dl class="attribute">
-<dt id="emft.utils.updater.updater.Updater.asset">
-<code class="descname">asset</code><a class="headerlink" href="#emft.utils.updater.updater.Updater.asset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.updater.Updater.av_builds">
-<code class="descname">av_builds</code><a class="headerlink" href="#emft.utils.updater.updater.Updater.av_builds" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.updater.Updater.current_version">
-<code class="descname">current_version</code><a class="headerlink" href="#emft.utils.updater.updater.Updater.current_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.updater.Updater.error">
-<code class="descname">error</code><a class="headerlink" href="#emft.utils.updater.updater.Updater.error" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.utils.updater.updater.Updater.find_latest_version_on_channel">
-<code class="descname">find_latest_version_on_channel</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#Updater.find_latest_version_on_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.Updater.find_latest_version_on_channel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.utils.updater.updater.Updater.install_latest_version">
-<code class="descname">install_latest_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#Updater.install_latest_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.Updater.install_latest_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.updater.Updater.is_ready">
-<code class="descname">is_ready</code><a class="headerlink" href="#emft.utils.updater.updater.Updater.is_ready" title="Permalink to this definition">¶</a></dt>
-<dd><p>Will be true is the updater is ready to accept a new job</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="emft.utils.updater.updater.Updater.latest_version">
-<code class="descname">latest_version</code><a class="headerlink" href="#emft.utils.updater.updater.Updater.latest_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Latest remote version found</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="emft.utils.updater.updater.Updater.look_for_new_version">
-<code class="descname">look_for_new_version</code><span class="sig-paren">(</span><em>auto_update=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/utils/updater/updater.html#Updater.look_for_new_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.utils.updater.updater.Updater.look_for_new_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="emft-utils-updater-updater-module">
+<h2>emft.utils.updater.updater module<a class="headerlink" href="#emft-utils-updater-updater-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-emft.utils.updater">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-emft.utils.updater" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -400,18 +207,13 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
-        <li><a href="emft.utils.gh.gh_objects.html" title="emft.utils.gh.gh_objects package" >previous</a></li>
         <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
         <li><a href="genindex.html" title="General Index" >index</a></li>
-        <li><a href="dev.html" >Documentation for developers</a></li>
-        <li><a href="modules.html" >EMFT API</a></li>
-        <li><a href="emft.html" >emft package</a></li>
-        <li><a href="emft.utils.html" >emft.utils package</a></li>
         <li><a href="#">top</a></li> 
       
     </ul>

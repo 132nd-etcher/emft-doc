@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.meta.meta &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.meta.meta &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -140,10 +140,10 @@
 
 <span class="kn">from</span> <span class="nn">ruamel.yaml</span> <span class="k">import</span> <span class="n">dump</span> <span class="k">as</span> <span class="n">ydump</span><span class="p">,</span> <span class="n">safe_load</span> <span class="k">as</span> <span class="n">yload</span><span class="p">,</span> <span class="n">RoundTripDumper</span>
 
-<span class="kn">from</span> <span class="nn">.abstract</span> <span class="k">import</span> <span class="n">AbstractMeta</span>
+<span class="kn">from</span> <span class="nn">emft.meta.abstract</span> <span class="k">import</span> <span class="n">AbstractMeta</span>
 
 
-<div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta">[docs]</a><span class="k">class</span> <span class="nc">Meta</span><span class="p">(</span><span class="n">AbstractMeta</span><span class="p">):</span>
+<div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta">[docs]</a><span class="k">class</span> <span class="nc">Meta</span><span class="p">(</span><span class="n">AbstractMeta</span><span class="p">):</span>
     <span class="n">ignore_keys</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;meta_version&#39;</span><span class="p">,</span>
     <span class="p">]</span>
@@ -163,7 +163,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_init_views</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Meta.from_dict"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Meta.from_dict"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">init_dict</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">*</span><span class="n">init_dict</span><span class="p">)</span></div>
 
@@ -173,7 +173,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Meta.get_context"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta.get_context">[docs]</a>    <span class="k">def</span> <span class="nf">get_context</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Meta.get_context"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta.get_context">[docs]</a>    <span class="k">def</span> <span class="nf">get_context</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span></div>
 
     <span class="nd">@property</span>
@@ -222,22 +222,22 @@
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Meta.get"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Meta.get"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Meta.keys"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Meta.keys"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span></div>
 
-<div class="viewcode-block" id="Meta.values"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta.values">[docs]</a>    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Meta.values"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta.values">[docs]</a>    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span></div>
 
-<div class="viewcode-block" id="Meta.items"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta.items">[docs]</a>    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Meta.items"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta.items">[docs]</a>    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_items</span></div>
 
-<div class="viewcode-block" id="Meta.dump"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Meta.dump"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">ydump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">Dumper</span><span class="o">=</span><span class="n">RoundTripDumper</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Meta.load"><a class="viewcode-back" href="../../../emft.meta.html#emft.meta.meta.Meta.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Meta.load"><a class="viewcode-back" href="../../../api/emft.meta.html#emft.meta.meta.Meta.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">yload</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div></div>
 </pre></div>
 
@@ -255,8 +255,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -273,6 +273,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.reorder.service.manage_remote_versions &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.reorder.service.manage_remote_versions &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../../index.html" />
     <link rel="up" title="emft.reorder" href="../../reorder.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -140,27 +140,29 @@
 
 <span class="kn">import</span> <span class="nn">urllib.parse</span>
 
-<span class="kn">from</span> <span class="nn">emft.misc</span> <span class="k">import</span> <span class="n">downloader</span>
-<span class="kn">from</span> <span class="nn">emft.reorder.finder</span> <span class="k">import</span> <span class="n">FindProfile</span><span class="p">,</span> <span class="n">FindBranch</span><span class="p">,</span> <span class="n">FindRemoteVersion</span>
+<span class="kn">from</span> <span class="nn">emft.core</span> <span class="k">import</span> <span class="n">downloader</span>
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">emft.core.path</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">emft.core.providers.appveyor</span> <span class="k">import</span> <span class="n">AVSession</span>
+<span class="kn">from</span> <span class="nn">emft.core.threadpool</span> <span class="k">import</span> <span class="n">ThreadPool</span>
+<span class="kn">from</span> <span class="nn">emft.reorder.finder</span> <span class="k">import</span> <span class="n">FindBranch</span><span class="p">,</span> <span class="n">FindProfile</span><span class="p">,</span> <span class="n">FindRemoteVersion</span>
 <span class="kn">from</span> <span class="nn">emft.reorder.service</span> <span class="k">import</span> <span class="n">ConvertUrl</span>
 <span class="kn">from</span> <span class="nn">emft.reorder.value</span> <span class="k">import</span> <span class="n">AVProbeResult</span><span class="p">,</span> <span class="n">RemoteVersion</span>
 <span class="kn">from</span> <span class="nn">emft.ui.base</span> <span class="k">import</span> <span class="n">box_question</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">Progress</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">make_logger</span><span class="p">,</span> <span class="n">ThreadPool</span><span class="p">,</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">emft.utils.av</span> <span class="k">import</span> <span class="n">AVSession</span>
+<span class="kn">from</span> <span class="nn">emft.core.progress</span> <span class="k">import</span> <span class="n">Progress</span>
 
 <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ManageRemoteVersions"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions">[docs]</a><span class="k">class</span> <span class="nc">ManageRemoteVersions</span><span class="p">:</span>
+<div class="viewcode-block" id="ManageRemoteVersions"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions">[docs]</a><span class="k">class</span> <span class="nc">ManageRemoteVersions</span><span class="p">:</span>
     <span class="n">_WATCHERS</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">_POOL</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;ManageRemoteVersion&#39;</span><span class="p">,</span> <span class="n">_daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ManageRemoteVersions.watch_remote_version_change"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.watch_remote_version_change">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageRemoteVersions.watch_remote_version_change"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.watch_remote_version_change">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">watch_remote_version_change</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">callable</span><span class="p">):</span>
         <span class="n">ManageRemoteVersions</span><span class="o">.</span><span class="n">_WATCHERS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ManageRemoteVersions.notify_watchers"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.notify_watchers">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageRemoteVersions.notify_watchers"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.notify_watchers">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">notify_watchers</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">ManageRemoteVersions</span><span class="o">.</span><span class="n">_WATCHERS</span><span class="p">:</span>
             <span class="n">func</span><span class="p">()</span></div>
@@ -196,7 +198,7 @@
                 <span class="n">remote_file_name</span><span class="o">=</span><span class="n">artifact</span><span class="o">.</span><span class="n">fileName</span><span class="p">,</span>
             <span class="p">)</span>
 
-<div class="viewcode-block" id="ManageRemoteVersions.get_latest_remote_version"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.get_latest_remote_version">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageRemoteVersions.get_latest_remote_version"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.get_latest_remote_version">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_latest_remote_version</span><span class="p">():</span>
         <span class="k">def</span> <span class="nf">task_callback</span><span class="p">(</span><span class="o">*</span><span class="n">_</span><span class="p">):</span>
             <span class="n">ManageRemoteVersions</span><span class="o">.</span><span class="n">notify_watchers</span><span class="p">()</span>
@@ -213,7 +215,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;no active branch found&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ManageRemoteVersions.download_latest_remote_version"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.download_latest_remote_version">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageRemoteVersions.download_latest_remote_version"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_remote_versions.ManageRemoteVersions.download_latest_remote_version">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">download_latest_remote_version</span><span class="p">(</span><span class="n">ui_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="k">def</span> <span class="nf">task_callback</span><span class="p">(</span><span class="o">*</span><span class="n">_</span><span class="p">):</span>
@@ -256,8 +258,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -275,6 +277,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.reorder.service.manage_auto_profiles &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.reorder.service.manage_auto_profiles &mdash; EMFT 0.5.2
+(0.5.2) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../../',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.5.2(0.5.2)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="../../../../index.html" />
+    <link rel="top" title="EMFT 0.5.2
+(0.5.2) documentation" href="../../../../index.html" />
     <link rel="up" title="emft.reorder" href="../../reorder.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -139,23 +139,25 @@
 <span></span><span class="c1"># coding=utf-8</span>
 
 <span class="kn">import</span> <span class="nn">typing</span>
-<span class="kn">from</span> <span class="nn">emft.cfg</span> <span class="k">import</span> <span class="n">Config</span>
-<span class="kn">from</span> <span class="nn">.convert_url</span> <span class="k">import</span> <span class="n">ConvertUrl</span>
-<span class="kn">from</span> <span class="nn">emft.reorder.value</span> <span class="k">import</span> <span class="n">AutoProfile</span><span class="p">,</span> <span class="n">AutoProfiles</span><span class="p">,</span> <span class="n">AutoProfileModelContainer</span>
+
+<span class="kn">from</span> <span class="nn">emft.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">emft.core.logging</span> <span class="k">import</span> <span class="n">make_logger</span>
 <span class="kn">from</span> <span class="nn">emft.reorder.finder</span> <span class="k">import</span> <span class="n">FindProfile</span>
-<span class="kn">from</span> <span class="nn">emft.utils</span> <span class="k">import</span> <span class="n">Path</span><span class="p">,</span> <span class="n">make_logger</span>
+<span class="kn">from</span> <span class="nn">emft.reorder.service.convert_url</span> <span class="k">import</span> <span class="n">ConvertUrl</span>
+<span class="kn">from</span> <span class="nn">emft.reorder.value</span> <span class="k">import</span> <span class="n">AutoProfile</span><span class="p">,</span> <span class="n">AutoProfileModelContainer</span><span class="p">,</span> <span class="n">AutoProfiles</span>
+<span class="kn">from</span> <span class="nn">emft.core.path</span> <span class="k">import</span> <span class="n">Path</span>
 
 <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">make_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ManageProfiles"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles">[docs]</a><span class="k">class</span> <span class="nc">ManageProfiles</span><span class="p">:</span>
+<div class="viewcode-block" id="ManageProfiles"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles">[docs]</a><span class="k">class</span> <span class="nc">ManageProfiles</span><span class="p">:</span>
     <span class="n">_WATCHERS</span> <span class="o">=</span> <span class="p">[]</span>
 
-<div class="viewcode-block" id="ManageProfiles.watch_profile_change"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.watch_profile_change">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.watch_profile_change"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.watch_profile_change">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">watch_profile_change</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">callable</span><span class="p">):</span>
         <span class="n">ManageProfiles</span><span class="o">.</span><span class="n">_WATCHERS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ManageProfiles.notify_watchers"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.notify_watchers">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.notify_watchers"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.notify_watchers">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">notify_watchers</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">ManageProfiles</span><span class="o">.</span><span class="n">_WATCHERS</span><span class="p">:</span>
             <span class="n">func</span><span class="p">()</span></div>
@@ -171,14 +173,14 @@
             <span class="n">model</span><span class="o">.</span><span class="n">appendRow</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="n">model</span><span class="o">.</span><span class="n">endResetModel</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ManageProfiles.write_profiles_to_config"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.write_profiles_to_config">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.write_profiles_to_config"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.write_profiles_to_config">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">write_profiles_to_config</span><span class="p">():</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">AutoProfiles</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">d</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">gh_repo</span><span class="p">,</span> <span class="n">profile</span><span class="o">.</span><span class="n">av_repo</span><span class="p">,</span> <span class="n">profile</span><span class="o">.</span><span class="n">src_folder</span><span class="p">,</span> <span class="n">profile</span><span class="o">.</span><span class="n">output_folder</span><span class="p">)</span>
         <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">reorder_auto_profiles</span> <span class="o">=</span> <span class="n">d</span></div>
 
-<div class="viewcode-block" id="ManageProfiles.read_profiles_from_config"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.read_profiles_from_config">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.read_profiles_from_config"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.read_profiles_from_config">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">read_profiles_from_config</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">reorder_auto_profiles</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">reorder_auto_profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -194,13 +196,13 @@
         <span class="k">if</span> <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">last_used_auto_profile</span><span class="p">:</span>
             <span class="n">ManageProfiles</span><span class="p">()</span><span class="o">.</span><span class="n">change_active_profile</span><span class="p">(</span><span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">last_used_auto_profile</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ManageProfiles.add_profile_from_values"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.add_profile_from_values">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.add_profile_from_values"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.add_profile_from_values">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">add_profile_from_values</span><span class="p">(</span>
-            <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">gh_repo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">av_repo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">src_folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">output_folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">gh_repo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">av_repo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">src_folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">output_folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="n">profile</span> <span class="o">=</span> <span class="n">AutoProfile</span><span class="p">(</span>
             <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
@@ -211,7 +213,7 @@
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">ManageProfiles</span><span class="o">.</span><span class="n">add_profile_object</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">profile</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ManageProfiles.add_profile_object"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.add_profile_object">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.add_profile_object"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.add_profile_object">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">add_profile_object</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">profile</span><span class="p">:</span> <span class="n">AutoProfile</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="n">src_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">src_folder</span><span class="p">)</span>
         <span class="n">output_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">output_folder</span><span class="p">)</span>
@@ -232,22 +234,22 @@
         <span class="n">ManageProfiles</span><span class="o">.</span><span class="n">write_profiles_to_config</span><span class="p">()</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="ManageProfiles.change_active_profile"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.change_active_profile">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.change_active_profile"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.change_active_profile">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">change_active_profile</span><span class="p">(</span><span class="n">profile_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">profile</span> <span class="o">=</span> <span class="n">FindProfile</span><span class="o">.</span><span class="n">get_by_name</span><span class="p">(</span><span class="n">profile_name</span><span class="p">)</span>
         <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">last_used_auto_profile</span> <span class="o">=</span> <span class="n">profile_name</span>
         <span class="n">AutoProfiles</span><span class="o">.</span><span class="n">ACTIVE_PROFILE</span> <span class="o">=</span> <span class="n">profile</span>
         <span class="n">ManageProfiles</span><span class="o">.</span><span class="n">notify_watchers</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="ManageProfiles.get_gh_repo_info"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.get_gh_repo_info">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.get_gh_repo_info"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.get_gh_repo_info">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_gh_repo_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
         <span class="k">return</span> <span class="n">ConvertUrl</span><span class="o">.</span><span class="n">convert_gh_url</span><span class="p">(</span><span class="n">FindProfile</span><span class="o">.</span><span class="n">get_active_profile</span><span class="p">()</span><span class="o">.</span><span class="n">gh_repo</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ManageProfiles.get_av_repo_info"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.get_av_repo_info">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.get_av_repo_info"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.get_av_repo_info">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_av_repo_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
         <span class="k">return</span> <span class="n">ConvertUrl</span><span class="o">.</span><span class="n">convert_av_url</span><span class="p">(</span><span class="n">FindProfile</span><span class="o">.</span><span class="n">get_active_profile</span><span class="p">()</span><span class="o">.</span><span class="n">av_repo</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ManageProfiles.remove_profile"><a class="viewcode-back" href="../../../../emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.remove_profile">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ManageProfiles.remove_profile"><a class="viewcode-back" href="../../../../api/emft.reorder.service.html#emft.reorder.service.manage_auto_profiles.ManageProfiles.remove_profile">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">remove_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">:</span> <span class="n">AutoProfile</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="n">AutoProfile</span><span class="p">):</span>
             <span class="n">profile</span> <span class="o">=</span> <span class="n">profile</span><span class="o">.</span><span class="n">name</span>
@@ -273,8 +275,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../../index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="../../../../index.html">EMFT 0.5.2
+(0.5.2) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -292,6 +294,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
+        Last updated on 15 Aug 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
       </footer>
       <!-- /footer -->

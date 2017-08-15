@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.meta package &mdash; EMFT 0.5.0
-(0.5.0) documentation</title>
+    <title>emft.meta package &mdash; EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    './',
-            VERSION:     '0.5.0(0.5.0)',
+            VERSION:     '0.6.0-alpha.119-reorg-src.72(0.6.0a72)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,11 +51,11 @@
 </script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="EMFT 0.5.0
-(0.5.0) documentation" href="index.html" />
+    <link rel="top" title="EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation" href="index.html" />
     <link rel="up" title="emft package" href="emft.html" />
-    <link rel="next" title="emft.misc package" href="emft.misc.html" />
-    <link rel="prev" title="emft.cfg package" href="emft.cfg.html" /> 
+    <link rel="next" title="emft.miz package" href="emft.miz.html" />
+    <link rel="prev" title="emft.data package" href="emft.data.html" /> 
   </head>
   <body role="document">
     <div id="navbar-top" class="navbar navbar-fixed-top navbar-inverse" role="navigation" aria-label="top navigation">
@@ -67,8 +67,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a>
+          <a class="navbar-brand" href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -82,10 +82,8 @@
 <li><a class="reference internal" href="#module-emft.meta.meta">emft.meta.meta module</a></li>
 <li><a class="reference internal" href="#module-emft.meta.meta_file">emft.meta.meta_file module</a></li>
 <li><a class="reference internal" href="#module-emft.meta.meta_property">emft.meta.meta_property module</a></li>
-<li><a class="reference internal" href="#module-emft.meta.meta_property_guid">emft.meta.meta_property_guid module</a></li>
 <li><a class="reference internal" href="#module-emft.meta.meta_property_guid_with_default">emft.meta.meta_property_guid_with_default module</a></li>
 <li><a class="reference internal" href="#module-emft.meta.meta_property_with_default">emft.meta.meta_property_with_default module</a></li>
-<li><a class="reference internal" href="#module-emft.meta.meta_singleton">emft.meta.meta_singleton module</a></li>
 <li><a class="reference internal" href="#module-emft.meta">Module contents</a></li>
 </ul>
 </li>
@@ -96,8 +94,8 @@
             <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
 
             
-              <li><a href="emft.cfg.html" title="emft.cfg package" accesskey="P">previous </a></li>
-              <li><a href="emft.misc.html" title="emft.misc package" accesskey="N">next </a></li>
+              <li><a href="emft.data.html" title="emft.data package" accesskey="P">previous </a></li>
+              <li><a href="emft.miz.html" title="emft.miz package" accesskey="N">next </a></li>
               <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
               <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
               <li><a href="dev.html" >Documentation for developers</a></li>
@@ -144,21 +142,19 @@
 <li><a class="reference internal" href="#module-emft.meta.meta">emft.meta.meta module</a></li>
 <li><a class="reference internal" href="#module-emft.meta.meta_file">emft.meta.meta_file module</a></li>
 <li><a class="reference internal" href="#module-emft.meta.meta_property">emft.meta.meta_property module</a></li>
-<li><a class="reference internal" href="#module-emft.meta.meta_property_guid">emft.meta.meta_property_guid module</a></li>
 <li><a class="reference internal" href="#module-emft.meta.meta_property_guid_with_default">emft.meta.meta_property_guid_with_default module</a></li>
 <li><a class="reference internal" href="#module-emft.meta.meta_property_with_default">emft.meta.meta_property_with_default module</a></li>
-<li><a class="reference internal" href="#module-emft.meta.meta_singleton">emft.meta.meta_singleton module</a></li>
 <li><a class="reference internal" href="#module-emft.meta">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="emft.cfg.html"
-                        title="previous chapter">emft.cfg package</a></p>
+  <p class="topless"><a href="emft.data.html"
+                        title="previous chapter">emft.data package</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="emft.misc.html"
-                        title="next chapter">emft.misc package</a></p>
+  <p class="topless"><a href="emft.miz.html"
+                        title="next chapter">emft.miz package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -202,7 +198,7 @@
 <dl class="class">
 <dt id="emft.meta.abstract.AbstractMeta">
 <em class="property">class </em><code class="descclassname">emft.meta.abstract.</code><code class="descname">AbstractMeta</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/meta/abstract.html#AbstractMeta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.abstract.AbstractMeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="emft.sentry.html#emft.sentry.sentry_context_provider.ISentryContextProvider" title="emft.sentry.sentry_context_provider.ISentryContextProvider"><code class="xref py py-class docutils literal"><span class="pre">emft.sentry.sentry_context_provider.ISentryContextProvider</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="emft.core.html#emft.core.sentry.ISentryContextProvider" title="emft.core.sentry.ISentryContextProvider"><code class="xref py py-class docutils literal"><span class="pre">emft.core.sentry.ISentryContextProvider</span></code></a></p>
 <p>Defines the interface for a class that holds Metadata.</p>
 <dl class="method">
 <dt id="emft.meta.abstract.AbstractMeta.dump">
@@ -390,15 +386,6 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-emft.meta.meta_property_guid">
-<span id="emft-meta-meta-property-guid-module"></span><h2>emft.meta.meta_property_guid module<a class="headerlink" href="#module-emft.meta.meta_property_guid" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.meta.meta_property_guid.MetaGUIDProperty">
-<em class="property">class </em><code class="descclassname">emft.meta.meta_property_guid.</code><code class="descname">MetaGUIDProperty</code><span class="sig-paren">(</span><em>_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/meta/meta_property_guid.html#MetaGUIDProperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_property_guid.MetaGUIDProperty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#emft.meta.meta_property.MetaProperty" title="emft.meta.meta_property.MetaProperty"><code class="xref py py-class docutils literal"><span class="pre">emft.meta.meta_property.MetaProperty</span></code></a></p>
-</dd></dl>
-
-</div>
 <div class="section" id="module-emft.meta.meta_property_guid_with_default">
 <span id="emft-meta-meta-property-guid-with-default-module"></span><h2>emft.meta.meta_property_guid_with_default module<a class="headerlink" href="#module-emft.meta.meta_property_guid_with_default" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -415,30 +402,6 @@
 <em class="property">class </em><code class="descclassname">emft.meta.meta_property_with_default.</code><code class="descname">MetaPropertyWithDefault</code><span class="sig-paren">(</span><em>default</em>, <em>_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/meta/meta_property_with_default.html#MetaPropertyWithDefault"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_property_with_default.MetaPropertyWithDefault" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>Decorator-class to create properties for META instances.</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-emft.meta.meta_singleton">
-<span id="emft-meta-meta-singleton-module"></span><h2>emft.meta.meta_singleton module<a class="headerlink" href="#module-emft.meta.meta_singleton" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="emft.meta.meta_singleton.MetaSingleton">
-<em class="property">class </em><code class="descclassname">emft.meta.meta_singleton.</code><code class="descname">MetaSingleton</code><span class="sig-paren">(</span><em>path</em>, <em>init_dict=None</em>, <em>auto_read=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/meta/meta_singleton.html#MetaSingleton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_singleton.MetaSingleton" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#emft.meta.meta_file.MetaFile" title="emft.meta.meta_file.MetaFile"><code class="xref py py-class docutils literal"><span class="pre">emft.meta.meta_file.MetaFile</span></code></a></p>
-<dl class="attribute">
-<dt id="emft.meta.meta_singleton.MetaSingleton.meta_header">
-<code class="descname">meta_header</code><a class="headerlink" href="#emft.meta.meta_singleton.MetaSingleton.meta_header" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="emft.meta.meta_singleton.MetaSingleton.meta_version">
-<code class="descname">meta_version</code><a class="headerlink" href="#emft.meta.meta_singleton.MetaSingleton.meta_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="emft.meta.meta_singleton.MetaSingleton.meta_version_upgrade">
-<code class="descname">meta_version_upgrade</code><span class="sig-paren">(</span><em>from_version</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emft/meta/meta_singleton.html#MetaSingleton.meta_version_upgrade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_singleton.MetaSingleton.meta_version_upgrade" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </div>
@@ -462,13 +425,13 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="index.html">EMFT 0.5.0
-(0.5.0) documentation</a></li>
+        <li><a href="index.html">EMFT 0.6.0-alpha.119-reorg-src.72
+(0.6.0a72) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
-        <li><a href="emft.cfg.html" title="emft.cfg package" >previous</a></li>
-        <li><a href="emft.misc.html" title="emft.misc package" >next</a></li>
+        <li><a href="emft.data.html" title="emft.data package" >previous</a></li>
+        <li><a href="emft.miz.html" title="emft.miz package" >next</a></li>
         <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
         <li><a href="genindex.html" title="General Index" >index</a></li>
         <li><a href="dev.html" >Documentation for developers</a></li>

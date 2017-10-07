@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.core package &mdash; EMFT 0.5.3+14
-(0.5.3) documentation</title>
+    <title>emft.core package &mdash; EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../',
-            VERSION:     '0.5.3+14(0.5.3)',
+            VERSION:     '0.6.0-beta.77(0.6.0b77)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="EMFT 0.5.3+14
-(0.5.3) documentation" href="../index.html" />
+    <link rel="top" title="EMFT 0.6.0-beta.77
+(0.6.0b77) documentation" href="../index.html" />
     <link rel="up" title="emft package" href="emft.html" />
     <link rel="next" title="emft.core.filesystem package" href="emft.core.filesystem.html" />
     <link rel="prev" title="emft.config package" href="emft.config.html" /> 
@@ -67,8 +67,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">EMFT 0.5.3+14
-(0.5.3) documentation</a>
+          <a class="navbar-brand" href="../index.html">EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -294,7 +294,7 @@
 <span id="emft-core-downloader-module"></span><h2>emft.core.downloader module<a class="headerlink" href="#module-emft.core.downloader" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.core.downloader.Downloader">
-<em class="property">class </em><code class="descclassname">emft.core.downloader.</code><code class="descname">Downloader</code><span class="sig-paren">(</span><em>url</em>, <em>filename</em>, <em>content_length=None</em>, <em>hexdigest=None</em>, <em>concurrent_download=1</em>, <em>download_retries=3</em>, <em>block_size=16384</em>, <em>progress_hooks=None</em>, <em>hash_method='md5'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/downloader.html#Downloader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.downloader.Downloader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.core.downloader.</code><code class="descname">Downloader</code><span class="sig-paren">(</span><em>url: str</em>, <em>filename: str</em>, <em>content_length: int = None</em>, <em>hexdigest=None</em>, <em>concurrent_download: int = 1</em>, <em>download_retries: int = 3</em>, <em>block_size: int = 16384</em>, <em>progress_hooks: list = None</em>, <em>hash_method: str = 'md5'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/downloader.html#Downloader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.downloader.Downloader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="emft.core.downloader.Downloader.download">
@@ -409,7 +409,7 @@
 
 <dl class="class">
 <dt id="emft.core.logging.Records">
-<em class="property">class </em><code class="descclassname">emft.core.logging.</code><code class="descname">Records</code><span class="sig-paren">(</span><em>records</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/logging.html#Records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.logging.Records" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.core.logging.</code><code class="descname">Records</code><span class="sig-paren">(</span><em>records: typing.List[logging.LogRecord]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/logging.html#Records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.logging.Records" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="emft.core.logging.Records.filter_by_level">
@@ -573,7 +573,7 @@
 
 <dl class="method">
 <dt id="emft.core.path.Path.write_text">
-<code class="descname">write_text</code><span class="sig-paren">(</span><em>text</em>, <em>encoding=None</em>, <em>errors='strict'</em>, <em>linesep='rn'</em>, <em>append=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/path.html#Path.write_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.path.Path.write_text" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_text</code><span class="sig-paren">(</span><em>text</em>, <em>encoding=None</em>, <em>errors='strict'</em>, <em>linesep='\r\n'</em>, <em>append=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/path.html#Path.write_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.path.Path.write_text" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -761,7 +761,7 @@
 
 <dl class="class">
 <dt id="emft.core.progress.ProgressAdapter">
-<em class="property">class </em><code class="descclassname">emft.core.progress.</code><code class="descname">ProgressAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/progress.html#ProgressAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.progress.ProgressAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.core.progress.</code><code class="descname">ProgressAdapter</code><a class="reference internal" href="../_modules/emft/core/progress.html#ProgressAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.progress.ProgressAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="staticmethod">
 <dt id="emft.core.progress.ProgressAdapter.progress_done">
@@ -790,7 +790,7 @@
 <span id="emft-core-sentry-module"></span><h2>emft.core.sentry module<a class="headerlink" href="#module-emft.core.sentry" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.core.sentry.ISentryContextProvider">
-<em class="property">class </em><code class="descclassname">emft.core.sentry.</code><code class="descname">ISentryContextProvider</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/sentry.html#ISentryContextProvider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.sentry.ISentryContextProvider" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.core.sentry.</code><code class="descname">ISentryContextProvider</code><a class="reference internal" href="../_modules/emft/core/sentry.html#ISentryContextProvider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.sentry.ISentryContextProvider" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>Interface for any object that would like to register context with Sentry.</p>
 <p>Needs to be implemented, otherwise the crash_reporter will whine about it and crash.</p>
@@ -816,7 +816,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">raven.base.Client</span></code></p>
 <dl class="staticmethod">
 <dt id="emft.core.sentry.Sentry.add_crumb">
-<em class="property">static </em><code class="descname">add_crumb</code><span class="sig-paren">(</span><em>category</em>, <em>level</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/sentry.html#Sentry.add_crumb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.sentry.Sentry.add_crumb" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">add_crumb</code><span class="sig-paren">(</span><em>message</em>, <em>category</em>, <em>level</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/sentry.html#Sentry.add_crumb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.sentry.Sentry.add_crumb" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -857,12 +857,12 @@
 <span id="emft-core-singleton-module"></span><h2>emft.core.singleton module<a class="headerlink" href="#module-emft.core.singleton" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.core.singleton.Singleton">
-<em class="property">class </em><code class="descclassname">emft.core.singleton.</code><code class="descname">Singleton</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/singleton.html#Singleton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.singleton.Singleton" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.core.singleton.</code><code class="descname">Singleton</code><a class="reference internal" href="../_modules/emft/core/singleton.html#Singleton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.singleton.Singleton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/abc.html#abc.ABCMeta" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">abc.ABCMeta</span></code></a></p>
 <p>When used as metaclass, allow only one instance of a class</p>
 <dl class="classmethod">
 <dt id="emft.core.singleton.Singleton.wipe_instances">
-<em class="property">classmethod </em><code class="descname">wipe_instances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/singleton.html#Singleton.wipe_instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.singleton.Singleton.wipe_instances" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">wipe_instances</code><span class="sig-paren">(</span><em>cls_to_remove</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/core/singleton.html#Singleton.wipe_instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.core.singleton.Singleton.wipe_instances" title="Permalink to this definition">¶</a></dt>
 <dd><p>Only for testing purposes</p>
 </dd></dl>
 
@@ -1143,8 +1143,8 @@ it, calling the callback if any.</p>
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../index.html">EMFT 0.5.3+14
-(0.5.3) documentation</a></li>
+        <li><a href="../index.html">EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -1166,7 +1166,7 @@ it, calling the callback if any.</p>
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
         Last updated on 07 Oct 2017.
-        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.4.
       </footer>
       <!-- /footer -->
 

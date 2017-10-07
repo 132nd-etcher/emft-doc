@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.meta package &mdash; EMFT 0.5.3+14
-(0.5.3) documentation</title>
+    <title>emft.meta package &mdash; EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../',
-            VERSION:     '0.5.3+14(0.5.3)',
+            VERSION:     '0.6.0-beta.77(0.6.0b77)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="EMFT 0.5.3+14
-(0.5.3) documentation" href="../index.html" />
+    <link rel="top" title="EMFT 0.6.0-beta.77
+(0.6.0b77) documentation" href="../index.html" />
     <link rel="up" title="emft package" href="emft.html" />
     <link rel="next" title="emft.miz package" href="emft.miz.html" />
     <link rel="prev" title="emft.gui package" href="emft.gui.html" /> 
@@ -67,8 +67,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">EMFT 0.5.3+14
-(0.5.3) documentation</a>
+          <a class="navbar-brand" href="../index.html">EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -197,7 +197,7 @@
 <span id="emft-meta-abstract-module"></span><h2>emft.meta.abstract module<a class="headerlink" href="#module-emft.meta.abstract" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.meta.abstract.AbstractMeta">
-<em class="property">class </em><code class="descclassname">emft.meta.abstract.</code><code class="descname">AbstractMeta</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/abstract.html#AbstractMeta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.abstract.AbstractMeta" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.meta.abstract.</code><code class="descname">AbstractMeta</code><a class="reference internal" href="../_modules/emft/meta/abstract.html#AbstractMeta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.abstract.AbstractMeta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.core.html#emft.core.sentry.ISentryContextProvider" title="emft.core.sentry.ISentryContextProvider"><code class="xref py py-class docutils literal"><span class="pre">emft.core.sentry.ISentryContextProvider</span></code></a></p>
 <p>Defines the interface for a class that holds Metadata.</p>
 <dl class="method">
@@ -216,7 +216,7 @@
 
 <dl class="class">
 <dt id="emft.meta.abstract.AbstractMetaFile">
-<em class="property">class </em><code class="descclassname">emft.meta.abstract.</code><code class="descname">AbstractMetaFile</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/abstract.html#AbstractMetaFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.abstract.AbstractMetaFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.meta.abstract.</code><code class="descname">AbstractMetaFile</code><a class="reference internal" href="../_modules/emft/meta/abstract.html#AbstractMetaFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.abstract.AbstractMetaFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.meta.abstract.AbstractMeta" title="emft.meta.abstract.AbstractMeta"><code class="xref py py-class docutils literal"><span class="pre">emft.meta.abstract.AbstractMeta</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.meta.abstract.AbstractMetaFile.meta_header">
@@ -252,7 +252,7 @@
 <span id="emft-meta-meta-module"></span><h2>emft.meta.meta module<a class="headerlink" href="#module-emft.meta.meta" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.meta.meta.Meta">
-<em class="property">class </em><code class="descclassname">emft.meta.meta.</code><code class="descname">Meta</code><span class="sig-paren">(</span><em>init_dict=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta.html#Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta.Meta" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.meta.meta.</code><code class="descname">Meta</code><span class="sig-paren">(</span><em>init_dict: collections.OrderedDict = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta.html#Meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta.Meta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.meta.abstract.AbstractMeta" title="emft.meta.abstract.AbstractMeta"><code class="xref py py-class docutils literal"><span class="pre">emft.meta.abstract.AbstractMeta</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.meta.meta.Meta.data">
@@ -311,7 +311,7 @@
 <span id="emft-meta-meta-file-module"></span><h2>emft.meta.meta_file module<a class="headerlink" href="#module-emft.meta.meta_file" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.meta.meta_file.MetaFile">
-<em class="property">class </em><code class="descclassname">emft.meta.meta_file.</code><code class="descname">MetaFile</code><span class="sig-paren">(</span><em>path</em>, <em>init_dict=None</em>, <em>auto_read=True</em>, <em>encrypted=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_file.html#MetaFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_file.MetaFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.meta.meta_file.</code><code class="descname">MetaFile</code><span class="sig-paren">(</span><em>path: str</em>, <em>init_dict: collections.OrderedDict = None</em>, <em>auto_read=True</em>, <em>encrypted=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_file.html#MetaFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_file.MetaFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.meta.meta.Meta" title="emft.meta.meta.Meta"><code class="xref py py-class docutils literal"><span class="pre">emft.meta.meta.Meta</span></code></a></p>
 <dl class="method">
 <dt id="emft.meta.meta_file.MetaFile.debug">
@@ -350,7 +350,7 @@
 
 <dl class="staticmethod">
 <dt id="emft.meta.meta_file.MetaFile.read_header">
-<em class="property">static </em><code class="descname">read_header</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_file.html#MetaFile.read_header"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_file.MetaFile.read_header" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_header</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_file.html#MetaFile.read_header"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_file.MetaFile.read_header" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -380,7 +380,7 @@
 <span id="emft-meta-meta-property-module"></span><h2>emft.meta.meta_property module<a class="headerlink" href="#module-emft.meta.meta_property" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.meta.meta_property.MetaProperty">
-<em class="property">class </em><code class="descclassname">emft.meta.meta_property.</code><code class="descname">MetaProperty</code><span class="sig-paren">(</span><em>_type</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_property.html#MetaProperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_property.MetaProperty" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.meta.meta_property.</code><code class="descname">MetaProperty</code><span class="sig-paren">(</span><em>_type: object</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_property.html#MetaProperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_property.MetaProperty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>Decorator-class to create properties for META instances.</p>
 </dd></dl>
@@ -390,7 +390,7 @@
 <span id="emft-meta-meta-property-guid-with-default-module"></span><h2>emft.meta.meta_property_guid_with_default module<a class="headerlink" href="#module-emft.meta.meta_property_guid_with_default" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.meta.meta_property_guid_with_default.MetaGUIDPropertyWithDefault">
-<em class="property">class </em><code class="descclassname">emft.meta.meta_property_guid_with_default.</code><code class="descname">MetaGUIDPropertyWithDefault</code><span class="sig-paren">(</span><em>default</em>, <em>_type</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_property_guid_with_default.html#MetaGUIDPropertyWithDefault"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_property_guid_with_default.MetaGUIDPropertyWithDefault" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.meta.meta_property_guid_with_default.</code><code class="descname">MetaGUIDPropertyWithDefault</code><span class="sig-paren">(</span><em>default: object</em>, <em>_type: object</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_property_guid_with_default.html#MetaGUIDPropertyWithDefault"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_property_guid_with_default.MetaGUIDPropertyWithDefault" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.meta.meta_property_with_default.MetaPropertyWithDefault" title="emft.meta.meta_property_with_default.MetaPropertyWithDefault"><code class="xref py py-class docutils literal"><span class="pre">emft.meta.meta_property_with_default.MetaPropertyWithDefault</span></code></a></p>
 </dd></dl>
 
@@ -399,7 +399,7 @@
 <span id="emft-meta-meta-property-with-default-module"></span><h2>emft.meta.meta_property_with_default module<a class="headerlink" href="#module-emft.meta.meta_property_with_default" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.meta.meta_property_with_default.MetaPropertyWithDefault">
-<em class="property">class </em><code class="descclassname">emft.meta.meta_property_with_default.</code><code class="descname">MetaPropertyWithDefault</code><span class="sig-paren">(</span><em>default</em>, <em>_type</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_property_with_default.html#MetaPropertyWithDefault"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_property_with_default.MetaPropertyWithDefault" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.meta.meta_property_with_default.</code><code class="descname">MetaPropertyWithDefault</code><span class="sig-paren">(</span><em>default: object</em>, <em>_type: object</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/meta/meta_property_with_default.html#MetaPropertyWithDefault"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.meta.meta_property_with_default.MetaPropertyWithDefault" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>Decorator-class to create properties for META instances.</p>
 </dd></dl>
@@ -425,8 +425,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../index.html">EMFT 0.5.3+14
-(0.5.3) documentation</a></li>
+        <li><a href="../index.html">EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -448,7 +448,7 @@
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
         Last updated on 07 Oct 2017.
-        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.4.
       </footer>
       <!-- /footer -->
 

@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.gui package &mdash; EMFT 0.5.3+14
-(0.5.3) documentation</title>
+    <title>emft.gui package &mdash; EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../',
-            VERSION:     '0.5.3+14(0.5.3)',
+            VERSION:     '0.6.0-beta.77(0.6.0b77)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="EMFT 0.5.3+14
-(0.5.3) documentation" href="../index.html" />
+    <link rel="top" title="EMFT 0.6.0-beta.77
+(0.6.0b77) documentation" href="../index.html" />
     <link rel="up" title="emft package" href="emft.html" />
     <link rel="next" title="emft.meta package" href="emft.meta.html" />
     <link rel="prev" title="emft.core.providers.github.gh_objects package" href="emft.core.providers.github.gh_objects.html" /> 
@@ -67,8 +67,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../index.html">EMFT 0.5.3+14
-(0.5.3) documentation</a>
+          <a class="navbar-brand" href="../index.html">EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -231,7 +231,7 @@
 <span id="emft-gui-base-module"></span><h2>emft.gui.base module<a class="headerlink" href="#module-emft.gui.base" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.base.BrowseDialog">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">BrowseDialog</code><span class="sig-paren">(</span><em>parent</em>, <em>title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#BrowseDialog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.BrowseDialog" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">BrowseDialog</code><span class="sig-paren">(</span><em>parent</em>, <em>title: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#BrowseDialog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.BrowseDialog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QFileDialog</span></code></p>
 <dl class="staticmethod">
 <dt id="emft.gui.base.BrowseDialog.get_directory">
@@ -333,13 +333,13 @@
 
 <dl class="class">
 <dt id="emft.gui.base.Checkbox">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Checkbox</code><span class="sig-paren">(</span><em>text</em>, <em>func=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Checkbox" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Checkbox</code><span class="sig-paren">(</span><em>text</em>, <em>func: &lt;built-in function callable&gt; = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Checkbox" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QCheckBox</span></code></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.Combo">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Combo</code><span class="sig-paren">(</span><em>on_change</em>, <em>choices=None</em>, <em>parent=None</em>, <em>model=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Combo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Combo" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Combo</code><span class="sig-paren">(</span><em>on_change: &lt;built-in function callable&gt;</em>, <em>choices: list = None</em>, <em>parent=None</em>, <em>model: PyQt5.QtGui.QStandardItemModel = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Combo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Combo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QComboBox</span></code></p>
 <dl class="method">
 <dt id="emft.gui.base.Combo.begin_reset_model">
@@ -371,7 +371,7 @@
 
 <dl class="class">
 <dt id="emft.gui.base.Expandable">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Expandable</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Expandable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Expandable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Expandable</code><a class="reference internal" href="../_modules/emft/gui/base.html#Expandable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Expandable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="emft.gui.base.Expandable.expand">
@@ -403,13 +403,13 @@
 
 <dl class="class">
 <dt id="emft.gui.base.GridFrame">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">GridFrame</code><span class="sig-paren">(</span><em>children</em>, <em>stretch=None</em>, <em>auto_right=True</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#GridFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.GridFrame" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">GridFrame</code><span class="sig-paren">(</span><em>children: list</em>, <em>stretch: list = None</em>, <em>auto_right=True</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#GridFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.GridFrame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.gui.base.Frame" title="emft.gui.base.Frame"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.base.Frame</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.GridLayout">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">GridLayout</code><span class="sig-paren">(</span><em>children</em>, <em>stretch=None</em>, <em>auto_right=True</em>, <em>horizontal_spacing=None</em>, <em>vertical_spacing=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#GridLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.GridLayout" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">GridLayout</code><span class="sig-paren">(</span><em>children: list</em>, <em>stretch: list = None</em>, <em>auto_right=True</em>, <em>horizontal_spacing: int = None</em>, <em>vertical_spacing: int = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#GridLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.GridLayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QGridLayout</span></code></p>
 <dl class="method">
 <dt id="emft.gui.base.GridLayout.add_children">
@@ -431,25 +431,25 @@
 
 <dl class="class">
 <dt id="emft.gui.base.HFrame">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">HFrame</code><span class="sig-paren">(</span><em>children</em>, <em>add_stretch=False</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#HFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.HFrame" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">HFrame</code><span class="sig-paren">(</span><em>children: list</em>, <em>add_stretch=False</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#HFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.HFrame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.gui.base.Frame" title="emft.gui.base.Frame"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.base.Frame</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.HLayout">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">HLayout</code><span class="sig-paren">(</span><em>children</em>, <em>add_stretch=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#HLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.HLayout" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">HLayout</code><span class="sig-paren">(</span><em>children: list</em>, <em>add_stretch=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#HLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.HLayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QHBoxLayout</span></code>, <code class="xref py py-class docutils literal"><span class="pre">emft.gui.base._WithChildren</span></code></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.HSpacer">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">HSpacer</code><span class="sig-paren">(</span><em>size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#HSpacer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.HSpacer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">HSpacer</code><span class="sig-paren">(</span><em>size: int = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#HSpacer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.HSpacer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QSpacerItem</span></code></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.Label">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Label</code><span class="sig-paren">(</span><em>text</em>, <em>text_color='black'</em>, <em>bg_color='rgba(255</em>, <em>255</em>, <em>255</em>, <em>10)'</em>, <em>word_wrap=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Label" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Label</code><span class="sig-paren">(</span><em>text</em>, <em>text_color='black'</em>, <em>bg_color='rgba(255</em>, <em>255</em>, <em>255</em>, <em>10)'</em>, <em>word_wrap: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QLabel</span></code></p>
 <dl class="method">
 <dt id="emft.gui.base.Label.set_bg_color">
@@ -465,13 +465,13 @@
 
 <dl class="class">
 <dt id="emft.gui.base.LineEdit">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">LineEdit</code><span class="sig-paren">(</span><em>text</em>, <em>on_text_changed=None</em>, <em>read_only=False</em>, <em>clear_btn_enabled=False</em>, <em>validation_regex=None</em>, <em>set_enabled=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#LineEdit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.LineEdit" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">LineEdit</code><span class="sig-paren">(</span><em>text</em>, <em>on_text_changed: &lt;built-in function callable&gt; = None</em>, <em>read_only: bool = False</em>, <em>clear_btn_enabled: bool = False</em>, <em>validation_regex: str = None</em>, <em>set_enabled: bool = True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#LineEdit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.LineEdit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QLineEdit</span></code>, <a class="reference internal" href="#emft.gui.base.Expandable" title="emft.gui.base.Expandable"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.base.Expandable</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.Menu">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Menu</code><span class="sig-paren">(</span><em>title=''</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Menu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Menu" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Menu</code><span class="sig-paren">(</span><em>title: str = ''</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Menu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Menu" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QMenu</span></code></p>
 <dl class="method">
 <dt id="emft.gui.base.Menu.add_action">
@@ -494,7 +494,7 @@
 
 <dl class="class">
 <dt id="emft.gui.base.PushButton">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">PushButton</code><span class="sig-paren">(</span><em>text</em>, <em>func</em>, <em>parent=None</em>, <em>min_height=None</em>, <em>text_color='black'</em>, <em>bg_color='rgba(255</em>, <em>255</em>, <em>255</em>, <em>10)'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#PushButton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.PushButton" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">PushButton</code><span class="sig-paren">(</span><em>text: str</em>, <em>func: &lt;built-in function callable&gt;</em>, <em>parent=None</em>, <em>min_height=None</em>, <em>text_color='black'</em>, <em>bg_color='rgba(255</em>, <em>255</em>, <em>255</em>, <em>10)'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#PushButton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.PushButton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QPushButton</span></code></p>
 <dl class="method">
 <dt id="emft.gui.base.PushButton.set_bg_color">
@@ -510,13 +510,13 @@
 
 <dl class="class">
 <dt id="emft.gui.base.Radio">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Radio</code><span class="sig-paren">(</span><em>text</em>, <em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Radio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Radio" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Radio</code><span class="sig-paren">(</span><em>text</em>, <em>func: &lt;built-in function callable&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Radio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Radio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QRadioButton</span></code></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.Shortcut">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Shortcut</code><span class="sig-paren">(</span><em>key_sequence</em>, <em>parent</em>, <em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Shortcut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Shortcut" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">Shortcut</code><span class="sig-paren">(</span><em>key_sequence: PyQt5.QtGui.QKeySequence</em>, <em>parent: PyQt5.QtWidgets.QWidget</em>, <em>func: &lt;built-in function callable&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#Shortcut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.Shortcut" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QShortcut</span></code></p>
 </dd></dl>
 
@@ -587,11 +587,11 @@
 
 <dl class="class">
 <dt id="emft.gui.base.TableEditableModel">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">TableEditableModel</code><span class="sig-paren">(</span><em>data</em>, <em>header_data</em>, <em>delegates</em>, <em>parent=None</em>, <em>bg=None</em>, <em>fg=None</em>, <em>align=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#TableEditableModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.TableEditableModel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">TableEditableModel</code><span class="sig-paren">(</span><em>data: list</em>, <em>header_data: list</em>, <em>delegates: list</em>, <em>parent=None</em>, <em>bg: list = None</em>, <em>fg: list = None</em>, <em>align: list = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#TableEditableModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.TableEditableModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.gui.base.TableModel" title="emft.gui.base.TableModel"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.base.TableModel</span></code></a></p>
 <dl class="class">
 <dt id="emft.gui.base.TableEditableModel.FloatDelegate">
-<em class="property">class </em><code class="descname">FloatDelegate</code><span class="sig-paren">(</span><em>min_value</em>, <em>max_value</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#TableEditableModel.FloatDelegate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.TableEditableModel.FloatDelegate" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descname">FloatDelegate</code><span class="sig-paren">(</span><em>min_value: float</em>, <em>max_value: float</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#TableEditableModel.FloatDelegate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.TableEditableModel.FloatDelegate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QStyledItemDelegate</span></code></p>
 <dl class="method">
 <dt id="emft.gui.base.TableEditableModel.FloatDelegate.createEditor">
@@ -617,7 +617,7 @@
 
 <dl class="class">
 <dt id="emft.gui.base.TableEditableModel.StringDelegate">
-<em class="property">class </em><code class="descname">StringDelegate</code><span class="sig-paren">(</span><em>validation_regex=None</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#TableEditableModel.StringDelegate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.TableEditableModel.StringDelegate" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descname">StringDelegate</code><span class="sig-paren">(</span><em>validation_regex: str = None</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#TableEditableModel.StringDelegate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.TableEditableModel.StringDelegate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QStyledItemDelegate</span></code></p>
 <dl class="method">
 <dt id="emft.gui.base.TableEditableModel.StringDelegate.createEditor">
@@ -660,7 +660,7 @@
 
 <dl class="class">
 <dt id="emft.gui.base.TableModel">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">TableModel</code><span class="sig-paren">(</span><em>data</em>, <em>header_data</em>, <em>parent=None</em>, <em>bg=None</em>, <em>fg=None</em>, <em>align=None</em>, <em>default_align='vc'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#TableModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.TableModel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">TableModel</code><span class="sig-paren">(</span><em>data: list</em>, <em>header_data: list</em>, <em>parent=None</em>, <em>bg: list = None</em>, <em>fg: list = None</em>, <em>align: list = None</em>, <em>default_align='vc'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#TableModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.TableModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtCore.QAbstractTableModel</span></code></p>
 <dl class="attribute">
 <dt id="emft.gui.base.TableModel.align">
@@ -739,19 +739,19 @@
 
 <dl class="class">
 <dt id="emft.gui.base.VFrame">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">VFrame</code><span class="sig-paren">(</span><em>children</em>, <em>add_stretch=False</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#VFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.VFrame" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">VFrame</code><span class="sig-paren">(</span><em>children: list</em>, <em>add_stretch=False</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#VFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.VFrame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.gui.base.Frame" title="emft.gui.base.Frame"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.base.Frame</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.VLayout">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">VLayout</code><span class="sig-paren">(</span><em>children</em>, <em>add_stretch=False</em>, <em>set_stretch=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#VLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.VLayout" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">VLayout</code><span class="sig-paren">(</span><em>children: list</em>, <em>add_stretch=False</em>, <em>set_stretch: list = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#VLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.VLayout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QVBoxLayout</span></code>, <code class="xref py py-class docutils literal"><span class="pre">emft.gui.base._WithChildren</span></code></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="emft.gui.base.VSpacer">
-<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">VSpacer</code><span class="sig-paren">(</span><em>size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#VSpacer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.VSpacer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.base.</code><code class="descname">VSpacer</code><span class="sig-paren">(</span><em>size: int = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/base.html#VSpacer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.base.VSpacer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QSpacerItem</span></code></p>
 </dd></dl>
 
@@ -795,7 +795,7 @@
 
 <dl class="staticmethod">
 <dt id="emft.gui.main_ui.MainUi.exit">
-<em class="property">static </em><code class="descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui.html#MainUi.exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui.MainUi.exit" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">exit</code><span class="sig-paren">(</span><em>code=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui.html#MainUi.exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui.MainUi.exit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -825,56 +825,56 @@ EventLoop.</p>
 <p>Any module willing to add methods to the interface should use MainUiMixinsAdapter to do so.</p>
 <dl class="class">
 <dt id="emft.gui.main_ui_interface.I">
-<em class="property">class </em><code class="descclassname">emft.gui.main_ui_interface.</code><code class="descname">I</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.main_ui_interface.</code><code class="descname">I</code><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.gui.main_ui_mixins_adapter.MainUiMixinsAdapter" title="emft.gui.main_ui_mixins_adapter.MainUiMixinsAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.main_ui_mixins_adapter.MainUiMixinsAdapter</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.confirm">
-<code class="descname">confirm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.confirm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.confirm" title="Permalink to this definition">¶</a></dt>
+<code class="descname">confirm</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.confirm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.confirm" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.error">
-<code class="descname">error</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.error" title="Permalink to this definition">¶</a></dt>
+<code class="descname">error</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.error" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.hide">
-<code class="descname">hide</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.hide" title="Permalink to this definition">¶</a></dt>
+<code class="descname">hide</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.hide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.hide" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.msg">
-<code class="descname">msg</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.msg" title="Permalink to this definition">¶</a></dt>
+<code class="descname">msg</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.msg" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.progress_done">
-<code class="descname">progress_done</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.progress_done"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.progress_done" title="Permalink to this definition">¶</a></dt>
+<code class="descname">progress_done</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.progress_done"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.progress_done" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.progress_set_label">
-<code class="descname">progress_set_label</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.progress_set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.progress_set_label" title="Permalink to this definition">¶</a></dt>
+<code class="descname">progress_set_label</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.progress_set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.progress_set_label" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.progress_set_value">
-<code class="descname">progress_set_value</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.progress_set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.progress_set_value" title="Permalink to this definition">¶</a></dt>
+<code class="descname">progress_set_value</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.progress_set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.progress_set_value" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.progress_start">
-<code class="descname">progress_start</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.progress_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.progress_start" title="Permalink to this definition">¶</a></dt>
+<code class="descname">progress_start</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.progress_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.progress_start" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.show">
-<code class="descname">show</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.main_ui_interface.I.show_log_tab">
-<code class="descname">show_log_tab</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.show_log_tab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.show_log_tab" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_log_tab</code><em class="property"> = &lt;emft.gui.main_ui_interface.MainUiMethod object&gt;</em><a class="reference internal" href="../_modules/emft/gui/main_ui_interface.html#I.show_log_tab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_interface.I.show_log_tab" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -901,7 +901,7 @@ EventLoop.</p>
 <p>Those methods will be made available through the MainUI interface (“I”) and will be thread-safe.</p>
 <dl class="class">
 <dt id="emft.gui.main_ui_mixins_adapter.MainUiMixinsAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.main_ui_mixins_adapter.</code><code class="descname">MainUiMixinsAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_mixins_adapter.html#MainUiMixinsAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_mixins_adapter.MainUiMixinsAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.main_ui_mixins_adapter.</code><code class="descname">MainUiMixinsAdapter</code><a class="reference internal" href="../_modules/emft/gui/main_ui_mixins_adapter.html#MainUiMixinsAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_mixins_adapter.MainUiMixinsAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.gui.main_ui_progress_adapter.MainUIProgressAdapter" title="emft.gui.main_ui_progress_adapter.MainUIProgressAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.main_ui_progress_adapter.MainUIProgressAdapter</span></code></a>, <a class="reference internal" href="#emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter" title="emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter</span></code></a>, <a class="reference internal" href="#emft.gui.main_ui_threading_adapter.MainUiThreadingAdapter" title="emft.gui.main_ui_threading_adapter.MainUiThreadingAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.main_ui_threading_adapter.MainUiThreadingAdapter</span></code></a>, <a class="reference internal" href="#emft.gui.tab_config_adapter.TabConfigAdapter" title="emft.gui.tab_config_adapter.TabConfigAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.tab_config_adapter.TabConfigAdapter</span></code></a>, <a class="reference internal" href="#emft.gui.tab_log_adapter.TabLogAdapter" title="emft.gui.tab_log_adapter.TabLogAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.tab_log_adapter.TabLogAdapter</span></code></a>, <a class="reference internal" href="emft.plugins.reorder.adapter.html#emft.plugins.reorder.adapter.tab_reorder_adapter.TabReorderAdapter" title="emft.plugins.reorder.adapter.tab_reorder_adapter.TabReorderAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.plugins.reorder.adapter.tab_reorder_adapter.TabReorderAdapter</span></code></a>, <a class="reference internal" href="#emft.gui.tab_roster_adapter.TabRosterAdapter" title="emft.gui.tab_roster_adapter.TabRosterAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.tab_roster_adapter.TabRosterAdapter</span></code></a>, <a class="reference internal" href="#emft.gui.tab_skins_adapter.TabSkinsAdapter" title="emft.gui.tab_skins_adapter.TabSkinsAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.tab_skins_adapter.TabSkinsAdapter</span></code></a></p>
 </dd></dl>
 
@@ -910,7 +910,7 @@ EventLoop.</p>
 <span id="emft-gui-main-ui-msgbox-module"></span><h2>emft.gui.main_ui_msgbox module<a class="headerlink" href="#module-emft.gui.main_ui_msgbox" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.main_ui_msgbox.MainUiMsgBox">
-<em class="property">class </em><code class="descclassname">emft.gui.main_ui_msgbox.</code><code class="descname">MainUiMsgBox</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_msgbox.html#MainUiMsgBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_msgbox.MainUiMsgBox" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.main_ui_msgbox.</code><code class="descname">MainUiMsgBox</code><a class="reference internal" href="../_modules/emft/gui/main_ui_msgbox.html#MainUiMsgBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_msgbox.MainUiMsgBox" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter" title="emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter</span></code></a></p>
 <dl class="method">
 <dt id="emft.gui.main_ui_msgbox.MainUiMsgBox.confirm">
@@ -934,7 +934,7 @@ EventLoop.</p>
 <span id="emft-gui-main-ui-msgbox-adapter-module"></span><h2>emft.gui.main_ui_msgbox_adapter module<a class="headerlink" href="#module-emft.gui.main_ui_msgbox_adapter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.main_ui_msgbox_adapter.</code><code class="descname">MainUiMsgBoxAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_msgbox_adapter.html#MainUiMsgBoxAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.main_ui_msgbox_adapter.</code><code class="descname">MainUiMsgBoxAdapter</code><a class="reference internal" href="../_modules/emft/gui/main_ui_msgbox_adapter.html#MainUiMsgBoxAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="emft.gui.main_ui_msgbox_adapter.MainUiMsgBoxAdapter.confirm">
@@ -958,7 +958,7 @@ EventLoop.</p>
 <span id="emft-gui-main-ui-progress-module"></span><h2>emft.gui.main_ui_progress module<a class="headerlink" href="#module-emft.gui.main_ui_progress" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.main_ui_progress.MainUiProgress">
-<em class="property">class </em><code class="descclassname">emft.gui.main_ui_progress.</code><code class="descname">MainUiProgress</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_progress.html#MainUiProgress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_progress.MainUiProgress" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.main_ui_progress.</code><code class="descname">MainUiProgress</code><a class="reference internal" href="../_modules/emft/gui/main_ui_progress.html#MainUiProgress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_progress.MainUiProgress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.gui.main_ui_progress.MainUiProgress.progress">
@@ -992,7 +992,7 @@ EventLoop.</p>
 <span id="emft-gui-main-ui-progress-adapter-module"></span><h2>emft.gui.main_ui_progress_adapter module<a class="headerlink" href="#module-emft.gui.main_ui_progress_adapter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.main_ui_progress_adapter.MainUIProgressAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.main_ui_progress_adapter.</code><code class="descname">MainUIProgressAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_progress_adapter.html#MainUIProgressAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_progress_adapter.MainUIProgressAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.main_ui_progress_adapter.</code><code class="descname">MainUIProgressAdapter</code><a class="reference internal" href="../_modules/emft/gui/main_ui_progress_adapter.html#MainUIProgressAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_progress_adapter.MainUIProgressAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="emft.core.html#emft.core.progress.ProgressAdapter" title="emft.core.progress.ProgressAdapter"><code class="xref py py-class docutils literal"><span class="pre">emft.core.progress.ProgressAdapter</span></code></a></p>
 <dl class="staticmethod">
 <dt id="emft.gui.main_ui_progress_adapter.MainUIProgressAdapter.progress_done">
@@ -1032,7 +1032,7 @@ EventLoop.</p>
 
 <dl class="class">
 <dt id="emft.gui.main_ui_tab_widget.MainUiTabMethod">
-<em class="property">class </em><code class="descclassname">emft.gui.main_ui_tab_widget.</code><code class="descname">MainUiTabMethod</code><span class="sig-paren">(</span><em>tab_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_tab_widget.html#MainUiTabMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_tab_widget.MainUiTabMethod" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.main_ui_tab_widget.</code><code class="descname">MainUiTabMethod</code><span class="sig-paren">(</span><em>tab_name: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_tab_widget.html#MainUiTabMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_tab_widget.MainUiTabMethod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>Decorator-class to create properties for META instances.</p>
 </dd></dl>
@@ -1063,7 +1063,7 @@ EventLoop.</p>
 own fucking safe space. Wuss.</p>
 <dl class="classmethod">
 <dt id="emft.gui.main_ui_threading.MainUiThreading.do">
-<em class="property">classmethod </em><code class="descname">do</code><span class="sig-paren">(</span><em>func</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_threading.html#MainUiThreading.do"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_threading.MainUiThreading.do" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">do</code><span class="sig-paren">(</span><em>obj_name</em>, <em>func</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_threading.html#MainUiThreading.do"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_threading.MainUiThreading.do" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes a Gui method inside the Qt main loop</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1098,7 +1098,7 @@ own fucking safe space. Wuss.</p>
 <span id="emft-gui-main-ui-threading-adapter-module"></span><h2>emft.gui.main_ui_threading_adapter module<a class="headerlink" href="#module-emft.gui.main_ui_threading_adapter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.main_ui_threading_adapter.MainUiThreadingAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.main_ui_threading_adapter.</code><code class="descname">MainUiThreadingAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/main_ui_threading_adapter.html#MainUiThreadingAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_threading_adapter.MainUiThreadingAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.main_ui_threading_adapter.</code><code class="descname">MainUiThreadingAdapter</code><a class="reference internal" href="../_modules/emft/gui/main_ui_threading_adapter.html#MainUiThreadingAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.main_ui_threading_adapter.MainUiThreadingAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.gui.main_ui_threading_adapter.MainUiThreadingAdapter.pool">
@@ -1170,11 +1170,11 @@ own fucking safe space. Wuss.</p>
 <span id="emft-gui-tab-config-adapter-module"></span><h2>emft.gui.tab_config_adapter module<a class="headerlink" href="#module-emft.gui.tab_config_adapter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.tab_config_adapter.TabConfigAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.tab_config_adapter.</code><code class="descname">TabConfigAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/tab_config_adapter.html#TabConfigAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_config_adapter.TabConfigAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.tab_config_adapter.</code><code class="descname">TabConfigAdapter</code><a class="reference internal" href="../_modules/emft/gui/tab_config_adapter.html#TabConfigAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_config_adapter.TabConfigAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.gui.tab_config_adapter.TabConfigAdapter.config_tab_update_dcs_installs">
-<code class="descname">config_tab_update_dcs_installs</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_config_adapter.TabConfigAdapter.config_tab_update_dcs_installs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">config_tab_update_dcs_installs</code><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_config_adapter.TabConfigAdapter.config_tab_update_dcs_installs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1245,11 +1245,11 @@ own fucking safe space. Wuss.</p>
 <span id="emft-gui-tab-log-adapter-module"></span><h2>emft.gui.tab_log_adapter module<a class="headerlink" href="#module-emft.gui.tab_log_adapter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.tab_log_adapter.TabLogAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.tab_log_adapter.</code><code class="descname">TabLogAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/tab_log_adapter.html#TabLogAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_log_adapter.TabLogAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.tab_log_adapter.</code><code class="descname">TabLogAdapter</code><a class="reference internal" href="../_modules/emft/gui/tab_log_adapter.html#TabLogAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_log_adapter.TabLogAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.gui.tab_log_adapter.TabLogAdapter.tab_log_write">
-<code class="descname">tab_log_write</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_log_adapter.TabLogAdapter.tab_log_write" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tab_log_write</code><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_log_adapter.TabLogAdapter.tab_log_write" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1319,7 +1319,7 @@ own fucking safe space. Wuss.</p>
 <span id="emft-gui-tab-radios-adapter-module"></span><h2>emft.gui.tab_radios_adapter module<a class="headerlink" href="#module-emft.gui.tab_radios_adapter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.tab_radios_adapter.TabRadiosAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.tab_radios_adapter.</code><code class="descname">TabRadiosAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/tab_radios_adapter.html#TabRadiosAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_radios_adapter.TabRadiosAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.tab_radios_adapter.</code><code class="descname">TabRadiosAdapter</code><a class="reference internal" href="../_modules/emft/gui/tab_radios_adapter.html#TabRadiosAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_radios_adapter.TabRadiosAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
@@ -1362,11 +1362,11 @@ own fucking safe space. Wuss.</p>
 <span id="emft-gui-tab-roster-adapter-module"></span><h2>emft.gui.tab_roster_adapter module<a class="headerlink" href="#module-emft.gui.tab_roster_adapter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.tab_roster_adapter.TabRosterAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.tab_roster_adapter.</code><code class="descname">TabRosterAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/tab_roster_adapter.html#TabRosterAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_roster_adapter.TabRosterAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.tab_roster_adapter.</code><code class="descname">TabRosterAdapter</code><a class="reference internal" href="../_modules/emft/gui/tab_roster_adapter.html#TabRosterAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_roster_adapter.TabRosterAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.gui.tab_roster_adapter.TabRosterAdapter.tab_roster_show_data_in_table">
-<code class="descname">tab_roster_show_data_in_table</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_roster_adapter.TabRosterAdapter.tab_roster_show_data_in_table" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tab_roster_show_data_in_table</code><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_roster_adapter.TabRosterAdapter.tab_roster_show_data_in_table" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1405,16 +1405,16 @@ own fucking safe space. Wuss.</p>
 <span id="emft-gui-tab-skins-adapter-module"></span><h2>emft.gui.tab_skins_adapter module<a class="headerlink" href="#module-emft.gui.tab_skins_adapter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="emft.gui.tab_skins_adapter.TabSkinsAdapter">
-<em class="property">class </em><code class="descclassname">emft.gui.tab_skins_adapter.</code><code class="descname">TabSkinsAdapter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/emft/gui/tab_skins_adapter.html#TabSkinsAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_skins_adapter.TabSkinsAdapter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">emft.gui.tab_skins_adapter.</code><code class="descname">TabSkinsAdapter</code><a class="reference internal" href="../_modules/emft/gui/tab_skins_adapter.html#TabSkinsAdapter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#emft.gui.tab_skins_adapter.TabSkinsAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.6/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="emft.gui.tab_skins_adapter.TabSkinsAdapter.tab_skins_show_skins_scan_result">
-<code class="descname">tab_skins_show_skins_scan_result</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_skins_adapter.TabSkinsAdapter.tab_skins_show_skins_scan_result" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tab_skins_show_skins_scan_result</code><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_skins_adapter.TabSkinsAdapter.tab_skins_show_skins_scan_result" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="emft.gui.tab_skins_adapter.TabSkinsAdapter.tab_skins_update_dcs_installs_combo">
-<code class="descname">tab_skins_update_dcs_installs_combo</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_skins_adapter.TabSkinsAdapter.tab_skins_update_dcs_installs_combo" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tab_skins_update_dcs_installs_combo</code><em class="property"> = &lt;emft.gui.main_ui_tab_widget._MainUiTabMethod object&gt;</em><a class="headerlink" href="#emft.gui.tab_skins_adapter.TabSkinsAdapter.tab_skins_update_dcs_installs_combo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1440,8 +1440,8 @@ own fucking safe space. Wuss.</p>
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../index.html">EMFT 0.5.3+14
-(0.5.3) documentation</a></li>
+        <li><a href="../index.html">EMFT 0.6.0-beta.77
+(0.6.0b77) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -1463,7 +1463,7 @@ own fucking safe space. Wuss.</p>
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
         Last updated on 07 Oct 2017.
-        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.3.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.4.
       </footer>
       <!-- /footer -->
 

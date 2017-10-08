@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     
-    <title>emft.miz.miz &mdash; EMFT 0.5.5+2
-(0.5.5) documentation</title>
+    <title>emft.miz.miz &mdash; EMFT 0.6.0-beta.80
+(0.6.0b80) documentation</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,7 +35,7 @@
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '../../../',
-            VERSION:     '0.5.5+2(0.5.5)',
+            VERSION:     '0.6.0-beta.80(0.6.0b80)',
             COLLAPSE_INDEX: false,
             FILE_SUFFIX: '.html',
             HAS_SOURCE:  true
@@ -51,8 +51,8 @@
 </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="top" title="EMFT 0.5.5+2
-(0.5.5) documentation" href="../../../index.html" />
+    <link rel="top" title="EMFT 0.6.0-beta.80
+(0.6.0b80) documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body role="document">
@@ -65,8 +65,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../../index.html">EMFT 0.5.5+2
-(0.5.5) documentation</a>
+          <a class="navbar-brand" href="../../../index.html">EMFT 0.6.0-beta.80
+(0.6.0b80) documentation</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -198,6 +198,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_l10n_qual</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_map_res</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_map_res_qual</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_warehouses</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_warehouses_qual</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;instantiating new Mission object as a context&#39;</span><span class="p">)</span>
@@ -230,6 +232,10 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmpdir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;l10n&#39;</span><span class="p">,</span> <span class="s1">&#39;DEFAULT&#39;</span><span class="p">,</span> <span class="s1">&#39;mapResource&#39;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">warehouses_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmpdir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;warehouses&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">mission</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mission</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mission</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">()</span>
@@ -242,7 +248,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l10n</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">map_res</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">warehouses</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_res</span>
@@ -298,7 +304,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_content</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">unzip</span><span class="p">(</span><span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-        <span class="n">Progress</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;Decoding MIZ file&#39;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">Progress</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;Decoding MIZ file&#39;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
         <span class="n">Progress</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Decoding map resource&#39;</span><span class="p">)</span>
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;reading map resource file&#39;</span><span class="p">)</span>
@@ -319,13 +325,19 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_mission</span> <span class="o">=</span> <span class="n">Mission</span><span class="p">(</span><span class="n">mission_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l10n</span><span class="p">)</span>
         <span class="n">Progress</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
+        <span class="n">Progress</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Decoding warehouses&#39;</span><span class="p">)</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;reading warehouses file&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">warehouses_file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODING</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_warehouses</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warehouses_qual</span> <span class="o">=</span> <span class="n">SLTP</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="n">Progress</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;decoding done&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_encode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;encoding lua tables&#39;</span><span class="p">)</span>
 
-        <span class="n">Progress</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;Encoding MIZ file&#39;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">Progress</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;Encoding MIZ file&#39;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
         <span class="n">Progress</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Encoding map resource&#39;</span><span class="p">)</span>
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;encoding map resource&#39;</span><span class="p">)</span>
@@ -344,6 +356,12 @@
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mission_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODING</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">SLTP</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mission</span><span class="o">.</span><span class="n">d</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mission_qual</span><span class="p">))</span>
         <span class="n">Progress</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+        <span class="n">Progress</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Encoding warehouses&#39;</span><span class="p">)</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;encoding warehouses&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">warehouses_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">ENCODING</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">SLTP</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_warehouses</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warehouses_qual</span><span class="p">))</span>
+        <span class="n">Progress</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
         <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;encoding done&#39;</span><span class="p">)</span>
 
@@ -452,8 +470,8 @@
 <div id="navbar-related" class=" related navbar navbar-inverse" role="navigation" aria-label="related navigation">
   <div class="navbar-inner">
     <ul class="nav navbar-nav ">
-        <li><a href="../../../index.html">EMFT 0.5.5+2
-(0.5.5) documentation</a></li>
+        <li><a href="../../../index.html">EMFT 0.6.0-beta.80
+(0.6.0b80) documentation</a></li>
     </ul>
 <ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
       
@@ -470,7 +488,7 @@
       <!-- footer -->
       <footer role="contentinfo">
           &copy; Copyright 2017, 132nd-etcher.
-        Last updated on 07 Oct 2017.
+        Last updated on 08 Oct 2017.
         Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.4.
       </footer>
       <!-- /footer -->
